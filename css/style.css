@@ -1,0 +1,60 @@
+body{
+	height: 100%;
+	font-family: calibri;
+	text-align: center;
+	background-color: lightblue;
+	
+}
+
+* {
+	cursor: url(../cursors/cursor.cur) ,progress; 
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 45px;
+  width: 100%;
+  background-color: #666666;
+  color: white;
+  text-align: center;
+}
+
+#ipm{
+	display: inline-block;
+	float: center;
+	color: black;
+}
+
+#t1{
+	border: 3px solid #0055ff;
+    text-align: center;
+	border-collapse: collapse;
+	width: 75%;
+	margin-top:50px
+}
+
+#at{
+	border: 3px solid #0055ff;
+	text-align: left;
+	padding: 15px;
+}
+
+#mc{
+	border: 3px solid #0055ff;
+	text-align: left;
+	padding: 15px;
+}
+
+#proto{
+	border: 3px solid #0055ff;
+	text-align: left;
+	padding: 15px;
+}
+
+#au{
+	border: 3px solid #0055ff;
+	text-align: left;
+	padding: 15px;
+}
