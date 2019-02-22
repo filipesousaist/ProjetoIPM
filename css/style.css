@@ -1,60 +1,45 @@
-body{
-	height: 100%;
-	font-family: calibri;
-	text-align: center;
-	background-color: lightblue;
-	
+html, body { height: 100%; width: 100%; margin: 0; }
+
+.sidebar {
+  width: 300px;
+  height: 100%;
 }
 
-* {
-	cursor: url(../cursors/cursor.cur) ,progress; 
+.mainmenu, .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  height: 45px;
-  width: 100%;
-  background-color: #666666;
-  color: white;
+.mainmenu a {
+  display: block;
+  background-color: #CCC;
+  text-decoration: none;
+  padding-left: 10px;
   text-align: center;
+  padding: 10px;
+  color: #000;
 }
 
-#ipm{
-	display: inline-block;
-	float: center;
-	color: black;
+.mainmenu a:hover {
+    background-color: #C5C5C5;
 }
 
-#t1{
-	border: 3px solid #0055ff;
-    text-align: center;
-	border-collapse: collapse;
-	width: 75%;
-	margin-top:50px
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 200px;
 }
 
-#at{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
+.submenu a {
+  background-color: #999;
 }
 
-#mc{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
+.submenu a:hover {
+  background-color: #666;
 }
 
-#proto{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
-}
-
-#au{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
 }
