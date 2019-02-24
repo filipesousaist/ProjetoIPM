@@ -5,9 +5,11 @@
 
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="shortcut icon" href="img/ISTicon.png" type="image/png">
+		<script src="script/script.js"></script>
 	</head>
 
-	<body>
+	<body onload="timeFunc()">
+	
 		<script>
 			function decreaseOpacity(img) {
 				img.style.opacity = 0;
@@ -16,6 +18,7 @@
 				img.style.opacity = 0.4;
 			}
 		</script>
+		
 		<div align="center" style="background-color:#FFFFFF99; padding-left:270px;">
 			<h2 class="students_info">Grupo 09 - Turno  IPM17111326</h2>
 
@@ -60,7 +63,14 @@
 				</tr>
 			</table>
 		</div>
+		
+		<div id="time" align="center" style="padding-left:270px; padding-top:50px;" >
 
+			<div id="date"></div>
+
+			<div id="nextdate"></div>
+
+		</div>
 
 		<div class="sidebar">
 			<img id="logo" src="img/logo.png" width=124px; height=150px;>
