@@ -56,6 +56,40 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	border: 3px solid #0055ff;
 	text-align: left;
 	padding: 15px;
+  background-color: lightgray;
+}
+
+.mainmenu, .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mainmenu a {
+  display: block;
+  background-color: #CCC;
+  text-decoration: none;
+  padding-left: 10px;
+  text-align: center;
+  padding: 10px;
+  color: #000;
+}
+
+.mainmenu a:hover {
+    background-color: #C5C5C5;
+}
+
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 200px;
+}
+
+.submenu a {
+  background-color: #999;
+}
+
+.submenu a:hover {
+  background-color: #666;
 }
 
 div.students{
