@@ -1,65 +1,56 @@
-body{
-	height: 100%;
-	font-family: calibri;
-	text-align: center;
-	background-color: lightblue;
-	
+html, body { height: 100%; width: 100%; margin: 0; background-image: url("../img/bg.jpg");  background-repeat: no-repeat; background-size: cover; background-position: center; }
+
+.sidebar {
+  width: 270px;
+  height: 100%;
+  background-color: #708090;
 }
 
-* {
-	cursor: url(../cursors/cursor.cur) ,progress; 
+#logo{ padding-left:73px; padding-top: 30px; }
+
+.mainmenu, .submenu, a.title {
+  list-style: none;
+  padding: 0;
+  padding-top: 0px;
+  margin: 0;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  height: 45px;
-  width: 100%;
-  background-color: #666666;
-  color: white;
+.title{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.mainmenu a {
+  font-size: 15px;
+  font-family:Verdana, Geneva, sans-serif;
+  display: block;
+  background-color: #708090;
+  text-decoration: none;
   text-align: center;
+  padding: 15px;
+  color: #000;
+
 }
 
-#ipm{
-	display: inline-block;
-	float: center;
-	color: black;
+.mainmenu a:hover {
+    background-color: #647382;
 }
 
-#t1{
-	border: 3px solid #0055ff;
-    text-align: center;
-	border-collapse: collapse;
-	width: 75%;
-	margin-top:50px
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 800px;
 }
 
-#at{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
+.submenu a {
+  background-color: #c5ccd3;
 }
 
-#mc{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
+.submenu a:hover {
+  background-color: #b7bfc8;
 }
 
-#proto{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
-}
-
-#au{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
-}
-
-div.students{
-	top: 200px;
-	left:100px;
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
 }
