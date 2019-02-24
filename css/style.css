@@ -8,6 +8,17 @@ body { height: 100%; width: 100%; margin: 0; background-image: url("../img/bg.jp
   position: fixed;
 }
 
+.clock{
+	float:right;
+	border: 3px grey;
+	padding: 30px 30px 30px 30px;
+	background-color: #F8F8FF;
+	margin-right:473px;
+	margin-top:50px;
+	border-style: outset;
+	border-radius: 25px;
+}
+
 .footer {
   position: fixed;
   left: 0;
