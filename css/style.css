@@ -19,21 +19,6 @@ body { height: 100%; width: 100%; margin: 0; background-image: url("../img/bg.jp
   text-align: center;
 }
 
-
-#ipm{
-	display: inline-block;
-	float: center;
-	color: black;
-}
-
-#t1{
-	border: 3px solid #0055ff;
-    text-align: center;
-	border-collapse: collapse;
-	width: 75%;
-	margin-top:50px
-}
-
 #logo{ padding-left:73px; padding-top: 30px; }
 
 .mainmenu, .submenu, a.title {
@@ -81,6 +66,14 @@ body { height: 100%; width: 100%; margin: 0; background-image: url("../img/bg.jp
   overflow: hidden;
   max-height: 0;
   -webkit-transition: all 0.5s ease-out;
+}
+
+.students_info {
+  font-family: sans-serif;
+}
+.students {
+  position: relative;
+  left:50px;
 }
 
 .facebook img {
