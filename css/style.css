@@ -1,20 +1,8 @@
-<<<<<<< HEAD
-body{
-	height: 100%;
-	font-family: calibri;
-	text-align: center;
-	background-color: lightblue;
-	
-=======
 html, body { height: 100%; width: 100%; margin: 0; }
 
 .sidebar {
   width: 300px;
   height: 100%;
-<<<<<<< HEAD
->>>>>>> parent of a42123b... Update style.css
-=======
->>>>>>> parent of a42123b... Update style.css
 }
 
 * {
