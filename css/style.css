@@ -1,12 +1,11 @@
-html, body { height: 100%; width: 100%; margin: 0; }
-
+html { height: 100%; width: 100%; margin: 0;}
+body { height: 100%; width: 100%; margin: 0; background-image: url("../img/bg.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; }
 .sidebar {
-  width: 300px;
+  top: 0px;
+  width: 270px;
   height: 100%;
-}
-
-* {
-	cursor: url(../cursors/cursor.cur) ,progress;
+  background-color: #708090;
+  position: fixed;
 }
 
 .footer {
@@ -19,6 +18,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
   color: white;
   text-align: center;
 }
+
 
 #ipm{
 	display: inline-block;
@@ -34,31 +34,63 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	margin-top:50px
 }
 
-#at{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
+#logo{ padding-left:73px; padding-top: 30px; }
+
+.mainmenu, .submenu, a.title {
+  list-style: none;
+  padding: 0;
+  padding-top: 0px;
+  margin: 0;
 }
 
-#mc{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
+.title{
+	font-weight: bold;
+	font-size: 20px;
 }
 
-#proto{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
+.mainmenu a {
+  font-size: 15px;
+  font-family:Verdana, Geneva, sans-serif;
+  display: block;
+  background-color: #708090;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px;
+  color: #000;
+
 }
 
-#au{
-	border: 3px solid #0055ff;
-	text-align: left;
-	padding: 15px;
+.mainmenu a:hover {
+    background-color: #647382;
 }
 
-div.students{
-	top: 200px;
-	left:100px;
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 800px;
+}
+
+.submenu a {
+  background-color: #c5ccd3;
+}
+
+.submenu a:hover {
+  background-color: #b7bfc8;
+}
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+.facebook img {
+  position: relative;
+	top: 0px;
+	left:-104px;
+  width: 100px;
+  opacity:0;
+}
+
+.facebook img:hover {
+  opacity:0.6;
 }
