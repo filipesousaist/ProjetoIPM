@@ -1,19 +1,5 @@
-html {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  background-image: url("../img/bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-}
+html { height: 100%; width: 100%; margin: 0;}
+body { height: 100%; width: 100%; margin: 0; background-image: url("../img/bg.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; }
 .sidebar {
   top: 0px;
   width: 270px;
@@ -22,17 +8,15 @@ body {
   position: fixed;
 }
 
-.clock {
-  display: inline-block;
+.clock{
+	float:right;
 	border: 3px grey;
-	padding: 20px;
-  width: 300px;
-  margin-top: 50px;
-  margin-left: 270px;
+	padding: 30px 30px 30px 30px;
 	background-color: #F8F8FF;
+	margin-right:473px;
+	margin-top:50px;
 	border-style: outset;
 	border-radius: 25px;
-  font-family: sans-serif;
 }
 
 .footer {
@@ -46,9 +30,7 @@ body {
   text-align: center;
 }
 
-#logo {
-  padding:30px;
-}
+#logo{ padding-left:73px; padding-top: 30px; }
 
 .mainmenu, .submenu, a.title {
   list-style: none;
@@ -57,7 +39,7 @@ body {
   margin: 0;
 }
 
-.title {
+.title{
 	font-weight: bold;
 	font-size: 20px;
 }
@@ -71,6 +53,7 @@ body {
   text-align: center;
   padding: 15px;
   color: #000;
+
 }
 
 .mainmenu a:hover {
@@ -99,8 +82,7 @@ body {
 .students_info {
   font-family: sans-serif;
 }
-
-.students_img {
+.students {
   position: relative;
   left:50px;
 }

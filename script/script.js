@@ -7,13 +7,13 @@ function ShowCurrentDate() {
 	var h = add0(d.getHours());
 	var m = add0(d.getMinutes());
 	var s = add0(d.getSeconds());
-	document.getElementById("date").innerHTML = day + "/" + mon + "/" + y +  " - " + h + ":" + m +":" + s;
+	document.getElementById("date").innerHTML = day + "/" + mon + "/" + y +  "-" + h + ":" + m +":" + s;
 }
 
 function ShowDateDifference(d1){
 	var d = new Date();
 	var dif = dateDifference(d, d1);
-	document.getElementById("nextdate").innerHTML = "Faltam " + dif + " dia(s) para a próxima entrega";
+	document.getElementById("nextdate").innerHTML = "Faltam " + dif + " dia(s) para a proxima entrega";
 }
 
 function timeFunc(){
@@ -42,3 +42,5 @@ function dateDifference(d1, d2) {
 	var mildiff = Math.abs(t2-t1);
 	return Math.floor(mildiff/(1000*60*60*24));
 }
+
+
