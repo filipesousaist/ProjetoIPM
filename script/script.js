@@ -7,7 +7,7 @@ function ShowCurrentDate() {
 	var h = add0(d.getHours());
 	var m = add0(d.getMinutes());
 	var s = add0(d.getSeconds());
-	document.getElementById("date").innerHTML = day + "/" + mon + "/" + y +  "-" + h + ":" + m +":" + s;
+	document.getElementById("date").innerHTML = day + "/" + mon + "/" + y +  "-" + h + ":" + m  +":" + s;
 }
 
 function ShowDateDifference(d1){
