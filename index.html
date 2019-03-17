@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>IPM GRUPO - 09</title>
+		<meta charset="UTF-8">
 
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="shortcut icon" href="img/ISTicon.png" type="image/png">
@@ -9,20 +10,10 @@
 	</head>
 
 	<body onload="timeFunc()">
-	
-		<script>
-			function decreaseOpacity(img) {
-				img.style.opacity = 0;
-			}
-			function increaseOpacity(img) {
-				img.style.opacity = 0.4;
-			}
-		</script>
-		
-		<div align="center" style="background-color:#FFFFFF99; padding-left:270px;">
+		<div id="students" style="background-color:#FFFFFF99; padding-left:270px;">
 			<h2 class="students_info">Grupo 09 - Turno  IPM17111326</h2>
 
-			<table>
+			<table align = "center">
 				<tr>
 					<th width="33%"><div class="students_info">Filipe Sousa</div></th>
 					<th width="33%"><div class="students_info">Miguel Mota</div></th>
@@ -37,7 +28,7 @@
 
 				<tr>
 					<td>
-						<div class="students">
+						<div class="students_img">
 							<img id="90714" src = "img/ist190714.jpg" width="100" title="Filipe-90714"/>
 							<a class="facebook" href="https://www.facebook.com/filipe.sousa.5815255" target="_blank">
 								<img src = "img/facebook icon.png"/>
@@ -45,7 +36,7 @@
 						</div>
 					</td>
 					<td>
-						<div class="students">
+						<div class="students_img">
 							<img id="90964" src = "img/ist190964.jpg" width="100" title="Miguel-90964"/>
 							<a class="facebook" href="https://www.facebook.com/miguelinfantemota" target="_blank">
 								<img src = "img/facebook icon.png"/>
@@ -53,7 +44,7 @@
 						</div>
 					</td>
 					<td>
-						<div class="students">
+						<div class="students_img">
 							<img id="90768" src = "img/ist190768.jpg" width="100" title="Pedro-90768"/>
 							<a class="facebook" href="https://www.facebook.com/iscarypt" target="_blank">
 								<img src = "img/facebook icon.png"/>
@@ -63,14 +54,11 @@
 				</tr>
 			</table>
 		</div>
-		
+
 		<div class="clock">
-			<div id="time" align="center" >
-
+			<div id="time" align="center">
 				<div id="date" align="center"></div>
-
 				<div id="nextdate"></div>
-
 			</div>
 		</div>
 
@@ -81,10 +69,12 @@
 				<li><a href="">Página Inicial</a></li>
 				<li><a href="">Análise de Tarefas</a>
 					<ul class="submenu">
-						<li><a href="">Question&aacute;rio para an&aacute;lise de tarefas</a></li>
-						<li><a href="">Question&aacute;rio para an&aacute;lise de tarefas (melhorado)</a></li>
-						<li><a href="">An&aacute;lise de tarefas + Funcionalidades</a></li>
+						<li><a href="documents/9T.pdf">Question&aacute;rio para an&aacute;lise de tarefas</a></li>
+						<li><a href="documents/9T_Questionário.pdf">Question&aacute;rio para an&aacute;lise de tarefas (melhorado)</a></li>
+						<li><a href="https://docs.google.com/spreadsheets/d/1z0zoEDQ3_jHyNPOMLH1QqAgYhCTxt5e86o_0d_NQ0Lw/edit?usp=sharing">Question&aacute;rio para an&aacute;lise de tarefas - Respostas individuais</a></li>
+						<li><a href="documents/9T_R.pdf">An&aacute;lise de tarefas + Funcionalidades</a></li>
 						<li><a href="">An&aacute;lise de tarefas + Funcionalidades (melhorados)</a></li>
+						
 					</ul>
 				</li>
 				<li><a href="">Modelo Conceptual</a>
