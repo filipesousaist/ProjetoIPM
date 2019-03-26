@@ -1,0 +1,41 @@
+html, body { height: 100%; width: 100%; margin: 0; }
+
+.igo_body{
+	position: absolute;
+	background-color: white;
+	top: 37%;
+	left: 40%;
+	width: 6cm;
+	height: 4cm;
+	border: 3px solid black;
+	border-radius: 20px;
+}
+
+.igo_buttons{
+	position: absolute;
+	background-color: lightgrey;
+	top: 37%;
+	left: 53%;
+	width: 1cm;
+	height: 4cm;
+	border: 3px solid black;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	
+}
+
+#home_button{
+	position: relative;
+	margin: auto;
+	background-image: url("img/home.jpg");
+	top: 10%;
+	left: 15%;
+}
+
+#back_button{
+	position: relative;
+	margin: auto;
+	background-image: url("img/back.png");
+	top:55%;
+	left: 23%;
+}
