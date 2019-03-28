@@ -9,38 +9,36 @@ html, body {height: 100%; width: 100%; margin: 0;}
 	width: 6cm;
 	height: 4cm;
 	z-index: 2;
-	border: 3px solid black;
-	border-radius: 20px;
+	border: 1.3mm solid black;
+	border-radius: 6.5mm;
 }
 
 #igo_buttons{
 	position: absolute;
 	background-color: lightgrey;
-	right: 0px;
+	right: 0pt;
 	width: 1cm;
 	height: 4cm;
 	z-index: 1;
-	border-top-right-radius: 18px;
-	border-bottom-right-radius: 18px;
+	border-top-right-radius: 5mm;
+	border-bottom-right-radius: 5mm;
 	
 }
 
 #home_button{
 	position: absolute;
-	width: 0.8cm;
-	height: 0.8cm;
+	width: 8mm;
+	height: 8mm;
 	top: 20%;
 	left: 50%;
-	margin: -0.4cm 0 0 -0.4cm;
-	background-image: url("img/home.jpg");
+	margin: -4mm 0 0 -4mm;
 }
 
 #back_button{
 	position: absolute;
-	width: 0.6cm;
-	height: 0.6cm;
-	bottom: 10%;
+	width: 8mm;
+	height: 8mm;
+	bottom: 8%;
 	left: 50%;
-	margin: -0.3cm 0 0 -0.3cm;
-	background-image: url("img/back.jpg");
+	margin: -4mm 0 0 -4mm;
 }
