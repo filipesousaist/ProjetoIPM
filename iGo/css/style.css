@@ -1,41 +1,46 @@
-html, body { height: 100%; width: 100%; margin: 0; }
+html, body {height: 100%; width: 100%; margin: 0;}
 
-.igo_body{
+#igo_body{
 	position: absolute;
 	background-color: white;
-	top: 37%;
-	left: 40%;
+	top: 50%;
+	left: 50%;
+	margin: -3cm 0 0 -4cm;
 	width: 6cm;
 	height: 4cm;
+	z-index: 2;
 	border: 3px solid black;
 	border-radius: 20px;
 }
 
-.igo_buttons{
+#igo_buttons{
 	position: absolute;
 	background-color: lightgrey;
-	top: 37%;
-	left: 53%;
+	right: 0px;
 	width: 1cm;
 	height: 4cm;
-	border: 3px solid black;
-	border-top-right-radius: 20px;
-	border-bottom-right-radius: 20px;
+	z-index: 1;
+	border-top-right-radius: 18px;
+	border-bottom-right-radius: 18px;
 	
 }
 
 #home_button{
-	position: relative;
-	margin: auto;
+	position: absolute;
+	width: 0.8cm;
+	height: 0.8cm;
+	top: 20%;
+	left: 50%;
+	margin: -0.4cm 0 0 -0.4cm;
 	background-image: url("img/home.jpg");
-	top: 10%;
-	left: 15%;
 }
 
 #back_button{
-	position: relative;
-	margin: auto;
-	background-image: url("img/back.png");
-	top:55%;
-	left: 23%;
+	position: absolute;
+	width: 0.6cm;
+	height: 0.6cm;
+	bottom: 10%;
+	left: 50%;
+	margin: -0.3cm 0 0 -0.3cm;
+	background-image: url("img/back.jpg");
 }
