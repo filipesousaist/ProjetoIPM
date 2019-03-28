@@ -1,44 +1,48 @@
-html, body {height: 100%; width: 100%; margin: 0;}
+html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 #igo_body{
 	position: absolute;
 	background-color: white;
 	top: 50%;
 	left: 50%;
-	margin: -3cm 0 0 -4cm;
-	width: 6cm;
+	margin-top: -2cm;
+	margin-left: -2.5cm;
+	width: 5cm;
 	height: 4cm;
 	z-index: 2;
 	border: 1.3mm solid black;
-	border-radius: 6.5mm;
+	border-radius: 5mm;
 }
 
 #igo_buttons{
 	position: absolute;
 	background-color: lightgrey;
-	right: 0pt;
-	width: 1cm;
+	top: 50%;
+	left: 50%;
+	margin-top: -2cm;
+	margin-left: 1.5cm;
+	width: 2cm;
 	height: 4cm;
 	z-index: 1;
-	border-top-right-radius: 5mm;
-	border-bottom-right-radius: 5mm;
+	border: 1.3mm solid black;
+	border-radius: 5mm;
 	
 }
 
 #home_button{
 	position: absolute;
-	width: 8mm;
-	height: 8mm;
+	width: 7mm;
+	height: 7mm;
 	top: 20%;
-	left: 50%;
-	margin: -4mm 0 0 -4mm;
+	left: 78%;
+	margin: -3.5mm 0 0 -3.5mm;
 }
 
 #back_button{
 	position: absolute;
-	width: 8mm;
-	height: 8mm;
-	bottom: 8%;
-	left: 50%;
-	margin: -4mm 0 0 -4mm;
+	width: 7mm;
+	height: 7mm;
+	bottom: 10%;
+	left: 78%;
+	margin: -3.5mm 0 0 -3.5mm;
 }
