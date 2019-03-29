@@ -1,41 +1,171 @@
-html, body { height: 100%; width: 100%; margin: 0; }
+html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
-.igo_body{
+/**********************
+ *****            *****
+ *****   SCREEN   *****
+ *****            *****
+ **********************/
+
+.screen_container
+{
 	position: absolute;
-	background-color: white;
-	top: 37%;
-	left: 40%;
-	width: 6cm;
+	top: 50%;
+	left: 50%;
+	width: 5cm;
 	height: 4cm;
-	border: 3px solid black;
-	border-radius: 20px;
+}
+ 
+#screen_container_base
+{
+	z-index: 2;
+	margin-top: -2cm;
+	margin-left: -2.5cm;
+	background-color: white;
+	border-radius: 3mm;
 }
 
-.igo_buttons{
+#screen_container_frame
+{
+	z-index: 3;
+	margin-top: -21.3mm;
+	margin-left: -26.3mm;
+	background-color: transparent;
+	border: 1.3mm solid black;
+	border-radius: 5mm;
+	pointer-events: none;
+}
+
+.screen
+{
 	position: absolute;
-	background-color: lightgrey;
-	top: 37%;
-	left: 53%;
+	width: 100%;
+	height: 100%;
+	display: none;
+	border-radius: 3mm;
+}
+
+/*************/
+/* Main menu */
+/*************/
+
+/* Top container */
+
+#main_menu_top_container
+{
+	position: absolute;
+	width: 5cm;
+	height: 1cm;
+	top: -0.2mm;
+	left: -0.2mm;
+	background-color: #66AADD;
+	border: 0.2mm solid black;
+	border-top-right-radius: 3mm;
+	border-top-left-radius: 3mm;
+}
+
+.main_menu_top_icon
+{
+	position: absolute;
+	width: 6mm;
+	height: 6mm;
+	top: 2mm;
+}
+
+#battery_icon
+{
+	left: 1mm;
+}
+
+#wifi_icon
+{
+	left: 8mm;
+}
+
+#clock
+{
+	position: absolute;
+	right: 14mm;
+	top: 2mm;
+	font-family: courier;
+	font-size: 18pt;
+	font-weight: bold;
+}
+
+
+/* Right container */
+
+#main_menu_right_container
+{
+	position: absolute;
 	width: 1cm;
 	height: 4cm;
-	border: 3px solid black;
-	border-top-right-radius: 20px;
-	border-bottom-right-radius: 20px;
-	
+	top: -0.2mm;
+	right: 0;
+	border: 0.2mm solid black;
+	background-color: #FFFF66;
+	border-top-right-radius: 3mm;
+	border-bottom-right-radius: 3mm;
 }
 
-#home_button{
-	position: relative;
-	margin: auto;
-	background-image: url("img/home.jpg");
-	top: 10%;
-	left: 15%;
+.main_menu_right_icon
+{
+	position: absolute;
+	width: 6mm;
+	height: 6mm;
+	right: 2mm;
 }
 
-#back_button{
-	position: relative;
-	margin: auto;
-	background-image: url("img/back.png");
-	top:55%;
-	left: 23%;
+#apps_icon
+{
+	top: 2mm;
+}
+
+#location_icon
+{
+	top: 12mm;
+}
+
+#options_icon
+{
+	top: 32mm;
+}
+
+/***********************
+ *****             *****
+ *****   BUTTONS   *****
+ *****             *****
+ ***********************/
+
+#buttons_container
+{
+	z-index: 1;
+	position: absolute;
+	background-color: lightgrey;
+	top: 50%;
+	left: 50%;
+	margin-top: -21.3mm;
+	margin-left: 13.7mm;
+	width: 2cm;
+	height: 4cm;
+	border: 1.3mm solid black;
+	border-radius: 5mm;
+}
+
+.button
+{
+	position: absolute;
+	width: 7mm;
+	height: 7mm;
+	right: 0.8mm;
+	margin: -3.5mm 0 0 -3.5mm;
+}
+
+#home_button
+{
+	top: 8mm;
+}
+
+#back_button
+{
+	bottom: 4.5mm;
 }

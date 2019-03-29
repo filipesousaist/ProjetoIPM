@@ -4,15 +4,56 @@
 
 <head>
 	<link rel="stylesheet" href="css/style.css">
+	<script src="../util/util.js"></script>
+	<script src="index.js"></script>
 </head>
 
-<body>
-	<div class="igo_body">
+<body onload="init();">
+	<div class="screen_container" id="screen_container_base">
+	
+		<div class="screen" id="main_menu">
+		
+			<div id="main_menu_top_container">
+			
+				<img class="main_menu_top_icon" id="battery_icon" src="img/battery4.png">
+				<img class="main_menu_top_icon" id="wifi_icon" src="img/wifi2.png">
+				<div id="clock"></div>
+				
+			</div>
+		
+			<div id="main_menu_right_container">
+			
+				<img class="main_menu_right_icon" id="apps_icon" src="img/apps.png" onclick="change_screen('apps');">
+				<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="change_screen('location');" >
+				<!-- TODO: MyWeb -->
+				<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="change_screen('options');">
+				
+			</div>
+			
+		</div>
+		
+		<div class="screen" id="apps" >
+			<p>&nbsp&nbsp&nbspTODO: Apps</p>
+		</div>
+		
+		<div class="screen" id="location">
+			<p>&nbsp&nbsp&nbspTODO: Location</p>
+		</div>
+		
+		<div class="screen" id="options">
+			<p>&nbsp&nbsp&nbspTODO: Options</p>
+		</div>
+		
 	</div>
-	<div class="igo_buttons">
-		<img id="home_button" src="img/home.png" width="25" height="25">
-		<img id="back_button" src="img/back.png" width="20" height="20">
+	
+	<div class="screen_container" id="screen_container_frame">
 	</div>
+	
+	<div id="buttons_container">
+		<img class="button" id="home_button" src="img/home.png" onclick="change_screen('main_menu');">
+		<img class="button" id="back_button" src="img/back.png" onclick="go_back();">
+	</div>
+	
 </body>
 
 </html>
