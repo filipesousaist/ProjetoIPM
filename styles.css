@@ -1,0 +1,137 @@
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	height: 100%; 
+	width: 100%; 
+	margin: 0;
+	background-image: url("img/bg.jpg"); 
+	background-repeat: no-repeat; 
+	background-size: cover; 
+	background-position: center; 
+}
+
+#main {
+	position: relative;
+	margin-left: 300px;
+}
+
+#sidebar {
+	z-index: 2;
+	top: 0px;
+	width: 300px;
+	height: 100%;
+	background-color: #708090;
+	position: fixed;
+}
+
+#clock{
+	position: relative;
+	border: 3px grey;
+	padding: 30px 30px 30px 30px;
+	width: 200px;
+	background-color: #F8F8FF;
+	margin-top:50px;
+	border-style: outset;
+	border-radius: 25px;
+	font-family: sans-serif;
+}
+
+#footer {
+	z-index: 3;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	height: 45px;
+	width: 100%;
+	background-color: #666666;
+	color: white;
+	text-align: center;
+}
+
+#logo{
+	padding-left: 73px;
+	padding-top: 30px; 
+}
+
+.mainmenu, .submenu {
+	list-style: none;
+	padding: 0;
+	padding-top: 0px;
+	margin: 0;
+}
+
+#title {
+	font-family:Verdana, Geneva, sans-serif;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 15px;
+}
+
+.mainmenu a {
+  font-size: 15px;
+  font-family:Verdana, Geneva, sans-serif;
+  display: block;
+  background-color: #708090;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px;
+  color: #000;
+
+}
+
+.mainmenu a:hover {
+	background-color: #647382;
+}
+
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 800px;
+}
+
+.submenu a {
+	height: 10px;
+	font-size: 7pt;
+	font-weight: bold;
+	padding: 8px;
+  background-color: #c5ccd3;
+}
+
+.submenu a:hover {
+  background-color: #b7bfc8;
+}
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+#students {
+	z-index: 1;
+	background-color:#FFFFFF99;
+}
+
+.students_info {
+  font-family: sans-serif;
+}
+
+.students_img {
+	position: relative;
+	left: 54px;
+}
+
+.facebook img {
+  position: relative;
+	top: 0px;
+	left: -104px;
+  width: 100px;
+  opacity:0;
+}
+
+.facebook img:hover {
+  opacity:0.6;
+}

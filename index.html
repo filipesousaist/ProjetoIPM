@@ -4,114 +4,116 @@
 		<title>IPM GRUPO - 09</title>
 		<meta charset="UTF-8">
 
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="styles.css">
 		<link rel="shortcut icon" href="img/ISTicon.png" type="image/png">
 		<script src="util/util.js"></script>
 		<script src="script.js"></script>
 	</head>
-
-	<body onload="timeFunc()">
-		<div id="students" style="background-color:#FFFFFF99; padding-left:270px;">
-			<h2 class="students_info">Grupo 09 - Turno  IPM17111326</h2>
-
-			<table align = "center">
-				<tr>
-					<th width="33%"><div class="students_info">Filipe Sousa</div></th>
-					<th width="33%"><div class="students_info">Miguel Mota</div></th>
-					<th width="33%"><div class="students_info">Pedro Moreira</div></th>
-				</tr>
-
-				<tr>
-					<th><div class="students_info">90714</div></th>
-					<th><div class="students_info">90964</div></th>
-					<th><div class="students_info">90768</div></th>
-				</tr>
-
-				<tr>
-					<td>
-						<div class="students_img">
-							<img id="90714" src = "img/ist190714.jpg" width="100" title="Filipe-90714"/>
-							<a class="facebook" href="https://www.facebook.com/filipe.sousa.5815255" target="_blank">
-								<img src = "img/facebook icon.png"/>
-							</a>
-						</div>
-					</td>
-					<td>
-						<div class="students_img">
-							<img id="90964" src = "img/ist190964.jpg" width="100" title="Miguel-90964"/>
-							<a class="facebook" href="https://www.facebook.com/miguelinfantemota" target="_blank">
-								<img src = "img/facebook icon.png"/>
-							</a>
-						</div>
-					</td>
-					<td>
-						<div class="students_img">
-							<img id="90768" src = "img/ist190768.jpg" width="100" title="Pedro-90768"/>
-							<a class="facebook" href="https://www.facebook.com/iscarypt" target="_blank">
-								<img src = "img/facebook icon.png"/>
-							</a>
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-
-		<div class="clock">
-			<div id="time" align="center">
-				<div id="date" align="center"></div>
-				<div id="nextdate"></div>
-			</div>
-		</div>
-
-		<div class="sidebar">
+	
+	
+	
+	<body onload="timeFunc();">
+	
+		<div id="sidebar">
 			<img id="logo" src="img/logo.png" width=124px; height=150px;>
+			<div id="title">Interfaces Pessoa Máquina 18/19</div>
 			<ul class="mainmenu">
-				<li><a class="title">Interfaces Pessoa Máquina 18/19</a></li>
 				<li><a href="">Página Inicial</a></li>
-				<li><a href="">Análise de Tarefas</a>
+				<li>
+					<a href="">Análise de Tarefas</a>
 					<ul class="submenu">
-						<li><a href="documents/9T.pdf">Question&aacute;rio para an&aacute;lise de tarefas</a></li>
-						<li><a href="documents/9T_Questionário.pdf">Question&aacute;rio para an&aacute;lise de tarefas (melhorado)</a></li>
-						<li><a href="https://docs.google.com/spreadsheets/d/1z0zoEDQ3_jHyNPOMLH1QqAgYhCTxt5e86o_0d_NQ0Lw/edit?usp=sharing">Question&aacute;rio para an&aacute;lise de tarefas - Respostas individuais</a></li>
-						<li><a href="documents/9T_R.pdf">An&aacute;lise de tarefas + Funcionalidades</a></li>
-						<li><a href="">An&aacute;lise de tarefas + Funcionalidades (melhorados)</a></li>
-						
+						<li><a href="documents/9T.pdf">Questionário para análise de tarefas</a></li>
+						<li><a href="documents/9T_Questionário.pdf">Questionário para análise de tarefas (melhorado)</a></li>
+						<li><a href="https://docs.google.com/spreadsheets/d/1z0zoEDQ3_jHyNPOMLH1QqAgYhCTxt5e86o_0d_NQ0Lw/edit?usp=sharing">Questionário para análise de tarefas (respostas)</a></li>
+						<li><a href="documents/9T_R.pdf">Análise de tarefas + Funcionalidades</a></li>
+						<li><a href="">Análise de tarefas + Funcionalidades (melhorados)</a></li>
 					</ul>
 				</li>
-				<li><a href="">Modelo Conceptual</a>
+				<li>
+					<a href="">Modelo Conceptual</a>
 					<ul class="submenu">
 						<li><a href="">Modelo Conceptual</a></li>
 						<li><a href="">Modelo Conceptual (melhorado)</a></li>
 					</ul>
 				</li>
-				<li><a href="">Protótipos</a>
+				<li>
+					<a href="">Protótipos</a>
 					<ul class="submenu">
 						<li><a href="">PBF</a></li>
 						<li><a href="">PBF (melhorado)</a></li>
-						<li><a href="">Primeiro prot&oacute;tipo funcional</a></li>
-						<li><a href="">Primeiro prot&oacute;tipo funcional completo</a></li>
-						<li><a href="">Segundo prot&oacute;tipo funcional</a></li>
-						<li><a href="">Segundo prot&oacute;tipo funcional completo</a></li>
-						<li><a href="">Prot&oacute;tipo Final</a></li>
-						<li><a href="">Prot&oacute;tipo Final completo</a></li>
+						<li><a href="">Primeiro protótipo funcional</a></li>
+						<li><a href="">Primeiro protótipo funcional completo</a></li>
+						<li><a href="">Segundo protótipo funcional</a></li>
+						<li><a href="">Segundo protótipo funcional completo</a></li>
+						<li><a href="">Protótipo Final</a></li>
+						<li><a href="">Protótipo Final completo</a></li>
 					</ul>
 				</li>
-				<li><a href="">Avaliação com Utilizadores</a>
+				<li>
+					<a href="">Avaliação com Utilizadores</a>
 					<ul class="submenu">
-						<li><a href="">Tarefas e Crit&eacute;rios de usabilidade</a></li>
-						<li><a href="">Tarefas e Crit&eacute;rios de usabilidade (melhorado)</a></li>
-						<li><a href="">Relat&oacute;rio da avalia&ccedil;&atilde;o com utilizadores</a></li>
-						<li><a href="">Relat&oacute;rio da avalia&ccedil;&atilde;o com utilizadores (melhorado)</a></li>
+						<li><a href="">Tarefas e Critérios de usabilidade</a></li>
+						<li><a href="">Tarefas e Critérios de usabilidade (melhorado)</a></li>
+						<li><a href="">Relatório da avaliação com utilizadores</a></li>
+						<li><a href="">Relatório da avaliação com utilizadores (melhorado)</a></li>
 						<li><a href="">Manual do Utilizador</a></li>
 					</ul>
 				</li>
 			</ul>
 		</div>
+		
+		<div id="main" align="center">
+			<div id="students">
+				<h2 id="title" class="students_info">Grupo 09 - Turno  IPM17111326</h2>
 
+				<table align = "center">
+					<tr>
+						<th width="33%" class="students_info">Filipe Sousa</th>
+						<th width="33%" class="students_info">Miguel Mota</th>
+						<th width="33%" class="students_info">Pedro Moreira</th>
+					</tr>
+
+					<tr>
+						<th class="students_info">90714</th>
+						<th class="students_info">90964</th>
+						<th class="students_info">90768</th>
+					</tr>
+
+					<tr>
+						<td class="students_img">
+								<img id="90714" src = "img/ist190714.jpg" title="Filipe - 90714"/>
+								<a class="facebook" href="https://www.facebook.com/filipe.sousa.5815255" target="_blank">
+									<img src = "img/facebook icon.png"/>
+								</a>
+						</td>
+						<td class="students_img">
+							<img id="90964" src = "img/ist190964.jpg" title="Miguel - 90964"/>
+							<a class="facebook" href="https://www.facebook.com/miguelinfantemota" target="_blank">
+								<img src = "img/facebook icon.png"/>
+							</a>
+						</td>
+						<td class="students_img">
+							<img id="90768" src = "img/ist190768.jpg" title="Pedro - 90768"/>
+							<a class="facebook" href="https://www.facebook.com/iscarypt" target="_blank">
+								<img src = "img/facebook icon.png"/>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="clock">
+				<div id="time" align="center">
+					<div id="date" align="center"></div>
+					<div id="nextdate"></div>
+				</div>
+			</div>
+		</div>
+		
 	</body>
 
-	<div class="footer">
-		<p>Universidade de Lisboa - Instituto Superior Técnico (TagusPark) - Grupo 09</p>
+	<div id="footer">
+		<p>Universidade de Lisboa - Instituto Superior Técnico (Taguspark) - Grupo 09</p>
 		<img id = "logo1" width="100" src = "img/ISTIcon.jpg">
 	</div>
 

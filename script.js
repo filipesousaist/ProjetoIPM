@@ -1,4 +1,4 @@
-function ShowCurrentDate() {
+function showCurrentDate() {
 	var d = new Date();
 	var y = d.getFullYear();
 	var mon = add0(d.getMonth()+1);
@@ -6,10 +6,10 @@ function ShowCurrentDate() {
 	var h = add0(d.getHours());
 	var m = add0(d.getMinutes());
 	var s = add0(d.getSeconds());
-	document.getElementById("date").innerHTML = day + "/" + mon + "/" + y +  "-" + h + ":" + m  +":" + s;
+	document.getElementById("date").innerHTML = day + "/" + mon + "/" + y + " - " + h + ":" + m  +":" + s;
 }
 
-function ShowDateDifference(d1){
+function showDateDifference(d1){
 	var d = new Date();
 	var dif = dateDifference(d, d1);
 	document.getElementById("nextdate").innerHTML = "Faltam " + dif + " dia(s) para a proxima entrega";
@@ -18,8 +18,8 @@ function ShowDateDifference(d1){
 function timeFunc(){
 	var entregas = [new Date(2019,2,11,9), new Date(2019,2,25,9)];
 	var entregas_filtradas = entregas.filter(pastDate);
-	ShowCurrentDate();
-	ShowDateDifference(entregas_filtradas[0]);
+	showCurrentDate();
+	showDateDifference(entregas_filtradas[0]);
 	setTimeout(timeFunc,500);
 }
 
