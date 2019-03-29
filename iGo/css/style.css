@@ -73,12 +73,22 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 #battery_icon
 {
-	left: 2mm;
+	left: 1mm;
 }
 
 #wifi_icon
 {
-	left: 7mm;
+	left: 8mm;
+}
+
+#clock
+{
+	position: absolute;
+	right: 14mm;
+	top: 2mm;
+	font-family: courier;
+	font-size: 18pt;
+	font-weight: bold;
 }
 
 

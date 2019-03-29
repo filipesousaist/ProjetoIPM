@@ -4,6 +4,7 @@
 
 <head>
 	<link rel="stylesheet" href="css/style.css">
+	<script src="../util/util.js"></script>
 	<script src="index.js"></script>
 </head>
 
@@ -14,17 +15,18 @@
 		
 			<div id="main_menu_top_container">
 			
-				<img class="main_menu_top_icon" id="batery_icon" src="img/battery4.png">
+				<img class="main_menu_top_icon" id="battery_icon" src="img/battery4.png">
 				<img class="main_menu_top_icon" id="wifi_icon" src="img/wifi2.png">
+				<div id="clock"></div>
 				
 			</div>
 		
 			<div id="main_menu_right_container">
 			
-				<img class="main_menu_right_icon" id="apps_icon" src="img/apps.png" onclick="changeScreen('apps');">
-				<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="changeScreen('location');" >
+				<img class="main_menu_right_icon" id="apps_icon" src="img/apps.png" onclick="change_screen('apps');">
+				<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="change_screen('location');" >
 				<!-- TODO: MyWeb -->
-				<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="changeScreen('options');">
+				<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="change_screen('options');">
 				
 			</div>
 			
@@ -48,8 +50,8 @@
 	</div>
 	
 	<div id="buttons_container">
-		<img class="button" id="home_button" src="img/home.png" onclick="changeScreen('main_menu');">
-		<img class="button" id="back_button" src="img/back.png" onclick="back();">
+		<img class="button" id="home_button" src="img/home.png" onclick="change_screen('main_menu');">
+		<img class="button" id="back_button" src="img/back.png" onclick="go_back();">
 	</div>
 	
 </body>
