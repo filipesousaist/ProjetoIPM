@@ -1,8 +1,16 @@
-var screenStack;
+var currentScreen;
+var parentScreen =
+{
+	"main_menu": null,
+	"apps": "main_menu",
+	"location": "main_menu",
+	"options": "main_menu"
+}
 
 function init()
 {
-	screenStack = ["main_menu"];
+	currentScreen = "main_menu";
+	document.getElementById("main_menu").style.display = "block";
 }
 
 function replaceElement(oldElement, newElement)
@@ -13,31 +21,16 @@ function replaceElement(oldElement, newElement)
 
 function changeScreen(newScreen)
 {
-	var currentScreen = screenStack[screenStack.length - 1];
 	if (newScreen != currentScreen)
 	{
 		replaceElement(currentScreen, newScreen);
-		screenStack.push(newScreen);
+		currentScreen = newScreen;
 	}
 }
 
 function back()
 {
-	if (screenStack.length > 1)
-	{
-		document.getElementById(screenStack[screenStack.length - 1]).style.display = "none";
-		document.getElementById(screenStack[screenStack.length - 2]).style.display = "block";
-		screenStack.pop();
-	}
-		
-}
-
-function home()
-{
-	var currentScreen = screenStack[screenStack.length - 1];
-	if (screenStack[screenStack.length - 1] != "main_menu")
-	{
-		replaceElement(currentScreen, "main_menu");
-		screenStack = ["main_menu"];
-	}
+	var previousScreen = parentScreen[currentScreen];
+	if (previousScreen != null)
+		changeScreen(previousScreen);
 }

@@ -44,25 +44,60 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	border-radius: 3mm;
 }
 
+/*************/
 /* Main menu */
+/*************/
 
-#main_menu
+/* Top container */
+
+#main_menu_top_container
 {
-	display: block;
+	position: absolute;
+	width: 5cm;
+	height: 1cm;
+	top: -0.2mm;
+	left: -0.2mm;
+	background-color: #66AADD;
+	border: 0.2mm solid black;
+	border-top-right-radius: 3mm;
+	border-top-left-radius: 3mm;
 }
 
-#main_menu_buttons_container
+.main_menu_top_icon
+{
+	position: absolute;
+	width: 6mm;
+	height: 6mm;
+	top: 2mm;
+}
+
+#battery_icon
+{
+	left: 2mm;
+}
+
+#wifi_icon
+{
+	left: 7mm;
+}
+
+
+/* Right container */
+
+#main_menu_right_container
 {
 	position: absolute;
 	width: 1cm;
 	height: 4cm;
+	top: -0.2mm;
 	right: 0;
+	border: 0.2mm solid black;
 	background-color: #FFFF66;
 	border-top-right-radius: 3mm;
 	border-bottom-right-radius: 3mm;
 }
 
-.main_menu_button
+.main_menu_right_icon
 {
 	position: absolute;
 	width: 6mm;
@@ -70,17 +105,17 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	right: 2mm;
 }
 
-#apps_button
+#apps_icon
 {
 	top: 2mm;
 }
 
-#location_button
+#location_icon
 {
 	top: 12mm;
 }
 
-#options_button
+#options_icon
 {
 	top: 32mm;
 }
@@ -104,10 +139,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	height: 4cm;
 	border: 1.3mm solid black;
 	border-radius: 5mm;
-	
 }
 
-.physical_button
+.button
 {
 	position: absolute;
 	width: 7mm;
