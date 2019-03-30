@@ -24,9 +24,9 @@
 			<div id="main_menu_right_container">
 			
 				<img class="main_menu_right_icon" id="apps_icon" src="img/apps.png" onclick="change_screen('apps');">
-				<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="change_screen('location');" >
+				<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="change_screen('error_screen');" >
 				<!-- TODO: MyWeb -->
-				<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="change_screen('options');">
+				<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="change_screen('error_screen');">
 				
 			</div>
 			
@@ -38,6 +38,11 @@
 			
 		</div>
 		
+		<div id="error_screen"> 
+			<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
+			<button class="error_button" onclick="go_back();">Voltar</button>
+		</div>		
+		
 		<div class="screen" id="apps" >
 			<div id= "apps_top_container">
 			</div>
@@ -48,11 +53,9 @@
 		</div>
 		
 		<div class="screen" id="location">
-			<p>&nbsp&nbsp&nbspTODO: Location</p>
 		</div>
 		
 		<div class="screen" id="options">
-			<p>&nbsp&nbsp&nbspTODO: Options</p>
 		</div>
 		
 	</div>

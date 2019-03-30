@@ -132,6 +132,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 /* Center container */
 
+
 #main_menu_center_container{
 	position: absolute;
 	width: 4cm;
@@ -167,6 +168,39 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	left: 0.3cm;
 }
 
+
+/* error screen */
+
+#error_screen
+{
+	background-color: #66CDAA;
+	position: absolute;
+	top: 0.65cm;
+	left: 0.2cm;
+	width: 90%;
+	height: 70%;
+	border: 0.4mm solid black;
+	border-radius: 3mm;
+	display: none;
+}
+
+#error_msg{
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+}
+
+.error_button{
+  position: absolute;
+  background-color: #708090;
+  border: none;
+  border-radius: 3mm;
+  left: 0.4cm;
+  color: white;
+  padding: 5px 50px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+}
 
 /***********************
  *****             *****
