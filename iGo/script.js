@@ -6,7 +6,7 @@ var parent_screen =
 	"location": "main_menu",
 	"options": "main_menu",
 	// sujeito a alteração
-	"error_screen": "main_menu"
+	"error_screen": null
 }
 
 var main_menu_obj =
@@ -35,7 +35,12 @@ function replace_element(old_element, new_element)
 function change_screen(new_screen)
 {
 	if (new_screen != current_screen)
-	{
+	{	
+
+		if(new_screen == "error_screen") { 
+			parent_screen[new_screen] = current_screen;
+		}
+		
 		switch (current_screen)
 		{
 		case "main_menu":
