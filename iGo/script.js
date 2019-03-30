@@ -26,6 +26,8 @@ function replace_element(old_element, new_element)
 {	
 	if(new_element == "error_screen"){
 		document.getElementById(new_element).style.display = "block";
+		fadein(new_element);
+		
 	} else {
 		document.getElementById(old_element).style.display = "none";
 		document.getElementById(new_element).style.display = "block";
@@ -95,4 +97,9 @@ function update_clock()
 	main_menu_obj.blink = ! main_menu_obj.blink;
 	
 	document.getElementById("clock").innerHTML = hours + sep + minutes;
+}
+
+function fadein(id){
+	document.getElementById(id).style.animation = "fade 0.3s";
+	document.getElementById(id).style.opacity = "1";
 }

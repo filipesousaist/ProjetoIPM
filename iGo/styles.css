@@ -182,6 +182,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	border: 0.4mm solid black;
 	border-radius: 3mm;
 	display: none;
+	opacity: 0;
 }
 
 #error_msg{
@@ -341,4 +342,17 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	font-family: courier;
 	font-size: 10pt;
 	font-weight: bold;
+}
+
+
+
+/*FADE DIV*/
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
