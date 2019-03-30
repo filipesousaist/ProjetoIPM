@@ -211,3 +211,62 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	font-size: 10pt;
 	font-weight: bold;
 }
+
+#apps_iWay_container
+{
+	position: absolute;
+	width: 1.65cm;
+	height: 3.6cm;
+	top: 0.4cm;
+	left:1.75cm;
+	border: 0.2mm solid black;
+	background-color: lightgrey;
+}
+
+#iWay_icon
+{
+	position: absolute;
+	width: 1.5cm;
+	top: 0.75cm;
+	left: 0.1cm;	
+}
+
+#iWay_text
+{
+	position: absolute;
+	top:2cm;
+	left: 0.3cm;
+	font-family: courier;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+#apps_iGroup_container
+{
+	position: absolute;
+	width: 1.55cm;
+	height: 3.6cm;
+	top: 0.4cm;
+	left: 3.4cm;
+	border: 0.2mm solid black;
+	background-color: lightgrey;
+	border-bottom-right-radius: 3mm;
+}
+
+#iGroup_icon
+{
+	position: absolute;
+	width: 1.5cm;
+	top: 0.75cm;
+	left: 0.05cm;
+}
+
+#iGroup_text
+{
+	position: absolute;
+	top:2cm;
+	left: 0.2cm;
+	font-family: courier;
+	font-size: 10pt;
+	font-weight: bold;
+}
