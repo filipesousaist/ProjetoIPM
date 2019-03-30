@@ -173,6 +173,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 #error_screen
 {
+	z-index: 4;
 	background-color: #66CDAA;
 	position: absolute;
 	top: 0.65cm;
@@ -320,7 +321,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	width: 1.55cm;
 	height: 3.6cm;
 	top: 0.4cm;
-	left: 3.4cm;
+	left: 3.41cm;
 	border: 0.2mm solid black;
 	background-color: lightgrey;
 	border-bottom-right-radius: 3mm;
@@ -329,7 +330,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 #iGroup_icon
 {
 	position: absolute;
-	width: 1.5cm;
+	width: 1.46cm;
 	top: 0.75cm;
 	left: 0.05cm;
 }
