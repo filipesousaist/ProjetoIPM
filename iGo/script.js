@@ -22,9 +22,11 @@ function init()
 }
 
 function replace_element(old_element, new_element)
-{	
+{
 	if(new_element == "error_screen"){
 		document.getElementById(new_element).style.display = "block";
+		fadein(new_element);
+
 	} else {
 		document.getElementById(old_element).style.display = "none";
 		document.getElementById(new_element).style.display = "block";
@@ -34,20 +36,20 @@ function replace_element(old_element, new_element)
 function change_screen(new_screen)
 {
 	if (new_screen != current_screen)
-	{	
-		if(new_screen == "error_screen") { 
+	{
+		if(new_screen == "error_screen") {
 			parent_screen[new_screen] = current_screen;
 		}
-		
+
 		switch (current_screen)
 		{
 		case "main_menu":
 			main_menu_exit();
 			break;
 		}
-		
+
 		replace_element(current_screen, new_screen);
-		
+
 		switch (new_screen)
 		{
 		case "main_menu":
@@ -57,7 +59,7 @@ function change_screen(new_screen)
 			error_screen_load();
 			break;
 		}
-		
+
 		current_screen = new_screen;
 	}
 }
@@ -88,18 +90,21 @@ function update_clock()
 	var date = new Date();
 	var hours = add0(date.getHours());
 	var minutes = add0(date.getMinutes());
-	
+
 	var sep;
 	if (main_menu_obj.blink)
 		sep = "&nbsp";
 	else
 		sep = ":";
 	main_menu_obj.blink = ! main_menu_obj.blink;
-	
+
 	document.getElementById("clock").innerHTML = hours + sep + minutes;
 }
 
-// ERROR_SCREEN
+function fadein(id){
+	document.getElementById(id).style.animation = "fade 0.3s";
+	document.getElementById(id).style.opacity = "1";
+}
 
 function error_screen_load()
 {
