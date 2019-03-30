@@ -5,13 +5,12 @@ var parent_screen =
 	"apps": "main_menu",
 	"location": "main_menu",
 	"options": "main_menu",
-	// sujeito a alteração
-	"error_screen": null
+	"error_screen": null // sujeito a alteração
 }
 
 var main_menu_obj =
 {
-	clock_blink: null,
+	clock_blink: false,
 	timeout: null
 }
 
@@ -36,7 +35,6 @@ function change_screen(new_screen)
 {
 	if (new_screen != current_screen)
 	{	
-
 		if(new_screen == "error_screen") { 
 			parent_screen[new_screen] = current_screen;
 		}
@@ -49,14 +47,18 @@ function change_screen(new_screen)
 		}
 		
 		replace_element(current_screen, new_screen);
-		current_screen = new_screen;
 		
 		switch (new_screen)
 		{
 		case "main_menu":
 			main_menu_load();
 			break;
+		case "error_screen":
+			error_screen_load();
+			break;
 		}
+		
+		current_screen = new_screen;
 	}
 }
 
@@ -95,4 +97,11 @@ function update_clock()
 	main_menu_obj.blink = ! main_menu_obj.blink;
 	
 	document.getElementById("clock").innerHTML = hours + sep + minutes;
+}
+
+// ERROR_SCREEN
+
+function error_screen_load()
+{
+	parent_screen["error_screen"] = current_screen;
 }
