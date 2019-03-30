@@ -1,65 +1,84 @@
-var current_screen;
-var parent_screen =
+class Screen
 {
-	"main_menu": null,
-	"apps": "main_menu",
-	"location": "main_menu",
-	"options": "main_menu",
-	"error_screen": null // sujeito a alteração
+	constructor(id, parent_id, on_load, on_exit, properties)
+	{
+		this.id = id;
+		this.parent_id = parent_id;
+		this.on_load = on_load;
+		this.on_exit = on_exit;
+		this.properties = properties;
+	}
 }
 
-var main_menu_obj =
+var current_screen;
+
+var screens =
 {
-	clock_blink: false,
-	timeout: null
+	// Menu inicial
+	"main_menu": new Screen("main_menu", null,
+		function()
+		{
+			this.properties["clock_blink"] = false;
+			update_clock();
+			this.properties["timeout"] = setInterval(update_clock, 1000);
+		},
+		function(){clearInterval(this.properties["timeout"]);},
+		{"clock_blink": false, "timeout": null}
+	),
+	
+	// Ecrã das aplicações
+	"apps": new Screen("apps", "main_menu", null, null, null),
+	
+	// Ecrã da localização
+	"location": new Screen("location", "main_menu", null, null, null),
+	
+	// Ecrã das opções
+	"options": new Screen("options", "main_menu", null, null, null),
+	
+	// Ecrã do iGuide
+	"iGuide": new Screen("iGuide", "apps", null, null, null),
+	
+	// Ecrã do iWay
+	"iWay": new Screen("iWay", "apps", null, null, null),
+	
+	// Ecrã do iWay
+	"iGroup": new Screen("iGroup", "apps", null, null, null),
+	
+	// Ecrã de erro
+	"error_screen": new Screen("error_screen", null,
+		function(){this.parent_id = current_screen.id;}, null, null)
 }
 
 function init()
 {
-	current_screen = "main_menu";
+	current_screen = screens["main_menu"];
 	document.getElementById("main_menu").style.display = "block";
-	main_menu_load();
+	current_screen.on_load();
 }
 
-function replace_element(old_element, new_element)
+function replace_element(old_id, new_id)
 {
-	if (new_element == "error_screen") {
-		document.getElementById(new_element).style.display = "block";
-		fadein(new_element);
+	document.getElementById(new_id).style.display = "block";
+	
+	if (new_id == "error_screen")
+		fadein(new_id);
+	else
+		document.getElementById(old_id).style.display = "none";
 
-	} 
-	else {
-		document.getElementById(old_element).style.display = "none";
-		document.getElementById(new_element).style.display = "block";
-	}
 }
 
-function change_screen(new_screen)
+function change_screen(new_screen_id)
 {
-	if (new_screen != current_screen)
+	if (new_screen_id != current_screen.id)
 	{
-		if(new_screen == "error_screen") {
-			parent_screen[new_screen] = current_screen;
-		}
+		if (current_screen.on_exit != null)
+			current_screen.on_exit();
 
-		switch (current_screen)
-		{
-		case "main_menu":
-			main_menu_exit();
-			break;
-		}
-
-		replace_element(current_screen, new_screen);
-
-		switch (new_screen)
-		{
-		case "main_menu":
-			main_menu_load();
-			break;
-		case "error_screen":
-			error_screen_load();
-			break;
-		}
+		replace_element(current_screen.id, new_screen_id);
+		
+		let new_screen = screens[new_screen_id];
+		if (new_screen.on_load != null)
+			new_screen.on_load();
 
 		current_screen = new_screen;
 	}
@@ -67,24 +86,12 @@ function change_screen(new_screen)
 
 function go_back()
 {
-	var previous_screen = parent_screen[current_screen];
-	if (previous_screen != null)
-		change_screen(previous_screen);
+	var parent_screen_id = current_screen.parent_id;
+	if (parent_screen_id != null)
+		change_screen(parent_screen_id);
 }
 
 // MAIN MENU
-
-function main_menu_load()
-{
-	main_menu_obj.clock_blink = false;
-	update_clock();
-	main_menu_obj.timeout = setInterval(update_clock, 1000);
-}
-
-function main_menu_exit()
-{
-	clearInterval(main_menu_obj.timeout);
-}
 
 function update_clock()
 {
@@ -93,11 +100,12 @@ function update_clock()
 	var minutes = add0(date.getMinutes());
 
 	var sep;
-	if (main_menu_obj.blink)
+	var main_menu = screens["main_menu"];
+	if (main_menu.properties["blink"])
 		sep = "&nbsp";
 	else
 		sep = ":";
-	main_menu_obj.blink = ! main_menu_obj.blink;
+	main_menu.properties["blink"] = ! main_menu.properties["blink"];
 
 	document.getElementById("clock").innerHTML = hours + sep + minutes;
 }
@@ -106,9 +114,4 @@ function fadein(id)
 {
 	document.getElementById(id).style.animation = "fade 0.3s";
 	document.getElementById(id).style.opacity = "1";
-}
-
-function error_screen_load()
-{
-	parent_screen["error_screen"] = current_screen;
 }

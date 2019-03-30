@@ -100,7 +100,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	width: 1cm;
 	height: 4cm;
 	top: -0.2mm;
-	right: 0;
+	left: 39.8mm;
 	border: 0.2mm solid black;
 	background-color: lightgrey;
 	border-top-right-radius: 3mm;
@@ -137,8 +137,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	position: absolute;
 	width: 4cm;
 	height: 3cm;
-	top: 0.98cm;
-	left: -0.5mm;
+	top: 9.8mm;
+	left: -0.2mm;
 	background: url("img/backgrd.png");
 	border: 0.2mm solid black;
 	border-bottom-left-radius: 3mm;
@@ -148,26 +148,26 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	position: absolute;
 	height: 70%;
 	width: 70%;
-	top: 0.7cm;
-	left: 1.6cm;
+	top: 8mm;
+	left: 16mm;
 }
 
 #city_name{
 	position: absolute;
 	font-family: Arial, Helvetica, sans-serif;
-	left: 1.10cm;
-	top: 0.3cm;
-	font-size: 23px;
+	left: 50%;
+	top: 3mm;
+	font-size: 18pt;
+	transform: translate(-50%, 0);
 }
 
 #degrees{
 	position: absolute;
-	font-family: "Lucida Console",Lucida,monospace;
-	font-size: 40px;
-	top: 1.25cm;
-	left: 0.3cm;
+	font-family: "Lucida Console", Lucida, monospace;
+	top: 13.5mm;
+	left: 3.5mm;
+	font-size: 28pt;
 }
-
 
 /* error screen */
 
@@ -186,12 +186,16 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	opacity: 0;
 }
 
-#error_msg{
-	font-family: "Times New Roman", Times, serif;
+#error_msg
+{
+	/*font-family: "Times New Roman", Times, sans-serif;*/
+	font-family: sans-serif;
+	font-size: 11pt;
 	text-align: center;
 }
 
-.error_button{
+.error_button
+{
   position: absolute;
   background-color: #708090;
   border: none;
@@ -249,16 +253,17 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 .screen_title_container
 {
 	position: absolute;
-	width: 4.5cm; /* (+ 0.5cm padding) = 5cm */
-	height: 5mm;
+	width: 4.5cm; /* (+ 0.5cm padding_left) = 5cm */
+	height: 4.5mm; /* (+ 0.5mm padding_top) = 5mm */
 	top: -0.2mm;
 	left: -0.2mm;
+	padding-top: 0.5mm;
 	padding-left: 5mm;
 	background-color: grey;
 	border: 0.2mm solid black;
 	border-top-right-radius: 3mm;
 	border-top-left-radius: 3mm;
-	font-family: sans-serif;
+	font-family: courier, sans-serif;
 	font-size: 9pt;
 	font-weight: bold;
 	text-align: left;
@@ -274,6 +279,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	height: 3.5cm;
 	border: 0.2mm solid black;
 	background-color: lightgrey;
+	transform: translate(-0.1mm, 0);
 }
 
 #iGuide_container
@@ -283,12 +289,12 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 #iWay_container
 {
-	margin-left: calc(100% / 3);
+	left: calc(100% / 3);
 }
 
 #iGroup_container
 {
-	margin-left: calc(200% / 3);
+	left: calc(200% / 3);
 	border-bottom-right-radius: 3mm;
 }
 
