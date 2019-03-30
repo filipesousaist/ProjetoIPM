@@ -130,6 +130,78 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	top: 32mm;
 }
 
+/* Center container */
+
+
+#main_menu_center_container{
+	position: absolute;
+	width: 4cm;
+	height: 3cm;
+	top: 0.98cm;
+	left: -0.5mm;
+	background: url("img/backgrd.png");
+	border: 0.2mm solid black;
+	border-bottom-left-radius: 3mm;
+}
+
+#weather{
+	position: absolute;
+	height: 70%;
+	width: 70%;
+	top: 0.7cm;
+	left: 1.6cm;
+}
+
+#city_name{
+	position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	left: 1.10cm;
+	top: 0.3cm;
+	font-size: 23px;
+}
+
+#degrees{
+	position: absolute;
+	font-family: "Lucida Console",Lucida,monospace;
+	font-size: 40px;
+	top: 1.25cm;
+	left: 0.3cm;
+}
+
+
+/* error screen */
+
+#error_screen
+{
+	background-color: #66CDAA;
+	position: absolute;
+	top: 0.65cm;
+	left: 0.2cm;
+	width: 90%;
+	height: 70%;
+	border: 0.4mm solid black;
+	border-radius: 3mm;
+	display: none;
+}
+
+#error_msg{
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+}
+
+.error_button{
+  position: absolute;
+  background-color: #708090;
+  border: none;
+  border-radius: 3mm;
+  left: 0.4cm;
+  color: white;
+  padding: 5px 50px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+}
+
 /***********************
  *****             *****
  *****   BUTTONS   *****
