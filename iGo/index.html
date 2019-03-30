@@ -10,81 +10,81 @@
 
 <body onload="init();">
 	<div class="screen_container" id="screen_container_base">
-	
+
 		<div class="screen" id="main_menu">
-		
+
 			<div id="main_menu_top_container">
-			
+
 				<img class="main_menu_top_icon" id="battery_icon" src="img/battery4.png">
 				<img class="main_menu_top_icon" id="wifi_icon" src="img/wifi2.png">
 				<div id="clock"></div>
-				
+
 			</div>
-		
+
 			<div id="main_menu_right_container">
-			
+
 				<img class="main_menu_right_icon" id="apps_icon" src="img/apps.png" onclick="change_screen('apps');">
 				<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="change_screen('error_screen');" >
 				<!-- TODO: MyWeb -->
 				<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="change_screen('error_screen');">
-				
+
 			</div>
-			
+
 			<div id="main_menu_center_container">
 				<div id="city_name">Lisboa</div>
 				<div id="degrees">22&#176 </div>
 				<img id="weather" src="img/temp_img.svg">
 			</div>
-			
+
 		</div>
-		
-		<div id="error_screen"> 
+
+		<div id="error_screen">
 			<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
 			<button class="error_button" onclick="go_back();">Voltar</button>
-		</div>		
-		
+		</div>
+
 		<div class="screen" id="apps" >
-			
+
 			<div class= "screen_title_container">
 				Apps
 			</div>
-			
+
 			<div class="app_container" id="iGuide_container" onclick="change_screen('iGuide');" align="center">
 				<img class="app_icon" id="iGuide_icon" src="img/book.png">
 				<p class="app_name" id="iGuide_text">iGuide</p>
 			</div>
-			
+
 			<div class="app_container" id="iWay_container" align="center">
 				<img class="app_icon" id="iWay_icon" src="img/way.png">
 				<p class="app_name" id = "iWay_text">iWay</p>
 			</div>
-			
+
 			<div class="app_container" id="iGroup_container" align="center">
 				<img class="app_icon" id="iGroup_icon" src="img/group.png">
 				<p class="app_name" id ="iGroup_text">iGroup</p>
 			</div>
-				
+
 		</div>
-		
+
 		<div class="screen" id="location">
 			<div id = "error_screen">
-				
+
 			</div>
 		</div>
-		
+
 		<div class="screen" id="options">
 		</div>
-		
+
 	</div>
-	
+
 	<div class="screen_container" id="screen_container_frame">
 	</div>
-	
+
 	<div id="buttons_container">
 		<img class="button" id="home_button" src="img/home.png" onclick="change_screen('main_menu');">
 		<img class="button" id="back_button" src="img/back.png" onclick="go_back();">
 	</div>
-	
+
 </body>
 
 </html>

@@ -14,7 +14,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	width: 5cm;
 	height: 4cm;
 }
- 
+
 #screen_container_base
 {
 	z-index: 2;
@@ -173,6 +173,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 #error_screen
 {
+	z-index: 4;
 	background-color: #66CDAA;
 	position: absolute;
 	top: 0.65cm;
