@@ -386,10 +386,11 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 .info_icon
 {	
-	position: absolute;
+	position: relative;
 	width: 0.7cm;
 	height: 0.7cm;
-	left: 3.85cm;
+	left: 3.6cm;
+	top: -5mm;
 }
 
 /*FADE DIV*/
