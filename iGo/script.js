@@ -43,7 +43,7 @@ var screens =
 		let places_list = ["Parque Eduardo VII", "Shopping Amoreiras", "Instituto Gulbenkian", "Padrão dos Descobrimentos", "Torre de Belém"];
 		
 		for (let i = 0; i < places_list.length; i ++)
-			places_element.innerHTML += "<li class='iGuide_place'><marquee behavior='alternate'>" + places_list[i] + "</marquee></li>";
+			places_element.innerHTML += "<li class='iGuide_place'><marquee direction='scroll'>" + places_list[i] + "</marquee></li>";
 	}, null, null),
 	
 	// Ecrã do iWay
