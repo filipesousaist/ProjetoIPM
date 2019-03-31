@@ -384,6 +384,14 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	border: 0.2mm dotted black;
 }
 
+.info_icon
+{	
+	position: absolute;
+	width: 0.7cm;
+	height: 0.7cm;
+	left: 3.85cm;
+}
+
 /*FADE DIV*/
 @keyframes fade {
     0% {

@@ -41,9 +41,12 @@ var screens =
 	{
 		let places_element = document.getElementById("iGuide_places_near_you");
 		let places_list = ["Parque Eduardo VII", "Shopping Amoreiras", "Instituto Gulbenkian", "Padrão dos Descobrimentos", "Torre de Belém"];
+		let info_code = "<img class='info_icon' src='img/infoicon.png'>";
 		
-		for (let i = 0; i < places_list.length; i ++)
-			places_element.innerHTML += "<li class='iGuide_place'><marquee direction='scroll'>" + places_list[i] + "</marquee></li>";
+		for (let i = 0; i < places_list.length; i ++){
+			places_element.innerHTML += "<li class='iGuide_place'><marquee direction='scroll'>" + places_list[i] + "</marquee>" + info_code + "</li>";
+		
+		}
 	}, null, null),
 	
 	// Ecrã do iWay
