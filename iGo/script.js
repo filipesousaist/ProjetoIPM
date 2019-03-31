@@ -47,7 +47,12 @@ var screens =
 			places_element.innerHTML += "<li class='iGuide_place'><marquee direction='scroll'>" + places_list[i] + "</marquee>" + info_code + "</li>";
 		
 		}
-	}, null, null),
+	},
+	function()
+	{
+		document.getElementById("iGuide_places_near_you").innerHTML = "";
+	}
+	, null),
 	
 	// Ecrã do iWay
 	"iWay_main": new Screen("iWay_main", "apps", null, null, null),
