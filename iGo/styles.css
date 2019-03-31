@@ -266,7 +266,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	font-family: courier, sans-serif;
 	font-size: 9pt;
 	font-weight: bold;
-	text-align: left;
 }
 
 /* Apps menu */
@@ -316,6 +315,73 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	top: 60%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+/* iGuide */
+
+
+.screen_title_container
+{
+	position: absolute;
+	width: 4.5cm; /* (+ 0.5cm padding_left) = 5cm */
+	height: 4.5mm; /* (+ 0.5mm padding_top) = 5mm */
+	top: -0.2mm;
+	left: -0.2mm;
+	padding-top: 0.5mm;
+	padding-left: 5mm;
+	background-color: grey;
+	border: 0.2mm solid black;
+	border-top-right-radius: 3mm;
+	border-top-left-radius: 3mm;
+	font-family: courier, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+}
+
+#iGuide_near_you_container
+{
+	position: absolute;
+	width: 4.5cm; /* (+ 0.5cm padding_left) = 5cm */
+	height: 4.5mm; /* (+ 0.5mm padding_top) = 5mm */
+	top: 4.8mm;
+	left: -0.2mm;
+	padding-top: 0.5mm;
+	padding-left: 0.5cm;
+	background-color: #BBBBBB;
+	border: 0.2mm solid black;
+	font-family: Verdana, sans-serif;
+	font-size: 10pt;
+}
+
+#iGuide_places_near_you
+{
+	position: absolute;
+	top: 9.8mm;
+	left: -0.2mm;
+	width: 5cm;
+	height: 3cm;
+	list-style: none;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	margin-top: 0;
+	padding-left: 0;
+	background-color: #DDDDDD;
+	border: 0.2mm solid black;
+	border-bottom-left-radius: 3mm;
+	border-bottom-right-radius: 3mm;
+}
+
+.iGuide_place
+{
+	width: 4.5cm;
+	height: 7.5mm;
+	left: -0.2mm;
+	top: -0.2mm;
+	font-family: Verdana, sans-serif;
+	font-size: 8pt;
+	padding-top: 2.5mm;
+	padding-left: 2.5mm;
+	border: 0.2mm dotted black;
 }
 
 /*FADE DIV*/

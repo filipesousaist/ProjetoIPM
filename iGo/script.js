@@ -36,13 +36,21 @@ var screens =
 	"options": new Screen("options", "main_menu", null, null, null),
 	
 	// Ecrã do iGuide
-	"iGuide": new Screen("iGuide", "apps", null, null, null),
+	"iGuide_main": new Screen("iGuide_main", "apps", 
+	function()
+	{
+		let places_element = document.getElementById("iGuide_places_near_you");
+		let places_list = ["Parque Eduardo VII", "Shopping Amoreiras", "Instituto Gulbenkian", "Padrão dos Descobrimentos", "Torre de Belém"];
+		
+		for (let i = 0; i < places_list.length; i ++)
+			places_element.innerHTML += "<li class='iGuide_place'><marquee behavior='alternate'>" + places_list[i] + "</marquee></li>";
+	}, null, null),
 	
 	// Ecrã do iWay
-	"iWay": new Screen("iWay", "apps", null, null, null),
+	"iWay_main": new Screen("iWay_main", "apps", null, null, null),
 	
-	// Ecrã do iWay
-	"iGroup": new Screen("iGroup", "apps", null, null, null),
+	// Ecrã do iGroup
+	"iGroup_main": new Screen("iGroup_main", "apps", null, null, null),
 	
 	// Ecrã de erro
 	"error_screen": new Screen("error_screen", null,
