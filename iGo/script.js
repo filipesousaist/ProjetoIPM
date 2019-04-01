@@ -95,7 +95,7 @@ function replace_element(old_id, new_id)
 	document.getElementById(new_id).style.display = "block";
 	
 	if (new_id == "error_screen")
-		fadein(new_id,0.3);
+		fadein(new_id);
 	else
 		document.getElementById(old_id).style.display = "none";
 
