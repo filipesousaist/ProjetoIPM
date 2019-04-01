@@ -10,7 +10,25 @@ class Screen
 	}
 }
 
+class Location
+{
+	constructor(title, info, type)
+	{
+		this.title = title;
+		this.info = info;
+		this.type = type;
+	}
+}
+
 var current_screen;
+
+var locations = [
+	new Location("Parque Eduardo VII", "Parque Eduardo VII é o maior parque na zona de Lisboa", "park"),
+	new Location("Shopping Amoreiras", "Shopping Amoreiras é um Shopping bue grande", "shop"),
+	new Location("Instituto Gulbenkian", "Instituto Gulbenkian é bue fixe", "museum"),
+	new Location("Padrão dos Descobrimentos", "É bue velho, meu", "monument"),
+	new Location("Torre de Belém", "É bue velho tmb, meu", "monument")
+]
 
 var screens =
 {
@@ -40,14 +58,14 @@ var screens =
 	function()
 	{
 		let places_element = document.getElementById("iGuide_places_near_you");
-		let places_list = ["Parque Eduardo VII", "Shopping Amoreiras", "Instituto Gulbenkian", "Padrão dos Descobrimentos", "Torre de Belém"];
-		let info_code = "<img class='info_icon' src='img/infoicon.png'>";
-		
-		for (let i = 0; i < places_list.length; i ++){
-			places_element.innerHTML += "<li class='iGuide_place'><marquee direction='scroll'>" + places_list[i] + "</marquee>" + info_code + "</li>";
-		
+		let info_code = "<img class='info_icon' src='img/infoicon.png'>";		
+		for (let i = 0; i < locations.length; i ++){
+			places_element.innerHTML += "<li class='iGuide_place' onclick='changeInfoScreen(\""+ locations[i].title +"\", \""+ locations[i].info + "\");'><marquee direction='scroll'>" + locations[i].title + "</marquee>" + info_code + "</li>";
 		}
-	}, null, null),
+	}, function(){document.getElementById("iGuide_places_near_you").innerHTML = "";}, null),
+
+	// Ecrã do iGuide_info
+	"iGuide_info": new Screen("iGuide_info", "iGuide_main", null, null, null),
 	
 	// Ecrã do iWay
 	"iWay_main": new Screen("iWay_main", "apps", null, null, null),
@@ -125,4 +143,11 @@ function fadein(id)
 {
 	document.getElementById(id).style.animation = "fade 0.3s";
 	document.getElementById(id).style.opacity = "1";
+}
+
+function changeInfoScreen(title, info){
+	var info_title = document.getElementById("iGuide_info_title");
+	info_title.innerHTML = title;
+	document.getElementById("iGuide_info_container").innerHTML = info;
+	change_screen("iGuide_info");
 }

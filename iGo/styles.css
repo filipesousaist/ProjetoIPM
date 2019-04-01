@@ -384,12 +384,40 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	border: 0.2mm dotted black;
 }
 
+
+
 .info_icon
 {	
 	position: absolute;
 	width: 0.7cm;
 	height: 0.7cm;
 	left: 3.85cm;
+}
+
+#iGuide_info_title{
+	position: absolute;
+	top: 4.5mm;
+	border: 1mm solid black;
+	width: 100%;
+	left: -1mm;
+	background-color: lightgrey;
+	font-family: courier;
+	font-size: 12px;
+}
+
+#iGuide_info_container
+{
+	position: absolute;
+	top: 9mm;
+	border: 1mm solid black;
+	width: 100%;
+	height: 3cm;
+	left: -1mm;
+	background-color: lightgrey;
+	font-family: courier;
+	font-size: 13px;
+	border-bottom-right-radius: 3mm;
+	border-bottom-left-radius: 3mm;
 }
 
 /*FADE DIV*/
