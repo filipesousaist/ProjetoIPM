@@ -25,7 +25,7 @@ var screens =
 		function()
 		{	
 			document.getElementById("home_button").onclick = function(){ change_screen("main_menu"); }
-			document.getElementById("back_button").onclick = function(){ go_back(); }
+			document.getElementById("back_button").onclick = go_back;
 		},
 		null
 	),
