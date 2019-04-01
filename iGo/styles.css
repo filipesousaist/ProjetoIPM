@@ -1,5 +1,29 @@
 html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
+
+
+
+
+
+
+
+/*power button*/
+
+.power_button
+{	
+	position: absolute;
+	background-color: red;
+	width: 0.45cm;
+	height: 0.4cm;
+	top: 38.7%;
+	left: 45.5%;
+}
+
+#off{
+	background-color: #505050;
+}
+
+
 /**********************
  *****            *****
  *****   SCREEN   *****
@@ -392,6 +416,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	left: 3.6cm;
 	top: -5mm;
 }
+
 
 /*FADE DIV*/
 @keyframes fade {
