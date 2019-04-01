@@ -144,9 +144,9 @@ function update_clock()
 	document.getElementById("clock").innerHTML = hours + sep + minutes;
 }
 
-function fadein(id)
+function fadein(id,seconds)
 {
-	document.getElementById(id).style.animation = "fade 0.3s";
+	document.getElementById(id).style.animation = "fade "+seconds+"s";
 	document.getElementById(id).style.opacity = "1";
 	
 }
