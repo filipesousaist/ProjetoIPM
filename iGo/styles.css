@@ -1,5 +1,43 @@
 html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
+
+
+
+
+
+
+
+/*power button*/
+
+.power_button
+{	
+	position: absolute;
+	background-color: red;
+	width: 0.45cm;
+	height: 0.4cm;
+	top: 38.7%;
+	left: 45.5%;
+}
+
+#off{
+	background-color: #505050;
+}
+
+
+/*LOGO*/
+.screen_logo_container
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	border-radius: 3mm;
+	color: white;
+	font-size: 30pt;
+    
+}
+
+
 /**********************
  *****            *****
  *****   SCREEN   *****
@@ -388,10 +426,11 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 .info_icon
 {	
-	position: absolute;
+	position: relative;
 	width: 0.7cm;
 	height: 0.7cm;
-	left: 3.85cm;
+	left: 3.6cm;
+	top: -5mm;
 }
 
 #iGuide_info_title{
@@ -423,12 +462,17 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 /*FADE DIV*/
 @keyframes fade {
     0% {
-        opacity: 0;
+        opacity: 0
     }
 
     100% {
-        opacity: 1;
+        opacity: 1
     }
+}
+
+@keyframes fade_1 {
+	0%,100% { opacity: 0 }
+	50% { opacity: 1 }
 }
 
 /*CUSTOM SCROLLBAR*/

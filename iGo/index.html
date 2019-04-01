@@ -8,7 +8,16 @@
 	</head>
 
 	<body onload="init();">
+	
+		<div class="power_button" onclick="turn_off_on()"></div>
+		
 		<div class="screen_container" id="screen_container_base">
+			
+			<!-- Ecrã desligado -->
+			<div class="screen" id="off"></div>
+			
+			<!-- Logo -->
+			<div class="screen_logo_container" id="iGo_logo" align="center" ><br>iGo &trade;</div>
 			
 			<div class="screen" id="main_menu">
 				
@@ -56,6 +65,8 @@
 				</div>
 			</div>
 			
+			
+			
 			<div class="screen" id="location"></div>
 			
 			<div class="screen" id="options"></div>
@@ -88,7 +99,12 @@
 				<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
 				<button class="error_button" onclick="go_back();">Voltar</button>
 			</div>
+			
+			
+			
 		</div>
+			
+		
 		
 		<div class="screen_container" id="screen_container_frame"></div>
 		

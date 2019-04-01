@@ -21,6 +21,7 @@ class Location
 }
 
 var current_screen;
+var power;
 
 var locations = [
 	new Location("Parque Eduardo VII", "Parque Eduardo VII é o maior parque na zona de Lisboa", "park"),
@@ -31,7 +32,23 @@ var locations = [
 ]
 
 var screens =
-{
+{	
+	//screen desligado
+	"off": new Screen("off", null,
+		function()
+		{
+			document.getElementById("home_button").onclick = null;
+			document.getElementById("back_button").onclick = null;
+			document.getElementById("iGo_logo").style.opacity = 0;
+		},
+		function()
+		{	
+			document.getElementById("home_button").onclick = function(){ change_screen("main_menu"); }
+			document.getElementById("back_button").onclick = go_back;
+		},
+		null
+	),
+	
 	// Menu inicial
 	"main_menu": new Screen("main_menu", null,
 		function()
@@ -80,9 +97,11 @@ var screens =
 
 function init()
 {
-	current_screen = screens["main_menu"];
-	document.getElementById("main_menu").style.display = "block";
+	power = 0;
+	current_screen = screens["off"];
+	document.getElementById("off").style.display = "block";
 	current_screen.on_load();
+
 }
 
 function replace_element(old_id, new_id)
@@ -90,7 +109,7 @@ function replace_element(old_id, new_id)
 	document.getElementById(new_id).style.display = "block";
 	
 	if (new_id == "error_screen")
-		fadein(new_id);
+		fadein(new_id,0.3);
 	else
 		document.getElementById(old_id).style.display = "none";
 
@@ -114,7 +133,7 @@ function change_screen(new_screen_id)
 }
 
 function go_back()
-{
+{	
 	var parent_screen_id = current_screen.parent_id;
 	if (parent_screen_id != null)
 		change_screen(parent_screen_id);
@@ -139,10 +158,11 @@ function update_clock()
 	document.getElementById("clock").innerHTML = hours + sep + minutes;
 }
 
-function fadein(id)
+function fadein(id,seconds)
 {
-	document.getElementById(id).style.animation = "fade 0.3s";
+	document.getElementById(id).style.animation = "fade "+seconds+"s";
 	document.getElementById(id).style.opacity = "1";
+	
 }
 
 function changeInfoScreen(title, info){
@@ -150,4 +170,21 @@ function changeInfoScreen(title, info){
 	info_title.innerHTML = title;
 	document.getElementById("iGuide_info_container").innerHTML = info;
 	change_screen("iGuide_info");
+}
+
+function turn_off_on(){
+	switch(power){
+		case 0:
+			document.getElementById("iGo_logo").style.animation = "fade_1 1.5s";
+			setTimeout(function(){
+				power = 1;
+				change_screen("main_menu");
+			},1600);
+			break;
+		case 1:
+			document.getElementById("iGo_logo").style.animation = "";
+			power = 0;
+			change_screen("off");
+			break;
+	}
 }
