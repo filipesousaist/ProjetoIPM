@@ -21,6 +21,7 @@ var screens =
 		{
 			document.getElementById("home_button").onclick = null;
 			document.getElementById("back_button").onclick = null;
+			document.getElementById("iGo_logo").style.opacity = 0;
 		},
 		function()
 		{	
@@ -95,7 +96,7 @@ function replace_element(old_id, new_id)
 	document.getElementById(new_id).style.display = "block";
 	
 	if (new_id == "error_screen")
-		fadein(new_id);
+		fadein(new_id,0.3);
 	else
 		document.getElementById(old_id).style.display = "none";
 
@@ -154,10 +155,14 @@ function fadein(id,seconds)
 function turn_off_on(){
 	switch(power){
 		case 0:
-			power = 1;
-			change_screen("main_menu");
+			document.getElementById("iGo_logo").style.animation = "fade_1 1.5s";
+			setTimeout(function(){
+				power = 1;
+				change_screen("main_menu");
+			},1600);
 			break;
 		case 1:
+			document.getElementById("iGo_logo").style.animation = "";
 			power = 0;
 			change_screen("off");
 			break;
