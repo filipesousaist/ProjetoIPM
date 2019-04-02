@@ -10,8 +10,26 @@ class Screen
 	}
 }
 
+class Location
+{
+	constructor(title, info, type)
+	{
+		this.title = title;
+		this.info = info;
+		this.type = type;
+	}
+}
+
 var current_screen;
 var power;
+
+var locations = [
+	new Location("Parque Eduardo VII", "Parque Eduardo VII é o maior parque na zona de Lisboa", "park"),
+	new Location("Shopping Amoreiras", "Shopping Amoreiras é um Shopping bue grande", "shop"),
+	new Location("Instituto Gulbenkian", "Instituto Gulbenkian é bue fixe", "museum"),
+	new Location("Padrão dos Descobrimentos", "É bue velho, meu", "monument"),
+	new Location("Torre de Belém", "É bue velho tmb, meu", "monument")
+]
 
 var screens =
 {	
@@ -21,6 +39,7 @@ var screens =
 		{
 			document.getElementById("home_button").onclick = null;
 			document.getElementById("back_button").onclick = null;
+			document.getElementById("iGo_logo").style.opacity = 0;
 		},
 		function()
 		{	
@@ -56,19 +75,14 @@ var screens =
 	function()
 	{
 		let places_element = document.getElementById("iGuide_places_near_you");
-		let places_list = ["Parque Eduardo VII", "Shopping Amoreiras", "Instituto Gulbenkian", "Padrão dos Descobrimentos", "Torre de Belém"];
-		let info_code = "<img class='info_icon' src='img/infoicon.png'>";
-		
-		for (let i = 0; i < places_list.length; i ++){
-			places_element.innerHTML += "<li class='iGuide_place'><marquee direction='scroll'>" + places_list[i] + "</marquee>" + info_code + "</li>";
-		
+		let info_code = "<img class='info_icon' src='img/infoicon.png'>";		
+		for (let i = 0; i < locations.length; i ++){
+			places_element.innerHTML += "<li class='iGuide_place' onclick='changeInfoScreen(\""+ locations[i].title +"\", \""+ locations[i].info + "\", \"" + locations[i].type +"\");'><marquee direction='scroll'>" + locations[i].title + "</marquee>" + info_code + "</li>";
 		}
-	},
-	function()
-	{
-		document.getElementById("iGuide_places_near_you").innerHTML = "";
-	}
-	, null),
+	}, function(){document.getElementById("iGuide_places_near_you").innerHTML = "";}, null),
+
+	// Ecrã do iGuide_info
+	"iGuide_info": new Screen("iGuide_info", "iGuide_main", null, null, null),
 	
 	// Ecrã do iWay
 	"iWay_main": new Screen("iWay_main", "apps", null, null, null),
@@ -87,6 +101,7 @@ function init()
 	current_screen = screens["off"];
 	document.getElementById("off").style.display = "block";
 	current_screen.on_load();
+	turn_off_on();
 
 }
 
@@ -95,7 +110,7 @@ function replace_element(old_id, new_id)
 	document.getElementById(new_id).style.display = "block";
 	
 	if (new_id == "error_screen")
-		fadein(new_id);
+		fadein(new_id,0.3);
 	else
 		document.getElementById(old_id).style.display = "none";
 
@@ -151,13 +166,39 @@ function fadein(id,seconds)
 	
 }
 
+function changeInfoScreen(title, info, icon){
+	var info_title = document.getElementById("iGuide_info_title");
+	info_title.innerHTML = title;
+	document.getElementById("iGuide_info_container").innerHTML = info;
+	let icondiv = document.getElementById("iGuide_info_icon");
+	switch(icon){
+		case "monument":
+			icondiv.src = "img/Monument.png";
+			break;
+		case "museum":
+			icondiv.src = "img/Museum.png";
+			break;
+		case "shop":
+			icondiv.src = "img/shop.png";
+			break;
+		case "park":
+			icondiv.src = "img/park.png";
+			break;
+	}
+	change_screen("iGuide_info");
+}
+
 function turn_off_on(){
 	switch(power){
 		case 0:
-			power = 1;
-			change_screen("main_menu");
+			document.getElementById("iGo_logo").style.animation = "fade_1 1.5s";
+			setTimeout(function(){
+				power = 1;
+				change_screen("main_menu");
+			},1600);
 			break;
 		case 1:
+			document.getElementById("iGo_logo").style.animation = "";
 			power = 0;
 			change_screen("off");
 			break;
