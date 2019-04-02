@@ -77,7 +77,7 @@ var screens =
 		let places_element = document.getElementById("iGuide_places_near_you");
 		let info_code = "<img class='info_icon' src='img/infoicon.png'>";		
 		for (let i = 0; i < locations.length; i ++){
-			places_element.innerHTML += "<li class='iGuide_place' onclick='changeInfoScreen(\""+ locations[i].title +"\", \""+ locations[i].info + "\");'><marquee direction='scroll'>" + locations[i].title + "</marquee>" + info_code + "</li>";
+			places_element.innerHTML += "<li class='iGuide_place' onclick='changeInfoScreen(\""+ locations[i].title +"\", \""+ locations[i].info + "\", \"" + locations[i].type +"\");'><marquee direction='scroll'>" + locations[i].title + "</marquee>" + info_code + "</li>";
 		}
 	}, function(){document.getElementById("iGuide_places_near_you").innerHTML = "";}, null),
 
@@ -101,6 +101,7 @@ function init()
 	current_screen = screens["off"];
 	document.getElementById("off").style.display = "block";
 	current_screen.on_load();
+	turn_off_on();
 
 }
 
@@ -165,10 +166,25 @@ function fadein(id,seconds)
 	
 }
 
-function changeInfoScreen(title, info){
+function changeInfoScreen(title, info, icon){
 	var info_title = document.getElementById("iGuide_info_title");
 	info_title.innerHTML = title;
 	document.getElementById("iGuide_info_container").innerHTML = info;
+	let icondiv = document.getElementById("iGuide_info_icon");
+	switch(icon){
+		case "monument":
+			icondiv.src = "img/Monument.png";
+			break;
+		case "museum":
+			icondiv.src = "img/Museum.png";
+			break;
+		case "shop":
+			icondiv.src = "img/shop.png";
+			break;
+		case "park":
+			icondiv.src = "img/park.png";
+			break;
+	}
 	change_screen("iGuide_info");
 }
 

@@ -437,21 +437,33 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	position: absolute;
 	top: 5mm;
 	border: 0.2mm solid black;
-	width: 100%;
+	width: 80%;
 	left: -0.2mm;
+	padding-left: 10mm;
 	background-color: lightgrey;
 	font-family: courier;
 	font-size: 12px;
-	height: 5mm;
+	height: 10mm;
+	z-index: -1;
+}
+
+#iGuide_info_icon
+{
+	position: absolute;
+	width: 0.7cm;
+	height: 0.7cm;
+	top: 5.5mm;
+	left: 1mm;
+	z-index: 1;
 }
 
 #iGuide_info_container
 {
 	position: absolute;
-	top: 10mm;
+	top: 12.5mm;
 	border: 0.2mm solid black;
 	width: 100%;
-	height: 3cm;
+	height: 2.75cm;
 	left: -0.2mm;
 	background-color: lightgrey;
 	font-family: courier;
