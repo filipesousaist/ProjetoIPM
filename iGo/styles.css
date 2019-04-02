@@ -1,12 +1,5 @@
 html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
-
-
-
-
-
-
-
 /*power button*/
 
 .power_button
@@ -176,7 +169,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	left: 16mm;
 }
 
-#city_name{
+#city_name {
 	position: absolute;
 	font-family: Arial, Helvetica, sans-serif;
 	left: 50%;
