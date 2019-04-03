@@ -122,7 +122,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	font-weight: bold;
 }
 
-
 /* Right container */
 
 #main_menu_right_container
@@ -191,7 +190,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	transform: translate(-50%, 0);
 }
 
-#degrees{
+#degrees
+{
 	position: absolute;
 	font-family: "Lucida Console", Lucida, monospace;
 	top: 13.5mm;
@@ -220,7 +220,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 #error_msg
 {
-	/*font-family: "Times New Roman", Times, sans-serif;*/
 	font-family: sans-serif;
 	font-size: 11pt;
 	text-align: center;
@@ -455,7 +454,12 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	border-bottom-left-radius: 3mm;
 }
 
-@keyframes fade {
+@keyframes fade_in {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+@keyframes fade_in_out {
 	0%,100% {opacity: 0;}
 	50% {opacity: 1;}
 }

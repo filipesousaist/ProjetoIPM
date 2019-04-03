@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="styles.css">
 		<script src="../util/util.js"></script>
 		<script src="database.js"></script>
-		<script src="script.js"></script>
+		<script src="main.js"></script>
 	</head>
 
 	<body onload="init();">
@@ -29,7 +29,7 @@
 
 				<div id="main_menu_center_container">
 					<div id="city_name">Lisboa</div>
-					<div id="degrees">22&#176 </div>
+					<div id="degrees">22&deg;</div>
 					<img id="weather" src="img/temp_img.svg">
 				</div>
 
@@ -42,6 +42,7 @@
 
 			</div>
 
+			<!-- Ecrã das aplicações -->
 			<div class="screen" id="apps">
 				<div class= "screen_title_container">Apps</div>
 
@@ -61,11 +62,13 @@
 				</div>
 			</div>
 
+			<!-- Ecrã da localização -->
 			<div class="screen" id="location"></div>
 
+			<!-- Ecrã das opções -->
 			<div class="screen" id="options"></div>
 
-
+			<!-- Ecrã principal do iGuide -->
 			<div class="screen" id="iGuide_main">
 				<div class="screen_title_container">iGuide</div>
 				<div id="iGuide_near_you_container">Perto de si:</div>
@@ -73,6 +76,7 @@
 				</ul>
 			</div>
 
+			<!-- Ecrã do iGuide com informações sobre um local -->
 			<div class="screen" id="iGuide_info">
 				<div class="screen_title_container">iGuide</div>
 				<img id = "iGuide_info_icon">
@@ -80,10 +84,12 @@
 				<div id="iGuide_info_container"></div>
 			</div>
 
+			<!-- Ecrã principal do iWay -->
 			<div class="screen" id="iWay_main">
 				<div class="screen_title_container">iWay</div>
 			</div>
 
+			<!-- Ecrã principal do iGroup -->
 			<div class="screen" id="iGroup_main">
 				<div class="screen_title_container">iGroup</div>
 			</div>
