@@ -308,7 +308,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 .screen_title_container
 {
-	position: absolute;
+	position: relative;
 	width: 4.5cm; /* (+ 0.5cm padding_left) = 5cm */
 	height: 4.5mm; /* (+ 0.5mm padding_top) = 5mm */
 	padding-top: 0.5mm;
@@ -436,41 +436,45 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	top: -4.5mm;
 }
 
+#iGuide_info_top
+{
+	position: relative;
+	min-height: 8mm;
+	border: 0.2mm solid black;
+	background-color: lightgrey;
+}
+
 #iGuide_info_title
 {
-	position: absolute;
-	top: 5mm;
-	border: 0.2mm solid black;
-	width: 80%;
-	left: -0.2mm;
-	padding-left: 10mm;
-	background-color: lightgrey;
-	font-family: courier;
-	font-size: 12px;
-	height: 10mm;
-	z-index: -1;
+	position: relative;
+	left: 1cm;
+	width: 3.5cm;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 10pt;
+	padding: 5%;
 }
 
 #iGuide_info_icon
 {
 	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
 	width: 0.7cm;
 	height: 0.7cm;
-	top: 5.5mm;
-	left: 1mm;
-	z-index: 1;
+	padding-left: 2mm;
 }
 
 #iGuide_info_container
 {
-	position: absolute;
-	top: 12.5mm;
+	position: relative;
 	border: 0.2mm solid black;
-	width: 100%;
+	width: calc(100% - 4mm);
 	height: 2.75cm;
 	left: -0.2mm;
+	padding-left: 2mm;
+	padding-right: 2mm;
 	background-color: lightgrey;
-	font-family: courier;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
 	border-bottom-right-radius: 3mm;
 	border-bottom-left-radius: 3mm;

@@ -81,9 +81,9 @@ function go_back()
 function changeInfoScreen(location_name)
 {
 	let location = LOCATIONS[location_name];
+	document.getElementById("iGuide_info_icon").src = LOCATION_TIME_IMG[location.type];
 	document.getElementById("iGuide_info_title").innerHTML = location.title;
 	document.getElementById("iGuide_info_container").innerHTML = location.info;
-	document.getElementById("iGuide_info_icon").src = LOCATION_TIME_IMG[location.type];
 	change_screen("iGuide_info");
 }
 

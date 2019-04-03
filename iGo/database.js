@@ -56,6 +56,13 @@ const LOCATIONS =
     title: "Torre de Belém",
     info: "É bue velho tmb, meu",
     type: "monument"
+  },
+
+  "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo":
+  {
+    title: "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo",
+    info: "Local com uma descrição muito comprida, que ocupa várias linhas no ecrã do iGo",
+    type: "museum"
   }
 }
 
