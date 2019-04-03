@@ -4,6 +4,7 @@
 	<head>
 		<link rel="stylesheet" href="styles.css">
 		<script src="../util/util.js"></script>
+		<script src="database.js"></script>
 		<script src="script.js"></script>
 	</head>
 
@@ -21,11 +22,9 @@
 			<div class="screen" id="main_menu">
 
 				<div id="main_menu_top_container">
-
 					<img class="main_menu_top_icon" id="battery_icon" src="img/battery4.png">
 					<img class="main_menu_top_icon" id="wifi_icon" src="img/wifi2.png">
 					<div id="clock"></div>
-
 				</div>
 
 				<div id="main_menu_center_container">
@@ -35,12 +34,10 @@
 				</div>
 
 				<div id="main_menu_right_container">
-
 					<img class="main_menu_right_icon" id="apps_icon" src="img/apps.png" onclick="change_screen('apps');">
 					<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="change_screen('error_screen');" >
 					<!-- TODO: MyWeb -->
 					<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="change_screen('error_screen');">
-
 				</div>
 
 			</div>
@@ -63,8 +60,6 @@
 					<p class="app_name">iGroup</p>
 				</div>
 			</div>
-
-
 
 			<div class="screen" id="location"></div>
 
