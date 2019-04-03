@@ -1,7 +1,8 @@
-html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
+html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-select: none;}
 
-/* Power button */
-
+/****************
+ * Power button *
+ ****************/
 .power_button
 {
 	position: absolute;
@@ -12,11 +13,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	left: 45.5%;
 }
 
-/**********************
- *****            *****
- *****   SCREEN   *****
- *****            *****
- **********************/
+/**********
+ * Screen *
+ **********/
 
 .screen_container
 {
@@ -38,9 +37,13 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 #screen_container_frame
 {
+	position: absolute;
 	z-index: 3;
-	margin-top: -21.3mm;
-	margin-left: -26.3mm;
+	width: 4.9cm;
+	height: 3.9cm;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 	background-color: transparent;
 	border: 1.3mm solid black;
 	border-radius: 5mm;
@@ -54,6 +57,54 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	height: 100%;
 	display: none;
 	border-radius: 3mm;
+	overflow: hidden;
+}
+
+/***********
+ * BUTTONS *
+ **********/
+
+#buttons_container
+{
+	z-index: 1;
+	position: absolute;
+	background-color: black;
+	top: 50%;
+	left: 50%;
+	margin-left: 2.5cm;
+	width: 2cm;
+	height: 3.9cm;
+	border: 1.3mm solid black;
+	border-radius: 5mm;
+	transform: translate(-50%, -50%);
+}
+
+.button
+{
+	position: absolute;
+	width: 5mm;
+	height: 5mm;
+	padding: 1mm;
+	right: 0.65mm;
+	margin: -3.5mm 0 0 -3.5mm;
+	border: 0.5mm solid lightgrey;
+	background-color: lightgrey;
+	border-radius: 2mm;
+}
+
+.button:active
+{
+	background-color: grey;
+}
+
+#home_button
+{
+	top: 8mm;
+}
+
+#back_button
+{
+	bottom: 4.5mm;
 }
 
 /**************/
@@ -61,7 +112,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 /**************/
 
 #off {
-	background-color: #505050;
+	background-color: #303030;
 }
 
 /* Logo */
@@ -81,15 +132,15 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 /*************/
 
 /* Top container */
+
 #main_menu_top_container
 {
+	z-index: 2;
 	position: absolute;
 	width: 5cm;
 	height: 1cm;
-	top: -0.2mm;
-	left: -0.2mm;
-	background-color: grey;
-	border: 0.2mm solid black;
+	background-color: #4455CC;
+	box-shadow: 0 0.3mm 0.8mm grey;
 	border-top-right-radius: 3mm;
 	border-top-left-radius: 3mm;
 }
@@ -126,13 +177,12 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 
 #main_menu_right_container
 {
+	z-index: 3;
 	position: absolute;
 	width: 1cm;
 	height: 4cm;
-	top: -0.2mm;
-	left: 39.8mm;
-	border: 0.2mm solid black;
-	background-color: lightgrey;
+	left: 40mm;
+	background-color: transparent;
 	border-top-right-radius: 3mm;
 	border-bottom-right-radius: 3mm;
 }
@@ -140,43 +190,56 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 .main_menu_right_icon
 {
 	position: absolute;
-	width: 6mm;
-	height: 6mm;
-	right: 2mm;
+	left: 1mm;
+	width: 5mm;
+	height: 5mm;
+	padding: 1mm;
+	border-radius: 1.5mm;
+	background-color: #EEEEEE;
+	box-shadow: 0 0 2pt gray;
+}
+
+.main_menu_right_icon:active
+{
+	background-color: #BBBBBB;
 }
 
 #apps_icon
 {
-	top: 2mm;
+	top: 1.5mm;
 }
 
 #location_icon
 {
-	top: 12mm;
+	top: 11.5mm;
 }
 
 #options_icon
 {
-	top: 32mm;
+	top: 31.5mm;
 }
 
 /* Center container */
 
-#main_menu_center_container{
+#main_menu_center_container
+{
+	z-index: 1;
 	position: absolute;
 	width: 4cm;
+	padding-right: 1cm;
 	height: 3cm;
 	top: 9.8mm;
-	left: -0.2mm;
-	background: url("img/backgrd.png");
-	border: 0.2mm solid black;
+	background-image: url("img/bg2.jpeg");
+	background-size: cover;
 	border-bottom-left-radius: 3mm;
+	border-bottom-right-radius: 3mm;
 }
 
-#weather{
+#weather
+{
 	position: absolute;
 	height: 70%;
-	width: 70%;
+	width: 60%;
 	top: 8mm;
 	left: 16mm;
 }
@@ -184,7 +247,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 #city_name {
 	position: absolute;
 	font-family: Arial, Helvetica, sans-serif;
-	left: 50%;
+	left: 2cm;
 	top: 3mm;
 	font-size: 18pt;
 	transform: translate(-50%, 0);
@@ -194,8 +257,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 {
 	position: absolute;
 	font-family: "Lucida Console", Lucida, monospace;
-	top: 13.5mm;
-	left: 3.5mm;
+	top: 14mm;
+	left: 4mm;
 	font-size: 28pt;
 }
 
@@ -239,63 +302,23 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
   font-size: 15px;
 }
 
-/***********************
- *****             *****
- *****   BUTTONS   *****
- *****             *****
- ***********************/
-
-#buttons_container
-{
-	z-index: 1;
-	position: absolute;
-	background-color: lightgrey;
-	top: 50%;
-	left: 50%;
-	margin-top: -21.3mm;
-	margin-left: 13.7mm;
-	width: 2cm;
-	height: 4cm;
-	border: 1.3mm solid black;
-	border-radius: 5mm;
-}
-
-.button
-{
-	position: absolute;
-	width: 7mm;
-	height: 7mm;
-	right: 0.8mm;
-	margin: -3.5mm 0 0 -3.5mm;
-}
-
-#home_button
-{
-	top: 8mm;
-}
-
-#back_button
-{
-	bottom: 4.5mm;
-}
-
-/* Screen title container */
+/**************************
+ * Screen title container *
+ **************************/
 
 .screen_title_container
 {
 	position: absolute;
 	width: 4.5cm; /* (+ 0.5cm padding_left) = 5cm */
 	height: 4.5mm; /* (+ 0.5mm padding_top) = 5mm */
-	top: -0.2mm;
-	left: -0.2mm;
 	padding-top: 0.5mm;
 	padding-left: 5mm;
-	background-color: grey;
-	border: 0.2mm solid black;
+	background-color: #4455CC;
+	box-shadow: 0 0.3mm 0.8mm grey;
 	border-top-right-radius: 3mm;
 	border-top-left-radius: 3mm;
-	font-family: courier, sans-serif;
-	font-size: 9pt;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 10pt;
 	font-weight: bold;
 }
 
@@ -340,9 +363,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 .app_name
 {
 	position: absolute;
-	font-family: courier;
-	font-size: 10pt;
-	font-weight: bold;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 12pt;
 	top: 60%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -410,8 +432,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute;}
 	position: relative;
 	width: 0.7cm;
 	height: 0.7cm;
-	left: 3.6cm;
-	top: -5mm;
+	left: 3.8cm;
+	top: -4.5mm;
 }
 
 #iGuide_info_title
