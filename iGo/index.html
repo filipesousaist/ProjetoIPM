@@ -8,12 +8,15 @@
 		<script src="main.js"></script>
 	</head>
 
-	<body onload="init();" onkeyup="handleKeyboard();" ondragstart="return false;">
+	<body onload="init();" onkeyup="handle_keyboard();" ondragstart="return false;">
 		<div id="sidebar">
-			<div id = "ppi_container">
+			<div id="ppi_container">
 				<label id="ppi_label" for="ppi_input">Pixels per inch</label>
-				<input id="ppi_input" type="number" step="0.01" value="">
-				<button id="ppi_button" onclick="resizeScreen();">Resize</button>
+				<input id="ppi_input" type="number" min="0" max="300" step="0.01" placeholder="Inserir ppi">
+				<br>
+				<button id="ppi_button_resize" onclick="resize_screen();">Resize</button>
+				<br>
+				<button id="ppi_button_reset" onclick="reset_screen_size();">Reset to default</button>
 			</div>
 		</div>
 
@@ -25,9 +28,10 @@
 				<!-- Ecrã desligado -->
 				<div class="screen" id="off"></div>
 
-				<!-- Logo -->
-				<div class="screen_logo_container" id="iGo_logo" align="center" ><br>iGo &trade;</div>
+				<!-- Logótipo -->
+				<div id="screen_logo_container" align="center" ><br>iGo &trade;</div>
 
+				<!-- Menu inicial -->
 				<div class="screen" id="main_menu">
 
 					<div id="main_menu_top_container">

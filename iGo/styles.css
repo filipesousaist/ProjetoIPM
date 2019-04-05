@@ -23,7 +23,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-family: Verdana, Geneva, sans-serif;
 }
 
-#ppi_button
+#ppi_button_resize, #ppi_button_reset
 {
 	margin-top: 0.5cm;
 }
@@ -145,7 +145,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 }
 
 /* Logo */
-.screen_logo_container
+#screen_logo_container
 {
 	position: absolute;
 	width: 100%;
@@ -224,7 +224,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	height: 5mm;
 	padding: 1mm;
 	border-radius: 1.5mm;
-	background-color: #EEEEEE;
+	background-color: #F6F6F6;
 	box-shadow: 0 0 2pt gray;
 }
 

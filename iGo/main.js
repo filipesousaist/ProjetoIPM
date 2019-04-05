@@ -5,52 +5,82 @@ var current_screen;
 // Funções diversas //
 //////////////////////
 
-function handleKeyboard(e)
+
+function handle_keyboard(e)
 {
-	if (e.which == 'X'.charCodeAt(0))
+	if (e != undefined && e.which == 'X'.charCodeAt(0))
 		turn_off_on();
 }
 
-function resizeScreen()
+
+function resize_screen()
 {
-	let ppi = document.getElementById("ppi_input").value;
-	document.getElementById("iGo").style.zoom = ppi / (96 * window.devicePixelRatio);
+	let ppi_input = document.getElementById("ppi_input");
+	if (ppi_input.value != "")
+	{
+		if (ppi_input.value > ppi_input.max)
+			ppi_input.value = ppi_input.max;
+		else if (ppi_input.value < ppi_input.min)
+			ppi_input.value = ppi_input.min;
+
+		localStorage.setItem("ppi", ppi_input.value);
+		document.getElementById("iGo").style.zoom = ppi_input.value / (96 * window.devicePixelRatio);
+	}
 }
+
+function reset_screen_size()
+{
+	localStorage.setItem("ppi", -1); // Invalid value
+	document.getElementById("ppi_input").value = "";
+	document.getElementById("iGo").style.zoom = 1;
+}
+
 
 function turn_off_on()
 {
 	if (power)
 	{
-		document.getElementById("iGo_logo").style.animation = "";
-		power = false;
+		document.getElementById("screen_logo_container").style.animation = "";
 		change_screen("off");
 	}
 	else
 	{
-		document.getElementById("iGo_logo").style.animation = "fade_in_out 1.5s";
-		setTimeout(function()
-		{
-			power = true;
-			change_screen("main_menu");
-		}, 1600);
+		document.getElementById("screen_logo_container").style.animation = "fade_in_out 1.5s";
+		setTimeout(function(){change_screen("main_menu");}, 1600);
 	}
+	power = !power;
 }
 
 
 function init()
 {
-	power = false;
-	current_screen = SCREENS["off"];
+	let ppi = localStorage.getItem("ppi");
+
+	if (ppi != -1)
+	{
+		document.getElementById("ppi_input").value = ppi;
+		document.getElementById("iGo").style.zoom = ppi / (96 * window.devicePixelRatio);
+	}
+
 	document.getElementById("off").style.display = "block";
 
+	init_screens();
+
+	current_screen = SCREENS["off"];
+	current_screen.on_load();
+
+	power = false;
+	turn_off_on();
+
+	document.body.addEventListener("keyup", handle_keyboard);
+}
+
+
+function init_screens()
+{
 	for (let s in SCREENS)
 		if (SCREENS[s].on_init != undefined)
 			SCREENS[s].on_init();
-
-	current_screen.on_load();
-	turn_off_on();
-
-	document.body.addEventListener("keyup", handleKeyboard);
 }
 
 
@@ -78,7 +108,6 @@ function replace_element(old_id, new_id)
 
 	if (new_id != "error_screen")
 		document.getElementById(old_id).style.display = "none";
-
 }
 
 
@@ -108,10 +137,9 @@ function update_clock()
 
 	var sep;
 	var main_menu = SCREENS["main_menu"];
-	if (main_menu.blink)
-		sep = "&nbsp";
-	else
-		sep = ":";
+
+	sep = main_menu.blink ? "&nbsp" : ":";
+
 	main_menu.blink = ! main_menu.blink;
 
 	document.getElementById("clock").innerHTML = hours + sep + minutes;
@@ -124,15 +152,17 @@ function fadein(id, seconds)
 	document.getElementById(id).style.animation = "fade_in " + seconds + "s";
 }
 
+
 //////////////////////
 // Funções de ecrãs //
 //////////////////////
+
 
 SCREENS["off"].on_load = function()
 {
 	document.getElementById("home_button").onclick = null;
 	document.getElementById("back_button").onclick = null;
-	document.getElementById("iGo_logo").style.opacity = 0;
+	document.getElementById("screen_logo_container").style.opacity = 0;
 };
 
 
