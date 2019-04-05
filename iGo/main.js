@@ -1,11 +1,21 @@
 var power;
 var current_screen;
 
-
 //////////////////////
 // Funções diversas //
 //////////////////////
 
+function handleKeyboard(e)
+{
+	if (e.which == 'X'.charCodeAt(0))
+		turn_off_on();
+}
+
+function resizeScreen()
+{
+	let ppi = document.getElementById("ppi_input").value;
+	document.getElementById("iGo").style.zoom = ppi / (96 * window.devicePixelRatio);
+}
 
 function turn_off_on()
 {
@@ -39,6 +49,8 @@ function init()
 
 	current_screen.on_load();
 	turn_off_on();
+
+	document.body.addEventListener("keyup", handleKeyboard);
 }
 
 

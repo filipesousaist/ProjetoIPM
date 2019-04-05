@@ -1,16 +1,45 @@
 html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-select: none;}
 
+/***********
+ * Sidebar *
+ ***********/
+
+#sidebar
+{
+	position: fixed;
+	width: 5cm;
+	height: 100%;
+	background-image: linear-gradient(to right bottom, #1c2ff0, #004dec, #2262e3, #4374d6, #6284c6, #6284c6, #6284c6, #6284c6, #4374d6, #2262e3, #004dec, #1c2ff0);
+	text-align: center;
+}
+
+#ppi_container
+{
+	margin-top: 1cm;
+}
+
+#ppi_label
+{
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#ppi_button
+{
+	margin-top: 0.5cm;
+}
+
 /****************
  * Power button *
  ****************/
-.power_button
+#power_button
 {
 	position: absolute;
 	background-color: red;
-	width: 0.45cm;
-	height: 0.4cm;
-	top: 38.7%;
-	left: 45.5%;
+	width: 0.4cm;
+	height: 0.2cm;
+	left: calc(50% - 1.5cm);
+	top: calc(50% - 2cm - 1.3mm);
+	transform: translate(-50%, -50%);
 }
 
 /**********
