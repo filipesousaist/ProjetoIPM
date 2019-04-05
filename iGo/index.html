@@ -11,120 +11,128 @@
 	<body onload="init();" onkeyup="handle_keyboard();" ondragstart="return false;">
 		<div id="sidebar">
 			<div id="ppi_container">
-				<label id="ppi_label" for="ppi_input">Pixels per inch</label>
-				<input id="ppi_input" type="number" min="0" max="300" step="0.01" placeholder="Inserir ppi">
+				<h3>Definições:</h3>
+				<label id="ppi_label" for="ppi_input">Píxeis por polegada</label>
+				<input id="ppi_input" type="number" min="0" max="300" placeholder="Inserir ppi">
 				<br>
-				<button id="ppi_button_resize" onclick="resize_screen();">Resize</button>
+				<button id="ppi_button_resize" onclick="resize_screen();">Ajustar tamanho</button>
 				<br>
-				<button id="ppi_button_reset" onclick="reset_screen_size();">Reset to default</button>
+				<button id="ppi_button_reset" onclick="reset_screen_size();">Repor tamanho</button>
+			</div>
+			<br>
+			<hr class="sidebar_line">
+			<div>
+				<h3>Controlos:</h3>
+				X: Ligar/desligar
+			</div>
+
+		</div>
+		<div id="main">
+			<div id="iGo">
+				<div id="power_button" onclick="turn_off_on();"></div>
+
+				<div class="screen_container" id="screen_container_base">
+
+					<!-- Ecrã desligado -->
+					<div class="screen" id="off"></div>
+
+					<!-- Logótipo -->
+					<div id="screen_logo_container" align="center" ><br>iGo &trade;</div>
+
+					<!-- Menu inicial -->
+					<div class="screen" id="main_menu">
+
+						<div id="main_menu_top_container">
+							<img class="main_menu_top_icon" id="battery_icon" src="img/battery4.png">
+							<img class="main_menu_top_icon" id="wifi_icon" src="img/wifi2.png">
+							<div id="clock"></div>
+						</div>
+
+						<div id="main_menu_center_container">
+							<div id="city_name">Lisboa</div>
+							<div id="degrees">22&deg;</div>
+							<img id="weather" src="img/temp_img.svg">
+						</div>
+
+						<div id="main_menu_right_container">
+							<img class="main_menu_right_icon" id="apps_icon" src="img/apps.png" onclick="change_screen('apps');">
+							<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="change_screen('error_screen');" >
+							<!-- TODO: MyWeb -->
+							<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="change_screen('error_screen');">
+						</div>
+
+					</div>
+
+					<!-- Ecrã das aplicações -->
+					<div class="screen" id="apps">
+						<div class= "screen_title_container">Apps</div>
+
+						<div class="app_container" id="iGuide_container" onclick="change_screen('iGuide_main');" align="center">
+							<img class="app_icon" src="img/book.png">
+							<p class="app_name">iGuide</p>
+						</div>
+
+						<div class="app_container" id="iWay_container" onclick="change_screen('iWay_main');" align="center">
+							<img class="app_icon" src="img/way.png">
+							<p class="app_name">iWay</p>
+						</div>
+
+						<div class="app_container" id="iGroup_container" onclick="change_screen('iGroup_main');" align="center">
+							<img class="app_icon" src="img/group.png">
+							<p class="app_name">iGroup</p>
+						</div>
+					</div>
+
+					<!-- Ecrã da localização -->
+					<div class="screen" id="location"></div>
+
+					<!-- Ecrã das opções -->
+					<div class="screen" id="options"></div>
+
+					<!-- Ecrã principal do iGuide -->
+					<div class="screen" id="iGuide_main">
+						<div class="screen_title_container">iGuide</div>
+						<div id="iGuide_near_you_container">Perto de si:</div>
+						<ul id="iGuide_places_near_you">
+						</ul>
+					</div>
+
+					<!-- Ecrã do iGuide com informações sobre um local -->
+					<div class="screen" id="iGuide_info">
+						<div class="screen_title_container">iGuide</div>
+						<div id="iGuide_info_top">
+							<img id = "iGuide_info_icon">
+							<div id = "iGuide_info_title"></div>
+						</div>
+						<div id="iGuide_info_container"></div>
+					</div>
+
+					<!-- Ecrã principal do iWay -->
+					<div class="screen" id="iWay_main">
+						<div class="screen_title_container">iWay</div>
+					</div>
+
+					<!-- Ecrã principal do iGroup -->
+					<div class="screen" id="iGroup_main">
+						<div class="screen_title_container">iGroup</div>
+					</div>
+
+					<!-- Ecrã de erro -->
+					<div id="error_screen">
+						<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
+						<button class="error_button" onclick="go_back();">Voltar</button>
+					</div>
+				</div>
+
+
+
+				<div class="screen_container" id="screen_container_frame"></div>
+
+				<div id="buttons_container">
+					<img class="button" id="home_button" src="img/home.png" onclick="change_screen('main_menu');">
+					<img class="button" id="back_button" src="img/back.png" onclick="go_back();">
+				</div>
 			</div>
 		</div>
-
-		<div id="iGo">
-			<div id="power_button" onclick="turn_off_on();"></div>
-
-			<div class="screen_container" id="screen_container_base">
-
-				<!-- Ecrã desligado -->
-				<div class="screen" id="off"></div>
-
-				<!-- Logótipo -->
-				<div id="screen_logo_container" align="center" ><br>iGo &trade;</div>
-
-				<!-- Menu inicial -->
-				<div class="screen" id="main_menu">
-
-					<div id="main_menu_top_container">
-						<img class="main_menu_top_icon" id="battery_icon" src="img/battery4.png">
-						<img class="main_menu_top_icon" id="wifi_icon" src="img/wifi2.png">
-						<div id="clock"></div>
-					</div>
-
-					<div id="main_menu_center_container">
-						<div id="city_name">Lisboa</div>
-						<div id="degrees">22&deg;</div>
-						<img id="weather" src="img/temp_img.svg">
-					</div>
-
-					<div id="main_menu_right_container">
-						<img class="main_menu_right_icon" id="apps_icon" src="img/apps.png" onclick="change_screen('apps');">
-						<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="change_screen('error_screen');" >
-						<!-- TODO: MyWeb -->
-						<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="change_screen('error_screen');">
-					</div>
-
-				</div>
-
-				<!-- Ecrã das aplicações -->
-				<div class="screen" id="apps">
-					<div class= "screen_title_container">Apps</div>
-
-					<div class="app_container" id="iGuide_container" onclick="change_screen('iGuide_main');" align="center">
-						<img class="app_icon" src="img/book.png">
-						<p class="app_name">iGuide</p>
-					</div>
-
-					<div class="app_container" id="iWay_container" onclick="change_screen('iWay_main');" align="center">
-						<img class="app_icon" src="img/way.png">
-						<p class="app_name">iWay</p>
-					</div>
-
-					<div class="app_container" id="iGroup_container" onclick="change_screen('iGroup_main');" align="center">
-						<img class="app_icon" src="img/group.png">
-						<p class="app_name">iGroup</p>
-					</div>
-				</div>
-
-				<!-- Ecrã da localização -->
-				<div class="screen" id="location"></div>
-
-				<!-- Ecrã das opções -->
-				<div class="screen" id="options"></div>
-
-				<!-- Ecrã principal do iGuide -->
-				<div class="screen" id="iGuide_main">
-					<div class="screen_title_container">iGuide</div>
-					<div id="iGuide_near_you_container">Perto de si:</div>
-					<ul id="iGuide_places_near_you">
-					</ul>
-				</div>
-
-				<!-- Ecrã do iGuide com informações sobre um local -->
-				<div class="screen" id="iGuide_info">
-					<div class="screen_title_container">iGuide</div>
-					<div id="iGuide_info_top">
-						<img id = "iGuide_info_icon">
-						<div id = "iGuide_info_title"></div>
-					</div>
-					<div id="iGuide_info_container"></div>
-				</div>
-
-				<!-- Ecrã principal do iWay -->
-				<div class="screen" id="iWay_main">
-					<div class="screen_title_container">iWay</div>
-				</div>
-
-				<!-- Ecrã principal do iGroup -->
-				<div class="screen" id="iGroup_main">
-					<div class="screen_title_container">iGroup</div>
-				</div>
-
-				<!-- Ecrã de erro -->
-				<div id="error_screen">
-					<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
-					<button class="error_button" onclick="go_back();">Voltar</button>
-				</div>
-			</div>
-
-
-
-			<div class="screen_container" id="screen_container_frame"></div>
-
-			<div id="buttons_container">
-				<img class="button" id="home_button" src="img/home.png" onclick="change_screen('main_menu');">
-				<img class="button" id="back_button" src="img/back.png" onclick="go_back();">
-			</div>
-		</div>
-
 	</body>
 </html>

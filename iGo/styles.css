@@ -13,19 +13,35 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	text-align: center;
 }
 
-#ppi_container
-{
-	margin-top: 1cm;
-}
-
-#ppi_label
+#sidebar div
 {
 	font-family: Verdana, Geneva, sans-serif;
 }
 
-#ppi_button_resize, #ppi_button_reset
+.sidebar_line
+{
+	width: 80%;
+	height: 1px;
+	background-color: black;
+	border: none;
+}
+
+#ppi_container, #ppi_button_resize, #ppi_button_reset
 {
 	margin-top: 0.5cm;
+}
+
+#ppi_input
+{
+	margin-top: 0.2cm;
+}
+
+#main
+{
+	position: absolute;
+	left: 5cm;
+	width: calc(100% - 5cm);
+	height: 100%;
 }
 
 /****************
@@ -37,7 +53,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	background-color: red;
 	width: 0.4cm;
 	height: 0.2cm;
-	left: calc(50% - 1.5cm);
+	left: calc(50% - 2cm);
 	top: calc(50% - 2cm - 1.3mm);
 	transform: translate(-50%, -50%);
 }
@@ -59,7 +75,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 {
 	z-index: 2;
 	margin-top: -2cm;
-	margin-left: -2.5cm;
+	margin-left: -3cm;
 	background-color: white;
 	border-radius: 3mm;
 }
@@ -72,7 +88,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	height: 3.9cm;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(calc(-50% - 0.5cm), -50%);
 	background-color: transparent;
 	border: 1.3mm solid black;
 	border-radius: 5mm;
@@ -100,7 +116,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	background-color: black;
 	top: 50%;
 	left: 50%;
-	margin-left: 2.5cm;
+	margin-left: 2cm;
 	width: 2cm;
 	height: 3.9cm;
 	border: 1.3mm solid black;
