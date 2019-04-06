@@ -132,14 +132,14 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	padding: 1mm;
 	right: 0.65mm;
 	margin: -3.5mm 0 0 -3.5mm;
-	border: 0.5mm solid lightgrey;
-	background-color: lightgrey;
+	border: 0.5mm solid #AAAAAA;
+	background-color: #AAAAAA;
 	border-radius: 2mm;
 }
 
 .button:active
 {
-	background-color: grey;
+	background-color: #666666;
 }
 
 #home_button
