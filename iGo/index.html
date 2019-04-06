@@ -129,17 +129,20 @@
 						<div id="payment_title">Métodos de Pagamento</div>
 						<div id="payment_descr">Selecione abaixo o seu método de pagamento de preferência...</div>
 						<img id="add_pm" src="img/plus.svg" onclick="add_payment('paypal');">
+						<img id="delete_pm" src="img/delete.svg" onclick="show_delete_option();">
 						<ul id="payment_list">
-							<li class="payment_box_c">
+							<li class="payment_box_c" id="0">
 								<div class="payment_type">Cartão de Débito</div>
 								<div class="hidden_card">XXXX-XXXX-XXXX-1234</div>
 								<img class="p_info_img" src="img/visa.png">
+								<img id="delete_b" src="img/delete.png" onclick="delete_pm(0);">
 							</li>
-
-							<li class="payment_box_p">
+									
+							<li class="payment_box_p" id="1">
 								<div class="payment_type">Paypal</div>
 								<div class="hidden_card">useremail@emaildomain.com</div>
 								<img class="p_info_img" src="img/paypal.png">
+								<img id="delete_b" src="img/delete.png" onclick="delete_pm(1);">
 							</li>
 						</ul>
 					</div>

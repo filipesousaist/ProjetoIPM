@@ -407,3 +407,28 @@ SCREENS["main_menu"].on_exit = function()
 {
 	clearInterval(SCREENS["main_menu"].timeout);
 };
+
+function show_delete_option()
+{
+	let ul = document.getElementById("payment_list");
+	let items = ul.getElementsByTagName("li");
+	for (var i = 0; i < items.length; ++i)
+	{
+		items[i].getElementsByTagName("img")[1].style.zIndex = "1";
+	}
+
+}
+
+function delete_pm(index)
+{
+	let ul = document.getElementById("payment_list");
+	let item = document.getElementById(index);
+	ul.removeChild(item);
+}
+
+/*case "paypal":
+	new_payment = document.createElement('li');
+	new_payment.setAttribute("class", "payment_box_p");
+	new_payment.innerHTML = "<div class='payment_type'>Paypal</div> <div id='hidden_card'>useremail@emaildomain.com</div> <img class='p_info_img' src='img/paypal.png'>";
+	document.getElementById('payment_list').appendChild(new_payment);
+	break;*/
