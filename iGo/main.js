@@ -332,9 +332,9 @@ SCREENS["iGuide_main"].on_init = function()
 	let places_element = document.getElementById("iGuide_places_near_you");
 	for (let place in LOCATIONS[current_location].places)
 	{
-		let info_img = "<img class='info_icon' src='img/infoicon.png' onclick='changeInfoScreen(\""+ place.name +"\");'>";
+		let info_img = "<img class='info_icon' src='img/infoicon.png' onclick='changeInfoScreen(\""+ place +"\");'>";
 		places_element.innerHTML += "<li class='iGuide_place_frame'><div class='iGuide_place'>" +
-			place.name + "</div>" + info_img + "</li>";
+			place + "</div>" + info_img + "</li>";
 	}
 }
 
