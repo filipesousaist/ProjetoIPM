@@ -72,7 +72,7 @@
 							<p class="app_name">iGuide</p>
 						</div>
 
-						<div class="app_container" id="iWay_container" onclick="change_screen('iWay_main');" align="center">
+						<div class="app_container" id="iWay_container" onclick="change_screen('payment_methods');" align="center">
 							<img class="app_icon" src="img/way.png">
 							<p class="app_name">iWay</p>
 						</div>
@@ -122,6 +122,33 @@
 						<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
 						<button class="error_button" onclick="go_back();">Voltar</button>
 					</div>
+					
+					<!-- Ecrã de métodos de pagamento -->
+					<div class="screen" id="payment_methods">
+						<div id="payment_title">Métodos de Pagamento</div>
+						<div id="payment_descr">Selecione abaixo o seu método de pagamento de preferência...</div>
+						
+						<!-- <img id="add_pm" src="img/plus.svg"> -->
+						
+						<ul id="payment_list">
+						
+							<li class="payment_box" id="credit">
+								<div class="payment_type">Cartão de Débito</div>
+								<div id="hidden_card">XXXX-XXXX-XXXX-1234</div>
+								<img class="p_info_img" src="img/visa.png">
+							</li>
+							
+							<li class="payment_box" id="debit">
+								<div class="payment_type">Paypal</div>
+								<div id="hidden_card">useremail@emaildomain.com</div>
+								<img class="p_info_img" src="img/paypal.png">
+							</li>
+							
+						</ul>
+					</div>
+					
+					
+					
 				</div>
 
 

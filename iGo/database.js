@@ -18,7 +18,9 @@ const SCREENS =
 
   "iGroup_main":  {id: "iGroup_main", parent_id: "apps"},
 
-  "iGuide_info":  {id: "iGuide_info", parent_id: "iGuide_main"}
+  "iGuide_info":  {id: "iGuide_info", parent_id: "iGuide_main"},
+  
+  "payment_methods": {id: "payment_methods"} 
 }
 
 const LOCATIONS =
@@ -72,4 +74,21 @@ const LOCATION_TIME_IMG =
   "museum": "img/museum.png",
   "shop": "img/shop.png",
   "park": "img/park.png"
+}
+
+
+const PAYMENT = 
+{
+	"Paypal":
+	{
+		title: "Paypal",
+		img: "img/paypal.png"
+	},
+	
+	"CreditCard":
+	{
+		title: "Cartão de Crédito",
+		img_visa: "img/visa.png",
+		img_mc: "img/mastercard.png"
+	}
 }
