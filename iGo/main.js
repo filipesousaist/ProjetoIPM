@@ -1,7 +1,7 @@
 const MAX_POS = {x: 1000, y: 750};
-const SPEED_FAST = 20;
-const SPEED_SLOW = 8;
-const MAP_UPDATE_INTERVAL = 100; // Milisegundos
+const SPEED_FAST = 15;
+const SPEED_SLOW = 5;
+const MAP_UPDATE_INTERVAL = 50; // Milisegundos
 
 var power;
 var current_screen;
