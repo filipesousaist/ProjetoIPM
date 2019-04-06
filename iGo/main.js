@@ -351,14 +351,24 @@ SCREENS["error_screen"].on_exit = function()
 }
 
 function add_payment(type)
-{	
+{
 	switch(type)
 	{
-		case "paypal":
-			new_payment = document.createElement('li');
-			new_payment.setAttribute("class", "payment_box_p");
-			new_payment.innerHTML = "<div class='payment_type'>Paypal</div> <div id='hidden_card'>useremail@emaildomain.com</div> <img class='p_info_img' src='img/paypal.png'>";
-			document.getElementById('payment_list').appendChild(new_payment);
-			break;
+	case "paypal":
+		let payment_list_element = document.getElementById("payment_list");
+		payment_list_element.innerHTML +=
+			"<li class='payment_box_p'>" +
+				"<div class='payment_type'>Paypal</div>" +
+				"<div class='hidden_card'>useremail@emaildomain.com</div>" +
+				"<img class='p_info_img' src='img/paypal.png'>" +
+			"</li>";
+		break;
 	}
 }
+
+/*case "paypal":
+	new_payment = document.createElement('li');
+	new_payment.setAttribute("class", "payment_box_p");
+	new_payment.innerHTML = "<div class='payment_type'>Paypal</div> <div id='hidden_card'>useremail@emaildomain.com</div> <img class='p_info_img' src='img/paypal.png'>";
+	document.getElementById('payment_list').appendChild(new_payment);
+	break;*/

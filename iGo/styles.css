@@ -580,68 +580,78 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	overflow-y: scroll;
 }
 
-#payment_methods::-webkit-scrollbar {
-    width: 0px;
+#payment_methods::-webkit-scrollbar
+{
+  width: 0px;
 	background: transparent;
 }
 
-#payment_title{
-	position: absolute;
-	top: 7%;
-	left: 4%;
+#payment_title
+{
+	position: relative;
+	top: 2mm;
+	padding-left: 2mm;
+	padding-right: 2mm;
 	color: white;
 	font-size: 12pt;
 	font-family: Tahoma, Geneva, sans-serif;
 }
 
-#payment_descr{
-	position: absolute;
-	top: 22%;
-	left: 4%;
+#payment_descr
+{
+	position: relative;
+	top: 5mm;
+	padding-left: 2mm;
+	padding-right: 2mm;
 	color: white;
 	font-size: 7pt;
 	font-family: Tahoma, Geneva, sans-serif;
 }
 
-#add_pm{
+#add_pm
+{
 	position: relative;
-	top: 50%;
+	top: 6mm;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, 0);
 	width: 0.5cm;
 	height: 0.5cm;
 	border-radius: 50%;
 	border: 1px solid #ddd;
 }
 
-#add_pm:hover{
+#add_pm:hover
+{
 	box-shadow: 0 0 5px 1px rgba(0, 140, 186, 0.5);
 }
 
-#payment_list{
-	position: absolute;
-	top: 3.2cm;
-	left: 40%;
-	transform: translate(-50%, -50%);
+#payment_list
+{
+	position: relative;
+	padding-left: 0;
+	top: 2mm;
 	list-style: none;
-
 }
 
-.payment_box_c{
+.payment_box_c
+{
 	width: 4.5cm;
 	height: 1cm;
 	border-radius: 2mm;
-	margin:0 0 7px 0;
+	margin-left: 2.5mm;
+	margin-top: 1mm;
 	transition-property: height;
 	transition-duration: 0.5s;
 	background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,79,158,1) 100%);
 }
 
-.payment_box_p{
+.payment_box_p
+{
 	width: 4.5cm;
 	height: 1cm;
 	border-radius: 2mm;
-	margin:0 0 7px 0;
+	margin-left: 2.5mm;
+	margin-top: 1mm;
 	transition-property: height;
 	transition-duration: 0.5s;
 	background: -webkit-linear-gradient(left, rgba(113,206,239,1) 0%, rgba(183,222,237,1) 0%, rgba(17,184,235,1) 98%, rgba(183,222,237,1) 100%);
@@ -651,7 +661,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	height: 1.5cm;
 }
 
-.p_info_img{
+.p_info_img
+{
 	position: relative;
 	width: 0.8cm;
 	height: 0.8cm;
@@ -660,7 +671,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	border-radius: 50%;
 }
 
-.payment_type{
+.payment_type
+{
 	position: relative;
 	font-family: Tahoma, Geneva, sans-serif;
 	color: white;
@@ -670,7 +682,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-weight: bold;
 }
 
-#hidden_card{
+.hidden_card
+{
 	position: relative;
 	color: white;
 	font-family: Tahoma, Geneva, sans-serif;
