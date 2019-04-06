@@ -95,16 +95,15 @@
 					<div class="screen" id="iGuide_main">
 						<div class="screen_title_container">iGuide</div>
 						<div id="iGuide_near_you_container">Perto de si:</div>
-						<ul id="iGuide_places_near_you">
-						</ul>
+						<ul id="iGuide_places_near_you"></ul>
 					</div>
 
 					<!-- Ecrã do iGuide com informações sobre um local -->
 					<div class="screen" id="iGuide_info">
 						<div class="screen_title_container">iGuide</div>
 						<div id="iGuide_info_top">
-							<img id = "iGuide_info_icon">
-							<div id = "iGuide_info_title"></div>
+							<img id="iGuide_info_icon">
+							<div id="iGuide_info_title"></div>
 						</div>
 						<div id="iGuide_info_container"></div>
 					</div>
@@ -142,13 +141,8 @@
 								<div class="hidden_card">useremail@emaildomain.com</div>
 								<img class="p_info_img" src="img/paypal.png">
 							</li>
-
 						</ul>
-
 					</div>
-
-
-
 				</div>
 
 				<div class="screen_container" id="screen_container_frame"></div>
@@ -166,6 +160,8 @@
 				<div id="map">
 					<img id="your_position" src="img/position.png"></img>
 				</div>
+				<br>
+				<button id="go_to_location" onclick="change_location();">Ir</button>
 				<select id="map_locations">
 				</select>
 			</div>
