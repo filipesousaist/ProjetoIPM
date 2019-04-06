@@ -65,10 +65,6 @@ function init_locations()
 	move_directions = {up: false, left: false, down: false, right: false};
 	update_position();
 	setInterval(update_position, MAP_UPDATE_INTERVAL);
-
-	// Obter informações para o menu inicial
-	document.getElementById("city_name").innerHTML = current_location;
-	document.getElementById("degrees").innerHTML = LOCATIONS[current_location].temperature + "&deg;"
 }
 
 function init_screens()
@@ -202,7 +198,9 @@ function change_location()
 	if (new_location != current_location)
 	{
 		current_location = new_location;
-		update_locations();
+		localStorage.setItem("current_location", new_location);
+		update_location();
+		iGuide_update_locations();
 	}
 }
 
@@ -296,6 +294,12 @@ function fadein(id, seconds)
 // Menu inicial //
 //////////////////
 
+function update_location()
+{
+	document.getElementById("city_name").innerHTML = current_location;
+	document.getElementById("degrees").innerHTML = LOCATIONS[current_location].temperature + "&deg;";
+}
+
 function update_clock()
 {
 	var date = new Date();
@@ -316,7 +320,7 @@ function update_clock()
 // iGuide //
 ////////////
 
-function update_locations()
+function iGuide_update_locations()
 {
 	let places_element = document.getElementById("iGuide_places_near_you");
 	places_element.innerHTML = "";
@@ -337,6 +341,11 @@ function changeInfoScreen(place_name)
 	change_screen("iGuide_info");
 }
 
+
+////////////////
+// Pagamentos //
+////////////////
+
 function add_payment(type)
 {
 	switch(type)
@@ -353,14 +362,36 @@ function add_payment(type)
 	}
 }
 
+function show_delete_option()
+{
+	let ul = document.getElementById("payment_list");
+	let items = ul.getElementsByTagName("li");
+	for (var i = 0; i < items.length; ++i)
+	{
+		items[i].getElementsByTagName("img")[1].style.zIndex = "1";
+	}
+}
+
+function delete_pm(index)
+{
+	let ul = document.getElementById("payment_list");
+	let item = document.getElementById(index);
+	ul.removeChild(item);
+}
+
 
 /////////////////////
 // Funções on_init //
 /////////////////////
 
+SCREENS["main_menu"].on_init = function()
+{
+	update_location();
+};
+
 SCREENS["iGuide_main"].on_init = function()
 {
-	update_locations();
+	iGuide_update_locations();
 };
 
 /////////////////////
@@ -407,28 +438,3 @@ SCREENS["main_menu"].on_exit = function()
 {
 	clearInterval(SCREENS["main_menu"].timeout);
 };
-
-function show_delete_option()
-{
-	let ul = document.getElementById("payment_list");
-	let items = ul.getElementsByTagName("li");
-	for (var i = 0; i < items.length; ++i)
-	{
-		items[i].getElementsByTagName("img")[1].style.zIndex = "1";
-	}
-
-}
-
-function delete_pm(index)
-{
-	let ul = document.getElementById("payment_list");
-	let item = document.getElementById(index);
-	ul.removeChild(item);
-}
-
-/*case "paypal":
-	new_payment = document.createElement('li');
-	new_payment.setAttribute("class", "payment_box_p");
-	new_payment.innerHTML = "<div class='payment_type'>Paypal</div> <div id='hidden_card'>useremail@emaildomain.com</div> <img class='p_info_img' src='img/paypal.png'>";
-	document.getElementById('payment_list').appendChild(new_payment);
-	break;*/
