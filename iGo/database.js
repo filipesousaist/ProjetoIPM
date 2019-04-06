@@ -21,52 +21,110 @@ const SCREENS =
   "iGuide_info":  {id: "iGuide_info", parent_id: "iGuide_main"}
 }
 
+const DEFAULT_LOCATION = "Lisboa";
+
 const LOCATIONS =
 {
-  "Parque Eduardo VII":
+  "Lisboa":
   {
-    title: "Parque Eduardo VII",
-    info: "Parque Eduardo VII é o maior parque na zona de Lisboa",
-    type: "park"
+    places:
+    {
+      "Parque Eduardo VII":
+      {
+        name: "Parque Eduardo VII",
+        info: "Parque Eduardo VII é o maior parque na zona de Lisboa",
+        type: "park"
+      },
+
+      "Shopping Amoreiras":
+      {
+        name: "Shopping Amoreiras",
+        info: "Shopping Amoreiras é um Shopping bue grande",
+        type: "shop"
+      },
+
+    	"Instituto Gulbenkian":
+      {
+        name: "Instituto Gulbenkian",
+        info: "Instituto Gulbenkian é bue fixe",
+        type: "museum"
+      },
+
+    	"Padrão dos Descobrimentos":
+      {
+        name: "Padrão dos Descobrimentos",
+        info: "É bue velho, meu",
+        type: "monument"
+      },
+
+    	"Torre de Belém":
+      {
+        name: "Torre de Belém",
+        info: "É bue velho tmb, meu",
+        type: "monument"
+      },
+
+      "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo":
+      {
+        name: "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo",
+        info: "Local com uma descrição muito comprida, que ocupa várias linhas no ecrã do iGo",
+        type: "museum"
+      }
+    },
+    temperature: 22
   },
 
-  "Shopping Amoreiras":
+  "Londres":
   {
-    title: "Shopping Amoreiras",
-    info: "Shopping Amoreiras é um Shopping bue grande",
-    type: "shop"
+    places:
+    {
+      "Big Ben":
+      {
+        name: "Big Ben",
+        info: "",
+        type: "monument"
+      },
+
+      "Palácio de Buckingham":
+      {
+        name: "Palácio de Buckingham",
+        info: "",
+        type: "monument"
+      }
+    },
+    temperature: 12
   },
 
-	"Instituto Gulbenkian":
+  "Paris":
   {
-    title: "Instituto Gulbenkian",
-    info: "Instituto Gulbenkian é bue fixe",
-    type: "museum"
-  },
+    places:
+    {
+      "Torre Eiffel":
+      {
+        name: "Torre Eiffel",
+        info: "",
+        type: "monument"
+      },
 
-	"Padrão dos Descobrimentos":
-  {
-    title: "Padrão dos Descobrimentos",
-    info: "É bue velho, meu",
-    type: "monument"
-  },
+      "Arco do Triunfo":
+      {
+        name: "Arco do Triunfo",
+        info: "",
+        type: "monument"
+      },
 
-	"Torre de Belém":
-  {
-    title: "Torre de Belém",
-    info: "É bue velho tmb, meu",
-    type: "monument"
-  },
-
-  "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo":
-  {
-    title: "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo",
-    info: "Local com uma descrição muito comprida, que ocupa várias linhas no ecrã do iGo",
-    type: "museum"
+      "Louvre":
+      {
+        name: "Louvre",
+        info: "",
+        type: "museum"
+      }
+    },
+    temperature: 15
   }
 }
 
-const LOCATION_TIME_IMG =
+const PLACE_TYPE_IMG =
 {
   "monument": "img/monument.png",
   "museum": "img/museum.png",

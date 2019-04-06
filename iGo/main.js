@@ -1,17 +1,120 @@
+const MAX_POS = {x: 1000, y: 750};
+const SPEED_FAST = 20;
+const SPEED_SLOW = 8;
+const MAP_UPDATE_INTERVAL = 100; // Milisegundos
+
 var power;
 var current_screen;
+var current_location;
+
+var current_position;
+var current_speed;
+var move_directions;
+
 
 //////////////////////
 // Funções diversas //
 //////////////////////
 
 
-function handle_keyboard(e)
+function handle_key_up(e)
 {
-	if (e != undefined && e.which == 'X'.charCodeAt(0))
+	if (e == undefined)
+		return;
+
+	switch (e.key)
+	{
+	case "x":
 		turn_off_on();
+		break;
+
+	case "w":
+	case "ArrowUp":
+		move_directions.up = false;
+		break;
+
+	case "a":
+	case "ArrowLeft":
+		move_directions.left = false;
+		break;
+
+	case "s":
+	case "ArrowDown":
+		move_directions.down = false;
+		break;
+
+	case "d":
+	case "ArrowRight":
+		move_directions.right = false;
+		break;
+
+	case "Shift":
+		current_speed = SPEED_FAST;
+		break;
+	}
 }
 
+function handle_key_down(e)
+{
+	if (e == undefined)
+		return;
+
+	// Mapa
+	switch (e.key)
+	{
+	case "w":
+	case "ArrowUp":
+		move_directions.up = true;
+		break;
+
+	case "a":
+	case "ArrowLeft":
+		move_directions.left = true;
+		break;
+
+	case "s":
+	case "ArrowDown":
+		move_directions.down = true;
+		break;
+
+	case "d":
+	case "ArrowRight":
+		move_directions.right = true;
+		break;
+
+	case "Shift":
+		current_speed = SPEED_SLOW;
+		break;
+	}
+}
+
+function update_map()
+{
+	let map_element = document.getElementById("map");
+	let position_element = document.getElementById("your_position");
+
+	if (move_directions.up)
+		current_position.y -= current_speed;
+	if (move_directions.left)
+		current_position.x -= current_speed;
+	if (move_directions.down)
+		current_position.y += current_speed;
+	if (move_directions.right)
+		current_position.x += current_speed;
+
+	if (current_position.x > MAX_POS.x)
+		current_position.x = MAX_POS.x;
+	else if (current_position.x < 0)
+		current_position.x = 0;
+
+	if (current_position.y > MAX_POS.y)
+		current_position.y = MAX_POS.y;
+	else if (current_position.y < 0)
+		current_position.y = 0;
+
+	position_element.style.left = (current_position.x / MAX_POS.x) * map_element.offsetWidth - position_element.offsetWidth / 2 + "px";
+	position_element.style.top = (current_position.y / MAX_POS.y) * map_element.offsetHeight - position_element.offsetHeight / 2 + "px";
+}
 
 function resize_screen()
 {
@@ -30,7 +133,7 @@ function resize_screen()
 
 function reset_screen_size()
 {
-	localStorage.setItem("ppi", -1); // Invalid value
+	localStorage.setItem("ppi", -1); // Valor inválido
 	document.getElementById("ppi_input").value = "";
 	document.getElementById("iGo").style.zoom = 1;
 }
@@ -54,13 +157,8 @@ function turn_off_on()
 
 function init()
 {
-	let ppi = localStorage.getItem("ppi");
-
-	if (ppi != -1)
-	{
-		document.getElementById("ppi_input").value = ppi;
-		document.getElementById("iGo").style.zoom = ppi / (96 * window.devicePixelRatio);
-	}
+	init_ppi();
+	init_locations();
 
 	document.getElementById("off").style.display = "block";
 
@@ -72,7 +170,44 @@ function init()
 	power = false;
 	turn_off_on();
 
-	document.body.addEventListener("keyup", handle_keyboard);
+	init_keyboard_events();
+}
+
+function init_ppi()
+{
+	let ppi = localStorage.getItem("ppi");
+
+	if (ppi == undefined)
+		localStorage.setItem("ppi", -1);
+	else if (ppi != -1)
+	{
+		document.getElementById("ppi_input").value = ppi;
+		document.getElementById("iGo").style.zoom = ppi / (96 * window.devicePixelRatio);
+	}
+}
+
+function init_locations()
+{
+	// Obter localização atual (variável global)
+	current_location = localStorage.getItem("current_location");
+	if (current_location == undefined)
+		current_location = DEFAULT_LOCATION;
+
+	// Obter informações para o menu inicial
+	document.getElementById("city_name").innerHTML = current_location;
+	document.getElementById("degrees").innerHTML = LOCATIONS[current_location].temperature + "&deg;"
+
+	// Atualizar mapa
+	for (let l in LOCATIONS)
+	{
+		document.getElementById("map_locations").innerHTML +=
+			"<option value='" + l + "'>" + l + "</option>";
+	}
+	current_position = {x: MAX_POS.x / 2, y: MAX_POS.y / 2};
+	current_speed = SPEED_FAST;
+	move_directions = {up: false, left: false, down: false, right: false};
+	update_map();
+	setInterval(update_map, MAP_UPDATE_INTERVAL);
 }
 
 
@@ -83,6 +218,11 @@ function init_screens()
 			SCREENS[s].on_init();
 }
 
+function init_keyboard_events()
+{
+	document.body.addEventListener("keyup", handle_key_up);
+	document.body.addEventListener("keydown", handle_key_down);
+}
 
 function change_screen(new_screen_id)
 {
@@ -119,12 +259,12 @@ function go_back()
 }
 
 
-function changeInfoScreen(location_name)
+function changeInfoScreen(place_name)
 {
-	let location = LOCATIONS[location_name];
-	document.getElementById("iGuide_info_icon").src = LOCATION_TIME_IMG[location.type];
-	document.getElementById("iGuide_info_title").innerHTML = location.title;
-	document.getElementById("iGuide_info_container").innerHTML = location.info;
+	let place = LOCATIONS[current_location].places[place_name];
+	document.getElementById("iGuide_info_icon").src = PLACE_TYPE_IMG[place.type];
+	document.getElementById("iGuide_info_title").innerHTML = place.name;
+	document.getElementById("iGuide_info_container").innerHTML = place.info;
 	change_screen("iGuide_info");
 }
 
@@ -190,11 +330,11 @@ SCREENS["main_menu"].on_exit = function()
 SCREENS["iGuide_main"].on_init = function()
 {
 	let places_element = document.getElementById("iGuide_places_near_you");
-	for (let l in LOCATIONS)
+	for (let place in LOCATIONS[current_location].places)
 	{
-		let info_img = "<img class='info_icon' src='img/infoicon.png' onclick='changeInfoScreen(\""+ l +"\");'>";
+		let info_img = "<img class='info_icon' src='img/infoicon.png' onclick='changeInfoScreen(\""+ place.name +"\");'>";
 		places_element.innerHTML += "<li class='iGuide_place_frame'><div class='iGuide_place'>" +
-			LOCATIONS[l].title + "</div>" + info_img + "</li>";
+			place.name + "</div>" + info_img + "</li>";
 	}
 }
 

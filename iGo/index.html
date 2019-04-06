@@ -8,8 +8,8 @@
 		<script src="main.js"></script>
 	</head>
 
-	<body onload="init();" onkeyup="handle_keyboard();" ondragstart="return false;">
-		<div id="sidebar">
+	<body onload="init();" ondragstart="return false;">
+		<div class="sidebar" id="left_sidebar">
 			<div id="ppi_container">
 				<h3>Definições:</h3>
 				<label id="ppi_label" for="ppi_input">Píxeis por polegada</label>
@@ -19,14 +19,16 @@
 				<br>
 				<button id="ppi_button_reset" onclick="reset_screen_size();">Repor tamanho</button>
 			</div>
+
 			<br>
 			<hr class="sidebar_line">
+
 			<div>
-				<h3>Controlos:</h3>
+				<h3>Controlos do iGo:</h3>
 				X: Ligar/desligar
 			</div>
-
 		</div>
+
 		<div id="main">
 			<div id="iGo">
 				<div id="power_button" onclick="turn_off_on();"></div>
@@ -49,8 +51,8 @@
 						</div>
 
 						<div id="main_menu_center_container">
-							<div id="city_name">Lisboa</div>
-							<div id="degrees">22&deg;</div>
+							<div id="city_name"></div>
+							<div id="degrees"></div>
 							<img id="weather" src="img/temp_img.svg">
 						</div>
 
@@ -124,14 +126,32 @@
 					</div>
 				</div>
 
-
-
 				<div class="screen_container" id="screen_container_frame"></div>
 
 				<div id="buttons_container">
 					<img class="button" id="home_button" src="img/home.png" onclick="change_screen('main_menu');">
 					<img class="button" id="back_button" src="img/back.png" onclick="go_back();">
 				</div>
+			</div>
+		</div>
+
+		<div class="sidebar" id="right_sidebar">
+			<div id="map_container">
+				<h3>Mapa:</h3>
+				<div id="map">
+					<img id="your_position" src="img/position.png"></img>
+				</div>
+				<select id="map_locations">
+				</select>
+			</div>
+			<br>
+			<hr class="sidebar_line">
+
+			<div>
+				<h3>Controlos do mapa:</h3>
+				WASD / setas: Mover pessoa
+				<br>
+				Manter &lt;Shift&gt; premido: Mover lentamente
 			</div>
 		</div>
 	</body>

@@ -1,10 +1,10 @@
 html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-select: none;}
 
-/***********
- * Sidebar *
- ***********/
+/************
+ * Sidebars *
+ ************/
 
-#sidebar
+.sidebar
 {
 	position: fixed;
 	width: 5cm;
@@ -13,7 +13,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	text-align: center;
 }
 
-#sidebar div
+.sidebar div
 {
 	font-family: Verdana, Geneva, sans-serif;
 }
@@ -26,6 +26,14 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	border: none;
 }
 
+/* Left sidebar */
+
+#left_sidebar
+{
+	width: 5cm;
+	background-image: linear-gradient(to right bottom, #1c2ff0, #004dec, #2262e3, #4374d6, #6284c6, #6284c6, #6284c6, #6284c6, #4374d6, #2262e3, #004dec, #1c2ff0);
+}
+
 #ppi_container, #ppi_button_resize, #ppi_button_reset
 {
 	margin-top: 0.5cm;
@@ -36,17 +44,47 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	margin-top: 0.2cm;
 }
 
+/* Right sidebar */
+
+#right_sidebar
+{
+	right: 0;
+	width: 10cm;
+	background-image: linear-gradient(to right bottom, #f29d1a, #f5b01f, #f6c228, #f6d535, #f5e744, #f5e744, #f5e744, #f5e744, #f6d535, #f6c228, #f5b01f, #f29d1a);
+}
+
+#map
+{
+	position: relative;
+	display: inline-block;
+	width: 8cm;
+	height: 6cm;
+	background-color: lightgray;
+}
+
+#your_position
+{
+	position: absolute;
+	width: 5mm;
+	height: 5mm;
+}
+
+/********
+ * Main *
+ ********/
+
 #main
 {
 	position: absolute;
 	left: 5cm;
-	width: calc(100% - 5cm);
+	width: calc(100% - 15cm);
 	height: 100%;
 }
 
 /****************
  * Power button *
  ****************/
+
 #power_button
 {
 	position: absolute;
@@ -367,7 +405,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-weight: bold;
 }
 
-/* Apps menu */
+
+/*************
+ * Apps menu *
+ *************/
 
 .app_container
 {
@@ -415,7 +456,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	transform: translate(-50%, -50%);
 }
 
-/* iGuide */
+/***************
+ * iGuide main *
+ ***************/
 
 #iGuide_near_you_container
 {
@@ -481,6 +524,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	top: -4.5mm;
 }
 
+/**********************
+ * iGuide info screen *
+ **********************/
+
 #iGuide_info_top
 {
 	position: relative;
@@ -525,6 +572,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	border-bottom-left-radius: 3mm;
 }
 
+/********
+ * Fade *
+ ********/
+
 @keyframes fade_in {
 	0% {opacity: 0;}
 	100% {opacity: 1;}
@@ -535,7 +586,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	50% {opacity: 1;}
 }
 
-/* CUSTOM SCROLLBAR */
+/********************
+ * Custom scrollbar *
+ ********************/
+
 ::-webkit-scrollbar {
   width: 3mm;
 }
