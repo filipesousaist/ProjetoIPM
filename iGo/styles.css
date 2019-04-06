@@ -604,7 +604,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 }
 
 #add_pm{
-	position: absolute;
+	position: relative;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -620,20 +620,31 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 #payment_list{
 	position: absolute;
-	top: 2.8cm;
+	top: 3.2cm;
 	left: 40%;
 	transform: translate(-50%, -50%);
 	list-style: none;
 
 }
 
-.payment_box{
+.payment_box_c{
 	width: 4.5cm;
 	height: 1cm;
 	border-radius: 2mm;
 	margin:0 0 7px 0;
 	transition-property: height;
 	transition-duration: 0.5s;
+	background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,79,158,1) 100%);
+}
+
+.payment_box_p{
+	width: 4.5cm;
+	height: 1cm;
+	border-radius: 2mm;
+	margin:0 0 7px 0;
+	transition-property: height;
+	transition-duration: 0.5s;
+	background: -webkit-linear-gradient(left, rgba(113,206,239,1) 0%, rgba(183,222,237,1) 0%, rgba(17,184,235,1) 98%, rgba(183,222,237,1) 100%);
 }
 
 .payment_box:click {
@@ -666,14 +677,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-size: 6.5pt;
 	top: 1mm;
 	left: 2mm;
-}
-
-#credit{
-	background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,79,158,1) 100%);
-}
-
-#debit{
-	background: -webkit-linear-gradient(left, rgba(113,206,239,1) 0%, rgba(183,222,237,1) 0%, rgba(17,184,235,1) 98%, rgba(183,222,237,1) 100%);
 }
 
 /********

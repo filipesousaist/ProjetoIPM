@@ -129,24 +129,23 @@
 					<div class="screen" id="payment_methods">
 						<div id="payment_title">Métodos de Pagamento</div>
 						<div id="payment_descr">Selecione abaixo o seu método de pagamento de preferência...</div>
-						
-						<!-- <img id="add_pm" src="img/plus.svg"> -->
-						
+						<img id="add_pm" src="img/plus.svg" onclick="add_payment('paypal');">
 						<ul id="payment_list">
 						
-							<li class="payment_box" id="credit">
+							<li class="payment_box_c">
 								<div class="payment_type">Cartão de Débito</div>
 								<div id="hidden_card">XXXX-XXXX-XXXX-1234</div>
 								<img class="p_info_img" src="img/visa.png">
 							</li>
 							
-							<li class="payment_box" id="debit">
+							<li class="payment_box_p">
 								<div class="payment_type">Paypal</div>
 								<div id="hidden_card">useremail@emaildomain.com</div>
 								<img class="p_info_img" src="img/paypal.png">
 							</li>
 							
 						</ul>
+						
 					</div>
 					
 					

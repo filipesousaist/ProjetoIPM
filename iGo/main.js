@@ -349,3 +349,16 @@ SCREENS["error_screen"].on_exit = function()
 {
 	document.getElementById("error_screen").style.animation = "";
 }
+
+function add_payment(type)
+{	
+	switch(type)
+	{
+		case "paypal":
+			new_payment = document.createElement('li');
+			new_payment.setAttribute("class", "payment_box_p");
+			new_payment.innerHTML = "<div class='payment_type'>Paypal</div> <div id='hidden_card'>useremail@emaildomain.com</div> <img class='p_info_img' src='img/paypal.png'>";
+			document.getElementById('payment_list').appendChild(new_payment);
+			break;
+	}
+}
