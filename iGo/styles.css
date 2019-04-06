@@ -612,7 +612,19 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 {
 	position: relative;
 	top: 6mm;
-	left: 50%;
+	left: 40%;
+	transform: translate(-50%, 0);
+	width: 0.5cm;
+	height: 0.5cm;
+	border-radius: 50%;
+	border: 1px solid #ddd;
+}
+
+#delete_pm
+{
+	position: relative;
+	top: 6mm;
+	left: 48%;
 	transform: translate(-50%, 0);
 	width: 0.5cm;
 	height: 0.5cm;
@@ -621,6 +633,11 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 }
 
 #add_pm:hover
+{
+	box-shadow: 0 0 5px 1px rgba(0, 140, 186, 0.5);
+}
+
+#delete_pm:hover
 {
 	box-shadow: 0 0 5px 1px rgba(0, 140, 186, 0.5);
 }
@@ -690,6 +707,16 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-size: 6.5pt;
 	top: 1mm;
 	left: 2mm;
+}
+
+#delete_b {
+    position: relative;
+    width: 0.8cm;
+    height: 0.8cm;
+    left: 2.599cm;
+    top: -5.4mm;
+    border-radius: 50%;
+	z-index: -1;
 }
 
 /********

@@ -366,6 +366,24 @@ function add_payment(type)
 	}
 }
 
+function show_delete_option()
+{	
+	let ul = document.getElementById("payment_list");
+	let items = ul.getElementsByTagName("li");
+	for (var i = 0; i < items.length; ++i)
+	{
+		items[i].getElementsByTagName("img")[1].style.zIndex = "1";
+	}
+	
+}
+
+function delete_pm(index)
+{
+	let ul = document.getElementById("payment_list");
+	let item = document.getElementById(index);
+	ul.removeChild(item);
+}
+
 /*case "paypal":
 	new_payment = document.createElement('li');
 	new_payment.setAttribute("class", "payment_box_p");
