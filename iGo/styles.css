@@ -484,7 +484,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	height: 3cm;
 	list-style: none;
 	overflow-x: hidden;
-	overflow-y: scroll;
 	margin-top: 0;
 	padding-left: 0;
 	background-color: #DDDDDD;
@@ -570,6 +569,111 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-size: 13px;
 	border-bottom-right-radius: 3mm;
 	border-bottom-left-radius: 3mm;
+}
+
+/**************
+ * Pagamentos *
+ **************/
+
+#payment_methods{
+	background-color: 	#191970;
+	overflow-y: scroll;
+}
+
+#payment_methods::-webkit-scrollbar {
+    width: 0px;
+	background: transparent;
+}
+
+#payment_title{
+	position: absolute;
+	top: 7%;
+	left: 4%;
+	color: white;
+	font-size: 12pt;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+#payment_descr{
+	position: absolute;
+	top: 22%;
+	left: 4%;
+	color: white;
+	font-size: 7pt;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+#add_pm{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 0.5cm;
+	height: 0.5cm;
+	border-radius: 50%;
+	border: 1px solid #ddd;
+}
+
+#add_pm:hover{
+	box-shadow: 0 0 5px 1px rgba(0, 140, 186, 0.5);
+}
+
+#payment_list{
+	position: absolute;
+	top: 2.8cm;
+	left: 40%;
+	transform: translate(-50%, -50%);
+	list-style: none;
+
+}
+
+.payment_box{
+	width: 4.5cm;
+	height: 1cm;
+	border-radius: 2mm;
+	margin:0 0 7px 0;
+	transition-property: height;
+	transition-duration: 0.5s;
+}
+
+.payment_box:click {
+	height: 1.5cm;
+}
+
+.p_info_img{
+	position: relative;
+	width: 0.8cm;
+	height: 0.8cm;
+	left: 3.5cm;
+	top: -5.4mm;
+	border-radius: 50%;
+}
+
+.payment_type{
+	position: relative;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: white;
+	font-size: 9pt;
+	top:1mm;
+	left: 2mm;
+	font-weight: bold;
+}
+
+#hidden_card{
+	position: relative;
+	color: white;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 6.5pt;
+	top: 1mm;
+	left: 2mm;
+}
+
+#credit{
+	background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,79,158,1) 100%);
+}
+
+#debit{
+	background: -webkit-linear-gradient(left, rgba(113,206,239,1) 0%, rgba(183,222,237,1) 0%, rgba(17,184,235,1) 98%, rgba(183,222,237,1) 100%);
 }
 
 /********
