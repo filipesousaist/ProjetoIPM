@@ -450,7 +450,7 @@ function add_payment(type)
 		payment_list_element.innerHTML +=
 			"<li class='payment_box_p' id=\""+ saved_payment_methods +"\">" +
 				"<div class='payment_type'>Paypal</div>" +
-				"<div class='hidden_card'>useremail@emaildomain.com</div>" +
+				"<div class='hidden_card'>" + document.getElementById("paypal_email").value + "</div>" +
 				"<img class='p_info_img' src='img/paypal.png'>" +
 				"<img id='delete_b' src='img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
 			"</li>";
@@ -492,6 +492,31 @@ function delete_pm(id)
 	if(document.querySelectorAll("#payment_list li").length == 0) document.getElementById("empty_pm").style.display = "block";
 }
 
+function payment_form(id)
+{	
+	if(current_screen.id == "add_payment"){
+		
+		document.getElementById(id).style.animation = "increase_size 1s";
+		document.getElementById(id).style.height = "4.1cm";
+		if( id == "add_payment_list_paypal")
+			fadein('add_payment_form_paypal',1.5);
+		else fadein('add_payment_form_card',1.5);
+	}
+}
+
+ function fill_paypal()
+ {
+	 document.getElementById("paypal_email").value = "exemplo@gmail.com";
+	 document.getElementById("paypal_pw").value = "123abc";
+	 
+ }
+ 
+ function fill_card()
+ {
+	 document.getElementById("card_number").value = "1234 5678 1234 1234";
+	 document.getElementById("card_date").value = "12/09";
+	 document.getElementById("card_cvv").value = "123";
+ }
 
 /////////////////////
 // Funções on_init //
@@ -545,4 +570,17 @@ SCREENS["error_screen"].on_exit = function()
 SCREENS["main_menu"].on_exit = function()
 {
 	clearInterval(SCREENS["main_menu"].timeout);
+};
+
+SCREENS["add_payment"].on_exit = function()
+{	
+	document.getElementById("add_payment_list_paypal").style.height = "1cm";
+	document.getElementById("add_payment_list_paypal").style.animation = "";
+	document.getElementById("add_payment_form_paypal").style.opacity = "0";
+	document.getElementById("add_payment_form_paypal").style.animation = "";
+	
+	document.getElementById("add_payment_list_card").style.height = "1cm";
+	document.getElementById("add_payment_list_card").style.animation = "";
+	document.getElementById("add_payment_form_card").style.opacity = "0";
+	document.getElementById("add_payment_form_card").style.animation = "";
 };
