@@ -768,6 +768,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
     top: 4mm;
     border-radius: 2mm;
     border: none;
+	width: 4.1cm;
 }
 
 #paypal_pw_title, #card_date_title{
@@ -785,6 +786,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
     top: 6mm;
     border-radius: 2mm;
     border: none;
+	width: 4.1cm;
 }
 
 #card_date{
