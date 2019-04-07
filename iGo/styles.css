@@ -67,6 +67,12 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: absolute;
 	width: 5mm;
 	height: 5mm;
+	z-index: 1;
+}
+
+.map_place_img
+{
+	z-index: 0;
 }
 
 /********

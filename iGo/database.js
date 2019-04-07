@@ -19,8 +19,8 @@ const SCREENS =
   "iGroup_main":  {id: "iGroup_main", parent_id: "apps"},
 
   "iGuide_info":  {id: "iGuide_info", parent_id: "iGuide_main"},
-  
-  "payment_methods": {id: "payment_methods"} 
+
+  "payment_methods": {id: "payment_methods"}
 }
 
 const DEFAULT_LOCATION = "Lisboa";
@@ -35,42 +35,48 @@ const LOCATIONS =
       {
         name: "Parque Eduardo VII",
         info: "Parque Eduardo VII é o maior parque na zona de Lisboa",
-        type: "park"
+        type: "park",
+        position: {x: 50, y: 60}
       },
 
       "Shopping Amoreiras":
       {
         name: "Shopping Amoreiras",
         info: "Shopping Amoreiras é um Shopping bue grande",
-        type: "shop"
+        type: "shop",
+        position: {x: 150, y: 160}
       },
 
     	"Instituto Gulbenkian":
       {
         name: "Instituto Gulbenkian",
         info: "Instituto Gulbenkian é bue fixe",
-        type: "museum"
+        type: "museum",
+        position: {x: 40, y: 400}
       },
 
     	"Padrão dos Descobrimentos":
       {
         name: "Padrão dos Descobrimentos",
         info: "É bue velho, meu",
-        type: "monument"
+        type: "monument",
+        position: {x: 600, y: 420}
       },
 
     	"Torre de Belém":
       {
         name: "Torre de Belém",
         info: "É bue velho tmb, meu",
-        type: "monument"
+        type: "monument",
+        position: {x: 590, y: 100}
       },
 
       "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo":
       {
         name: "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo",
         info: "Local com uma descrição muito comprida, que ocupa várias linhas no ecrã do iGo",
-        type: "museum"
+        type: "museum",
+        position: {x: 870, y: 700}
       }
     },
     temperature: 22
@@ -84,14 +90,16 @@ const LOCATIONS =
       {
         name: "Big Ben",
         info: "",
-        type: "monument"
+        type: "monument",
+        position: {x: 500, y: 160}
       },
 
       "Palácio de Buckingham":
       {
         name: "Palácio de Buckingham",
         info: "",
-        type: "monument"
+        type: "monument",
+        position: {x: 950, y: 330}
       }
     },
     temperature: 12
@@ -105,21 +113,24 @@ const LOCATIONS =
       {
         name: "Torre Eiffel",
         info: "",
-        type: "monument"
+        type: "monument",
+        position: {x: 60, y: 500}
       },
 
       "Arco do Triunfo":
       {
         name: "Arco do Triunfo",
         info: "",
-        type: "monument"
+        type: "monument",
+        position: {x: 150, y: 260}
       },
 
       "Louvre":
       {
         name: "Louvre",
         info: "",
-        type: "museum"
+        type: "museum",
+        position: {x: 350, y: 460}
       }
     },
     temperature: 15
@@ -135,14 +146,14 @@ const PLACE_TYPE_IMG =
 }
 
 
-const PAYMENT = 
+const PAYMENT =
 {
 	"Paypal":
 	{
 		title: "Paypal",
 		img: "img/paypal.png"
 	},
-	
+
 	"CreditCard":
 	{
 		title: "Cartão de Crédito",

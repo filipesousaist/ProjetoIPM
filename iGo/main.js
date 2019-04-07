@@ -1,7 +1,8 @@
 const MAX_POS = {x: 1000, y: 750};
 const SPEED_FAST = 15;
 const SPEED_SLOW = 5;
-const MAP_UPDATE_INTERVAL = 50; // Milisegundos
+const POSITION_UPDATE_INTERVAL = 50; // Milisegundos
+const NEAR_DISTANCE = 100;
 
 var power;
 var current_screen;
@@ -59,12 +60,13 @@ function init_locations()
 			"<option value='" + l + "'>" + l + "</option>";
 	}
 
-	// Atualizar posição no mapa
+	// Atualizar mapa
+	update_map();
 	current_position = {x: MAX_POS.x / 2, y: MAX_POS.y / 2};
 	current_speed = SPEED_FAST;
 	move_directions = {up: false, left: false, down: false, right: false};
 	update_position();
-	setInterval(update_position, MAP_UPDATE_INTERVAL);
+	setInterval(update_position, POSITION_UPDATE_INTERVAL);
 }
 
 function init_screens()
@@ -199,8 +201,34 @@ function change_location()
 	{
 		current_location = new_location;
 		localStorage.setItem("current_location", new_location);
-		update_location();
-		iGuide_update_locations();
+		update_map();
+		update_location(); /* Menu inicial */
+		iGuide_update_locations(); /* iGuide */
+	}
+}
+
+function update_map()
+{
+	let map_element = document.getElementById("map");
+	let places = LOCATIONS[current_location].places;
+
+	let children = map_element.children;
+	for (let i = children.length - 1; i >= 0; i --)
+		if (children[i].class == "map_place_img")
+			map_element.removeChild(children[i]);
+
+	for (let p in places)
+	{
+		location_img = document.createElement("img");
+		location_img.src = "img/location.png";
+		location_img.class = "map_place_img";
+		location_img.title = p;
+		location_img.style.position = "absolute";
+		location_img.style.width = location_img.style.height = "5mm";
+		location_img.style.left = (places[p].position.x / MAX_POS.x) * map_element.offsetWidth - location_img.offsetWidth / 2 + "px";
+		location_img.style.top = (places[p].position.y / MAX_POS.y) * map_element.offsetHeight - location_img.offsetHeight / 2 + "px";
+		location_img.style.transform = "translate(-50%, -50%)";
+		map_element.appendChild(location_img);
 	}
 }
 
