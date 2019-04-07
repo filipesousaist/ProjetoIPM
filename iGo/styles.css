@@ -571,7 +571,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	background-color: lightgrey;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
-
+	overflow-y: scroll;
 }
 
 #iGuide_events_container
