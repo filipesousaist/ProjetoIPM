@@ -476,6 +476,7 @@ function add_payment(type)
 		saved_payment_methods++;
 		break;
 	}
+
 }
 
 function show_delete_option()
@@ -508,6 +509,7 @@ function payment_form(id)
 		if( id == "add_payment_list_paypal")
 			fadein('add_payment_form_paypal',1.5);
 		else fadein('add_payment_form_card',1.5);
+
 	}
 }
 
@@ -557,6 +559,14 @@ SCREENS["main_menu"].on_load = function()
 	update_clock();
 	SCREENS["main_menu"].timeout = setInterval(update_clock, 1000);
 };
+
+SCREENS["payment_methods"].on_load = function()
+{
+	// Keyboard test
+	let keyboard_element = document.getElementById("keyboard");
+	document.getElementById("payment_methods").appendChild(keyboard_element);
+	keyboard_element.style.display = "block";
+}
 
 
 /////////////////////
