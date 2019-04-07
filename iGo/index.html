@@ -153,7 +153,7 @@
 						<div id="empty_pm">Não existem métodos de pagamento guardados.</div>
 						<ul id="payment_list"></ul>
 					</div>
-					
+
 					<!--Adicionar método de pagamento -->
 					<div class="screen" id="add_payment">
 						<div id="payment_title">Ad. Método Pagamento</div>
@@ -180,11 +180,60 @@
 									<input id="card_cvv" type="text" name="cardate">
 									<div id="add_confirm_card" onclick="add_payment('card'); go_back();">Adicionar</div>
 								</div>
-								
+
 							</li>
 						</ul>
 					</div>
-					
+
+					<div id="keyboard">
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row0">
+							<div class="keyboard_button">1</div>
+							<div class="keyboard_button">2</div>
+							<div class="keyboard_button">3</div>
+							<div class="keyboard_button">4</div>
+							<div class="keyboard_button">5</div>
+							<div class="keyboard_button">6</div>
+							<div class="keyboard_button">7</div>
+							<div class="keyboard_button">8</div>
+							<div class="keyboard_button">9</div>
+							<div class="keyboard_button">0</div>
+						</div>
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row1">
+							<div class="keyboard_button">Q</div>
+							<div class="keyboard_button">W</div>
+							<div class="keyboard_button">E</div>
+							<div class="keyboard_button">R</div>
+							<div class="keyboard_button">T</div>
+							<div class="keyboard_button">Y</div>
+							<div class="keyboard_button">U</div>
+							<div class="keyboard_button">I</div>
+							<div class="keyboard_button">O</div>
+							<div class="keyboard_button">P</div>
+						</div>
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row2">
+							<div class="keyboard_button">A</div>
+							<div class="keyboard_button">S</div>
+							<div class="keyboard_button">D</div>
+							<div class="keyboard_button">F</div>
+							<div class="keyboard_button">G</div>
+							<div class="keyboard_button">H</div>
+							<div class="keyboard_button">J</div>
+							<div class="keyboard_button">K</div>
+							<div class="keyboard_button">L</div>
+						</div>
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row3">
+							<div class="keyboard_button">Z</div>
+							<div class="keyboard_button">X</div>
+							<div class="keyboard_button">C</div>
+							<div class="keyboard_button">V</div>
+							<div class="keyboard_button">B</div>
+							<div class="keyboard_button">N</div>
+							<div class="keyboard_button">M</div>
+						</div>
+						<button id="keyboard_row_up" onclick="change_keyboard_row('up');">&#708;</button>
+						<button id="keyboard_row_down" onclick="change_keyboard_row('down');">&#709;</button>
+					</div>
+
 				</div>
 
 				<div class="screen_container" id="screen_container_frame"></div>

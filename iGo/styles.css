@@ -571,7 +571,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	background-color: lightgrey;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
-	
+
 }
 
 #iGuide_events_container
@@ -803,7 +803,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 }
 
 #add_payment_list_title
-{	
+{
 	position: relative;
 	font-family: Tahoma, Geneva, sans-serif;
 	color: white;
@@ -822,10 +822,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
     top: 4mm;
     left: 2mm;
-    color: darkgrey;
+    color: black;
     font-family: Tahoma, Geneva, sans-serif;
-    font-weight: bold;
-    font-size: 10pt;
+    font-size: 9pt;
 }
 
 #paypal_email, #card_number{
@@ -834,16 +833,16 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
     top: 4mm;
     border-radius: 2mm;
     border: none;
+	width: 4.1cm;
 }
 
 #paypal_pw_title, #card_date_title{
 	position: relative;
     top: 6mm;
     left: 2mm;
-    color: darkgrey;
+    color: black;
     font-family: Tahoma, Geneva, sans-serif;
-    font-weight: bold;
-    font-size: 10pt;
+    font-size: 9pt;
 }
 
 #paypal_pw{
@@ -852,6 +851,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
     top: 6mm;
     border-radius: 2mm;
     border: none;
+	width: 4.1cm;
 }
 
 #card_date{
@@ -867,10 +867,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
     top: -3.6mm;
     left: 25mm;
-    color: darkgrey;
+    color: black;
     font-family: Tahoma, Geneva, sans-serif;
-    font-weight: bold;
-    font-size: 10pt;
+    font-size: 9pt;
 }
 
 #card_cvv{
@@ -916,6 +915,87 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
   width: 2cm;
   z-index:3;
 }
+
+/***********
+ * Teclado *
+ ***********/
+
+#keyboard
+{
+	z-index: 4;
+	bottom: 0;
+	height: 12mm;
+	left: 2mm;
+	display: none;
+	background-color: white;
+	border: 0.2mm solid gray;
+}
+
+.keyboard_row
+{
+	position: relative;
+	top: -1mm;
+	left: 4mm;
+}
+
+.keyboard_active
+{
+	height: 4mm;
+}
+
+.keyboard_inactive
+{
+	height: 1.5mm;
+}
+
+.keyboard_button
+{
+	position: relative;
+	width: 3.8mm;
+	margin-left: -1mm;
+	font-family: courier, sans-serif;
+	font-weight: bold;
+	background-image: linear-gradient(to left top, #bbbbbb, #cccccc, #dddddd, #eeeeee, #ffffff);
+	display: inline-block;
+}
+
+.keyboard_active .keyboard_button
+{
+	height: 4mm;
+	margin-top: 2.5mm;
+	font-size: 10pt;
+	color: black;
+}
+
+.keyboard_inactive .keyboard_button
+{
+	height: 1.5mm;
+	font-size: 5pt;
+	color: grey;
+}
+
+#keyboard_row_up
+{
+	position: absolute;
+	width: 3mm;
+	padding: 0;
+	height: 3mm;
+	right: 1mm;
+	bottom: 6mm;
+	font-size: 8pt;
+}
+
+#keyboard_row_down
+{
+	position: absolute;
+	width: 3mm;
+	padding: 0;
+	height: 3mm;
+	right: 1mm;
+	bottom: 1mm;
+	font-size: 8pt;
+}
+
 /********
  * Fade *
  ********/

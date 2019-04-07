@@ -10,6 +10,7 @@ var current_location;
 var current_position;
 var current_speed;
 var move_directions;
+var keyboard_row;
 
 var saved_payment_methods = 0;
 ////////////////////
@@ -98,8 +99,6 @@ function handle_key_up(e)
 	if (e == undefined)
 		return;
 
-	e.preventDefault();
-
 	switch (e.key)
 	{
 	case "x":
@@ -108,21 +107,25 @@ function handle_key_up(e)
 
 	case "w":
 	case "ArrowUp":
+		e.preventDefault();
 		move_directions.up = false;
 		break;
 
 	case "a":
 	case "ArrowLeft":
+		e.preventDefault();
 		move_directions.left = false;
 		break;
 
 	case "s":
 	case "ArrowDown":
+		e.preventDefault();
 		move_directions.down = false;
 		break;
 
 	case "d":
 	case "ArrowRight":
+		e.preventDefault();
 		move_directions.right = false;
 		break;
 
@@ -137,27 +140,29 @@ function handle_key_down(e)
 	if (e == undefined)
 		return;
 
-	e.preventDefault();
-
 	switch (e.key)
 	{
 	case "w":
 	case "ArrowUp":
+		e.preventDefault();
 		move_directions.up = true;
 		break;
 
 	case "a":
 	case "ArrowLeft":
+		e.preventDefault();
 		move_directions.left = true;
 		break;
 
 	case "s":
 	case "ArrowDown":
+		e.preventDefault();
 		move_directions.down = true;
 		break;
 
 	case "d":
 	case "ArrowRight":
+		e.preventDefault();
 		move_directions.right = true;
 		break;
 
@@ -267,13 +272,16 @@ function resize_screen()
 	let ppi_input = document.getElementById("ppi_input");
 	if (ppi_input.value != "")
 	{
-		if (ppi_input.value > ppi_input.max)
-			ppi_input.value = ppi_input.max;
-		else if (ppi_input.value < ppi_input.min)
-			ppi_input.value = ppi_input.min;
+		let value = parseFloat(ppi_input.value);
+		let minValue = parseFloat(ppi_input.min), maxValue = parseFloat(ppi_input.max);
 
-		localStorage.setItem("ppi", ppi_input.value);
-		document.getElementById("iGo").style.zoom = ppi_input.value / (96 * window.devicePixelRatio);
+		if (value > maxValue)
+			ppi_input.value = maxValue;
+		else if (value < minValue)
+			ppi_input.value = minValue;
+
+		localStorage.setItem("ppi", value);
+		document.getElementById("iGo").style.zoom = value / (96 * window.devicePixelRatio);
 	}
 }
 
@@ -509,6 +517,7 @@ function add_payment(type)
 		saved_payment_methods++;
 		break;
 	}
+
 }
 
 function show_delete_option()
@@ -517,30 +526,33 @@ function show_delete_option()
 	let items = ul.getElementsByTagName("li");
 	for (var i = 0; i < items.length; ++i)
 	{
-		console.log(items[i].getElementsByTagName("img")[1].style.zIndex);
-		if(items[i].getElementsByTagName("img")[1].style.zIndex == "-1")
+		if(items[i].getElementsByTagName("img")[1].style.zIndex == "-1"){
+			items[i].getElementsByTagName("img")[0].style.zIndex = "-1";
 			items[i].getElementsByTagName("img")[1].style.zIndex = "1";
-		else
+		} else {
 			items[i].getElementsByTagName("img")[1].style.zIndex = "-1";
+			items[i].getElementsByTagName("img")[0].style.zIndex = "1";
+		}
 	}
 }
 
 function delete_pm(id)
 {
 	var elem = document.getElementById(id);
-    elem.parentNode.removeChild(elem);
+	elem.parentNode.removeChild(elem);
 	if(document.querySelectorAll("#payment_list li").length == 0) document.getElementById("empty_pm").style.display = "block";
 }
 
 function payment_form(id)
-{	
+{
 	if(current_screen.id == "add_payment"){
-		
+
 		document.getElementById(id).style.animation = "increase_size 1s";
 		document.getElementById(id).style.height = "4.1cm";
 		if( id == "add_payment_list_paypal")
 			fadein('add_payment_form_paypal',1.5);
 		else fadein('add_payment_form_card',1.5);
+
 	}
 }
 
@@ -548,15 +560,36 @@ function payment_form(id)
  {
 	 document.getElementById("paypal_email").value = "exemplo@gmail.com";
 	 document.getElementById("paypal_pw").value = "123abc";
-	 
+
  }
- 
+
  function fill_card()
  {
 	 document.getElementById("card_number").value = "1234 5678 1234 1234";
 	 document.getElementById("card_date").value = "12/09";
 	 document.getElementById("card_cvv").value = "123";
  }
+
+
+/////////////
+// Teclado //
+/////////////
+
+function change_keyboard_row(direction)
+{
+	let old_row_element = document.getElementById("keyboard_row" + keyboard_row);
+	old_row_element.classList.remove("keyboard_active");
+	old_row_element.classList.add("keyboard_inactive");
+
+	if (direction == "up")
+		keyboard_row = keyboard_row - 1 >= 0 ? keyboard_row - 1 : 3;
+	else if (direction == "down")
+		keyboard_row = keyboard_row + 1 <= 3 ? keyboard_row + 1 : 0;
+
+	let new_row_element = document.getElementById("keyboard_row" + keyboard_row);
+	new_row_element.classList.remove("keyboard_inactive");
+	new_row_element.classList.add("keyboard_active");
+}
 
 /////////////////////
 // Funções on_init //
@@ -591,6 +624,16 @@ SCREENS["main_menu"].on_load = function()
 	SCREENS["main_menu"].timeout = setInterval(update_clock, 1000);
 };
 
+SCREENS["payment_methods"].on_load = function()
+{
+	// Keyboard test
+	let keyboard_element = document.getElementById("keyboard");
+	document.getElementById("payment_methods").appendChild(keyboard_element);
+	keyboard_element.style.display = "block";
+	keyboard_row = 1;
+	document.getElementById("keyboard_row1").class = "keyboard_row, keyboard_active";
+}
+
 
 /////////////////////
 // Funções on_exit //
@@ -613,14 +656,23 @@ SCREENS["main_menu"].on_exit = function()
 };
 
 SCREENS["add_payment"].on_exit = function()
-{	
+{
 	document.getElementById("add_payment_list_paypal").style.height = "1cm";
 	document.getElementById("add_payment_list_paypal").style.animation = "";
 	document.getElementById("add_payment_form_paypal").style.opacity = "0";
 	document.getElementById("add_payment_form_paypal").style.animation = "";
-	
+
 	document.getElementById("add_payment_list_card").style.height = "1cm";
 	document.getElementById("add_payment_list_card").style.animation = "";
 	document.getElementById("add_payment_form_card").style.opacity = "0";
 	document.getElementById("add_payment_form_card").style.animation = "";
+
+	document.getElementById("add_payment").scrollTop = 0;
+
+	document.getElementById("paypal_email").value = "";
+	document.getElementById("paypal_pw").value = "";
+
+	document.getElementById("card_number").value = "";
+	document.getElementById("card_date").value = "";
+	document.getElementById("card_cvv").value = "";
 };
