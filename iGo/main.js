@@ -477,18 +477,20 @@ function show_delete_option()
 	let items = ul.getElementsByTagName("li");
 	for (var i = 0; i < items.length; ++i)
 	{
-		console.log(items[i].getElementsByTagName("img")[1].style.zIndex);
-		if(items[i].getElementsByTagName("img")[1].style.zIndex == "-1")
+		if(items[i].getElementsByTagName("img")[1].style.zIndex == "-1"){
+			items[i].getElementsByTagName("img")[0].style.zIndex = "-1";
 			items[i].getElementsByTagName("img")[1].style.zIndex = "1";
-		else
+		} else {
 			items[i].getElementsByTagName("img")[1].style.zIndex = "-1";
+			items[i].getElementsByTagName("img")[0].style.zIndex = "1";
+		}
 	}
 }
 
 function delete_pm(id)
 {
 	var elem = document.getElementById(id);
-    elem.parentNode.removeChild(elem);
+	elem.parentNode.removeChild(elem);
 	if(document.querySelectorAll("#payment_list li").length == 0) document.getElementById("empty_pm").style.display = "block";
 }
 
@@ -583,4 +585,13 @@ SCREENS["add_payment"].on_exit = function()
 	document.getElementById("add_payment_list_card").style.animation = "";
 	document.getElementById("add_payment_form_card").style.opacity = "0";
 	document.getElementById("add_payment_form_card").style.animation = "";
+
+	document.getElementById("add_payment").scrollTop = 0;
+	
+	document.getElementById("paypal_email").value = "";
+	document.getElementById("paypal_pw").value = "";
+	 
+	document.getElementById("card_number").value = "";
+	document.getElementById("card_date").value = "";
+	document.getElementById("card_cvv").value = "";
 };

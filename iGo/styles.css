@@ -757,10 +757,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
     top: 4mm;
     left: 2mm;
-    color: darkgrey;
+    color: black;
     font-family: Tahoma, Geneva, sans-serif;
-    font-weight: bold;
-    font-size: 10pt;
+    font-size: 9pt;
 }
 
 #paypal_email, #card_number{
@@ -775,10 +774,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
     top: 6mm;
     left: 2mm;
-    color: darkgrey;
+    color: black;
     font-family: Tahoma, Geneva, sans-serif;
-    font-weight: bold;
-    font-size: 10pt;
+    font-size: 9pt;
 }
 
 #paypal_pw{
@@ -802,10 +800,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
     top: -3.6mm;
     left: 25mm;
-    color: darkgrey;
+    color: black;
     font-family: Tahoma, Geneva, sans-serif;
-    font-weight: bold;
-    font-size: 10pt;
+    font-size: 9pt;
 }
 
 #card_cvv{
