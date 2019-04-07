@@ -564,15 +564,29 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
 	border: 0.2mm solid black;
 	width: calc(100% - 4mm);
-	height: 2.75cm;
+	height: 2cm;
 	left: -0.2mm;
 	padding-left: 2mm;
 	padding-right: 2mm;
 	background-color: lightgrey;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
-	border-bottom-right-radius: 3mm;
+	
+}
+
+#iGuide_info_bottom_container
+{
+	border: 0.2mm solid black;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 13px;
 	border-bottom-left-radius: 3mm;
+	border-bottom-right-radius: 3mm;
+}
+
+.infobutton{
+	width: 33.3%;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 10px;
 }
 
 /**************

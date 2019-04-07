@@ -417,6 +417,19 @@ function changeInfoScreen(place_name)
 	document.getElementById("iGuide_info_icon").src = PLACE_TYPE_IMG[place.type];
 	document.getElementById("iGuide_info_title").innerHTML = place.name;
 	document.getElementById("iGuide_info_container").innerHTML = place.info;
+	let bottom = document.getElementById("iGuide_info_bottom_container");
+	console.log(place.type);
+	switch(place.type){
+		case("park"):
+			bottom.innerHTML = "<button type='button' class='infobutton'>Descrição</button>" + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>------</button>";
+			break;
+		case("shop"):
+			bottom.innerHTML = "<button type='button' class='infobutton'>Descrição</button>" + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>Lojas</button>";
+			break;
+		case("monument"):
+			bottom.innerHTML = "<button type='button' class='infobutton'>Descrição</button>" + "<button type='button' class='infobutton'>------</button>" + "<button class='infobutton' type='button'>------</button>";
+			break;
+	}
 	change_screen("iGuide_info");
 }
 
