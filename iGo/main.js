@@ -501,10 +501,10 @@ function add_payment(type)
 	case "paypal":
 		let payment_list_element = document.getElementById("payment_list");
 		payment_list_element.innerHTML +=
-			"<li class='payment_box_p' id=\"" + saved_payment_methods + "\" onclick='complete_payment();'>" +
+			"<li class='payment_box_p' id=\"" + saved_payment_methods + "\">" +
 				"<div class='payment_type'>Paypal</div>" +
 				"<div class='hidden_card'>" + document.getElementById("paypal_email").value + "</div>" +
-				"<img class='p_info_img' src='img/paypal.png'>" +
+				"<img class='p_info_img' src='img/paypal.png' onclick='complete_payment();'>" +
 				"<img id='delete_b' src='img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
 			"</li>";
 		saved_payment_methods++;
@@ -513,10 +513,10 @@ function add_payment(type)
 	case "card":
 		let payment_list_element_c = document.getElementById("payment_list");
 		payment_list_element_c.innerHTML +=
-			"<li class='payment_box_c' id='"+ saved_payment_methods +"' onclick='complete_payment();'>" +
+			"<li class='payment_box_c' id='"+ saved_payment_methods +"'>" +
 				"<div class='payment_type'>Cartão de Crédito</div>" +
 				"<div class='hidden_card'>XXXX-XXXX-XXXX-1234</div>" +
-				"<img class='p_info_img' src='img/visa.png'>" +
+				"<img class='p_info_img' src='img/visa.png' onclick='complete_payment();'>" +
 				"<img id='delete_b' src='img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
 			"</li>";
 		saved_payment_methods++;
@@ -529,12 +529,15 @@ function show_delete_option()
 {
 	let ul = document.getElementById("payment_list");
 	let items = ul.getElementsByTagName("li");
-	for (var i = 0; i < items.length; ++i)
+	for (let i = 0; i < items.length; ++ i)
 	{
-		if(items[i].getElementsByTagName("img")[1].style.zIndex == "-1"){
+		if (items[i].getElementsByTagName("img")[1].style.zIndex == "-1")
+		{
 			items[i].getElementsByTagName("img")[0].style.zIndex = "-1";
 			items[i].getElementsByTagName("img")[1].style.zIndex = "1";
-		} else {
+		}
+		else
+		{
 			items[i].getElementsByTagName("img")[1].style.zIndex = "-1";
 			items[i].getElementsByTagName("img")[0].style.zIndex = "1";
 		}
@@ -543,21 +546,22 @@ function show_delete_option()
 
 function delete_pm(id)
 {
-	var elem = document.getElementById(id);
+	let elem = document.getElementById(id);
 	elem.parentNode.removeChild(elem);
-	if(document.querySelectorAll("#payment_list li").length == 0) document.getElementById("empty_pm").style.display = "block";
+	if (document.querySelectorAll("#payment_list li").length == 0)
+		document.getElementById("empty_pm").style.display = "block";
 }
 
 function payment_form(id)
 {
-	if(current_screen.id == "add_payment"){
-
+	if (current_screen.id == "add_payment")
+	{
 		document.getElementById(id).style.animation = "increase_size 1s";
 		document.getElementById(id).style.height = "4.1cm";
-		if( id == "add_payment_list_paypal")
+		if (id == "add_payment_list_paypal")
 			fadein('add_payment_form_paypal',1.5);
-		else fadein('add_payment_form_card',1.5);
-
+		else
+			fadein('add_payment_form_card',1.5);
 	}
 }
 
