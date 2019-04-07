@@ -98,8 +98,6 @@ function handle_key_up(e)
 	if (e == undefined)
 		return;
 
-	e.preventDefault();
-
 	switch (e.key)
 	{
 	case "x":
@@ -108,21 +106,25 @@ function handle_key_up(e)
 
 	case "w":
 	case "ArrowUp":
+		e.preventDefault();
 		move_directions.up = false;
 		break;
 
 	case "a":
 	case "ArrowLeft":
+		e.preventDefault();
 		move_directions.left = false;
 		break;
 
 	case "s":
 	case "ArrowDown":
+		e.preventDefault();
 		move_directions.down = false;
 		break;
 
 	case "d":
 	case "ArrowRight":
+		e.preventDefault();
 		move_directions.right = false;
 		break;
 
@@ -137,27 +139,29 @@ function handle_key_down(e)
 	if (e == undefined)
 		return;
 
-	e.preventDefault();
-
 	switch (e.key)
 	{
 	case "w":
 	case "ArrowUp":
+		e.preventDefault();
 		move_directions.up = true;
 		break;
 
 	case "a":
 	case "ArrowLeft":
+		e.preventDefault();
 		move_directions.left = true;
 		break;
 
 	case "s":
 	case "ArrowDown":
+		e.preventDefault();
 		move_directions.down = true;
 		break;
 
 	case "d":
 	case "ArrowRight":
+		e.preventDefault();
 		move_directions.right = true;
 		break;
 
@@ -493,9 +497,9 @@ function delete_pm(id)
 }
 
 function payment_form(id)
-{	
+{
 	if(current_screen.id == "add_payment"){
-		
+
 		document.getElementById(id).style.animation = "increase_size 1s";
 		document.getElementById(id).style.height = "4.1cm";
 		if( id == "add_payment_list_paypal")
@@ -508,9 +512,9 @@ function payment_form(id)
  {
 	 document.getElementById("paypal_email").value = "exemplo@gmail.com";
 	 document.getElementById("paypal_pw").value = "123abc";
-	 
+
  }
- 
+
  function fill_card()
  {
 	 document.getElementById("card_number").value = "1234 5678 1234 1234";
@@ -573,12 +577,12 @@ SCREENS["main_menu"].on_exit = function()
 };
 
 SCREENS["add_payment"].on_exit = function()
-{	
+{
 	document.getElementById("add_payment_list_paypal").style.height = "1cm";
 	document.getElementById("add_payment_list_paypal").style.animation = "";
 	document.getElementById("add_payment_form_paypal").style.opacity = "0";
 	document.getElementById("add_payment_form_paypal").style.animation = "";
-	
+
 	document.getElementById("add_payment_list_card").style.height = "1cm";
 	document.getElementById("add_payment_list_card").style.animation = "";
 	document.getElementById("add_payment_form_card").style.opacity = "0";
