@@ -738,7 +738,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 }
 
 #add_payment_list_title
-{	
+{
 	position: relative;
 	font-family: Tahoma, Geneva, sans-serif;
 	color: white;
@@ -851,6 +851,16 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
   width: 2cm;
   z-index:3;
 }
+
+/***********
+ * Teclado *
+ ***********/
+
+#keyboard
+{
+	display: none;
+}
+
 /********
  * Fade *
  ********/

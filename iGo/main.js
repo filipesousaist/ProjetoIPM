@@ -271,13 +271,16 @@ function resize_screen()
 	let ppi_input = document.getElementById("ppi_input");
 	if (ppi_input.value != "")
 	{
-		if (ppi_input.value > ppi_input.max)
-			ppi_input.value = ppi_input.max;
-		else if (ppi_input.value < ppi_input.min)
-			ppi_input.value = ppi_input.min;
+		let value = parseFloat(ppi_input.value);
+		let minValue = parseFloat(ppi_input.min), maxValue = parseFloat(ppi_input.max);
 
-		localStorage.setItem("ppi", ppi_input.value);
-		document.getElementById("iGo").style.zoom = ppi_input.value / (96 * window.devicePixelRatio);
+		if (value > maxValue)
+			ppi_input.value = maxValue;
+		else if (value < minValue)
+			ppi_input.value = minValue;
+
+		localStorage.setItem("ppi", value);
+		document.getElementById("iGo").style.zoom = value / (96 * window.devicePixelRatio);
 	}
 }
 
