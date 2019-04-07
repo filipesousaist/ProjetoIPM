@@ -172,19 +172,53 @@
 						</ul>
 					</div>
 
-					<div id = "keyboard">
-						<ul class = "keyboard_row" id = "keyboard_row0">
-							<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>0</li>
-						</ul>
-						<ul class = "keyboard_row" id = "keyboard_row1">
-							<li>Q</li><li>W</li><li>E</li><li>R</li><li>T</li><li>Y</li><li>U</li><li>I</li><li>O</li><li>P</li>
-						</ul>
-						<ul class = "keyboard_row" id = "keyboard_row2">
-							<li>A</li><li>S</li><li>D</li><li>F</li><li>G</li><li>H</li><li>J</li><li>K</li><li>L</li>
-						</ul>
-						<ul class = "keyboard_row" id = "keyboard_row3">
-							<li>Z</li><li>X</li><li>C</li><li>V</li><li>B</li><li>N</li><li>M</li>
-						</ul>
+					<div id="keyboard">
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row0">
+							<div class="keyboard_button">1</div>
+							<div class="keyboard_button">2</div>
+							<div class="keyboard_button">3</div>
+							<div class="keyboard_button">4</div>
+							<div class="keyboard_button">5</div>
+							<div class="keyboard_button">6</div>
+							<div class="keyboard_button">7</div>
+							<div class="keyboard_button">8</div>
+							<div class="keyboard_button">9</div>
+							<div class="keyboard_button">0</div>
+						</div>
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row1">
+							<div class="keyboard_button">Q</div>
+							<div class="keyboard_button">W</div>
+							<div class="keyboard_button">E</div>
+							<div class="keyboard_button">R</div>
+							<div class="keyboard_button">T</div>
+							<div class="keyboard_button">Y</div>
+							<div class="keyboard_button">U</div>
+							<div class="keyboard_button">I</div>
+							<div class="keyboard_button">O</div>
+							<div class="keyboard_button">P</div>
+						</div>
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row2">
+							<div class="keyboard_button">A</div>
+							<div class="keyboard_button">S</div>
+							<div class="keyboard_button">D</div>
+							<div class="keyboard_button">F</div>
+							<div class="keyboard_button">G</div>
+							<div class="keyboard_button">H</div>
+							<div class="keyboard_button">J</div>
+							<div class="keyboard_button">K</div>
+							<div class="keyboard_button">L</div>
+						</div>
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row3">
+							<div class="keyboard_button">Z</div>
+							<div class="keyboard_button">X</div>
+							<div class="keyboard_button">C</div>
+							<div class="keyboard_button">V</div>
+							<div class="keyboard_button">B</div>
+							<div class="keyboard_button">N</div>
+							<div class="keyboard_button">M</div>
+						</div>
+						<button id="keyboard_row_up" onclick="change_keyboard_row('up');">&#708;</button>
+						<button id="keyboard_row_down" onclick="change_keyboard_row('down');">&#709;</button>
 					</div>
 
 				</div>

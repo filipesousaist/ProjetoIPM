@@ -859,24 +859,76 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 {
 	z-index: 4;
 	bottom: 0;
-	width: 100%;
+	height: 12mm;
+	left: 2mm;
 	display: none;
-
+	background-color: white;
+	border: 0.2mm solid gray;
 }
 
 .keyboard_row
 {
-	margin: 1mm;
-	list-style: none;
+	position: relative;
+	top: -1mm;
+	left: 4mm;
 }
 
-.keyboard_row li
+.keyboard_active
 {
-	width: 4mm;
-	font-family: courier;
-	background-color: white;
-	border: 0.1mm solid gray;
-	display: inline;
+	height: 4mm;
+}
+
+.keyboard_inactive
+{
+	height: 1.5mm;
+}
+
+.keyboard_button
+{
+	position: relative;
+	width: 3.8mm;
+	margin-left: -1mm;
+	font-family: courier, sans-serif;
+	font-weight: bold;
+	background-image: linear-gradient(to left top, #bbbbbb, #cccccc, #dddddd, #eeeeee, #ffffff);
+	display: inline-block;
+}
+
+.keyboard_active .keyboard_button
+{
+	height: 4mm;
+	margin-top: 2.5mm;
+	font-size: 10pt;
+	color: black;
+}
+
+.keyboard_inactive .keyboard_button
+{
+	height: 1.5mm;
+	font-size: 5pt;
+	color: grey;
+}
+
+#keyboard_row_up
+{
+	position: absolute;
+	width: 3mm;
+	padding: 0;
+	height: 3mm;
+	right: 1mm;
+	bottom: 6mm;
+	font-size: 8pt;
+}
+
+#keyboard_row_down
+{
+	position: absolute;
+	width: 3mm;
+	padding: 0;
+	height: 3mm;
+	right: 1mm;
+	bottom: 1mm;
+	font-size: 8pt;
 }
 
 /********

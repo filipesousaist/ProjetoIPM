@@ -10,6 +10,7 @@ var current_location;
 var current_position;
 var current_speed;
 var move_directions;
+var keyboard_row;
 
 var saved_payment_methods = 0;
 ////////////////////
@@ -529,6 +530,27 @@ function payment_form(id)
 	 document.getElementById("card_cvv").value = "123";
  }
 
+
+/////////////
+// Teclado //
+/////////////
+
+function change_keyboard_row(direction)
+{
+	let old_row_element = document.getElementById("keyboard_row" + keyboard_row);
+	old_row_element.classList.remove("keyboard_active");
+	old_row_element.classList.add("keyboard_inactive");
+
+	if (direction == "up")
+		keyboard_row = keyboard_row - 1 >= 0 ? keyboard_row - 1 : 3;
+	else if (direction == "down")
+		keyboard_row = keyboard_row + 1 <= 3 ? keyboard_row + 1 : 0;
+
+	let new_row_element = document.getElementById("keyboard_row" + keyboard_row);
+	new_row_element.classList.remove("keyboard_inactive");
+	new_row_element.classList.add("keyboard_active");
+}
+
 /////////////////////
 // Funções on_init //
 /////////////////////
@@ -568,6 +590,8 @@ SCREENS["payment_methods"].on_load = function()
 	let keyboard_element = document.getElementById("keyboard");
 	document.getElementById("payment_methods").appendChild(keyboard_element);
 	keyboard_element.style.display = "block";
+	keyboard_row = 1;
+	document.getElementById("keyboard_row1").class = "keyboard_row, keyboard_active";
 }
 
 
