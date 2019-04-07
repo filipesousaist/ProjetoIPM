@@ -621,7 +621,10 @@ function do_write(w)
 	document.getElementById(current_input_id).value += w;
 }
 
-function exit_write_mode(){
+function exit_write_mode()
+{
+	while (keyboard_row != 1)
+		change_keyboard_row("up"); // TODO: Arranjar forma melhor de fazer isto!
 	document.getElementById("keyboard").style.display = "none";
 }
 
@@ -707,4 +710,6 @@ SCREENS["add_payment"].on_exit = function()
 	document.getElementById("card_number").value = "";
 	document.getElementById("card_date").value = "";
 	document.getElementById("card_cvv").value = "";
+
+	exit_write_mode(); // TODO: Arranjar forma melhor de fazer isto!
 };
