@@ -11,8 +11,8 @@ var current_position;
 var current_speed;
 var move_directions;
 var keyboard_row;
-
 var saved_payment_methods = 0;
+
 ////////////////////
 // Inicializações //
 ////////////////////
@@ -501,7 +501,7 @@ function add_payment(type)
 	case "paypal":
 		let payment_list_element = document.getElementById("payment_list");
 		payment_list_element.innerHTML +=
-			"<li class='payment_box_p' id=\""+ saved_payment_methods +"\" onclick='complete_payment();'>" +
+			"<li class='payment_box_p' id=\"" + saved_payment_methods + "\" onclick='complete_payment();'>" +
 				"<div class='payment_type'>Paypal</div>" +
 				"<div class='hidden_card'>" + document.getElementById("paypal_email").value + "</div>" +
 				"<img class='p_info_img' src='img/paypal.png'>" +
@@ -513,7 +513,7 @@ function add_payment(type)
 	case "card":
 		let payment_list_element_c = document.getElementById("payment_list");
 		payment_list_element_c.innerHTML +=
-			"<li class='payment_box_c' id=\""+ saved_payment_methods +"\" onclick='complete_payment();'>" +
+			"<li class='payment_box_c' id='"+ saved_payment_methods +"' onclick='complete_payment();'>" +
 				"<div class='payment_type'>Cartão de Crédito</div>" +
 				"<div class='hidden_card'>XXXX-XXXX-XXXX-1234</div>" +
 				"<img class='p_info_img' src='img/visa.png'>" +
@@ -581,7 +581,7 @@ function payment_form(id)
 		document.getElementById("payment_before").style.opacity = "0";
 		document.getElementById("payment_after").style.opacity = "1";
 	}, 2000);
-	
+
 	setTimeout(function(){
 		change_screen("payment_methods");
 		document.getElementById("payment_before").style.opacity = "1";
@@ -616,8 +616,9 @@ function write_mode(id){
 	document.getElementById("keyboard").style.display = "block";
 }
 
-function do_write(w){
-	document.getElementById(current_input_id).value += w; 
+function do_write(w)
+{
+	document.getElementById(current_input_id).value += w;
 }
 
 function exit_write_mode(){
@@ -659,11 +660,10 @@ SCREENS["main_menu"].on_load = function()
 
 SCREENS["add_payment"].on_load = function()
 {
-	// Keyboard test
-	let keyboard_element = document.getElementById("keyboard");
-	document.getElementById("add_payment").appendChild(keyboard_element);
+	// Keyboard
 	keyboard_row = 1;
-	document.getElementById("keyboard_row1").class = "keyboard_row, keyboard_active";
+	document.getElementById("keyboard_row1").classList.remove("keyboard_inactive");
+	document.getElementById("keyboard_row1").classList.add("keyboard_active");
 }
 
 

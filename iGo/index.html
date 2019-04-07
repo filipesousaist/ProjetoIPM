@@ -184,7 +184,7 @@
 							</li>
 						</ul>
 					</div>
-					
+
 					<!-- Confirmação pagamento -->
 					<div class="screen" id="payment_complete">
 						<div id="payment_title">Processando Pagamento</div>
@@ -206,7 +206,7 @@
 							<div class="keyboard_button" onclick="do_write('7');">7</div>
 							<div class="keyboard_button" onclick="do_write('8');">8</div>
 							<div class="keyboard_button" onclick="do_write('9');">9</div>
-							<div class="keyboard_button" onclick="do_write('10');">0</div>
+							<div class="keyboard_button" onclick="do_write('0');">0</div>
 						</div>
 						<div class="keyboard_row keyboard_inactive" id="keyboard_row1">
 							<div class="keyboard_button" onclick="do_write('Q');">Q</div>
@@ -239,8 +239,8 @@
 							<div class="keyboard_button" onclick="do_write('B');">B</div>
 							<div class="keyboard_button" onclick="do_write('N');">N</div>
 							<div class="keyboard_button" onclick="do_write('M');">M</div>
-							<div class="keyboard_button" onclick="exit_write_mode();">Done</div>
 						</div>
+						<button id="keyboard_done" onclick="exit_write_mode();">&#10003;</button>
 						<button id="keyboard_row_up" onclick="change_keyboard_row('up');">&#708;</button>
 						<button id="keyboard_row_down" onclick="change_keyboard_row('down');">&#709;</button>
 					</div>

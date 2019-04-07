@@ -834,43 +834,44 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
     border-radius: 2mm;
     border: none;
 	width: 4.1cm;
-	
+
 }
 
 #paypal_pw_title, #card_date_title{
 	position: relative;
-    top: 6mm;
-    left: 2mm;
-    color: black;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 9pt;
+  top: 6mm;
+  left: 2mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
 }
 
 #paypal_pw{
 	position: relative;
-    left: 2mm;
-    top: 6mm;
-    border-radius: 2mm;
-    border: none;
+  left: 2mm;
+  top: 6mm;
+  border-radius: 2mm;
+  border: none;
 	width: 4.1cm;
 }
 
 #card_date{
 	position: relative;
-    left: 2mm;
-    top: 6mm;
-    border-radius: 2mm;
-    border: none;
+  left: 2mm;
+  top: 6mm;
+  border-radius: 2mm;
+  border: none;
 	width: 1.5cm;
 }
 
-#card_cvv_title{
+#card_cvv_title
+{
 	position: relative;
-    top: -3.6mm;
-    left: 25mm;
-    color: black;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 9pt;
+  top: -3.6mm;
+  left: 25mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
 }
 
 #card_cvv{
@@ -882,7 +883,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	width: 1.5cm;
 }
 
-#add_confirm_paypal{
+#add_confirm_paypal
+{
   position: relative;
   font-family: Tahoma, Geneva, sans-serif;
   background-color: grey;
@@ -941,21 +943,23 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #keyboard
 {
 	z-index: 4;
+	position: absolute;
+	width: 100%;
+	height: 1cm;
+	left: 0;
 	bottom: 0;
-	height: 9mm;
-	left: 12.7cm;
-	top: 9.5cm;
 	background-color: white;
 	border: 0.2mm solid gray;
-	position: fixed;
 	display: none;
+	border-bottom-left-radius: 3mm;
+	border-bottom-right-radius: 3mm;
 }
 
 .keyboard_row
 {
 	position: relative;
 	top: -2mm;
-	left: 1mm;
+	left: 3.5mm;
 }
 
 .keyboard_active
@@ -994,15 +998,29 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	color: grey;
 }
 
+#keyboard_done
+{
+	position: absolute;
+	width: 3mm;
+	padding: 0;
+	height: 4mm;
+	right: 1mm;
+	bottom: 4.5mm;
+	font-size: 8pt;
+	font-weight: bold;
+	text-align: center;
+}
+
 #keyboard_row_up
 {
 	position: absolute;
 	width: 3mm;
 	padding: 0;
 	height: 3mm;
-	right: -3mm;
-	bottom: 5mm;
+	right: 5mm;
+	bottom: 6.5mm;
 	font-size: 8pt;
+	font-weight: bold;
 }
 
 #keyboard_row_down
@@ -1011,9 +1029,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	width: 3mm;
 	padding: 0;
 	height: 3mm;
-	right: -3mm;
-	bottom: 1mm;
+	right: 5mm;
+	bottom: 2.5mm;
 	font-size: 8pt;
+	font-weight: bold;
 }
 
 /********
