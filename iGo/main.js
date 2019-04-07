@@ -11,6 +11,7 @@ var current_position;
 var current_speed;
 var move_directions;
 
+var saved_payment_methods = 0;
 
 //////////////////////
 // Funções diversas //
@@ -352,16 +353,33 @@ SCREENS["error_screen"].on_exit = function()
 
 function add_payment(type)
 {
+	
+	document.getElementById("empty_pm").style.display = "none";
+	
 	switch(type)
 	{
 	case "paypal":
 		let payment_list_element = document.getElementById("payment_list");
 		payment_list_element.innerHTML +=
-			"<li class='payment_box_p'>" +
+			"<li class='payment_box_p' id=\""+ saved_payment_methods +"\">" +
 				"<div class='payment_type'>Paypal</div>" +
 				"<div class='hidden_card'>useremail@emaildomain.com</div>" +
 				"<img class='p_info_img' src='img/paypal.png'>" +
+				"<img id='delete_b' src='img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
 			"</li>";
+		saved_payment_methods++;
+		break;
+	
+	case "card":
+		let payment_list_element_c = document.getElementById("payment_list");
+		payment_list_element_c.innerHTML +=
+			"<li class='payment_box_c' id=\""+ saved_payment_methods +"\">" +
+				"<div class='payment_type'>Cartão de Crédito</div>" +
+				"<div class='hidden_card'>XXXX-XXXX-XXXX-1234</div>" +
+				"<img class='p_info_img' src='img/visa.png'>" +
+				"<img id='delete_b' src='img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
+			"</li>";
+		saved_payment_methods++;
 		break;
 	}
 }
@@ -372,16 +390,20 @@ function show_delete_option()
 	let items = ul.getElementsByTagName("li");
 	for (var i = 0; i < items.length; ++i)
 	{
-		items[i].getElementsByTagName("img")[1].style.zIndex = "1";
+		console.log(items[i].getElementsByTagName("img")[1].style.zIndex);
+		if(items[i].getElementsByTagName("img")[1].style.zIndex == "-1")
+			items[i].getElementsByTagName("img")[1].style.zIndex = "1";
+		else
+			items[i].getElementsByTagName("img")[1].style.zIndex = "-1";
 	}
 	
 }
 
-function delete_pm(index)
+function delete_pm(id)
 {
-	let ul = document.getElementById("payment_list");
-	let item = document.getElementById(index);
-	ul.removeChild(item);
+	var elem = document.getElementById(id);
+    elem.parentNode.removeChild(elem);
+	if(document.querySelectorAll("#payment_list li").length == 0) document.getElementById("empty_pm").style.display = "block";
 }
 
 /*case "paypal":
