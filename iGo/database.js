@@ -20,6 +20,10 @@ const SCREENS =
 
   "iGuide_info":  {id: "iGuide_info", parent_id: "iGuide_main"},
 
+  "iGuide_events": {id: "iGuide_events", parent_id: "iGuide_info"},
+
+  "iGuide_event_info": {id: "iGuide_event_info", parent_id: "iGuide_events"},
+
   "payment_methods": {id: "payment_methods"},
 
   "add_payment": {id: "add_payment", parent_id: "payment_methods"}
@@ -27,6 +31,14 @@ const SCREENS =
 }
 
 const DEFAULT_LOCATION = "Lisboa";
+
+const EVENTS= {
+  "Ver estrelas no Parque":{
+    name: "Ver estrelas no Parque",
+    info: "Ver estrelas no parque é do caralho",
+    price: "5€"
+  }
+}
 
 const LOCATIONS =
 {
@@ -39,7 +51,8 @@ const LOCATIONS =
         name: "Parque Eduardo VII",
         info: "Parque Eduardo VII é o maior parque na zona de Lisboa",
         type: "park",
-        position: {x: 50, y: 60}
+        position: {x: 50, y: 60},
+        events: ["Ver estrelas no Parque", "FREE MAE DO PEDRO", "FREE MARC"]
       },
 
       "Shopping Amoreiras":
@@ -47,7 +60,8 @@ const LOCATIONS =
         name: "Shopping Amoreiras",
         info: "Shopping Amoreiras é um Shopping bue grande",
         type: "shop",
-        position: {x: 150, y: 160}
+        position: {x: 150, y: 160},
+        events: ["EMPTY"]
       },
 
     	"Instituto Gulbenkian":

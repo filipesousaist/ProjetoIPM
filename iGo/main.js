@@ -403,6 +403,23 @@ function iGuide_update_places()
 	}
 }
 
+function loadEventList(place_name){
+	let events = LOCATIONS[current_location].places[place_name].events;
+	let events_element = document.getElementById("iGuide_events_list");
+	if (events.includes("EMPTY")){
+		events_element.innerHTML= "Não há eventos a decorrer...";
+	}
+	else{
+		events_element.innerHTML = "";
+		console.log(events.length);
+		for(let i = 0; i < events.length; i ++){
+		let info_img = "<img class='info_icon' src='img/infoicon.png'>";
+		events_element.innerHTML += "<li class='iGuide_event_frame'><div class='iGuide_event'>" +
+			events[i]+ "</div>" + info_img + "</li>";
+		}
+	}
+}
+
 function distance(place_name)
 {
 	let place_pos = LOCATIONS[current_location].places[place_name].position;
@@ -418,19 +435,42 @@ function changeInfoScreen(place_name)
 	document.getElementById("iGuide_info_title").innerHTML = place.name;
 	document.getElementById("iGuide_info_container").innerHTML = place.info;
 	let bottom = document.getElementById("iGuide_info_bottom_container");
+	let eventsButton = "<button type='button' class='infobutton'onclick='changeEventsScreen(\""+ place_name +"\");'>Eventos</button>";
+	let emptyButton = "<button type='button' class='infobutton'>------</button>";
 	console.log(place.type);
+	let infoButton = "<button type='button' class='infobutton'>Descrição</button>";
 	switch(place.type){
 		case("park"):
-			bottom.innerHTML = "<button type='button' class='infobutton'>Descrição</button>" + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>------</button>";
+			bottom.innerHTML = infoButton + eventsButton + emptyButton;
 			break;
 		case("shop"):
-			bottom.innerHTML = "<button type='button' class='infobutton'>Descrição</button>" + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>Lojas</button>";
+			bottom.innerHTML = infoButton + eventsButton + "<button class='infobutton' type='button'>Lojas</button>";
 			break;
 		case("monument"):
-			bottom.innerHTML = "<button type='button' class='infobutton'>Descrição</button>" + "<button type='button' class='infobutton'>------</button>" + "<button class='infobutton' type='button'>------</button>";
+			bottom.innerHTML = infoButton + emptyButton + emptyButton;
+			break;
+		case("museum"):
+			bottom.innerHTML = infoButton + emptyButton + emptyButton;
 			break;
 	}
 	change_screen("iGuide_info");
+}
+
+function changeEventsScreen(place_name){
+	let place = LOCATIONS[current_location].places[place_name];
+	document.getElementById("iGuide_events_location").innerHTML = place.name;
+	loadEventList(place_name);
+	let bottom = document.getElementById("iGuide_events_bottom_container");
+	let infoButton = "<button type='button' class='infobutton' onclick='changeInfoScreen(\""+ place_name +"\");'>Descrição</button>";
+	switch(place.type){
+		case("park"):
+			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>------</button>";
+			break;
+		case("shop"):
+			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>Lojas</button>";
+			break;
+	}
+	change_screen("iGuide_events");
 }
 
 
