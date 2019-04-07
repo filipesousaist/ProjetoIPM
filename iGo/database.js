@@ -20,7 +20,10 @@ const SCREENS =
 
   "iGuide_info":  {id: "iGuide_info", parent_id: "iGuide_main"},
   
-  "payment_methods": {id: "payment_methods"} 
+  "payment_methods": {id: "payment_methods"},
+	
+  "add_payment": {id: "add_payment", parent_id: "payment_methods"}
+
 }
 
 const DEFAULT_LOCATION = "Lisboa";

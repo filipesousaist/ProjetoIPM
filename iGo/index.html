@@ -18,6 +18,10 @@
 				<button id="ppi_button_resize" onclick="resize_screen();">Ajustar tamanho</button>
 				<br>
 				<button id="ppi_button_reset" onclick="reset_screen_size();">Repor tamanho</button>
+				<h3>DEBUG</h3>
+				<button id="ppi_button_resize" onclick="fill_paypal();">PREENCHER PAYPAL</button>
+				<br>
+				<button id="ppi_button_resize" onclick="fill_card();">PREENCHER CARTAO</button>
 			</div>
 
 			<br>
@@ -128,11 +132,43 @@
 					<div class="screen" id="payment_methods">
 						<div id="payment_title">Métodos de Pagamento</div>
 						<div id="payment_descr">Selecione abaixo o seu método de pagamento de preferência...</div>
-						<img id="add_pm" src="img/plus.svg" onclick="add_payment('paypal');">
+						<img id="add_pm" src="img/plus.svg" onclick="change_screen('add_payment');">
 						<img id="delete_pm" src="img/delete.svg" onclick="show_delete_option();">
 						<div id="empty_pm">Não existem métodos de pagamento guardados.</div>
 						<ul id="payment_list"></ul>
 					</div>
+					
+					<!--Adicionar método de pagamento -->
+					<div class="screen" id="add_payment">
+						<div id="payment_title">Ad. Método Pagamento</div>
+						<div id="payment_descr">Escolha abaixo o método de pagamento que deseja adicionar.</div>
+						<ul id="add_payment_list">
+							<li id="add_payment_list_paypal" onclick="payment_form('add_payment_list_paypal');">
+								<div id="add_payment_list_title">Paypal</div>
+								<div id="add_payment_form_paypal">
+									<div id="paypal_email_title">Email</div>
+									<input id="paypal_email" type="text" name="email">
+									<div id="paypal_pw_title">Password</div>
+									<input id="paypal_pw" type="password" name="password">
+									<div id="add_confirm_paypal" onclick="add_payment('paypal'); go_back();">Adicionar</div>
+								</div>
+							</li>
+							<li id="add_payment_list_card" onclick="payment_form('add_payment_list_card');">
+								<div id="add_payment_list_title" onclick="">Cartão Débito/Crédito</div>
+								<div id="add_payment_form_card">
+									<div id="card_number_title">Núm. cartão</div>
+									<input id="card_number" type="text" name="cardno">
+									<div id="card_date_title">Data</div>
+									<input id="card_date" type="text" name="cardate">
+									<div id="card_cvv_title">CVV</div>
+									<input id="card_cvv" type="text" name="cardate">
+									<div id="add_confirm_card" onclick="add_payment('card'); go_back();">Adicionar</div>
+								</div>
+								
+							</li>
+						</ul>
+					</div>
+					
 				</div>
 
 				<div class="screen_container" id="screen_container_frame"></div>
