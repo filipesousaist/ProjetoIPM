@@ -98,8 +98,6 @@ function handle_key_up(e)
 	if (e == undefined)
 		return;
 
-	e.preventDefault();
-
 	switch (e.key)
 	{
 	case "x":
@@ -108,21 +106,25 @@ function handle_key_up(e)
 
 	case "w":
 	case "ArrowUp":
+		e.preventDefault();
 		move_directions.up = false;
 		break;
 
 	case "a":
 	case "ArrowLeft":
+		e.preventDefault();
 		move_directions.left = false;
 		break;
 
 	case "s":
 	case "ArrowDown":
+		e.preventDefault();
 		move_directions.down = false;
 		break;
 
 	case "d":
 	case "ArrowRight":
+		e.preventDefault();
 		move_directions.right = false;
 		break;
 
@@ -137,27 +139,29 @@ function handle_key_down(e)
 	if (e == undefined)
 		return;
 
-	e.preventDefault();
-
 	switch (e.key)
 	{
 	case "w":
 	case "ArrowUp":
+		e.preventDefault();
 		move_directions.up = true;
 		break;
 
 	case "a":
 	case "ArrowLeft":
+		e.preventDefault();
 		move_directions.left = true;
 		break;
 
 	case "s":
 	case "ArrowDown":
+		e.preventDefault();
 		move_directions.down = true;
 		break;
 
 	case "d":
 	case "ArrowRight":
+		e.preventDefault();
 		move_directions.right = true;
 		break;
 
@@ -267,13 +271,16 @@ function resize_screen()
 	let ppi_input = document.getElementById("ppi_input");
 	if (ppi_input.value != "")
 	{
-		if (ppi_input.value > ppi_input.max)
-			ppi_input.value = ppi_input.max;
-		else if (ppi_input.value < ppi_input.min)
-			ppi_input.value = ppi_input.min;
+		let value = parseFloat(ppi_input.value);
+		let minValue = parseFloat(ppi_input.min), maxValue = parseFloat(ppi_input.max);
 
-		localStorage.setItem("ppi", ppi_input.value);
-		document.getElementById("iGo").style.zoom = ppi_input.value / (96 * window.devicePixelRatio);
+		if (value > maxValue)
+			ppi_input.value = maxValue;
+		else if (value < minValue)
+			ppi_input.value = minValue;
+
+		localStorage.setItem("ppi", value);
+		document.getElementById("iGo").style.zoom = value / (96 * window.devicePixelRatio);
 	}
 }
 
@@ -495,9 +502,9 @@ function delete_pm(id)
 }
 
 function payment_form(id)
-{	
+{
 	if(current_screen.id == "add_payment"){
-		
+
 		document.getElementById(id).style.animation = "increase_size 1s";
 		document.getElementById(id).style.height = "4.1cm";
 		if( id == "add_payment_list_paypal")
@@ -510,9 +517,9 @@ function payment_form(id)
  {
 	 document.getElementById("paypal_email").value = "exemplo@gmail.com";
 	 document.getElementById("paypal_pw").value = "123abc";
-	 
+
  }
- 
+
  function fill_card()
  {
 	 document.getElementById("card_number").value = "1234 5678 1234 1234";
@@ -575,22 +582,22 @@ SCREENS["main_menu"].on_exit = function()
 };
 
 SCREENS["add_payment"].on_exit = function()
-{	
+{
 	document.getElementById("add_payment_list_paypal").style.height = "1cm";
 	document.getElementById("add_payment_list_paypal").style.animation = "";
 	document.getElementById("add_payment_form_paypal").style.opacity = "0";
 	document.getElementById("add_payment_form_paypal").style.animation = "";
-	
+
 	document.getElementById("add_payment_list_card").style.height = "1cm";
 	document.getElementById("add_payment_list_card").style.animation = "";
 	document.getElementById("add_payment_form_card").style.opacity = "0";
 	document.getElementById("add_payment_form_card").style.animation = "";
 
 	document.getElementById("add_payment").scrollTop = 0;
-	
+
 	document.getElementById("paypal_email").value = "";
 	document.getElementById("paypal_pw").value = "";
-	 
+
 	document.getElementById("card_number").value = "";
 	document.getElementById("card_date").value = "";
 	document.getElementById("card_cvv").value = "";
