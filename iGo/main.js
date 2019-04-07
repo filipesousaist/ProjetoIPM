@@ -350,6 +350,11 @@ function fadein(id, seconds)
 	document.getElementById(id).style.animation = "fade_in " + seconds + "s";
 }
 
+function fadeout(id, seconds)
+{
+	document.getElementById(id).style.opacity = "0";
+	document.getElementById(id).style.animation = "fade_out " + seconds + "s";
+}
 
 //////////////////
 // Menu inicial //
@@ -456,7 +461,7 @@ function add_payment(type)
 	case "paypal":
 		let payment_list_element = document.getElementById("payment_list");
 		payment_list_element.innerHTML +=
-			"<li class='payment_box_p' id=\""+ saved_payment_methods +"\">" +
+			"<li class='payment_box_p' id=\""+ saved_payment_methods +"\" onclick='complete_payment();'>" +
 				"<div class='payment_type'>Paypal</div>" +
 				"<div class='hidden_card'>" + document.getElementById("paypal_email").value + "</div>" +
 				"<img class='p_info_img' src='img/paypal.png'>" +
@@ -468,7 +473,7 @@ function add_payment(type)
 	case "card":
 		let payment_list_element_c = document.getElementById("payment_list");
 		payment_list_element_c.innerHTML +=
-			"<li class='payment_box_c' id=\""+ saved_payment_methods +"\">" +
+			"<li class='payment_box_c' id=\""+ saved_payment_methods +"\" onclick='complete_payment();'>" +
 				"<div class='payment_type'>Cartão de Crédito</div>" +
 				"<div class='hidden_card'>XXXX-XXXX-XXXX-1234</div>" +
 				"<img class='p_info_img' src='img/visa.png'>" +
@@ -530,10 +535,25 @@ function payment_form(id)
 	 document.getElementById("card_cvv").value = "123";
  }
 
+ function complete_payment(){
+	change_screen("payment_complete");
+	setTimeout(function(){
+		document.getElementById("payment_before").style.opacity = "0";
+		document.getElementById("payment_after").style.opacity = "1";
+	}, 2000);
+	
+	setTimeout(function(){
+		change_screen("payment_methods");
+		document.getElementById("payment_before").style.opacity = "1";
+		document.getElementById("payment_after").style.opacity = "0";
+	}, 3000);
+}
 
 /////////////
 // Teclado //
 /////////////
+
+var current_input_id;
 
 function change_keyboard_row(direction)
 {
@@ -549,6 +569,19 @@ function change_keyboard_row(direction)
 	let new_row_element = document.getElementById("keyboard_row" + keyboard_row);
 	new_row_element.classList.remove("keyboard_inactive");
 	new_row_element.classList.add("keyboard_active");
+}
+
+function write_mode(id){
+	current_input_id = id;
+	document.getElementById("keyboard").style.display = "block";
+}
+
+function do_write(w){
+	document.getElementById(current_input_id).value += w; 
+}
+
+function exit_write_mode(){
+	document.getElementById("keyboard").style.display = "none";
 }
 
 /////////////////////
@@ -584,12 +617,11 @@ SCREENS["main_menu"].on_load = function()
 	SCREENS["main_menu"].timeout = setInterval(update_clock, 1000);
 };
 
-SCREENS["payment_methods"].on_load = function()
+SCREENS["add_payment"].on_load = function()
 {
 	// Keyboard test
 	let keyboard_element = document.getElementById("keyboard");
-	document.getElementById("payment_methods").appendChild(keyboard_element);
-	keyboard_element.style.display = "block";
+	document.getElementById("add_payment").appendChild(keyboard_element);
 	keyboard_row = 1;
 	document.getElementById("keyboard_row1").class = "keyboard_row, keyboard_active";
 }

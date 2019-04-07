@@ -593,7 +593,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
  * Pagamentos *
  **************/
 
-#payment_methods, #add_payment{
+#payment_methods, #add_payment, #payment_complete{
 	background-color: 	#191970;
 	overflow-y: scroll;
 }
@@ -769,6 +769,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
     border-radius: 2mm;
     border: none;
 	width: 4.1cm;
+	
 }
 
 #paypal_pw_title, #card_date_title{
@@ -851,6 +852,23 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
   z-index:3;
 }
 
+#loading{
+	position: relative;
+    width: 4cm;
+    height: 0.5cm;
+    top: 1.2cm;
+    left: 10%;
+	opacity: 1;
+}
+
+#payment_after{
+	position: relative;
+    top: 6mm;
+    left: 4.5mm;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: white;
+	opacity: 0;
+}
 /***********
  * Teclado *
  ***********/
@@ -859,18 +877,20 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 {
 	z-index: 4;
 	bottom: 0;
-	height: 12mm;
-	left: 2mm;
-	display: none;
+	height: 9mm;
+	left: 12.7cm;
+	top: 9.5cm;
 	background-color: white;
 	border: 0.2mm solid gray;
+	position: fixed;
+	display: none;
 }
 
 .keyboard_row
 {
 	position: relative;
-	top: -1mm;
-	left: 4mm;
+	top: -2mm;
+	left: 1mm;
 }
 
 .keyboard_active
@@ -915,8 +935,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	width: 3mm;
 	padding: 0;
 	height: 3mm;
-	right: 1mm;
-	bottom: 6mm;
+	right: -3mm;
+	bottom: 5mm;
 	font-size: 8pt;
 }
 
@@ -926,7 +946,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	width: 3mm;
 	padding: 0;
 	height: 3mm;
-	right: 1mm;
+	right: -3mm;
 	bottom: 1mm;
 	font-size: 8pt;
 }
@@ -938,6 +958,11 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 @keyframes fade_in {
 	0% {opacity: 0;}
 	100% {opacity: 1;}
+}
+
+@fade_out {
+	0% {opacity: 1; }
+	100% {opacity: 0; }
 }
 
 @keyframes increase_size {

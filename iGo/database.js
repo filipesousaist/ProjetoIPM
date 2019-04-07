@@ -22,8 +22,9 @@ const SCREENS =
 
   "payment_methods": {id: "payment_methods"},
 
-  "add_payment": {id: "add_payment", parent_id: "payment_methods"}
-
+  "add_payment": {id: "add_payment", parent_id: "payment_methods"},
+	
+  "payment_complete": { id: "payment_complete" }
 }
 
 const DEFAULT_LOCATION = "Lisboa";
