@@ -964,12 +964,15 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 .keyboard_active
 {
+	z-index: 2;
 	height: 4mm;
 }
 
 .keyboard_inactive
 {
+	z-index: 1;
 	height: 1.5mm;
+	pointer-events: none;
 }
 
 .keyboard_button
@@ -1000,6 +1003,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 #keyboard_done
 {
+	z-index: 3;
 	position: absolute;
 	width: 3mm;
 	padding: 0;
@@ -1013,6 +1017,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 #keyboard_row_up
 {
+	z-index: 3;
 	position: absolute;
 	width: 3mm;
 	padding: 0;
@@ -1025,6 +1030,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 #keyboard_row_down
 {
+	z-index: 3;
 	position: absolute;
 	width: 3mm;
 	padding: 0;
