@@ -439,9 +439,8 @@ function loadShopList(place_name){
 	shops_element.innerHTML = "";
 	console.log(shops.length);
 	for(let i = 0; i < shops.length; i ++){
-		let info_img = "<img class='info_icon' src='img/infoicon.png''>";
 		shops_element.innerHTML += "<li class='iGuide_place_frame'><div class='iGuide_event'>" +
-		shops[i]+ "</div>" + info_img + "</li>";
+		shops[i] + "</div></li>";
 	}
 }
 
@@ -638,7 +637,7 @@ function payment_form(id)
 		document.getElementById("payment_before").style.opacity = "1";
 		document.getElementById("payment_after").style.opacity = "0";
 	}, 3000);
-	
+
 	change_screen(SCREENS["payment_complete"].parent_screen_id);
 }
 

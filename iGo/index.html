@@ -105,32 +105,38 @@
 					<!-- Ecrã do iGuide com informações sobre um local -->
 					<div class="screen" id="iGuide_info">
 						<div class="screen_title_container">iGuide</div>
-						<div id="iGuide_info_top">
-							<img id="iGuide_info_icon">
-							<div id="iGuide_info_title"></div>
+						<div class="iGuide_info_body">
+							<div id="iGuide_info_top">
+								<img id="iGuide_info_icon">
+								<div id="iGuide_info_title"></div>
+							</div>
+							<div id="iGuide_info_container"></div>
 						</div>
-						<div id="iGuide_info_container"></div>
 						<div id="iGuide_info_bottom_container"></div>
 					</div>
 
 					<div class="screen" id="iGuide_events">
 						<div class="screen_title_container">iGuide</div>
-						<div id="iGuide_events_location"></div>
-						<div id= "iGuide_events_container">
-							<ul id="iGuide_events_list"></ul>
+						<div class="iGuide_info_body">
+							<div id="iGuide_events_location"></div>
+							<div id= "iGuide_events_container">
+								<ul id="iGuide_events_list"></ul>
+							</div>
 						</div>
 						<div id="iGuide_events_bottom_container"></div>
 					</div>
 
 					<div class="screen" id="iGuide_shops">
 						<div class="screen_title_container">iGuide</div>
-						<div id="iGuide_shops_location"></div>
-						<div id="iGuide_shops_container">
-							<ul id="iGuide_shops_list"></ul>
+						<div class="iGuide_info_body">
+							<div id="iGuide_shops_location"></div>
+							<div id="iGuide_shops_container">
+								<ul id="iGuide_shops_list"></ul>
+							</div>
 						</div>
 						<div id="iGuide_shops_bottom_container"></div>
 					</div>
-					
+
 					<div class="screen" id="iGuide_event_info">
 						<div class="screen_title_container">iGuide</div>
 						<div id="iGuide_event_title"></div>
@@ -189,7 +195,6 @@
 									<input id="card_cvv" type="text" name="cardate"  onclick="write_mode('card_cvv');">
 									<div id="add_confirm_card" onclick="add_payment('card'); go_back();">Adicionar</div>
 								</div>
-
 							</li>
 						</ul>
 					</div>

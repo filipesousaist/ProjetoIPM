@@ -504,10 +504,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	height: 1cm;
 	background-image: linear-gradient(to right top, #5ffbf1, #46eefa, #41dfff, #52cffe, #69bff8, #69bff8, #69bff8, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 	margin: 5px 0 0px 0;
-    border-radius: 3mm;
-    width: 4.8cm;
-    left: 1mm;
-    position: relative;
+  border-radius: 3mm;
+  width: 4.8cm;
+  left: 1mm;
+  position: relative;
 }
 
 .iGuide_place
@@ -535,6 +535,14 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 /**********************
  * iGuide info screen *
  **********************/
+
+.iGuide_info_body
+{
+	width: 5cm;
+	height: 3.33cm;
+	background-color: transparent;
+	overflow-y: scroll;
+}
 
 #iGuide_info_top
 {
@@ -569,14 +577,12 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
 	border: 0.2mm solid black;
 	width: calc(100% - 4mm);
-	height: 2cm;
 	left: -0.2mm;
 	padding-left: 2mm;
 	padding-right: 2mm;
 	background-color: lightgrey;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
-	overflow-y: scroll;
 }
 
 #iGuide_events_container
@@ -584,7 +590,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
 	border: 0.2mm solid black;
 	width: calc(100% - 4mm);
-	height: 3cm;
 	left: -0.2mm;
 	padding-left: 2mm;
 	padding-right: 2mm;
@@ -592,9 +597,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
 	z-index: 0;
-	overflow-y: scroll;
-	height: 3cm;
 	top: -0.2mm;
+	min-height: 2.5cm;
 }
 
 #iGuide_shops_container
@@ -602,7 +606,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
 	border: 0.2mm solid black;
 	width: calc(100% - 4mm);
-	height: 3cm;
 	left: -0.2mm;
 	padding-left: 2mm;
 	padding-right: 2mm;
@@ -610,7 +613,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
 	z-index: 0;
-	overflow-y: scroll;
 }
 
 #iGuide_events_location{
@@ -621,17 +623,21 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-size: 10pt;
 	padding-left: 0.75cm;
 	left: -1.6mm;
-	width: 105%;
+	padding: 0;
+	width: 100%;
 	top: -0.1mm;
 }
 
 #iGuide_info_bottom_container
 {
+	position: absolute;
 	border: 0.2mm solid black;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	bottom: 0;
 	font-size: 13px;
 	border-bottom-left-radius: 3mm;
 	border-bottom-right-radius: 3mm;
+	width: 100%;
 }
 
 .infobutton{
@@ -642,6 +648,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 #iGuide_events_bottom_container
 {
+	position: absolute;
 	border: 0.2mm solid black;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
@@ -649,10 +656,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	border-bottom-right-radius: 3mm;
 	z-index: 1;
 	position: relative;
-	top: -0.5cm;
+	bottom: 0;
+	width: 100%;
 }
-
-
 
 .iGuide_event_frame
 {
@@ -704,14 +710,15 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 #iGuide_shops_bottom_container
 {
+	position: absolute;
+	bottom: 0;
 	border: 0.2mm solid black;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
 	border-bottom-left-radius: 3mm;
 	border-bottom-right-radius: 3mm;
 	z-index: 1;
-	position: relative;
-	top: -0.5cm;
+	width: 100%;
 }
 
 
@@ -801,9 +808,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #empty_pm
 {
 	position: relative;
-    color: lightgrey;
-    opacity: 0.15;
-    top: 9mm;
+  color: lightgrey;
+  opacity: 0.15;
+  top: 9mm;
 	text-align: center;
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 9pt;
