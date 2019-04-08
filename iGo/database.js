@@ -20,14 +20,14 @@ const SCREENS =
 
   "iGuide_info":  {id: "iGuide_info", parent_id: "iGuide_main"},
 
-  "iGuide_events": {id: "iGuide_events", parent_id: "iGuide_info"},
+  "iGuide_events": {id: "iGuide_events", parent_id: "iGuide_main"},
 
   "iGuide_event_info": {id: "iGuide_event_info", parent_id: "iGuide_events"},
 
   "payment_methods": {id: "payment_methods"},
 
   "add_payment": {id: "add_payment", parent_id: "payment_methods"},
-	
+
   "payment_complete": { id: "payment_complete" }
 }
 
