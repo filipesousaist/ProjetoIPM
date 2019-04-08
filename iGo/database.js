@@ -22,6 +22,8 @@ const SCREENS =
 
   "iGuide_events": {id: "iGuide_events", parent_id: "iGuide_main"},
 
+  "iGuide_shops": {id: "iGuide_shops", parent_id: "iGuide_main"},
+
   "iGuide_event_info": {id: "iGuide_event_info", parent_id: "iGuide_events"},
 
   "payment_methods": {id: "payment_methods"},
@@ -63,7 +65,8 @@ const LOCATIONS =
         info: "Inaugurado a 27 de Setembro de 1985 e inserido num complexo de escritórios e habitações, com uma arquitectura ousada para a época.",
         type: "shop",
         position: {x: 150, y: 160},
-        events: ["EMPTY"]
+        events: ["EMPTY"],
+        shops: ["FNAC", "WORTEN", "BERTRAND"]
       },
 
     	"Instituto Gulbenkian":

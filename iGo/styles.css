@@ -590,6 +590,22 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	overflow-y: scroll;
 }
 
+#iGuide_shops_container
+{
+	position: relative;
+	border: 0.2mm solid black;
+	width: calc(100% - 4mm);
+	height: 3cm;
+	left: -0.2mm;
+	padding-left: 2mm;
+	padding-right: 2mm;
+	background-color: lightgrey;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 13px;
+	z-index: 0;
+	overflow-y: scroll;
+}
+
 #iGuide_events_location{
 	position: relative;
 	border: 0.2mm solid black;
@@ -665,6 +681,32 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-size: 10pt;
 	padding: 5%;
 }
+
+#iGuide_shops_location
+{
+	position: relative;
+	border: 0.2mm solid black;
+	background-color: #BBBBBB;
+	font-family: Verdana, sans-serif;
+	font-size: 10pt;
+	padding-left: 0.75cm;
+	left: -1.6mm;
+	width: 105%;
+	top: -0.1mm;
+}
+
+#iGuide_shops_bottom_container
+{
+	border: 0.2mm solid black;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 13px;
+	border-bottom-left-radius: 3mm;
+	border-bottom-right-radius: 3mm;
+	z-index: 1;
+	position: relative;
+	top: -0.5cm;
+}
+
 
 #iGuide_event_info_container
 {

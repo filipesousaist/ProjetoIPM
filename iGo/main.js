@@ -433,6 +433,29 @@ function loadEventList(place_name){
 	}
 }
 
+function loadShopList(place_name){
+	let shops = LOCATIONS[current_location].places[place_name].shops;
+	let shops_element = document.getElementById("iGuide_shops_list");
+	shops_element.innerHTML = "";
+	console.log(shops.length);
+	for(let i = 0; i < shops.length; i ++){
+		let info_img = "<img class='info_icon' src='img/infoicon.png''>";
+		shops_element.innerHTML += "<li class='iGuide_event_frame'><div class='iGuide_event'>" +
+		shops[i]+ "</div>" + info_img + "</li>";
+	}
+}
+
+function changeShopScreen(place_name){
+	let place = LOCATIONS[current_location].places[place_name];
+	document.getElementById("iGuide_shops_location").innerHTML = place.name;
+	loadShopList(place_name);
+	let bottom = document.getElementById("iGuide_shops_bottom_container");
+	let eventsButton = "<button type='button' class='infobutton'onclick='changeEventsScreen(\""+ place_name +"\");'>Eventos</button>";
+	let infoButton = "<button type='button' class='infobutton' onclick='changeInfoScreen(\""+ place_name +"\");'>Descrição</button>";
+	bottom.innerHTML = infoButton + eventsButton + "<button class='infobutton' type='button'>Lojas</button>";
+	change_screen("iGuide_shops");
+}
+
 function distance(place_name)
 {
 	let place_pos = LOCATIONS[current_location].places[place_name].position;
@@ -452,12 +475,13 @@ function changeInfoScreen(place_name)
 	let emptyButton = "<button type='button' class='infobutton'>------</button>";
 	console.log(place.type);
 	let infoButton = "<button type='button' class='infobutton'>Descrição</button>";
+	let shopButton = "<button class='infobutton' onclick='changeShopScreen(\""+ place_name+"\");' type='button'>Lojas</button>";
 	switch(place.type){
 		case("park"):
 			bottom.innerHTML = infoButton + eventsButton + emptyButton;
 			break;
 		case("shop"):
-			bottom.innerHTML = infoButton + eventsButton + "<button class='infobutton' type='button'>Lojas</button>";
+			bottom.innerHTML = infoButton + eventsButton + shopButton;
 			break;
 		case("monument"):
 			bottom.innerHTML = infoButton + emptyButton + emptyButton;
@@ -475,12 +499,13 @@ function changeEventsScreen(place_name){
 	loadEventList(place_name);
 	let bottom = document.getElementById("iGuide_events_bottom_container");
 	let infoButton = "<button type='button' class='infobutton' onclick='changeInfoScreen(\""+ place_name +"\");'>Descrição</button>";
+	let shopButton = "<button class='infobutton' onclick='changeShopScreen(\""+ place_name+"\");' type='button'>Lojas</button>";
 	switch(place.type){
 		case("park"):
 			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>------</button>";
 			break;
 		case("shop"):
-			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>Lojas</button>";
+			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + shopButton;
 			break;
 	}
 	change_screen("iGuide_events");
@@ -494,12 +519,13 @@ function changeEvent(event_name, place_name){
 	document.getElementById("iGuide_event_info_container").innerHTML = event.info + "<button id='payButton'>Comprar" + event.price + "</button>";
 	let bottom = document.getElementById("iGuide_events_info_bottom_container");
 	let infoButton = "<button type='button' class='infobutton' onclick='changeInfoScreen(\""+ place_name +"\");'>Descrição</button>";
+	let shopButton = "<button class='infobutton' onclick='changeShopScreen(\""+ place_name+"\");' type='button'>Lojas</button>";
 	switch(place.type){
 		case("park"):
 			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>------</button>";
 			break;
 		case("shop"):
-			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>Lojas</button>";
+			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + shopButton;
 			break;
 	}
 	change_screen("iGuide_event_info");
