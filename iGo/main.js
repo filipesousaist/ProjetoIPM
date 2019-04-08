@@ -503,7 +503,7 @@ function add_payment(type)
 		payment_list_element.innerHTML +=
 			"<li class='payment_box_p' id=\"" + saved_payment_methods + "\">" +
 				"<div class='payment_type'>Paypal</div>" +
-				"<div class='hidden_card'>" + document.getElementById("paypal_email").value + "</div>" +
+				"<div class='hidden_card'>" + "examplemail@emaildomain.com" + "</div>" +
 				"<img class='p_info_img' src='img/paypal.png' onclick='complete_payment();'>" +
 				"<img id='delete_b' src='img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
 			"</li>";
