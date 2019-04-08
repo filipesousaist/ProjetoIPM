@@ -111,7 +111,7 @@ const LOCATIONS =
       "Big Ben":
       {
         name: "Big Ben",
-        info: "",
+        info: "Apesar do termo também ser usado para se referir à torre do relógio onde o sino está localizado, a estrutura é oficialmente conhecida como a Elizabeth Tower, rebatizada para comemorar o Jubileu de Diamante da Rainha Isabel II do Reino Unido.",
         type: "monument",
         position: {x: 500, y: 160}
       },
@@ -119,7 +119,7 @@ const LOCATIONS =
       "Palácio de Buckingham":
       {
         name: "Palácio de Buckingham",
-        info: "",
+        info: "O Palácio de Buckingham é a residência oficial e principal local de trabalho do Monarca do Reino Unido em Londres. Localizado na Cidade de Westminster, o palácio é frequentemente o centro de ocasiões de estado e hospitalidade real.",
         type: "monument",
         position: {x: 950, y: 330}
       }
@@ -134,7 +134,7 @@ const LOCATIONS =
       "Torre Eiffel":
       {
         name: "Torre Eiffel",
-        info: "",
+        info: "Possui 324 metros de altura e fica cerca de 15 centímetros mais alta no verão, devido à dilatação térmica do ferro. Foi a estrutura mais alta do mundo desde a sua conclusão até 1930, quando perdeu o posto para o Chrysler Building, em Nova Iorque, Estados Unidos.",
         type: "monument",
         position: {x: 60, y: 500}
       },
@@ -142,7 +142,7 @@ const LOCATIONS =
       "Arco do Triunfo":
       {
         name: "Arco do Triunfo",
-        info: "",
+        info: "O Arco do Triunfo (francês: Arc de Triomphe) é um monumento localizado na cidade de Paris, construído em comemoração às vitórias militares do Napoleão Bonaparte, o qual ordenou a sua construção em 1806. Inaugurado em 1836, a monumental obra detém, gravados, os nomes de 128 batalhas e 558 generais.",
         type: "monument",
         position: {x: 150, y: 260}
       },
@@ -150,7 +150,7 @@ const LOCATIONS =
       "Louvre":
       {
         name: "Louvre",
-        info: "",
+        info: "O Museu do Louvre (em francês: Musée du Louvre), é o maior museu de arte do mundo e um monumento histórico em Paris, França. Um marco central da cidade, está localizado na margem direita do rio Sena, no 1.º arrondissement. Aproximadamente 38.000 objetos, da pré-história ao século XXI, são exibidos em uma área de 72.735 metros quadrados.",
         type: "museum",
         position: {x: 350, y: 460}
       }
