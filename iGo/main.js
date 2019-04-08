@@ -516,7 +516,7 @@ function changeEvent(event_name, place_name){
 	let place = LOCATIONS[current_location].places[place_name];
 	console.log(event);
 	document.getElementById("iGuide_event_title").innerHTML = event.name;
-	document.getElementById("iGuide_event_info_container").innerHTML = event.info + "<button id='payButton'>Comprar" + event.price + "</button>";
+	document.getElementById("iGuide_event_info_container").innerHTML = event.info + "<button id='payButton' onclick='change_screen(\"payment_methods\");'> Comprar " + event.price + "</button>";
 	let bottom = document.getElementById("iGuide_events_info_bottom_container");
 	let infoButton = "<button type='button' class='infobutton' onclick='changeInfoScreen(\""+ place_name +"\");'>Descrição</button>";
 	let shopButton = "<button class='infobutton' onclick='changeShopScreen(\""+ place_name+"\");' type='button'>Lojas</button>";
@@ -638,6 +638,8 @@ function payment_form(id)
 		document.getElementById("payment_before").style.opacity = "1";
 		document.getElementById("payment_after").style.opacity = "0";
 	}, 3000);
+	
+	change_screen(SCREENS["payment_complete"].parent_screen_id);
 }
 
 /////////////
@@ -719,7 +721,6 @@ SCREENS["add_payment"].on_load = function()
 	document.getElementById("keyboard_row1").classList.remove("keyboard_inactive");
 	document.getElementById("keyboard_row1").classList.add("keyboard_active");
 }
-
 
 /////////////////////
 // Funções on_exit //

@@ -26,7 +26,7 @@ const SCREENS =
 
   "iGuide_event_info": {id: "iGuide_event_info", parent_id: "iGuide_events"},
 
-  "payment_methods": {id: "payment_methods"},
+  "payment_methods": {id: "payment_methods", parent_id: "iGuide_event_info"},
 
   "add_payment": {id: "add_payment", parent_id: "payment_methods"},
 
