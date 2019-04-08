@@ -739,18 +739,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	list-style: none;
 }
 
-.payment_box_c, #add_payment_list_card
-{
-	position: relative;
-	width: 4.5cm;
-	height: 1cm;
-	border-radius: 2mm;
-	margin-left: 2.5mm;
-	margin-top: 1mm;
-	background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,79,158,1) 100%);
-}
-
-.payment_box_p, #add_payment_list_paypal
+.payment_box_c, #add_payment_list_card, .payment_box_p, #add_payment_list_paypal
 {
 	position: relative;
 	width: 4.5cm;
@@ -760,6 +749,15 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	margin-top: 1mm;
 	transition-property: height;
 	transition-duration: 0.5s;
+}
+
+.payment_box_c, #add_payment_list_card
+{
+	background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,79,158,1) 100%);
+}
+
+.payment_box_p, #add_payment_list_paypal
+{
 	background: -webkit-linear-gradient(left, rgba(242,0,61,1) 0%, rgba(193,70,161,1) 0%, rgba(168,0,119,1) 0%, rgba(168,0,119,1) 19%, rgba(217,54,63,1) 61%, rgba(217,54,63,1) 100%);
 }
 
@@ -817,17 +815,19 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 }
 
 
-#add_payment_form_card, #add_payment_form_paypal{
+#add_payment_form_card, #add_payment_form_paypal
+{
 	opacity: 0;
 }
 
-#paypal_email_title, #card_number_title{
+#paypal_email_title, #card_number_title
+{
 	position: relative;
-    top: 4mm;
-    left: 2mm;
-    color: black;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 9pt;
+  top: 4mm;
+  left: 2mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
 }
 
 #paypal_email, #card_number{
