@@ -741,6 +741,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 .payment_box_c, #add_payment_list_card
 {
+	position: relative;
 	width: 4.5cm;
 	height: 1cm;
 	border-radius: 2mm;
@@ -751,6 +752,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 .payment_box_p, #add_payment_list_paypal
 {
+	position: relative;
 	width: 4.5cm;
 	height: 1cm;
 	border-radius: 2mm;
@@ -763,12 +765,13 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 .p_info_img
 {
-	position: relative;
+	position: absolute;
 	width: 0.8cm;
 	height: 0.8cm;
 	left: 3.5cm;
-	top: -5.9mm;
+	top: 50%;
 	border-radius: 50%;
+	transform: translate(0, -50%);
 }
 
 .payment_type
@@ -793,12 +796,12 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 }
 
 #delete_b {
-    position: relative;
-    width: 0.8cm;
-    height: 0.8cm;
-    left: 2.71cm;
-    top: -5.9mm;
-    border-radius: 50%;
+  position: relative;
+  width: 0.8cm;
+  height: 0.8cm;
+  left: 2.71cm;
+  top: -5.9mm;
+  border-radius: 50%;
 	z-index: -1;
 }
 
