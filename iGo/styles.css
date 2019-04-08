@@ -571,7 +571,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	background-color: lightgrey;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
-
+	overflow-y: scroll;
 }
 
 #iGuide_events_container
@@ -715,7 +715,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
  * Pagamentos *
  **************/
 
-#payment_methods, #add_payment{
+#payment_methods, #add_payment, #payment_complete{
 	background-color: 	#191970;
 	overflow-y: scroll;
 }
@@ -796,18 +796,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	list-style: none;
 }
 
-.payment_box_c, #add_payment_list_card
+.payment_box_c, #add_payment_list_card, .payment_box_p, #add_payment_list_paypal
 {
-	width: 4.5cm;
-	height: 1cm;
-	border-radius: 2mm;
-	margin-left: 2.5mm;
-	margin-top: 1mm;
-	background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,79,158,1) 100%);
-}
-
-.payment_box_p, #add_payment_list_paypal
-{
+	position: relative;
 	width: 4.5cm;
 	height: 1cm;
 	border-radius: 2mm;
@@ -815,17 +806,27 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	margin-top: 1mm;
 	transition-property: height;
 	transition-duration: 0.5s;
+}
+
+.payment_box_c, #add_payment_list_card
+{
+	background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,79,158,1) 100%);
+}
+
+.payment_box_p, #add_payment_list_paypal
+{
 	background: -webkit-linear-gradient(left, rgba(242,0,61,1) 0%, rgba(193,70,161,1) 0%, rgba(168,0,119,1) 0%, rgba(168,0,119,1) 19%, rgba(217,54,63,1) 61%, rgba(217,54,63,1) 100%);
 }
 
 .p_info_img
 {
-	position: relative;
+	position: absolute;
 	width: 0.8cm;
 	height: 0.8cm;
 	left: 3.5cm;
-	top: -5.9mm;
+	top: 50%;
 	border-radius: 50%;
+	transform: translate(0, -50%);
 }
 
 .payment_type
@@ -850,12 +851,12 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 }
 
 #delete_b {
-    position: relative;
-    width: 0.8cm;
-    height: 0.8cm;
-    left: 2.71cm;
-    top: -5.9mm;
-    border-radius: 50%;
+  position: relative;
+  width: 0.8cm;
+  height: 0.8cm;
+  left: 2.71cm;
+  top: -5.9mm;
+  border-radius: 50%;
 	z-index: -1;
 }
 
@@ -871,17 +872,19 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 }
 
 
-#add_payment_form_card, #add_payment_form_paypal{
+#add_payment_form_card, #add_payment_form_paypal
+{
 	opacity: 0;
 }
 
-#paypal_email_title, #card_number_title{
+#paypal_email_title, #card_number_title
+{
 	position: relative;
-    top: 4mm;
-    left: 2mm;
-    color: black;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 9pt;
+  top: 4mm;
+  left: 2mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
 }
 
 #paypal_email, #card_number{
@@ -891,42 +894,44 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
     border-radius: 2mm;
     border: none;
 	width: 4.1cm;
+
 }
 
 #paypal_pw_title, #card_date_title{
 	position: relative;
-    top: 6mm;
-    left: 2mm;
-    color: black;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 9pt;
+  top: 6mm;
+  left: 2mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
 }
 
 #paypal_pw{
 	position: relative;
-    left: 2mm;
-    top: 6mm;
-    border-radius: 2mm;
-    border: none;
+  left: 2mm;
+  top: 6mm;
+  border-radius: 2mm;
+  border: none;
 	width: 4.1cm;
 }
 
 #card_date{
 	position: relative;
-    left: 2mm;
-    top: 6mm;
-    border-radius: 2mm;
-    border: none;
+  left: 2mm;
+  top: 6mm;
+  border-radius: 2mm;
+  border: none;
 	width: 1.5cm;
 }
 
-#card_cvv_title{
+#card_cvv_title
+{
 	position: relative;
-    top: -3.6mm;
-    left: 25mm;
-    color: black;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 9pt;
+  top: -3.6mm;
+  left: 25mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
 }
 
 #card_cvv{
@@ -938,7 +943,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	width: 1.5cm;
 }
 
-#add_confirm_paypal{
+#add_confirm_paypal
+{
   position: relative;
   font-family: Tahoma, Geneva, sans-serif;
   background-color: grey;
@@ -973,6 +979,23 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
   z-index:3;
 }
 
+#loading{
+	position: relative;
+    width: 4cm;
+    height: 0.5cm;
+    top: 1.2cm;
+    left: 10%;
+	opacity: 1;
+}
+
+#payment_after{
+	position: relative;
+    top: 6mm;
+    left: 4.5mm;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: white;
+	opacity: 0;
+}
 /***********
  * Teclado *
  ***********/
@@ -980,29 +1003,36 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #keyboard
 {
 	z-index: 4;
+	position: absolute;
+	width: 100%;
+	height: 1cm;
+	left: 0;
 	bottom: 0;
-	height: 12mm;
-	left: 2mm;
-	display: none;
 	background-color: white;
 	border: 0.2mm solid gray;
+	display: none;
+	border-bottom-left-radius: 3mm;
+	border-bottom-right-radius: 3mm;
 }
 
 .keyboard_row
 {
 	position: relative;
-	top: -1mm;
-	left: 4mm;
+	top: -2mm;
+	left: 3.5mm;
 }
 
 .keyboard_active
 {
+	z-index: 2;
 	height: 4mm;
 }
 
 .keyboard_inactive
 {
+	z-index: 1;
 	height: 1.5mm;
+	pointer-events: none;
 }
 
 .keyboard_button
@@ -1031,26 +1061,44 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	color: grey;
 }
 
+#keyboard_done
+{
+	z-index: 3;
+	position: absolute;
+	width: 3mm;
+	padding: 0;
+	height: 4mm;
+	right: 1mm;
+	bottom: 4.5mm;
+	font-size: 8pt;
+	font-weight: bold;
+	text-align: center;
+}
+
 #keyboard_row_up
 {
+	z-index: 3;
 	position: absolute;
 	width: 3mm;
 	padding: 0;
 	height: 3mm;
-	right: 1mm;
-	bottom: 6mm;
+	right: 5mm;
+	bottom: 6.5mm;
 	font-size: 8pt;
+	font-weight: bold;
 }
 
 #keyboard_row_down
 {
+	z-index: 3;
 	position: absolute;
 	width: 3mm;
 	padding: 0;
 	height: 3mm;
-	right: 1mm;
-	bottom: 1mm;
+	right: 5mm;
+	bottom: 2.5mm;
 	font-size: 8pt;
+	font-weight: bold;
 }
 
 /********
@@ -1060,6 +1108,11 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 @keyframes fade_in {
 	0% {opacity: 0;}
 	100% {opacity: 1;}
+}
+
+@fade_out {
+	0% {opacity: 1; }
+	100% {opacity: 0; }
 }
 
 @keyframes increase_size {

@@ -163,9 +163,9 @@
 								<div id="add_payment_list_title">Paypal</div>
 								<div id="add_payment_form_paypal">
 									<div id="paypal_email_title">Email</div>
-									<input id="paypal_email" type="text" name="email">
+									<input id="paypal_email" type="text" name="email" onclick="write_mode('paypal_email');">
 									<div id="paypal_pw_title">Password</div>
-									<input id="paypal_pw" type="password" name="password">
+									<input id="paypal_pw" type="password" name="password"  onclick="write_mode('paypal_pw');">
 									<div id="add_confirm_paypal" onclick="add_payment('paypal'); go_back();">Adicionar</div>
 								</div>
 							</li>
@@ -173,11 +173,11 @@
 								<div id="add_payment_list_title" onclick="">Cartão Débito/Crédito</div>
 								<div id="add_payment_form_card">
 									<div id="card_number_title">Núm. cartão</div>
-									<input id="card_number" type="text" name="cardno">
+									<input id="card_number" type="text" name="cardno"  onclick="write_mode('card_number');">
 									<div id="card_date_title">Data</div>
-									<input id="card_date" type="text" name="cardate">
+									<input id="card_date" type="text" name="cardate"  onclick="write_mode('card_date');">
 									<div id="card_cvv_title">CVV</div>
-									<input id="card_cvv" type="text" name="cardate">
+									<input id="card_cvv" type="text" name="cardate"  onclick="write_mode('card_cvv');">
 									<div id="add_confirm_card" onclick="add_payment('card'); go_back();">Adicionar</div>
 								</div>
 
@@ -185,51 +185,62 @@
 						</ul>
 					</div>
 
-					<div id="keyboard">
+					<!-- Confirmação pagamento -->
+					<div class="screen" id="payment_complete">
+						<div id="payment_title">Processando Pagamento</div>
+						<div id="payment_descr">Esta etapa poderá demorar alguns segundos....</div>
+						<div id="payment_before">
+							<img id="loading" src="img/ajax-loader.gif">
+						</div>
+						<div id="payment_after">Pagamento Concluído!</div>
+					</div>
+
+					<div id="keyboard" >
 						<div class="keyboard_row keyboard_inactive" id="keyboard_row0">
-							<div class="keyboard_button">1</div>
-							<div class="keyboard_button">2</div>
-							<div class="keyboard_button">3</div>
-							<div class="keyboard_button">4</div>
-							<div class="keyboard_button">5</div>
-							<div class="keyboard_button">6</div>
-							<div class="keyboard_button">7</div>
-							<div class="keyboard_button">8</div>
-							<div class="keyboard_button">9</div>
-							<div class="keyboard_button">0</div>
+							<div class="keyboard_button" onclick="do_write('1');">1</div>
+							<div class="keyboard_button" onclick="do_write('2');">2</div>
+							<div class="keyboard_button" onclick="do_write('3');">3</div>
+							<div class="keyboard_button" onclick="do_write('4');">4</div>
+							<div class="keyboard_button" onclick="do_write('5');">5</div>
+							<div class="keyboard_button" onclick="do_write('6');">6</div>
+							<div class="keyboard_button" onclick="do_write('7');">7</div>
+							<div class="keyboard_button" onclick="do_write('8');">8</div>
+							<div class="keyboard_button" onclick="do_write('9');">9</div>
+							<div class="keyboard_button" onclick="do_write('0');">0</div>
 						</div>
 						<div class="keyboard_row keyboard_inactive" id="keyboard_row1">
-							<div class="keyboard_button">Q</div>
-							<div class="keyboard_button">W</div>
-							<div class="keyboard_button">E</div>
-							<div class="keyboard_button">R</div>
-							<div class="keyboard_button">T</div>
-							<div class="keyboard_button">Y</div>
-							<div class="keyboard_button">U</div>
-							<div class="keyboard_button">I</div>
-							<div class="keyboard_button">O</div>
-							<div class="keyboard_button">P</div>
+							<div class="keyboard_button" onclick="do_write('Q');">Q</div>
+							<div class="keyboard_button" onclick="do_write('W');">W</div>
+							<div class="keyboard_button" onclick="do_write('E');">E</div>
+							<div class="keyboard_button" onclick="do_write('R');">R</div>
+							<div class="keyboard_button" onclick="do_write('T');">T</div>
+							<div class="keyboard_button" onclick="do_write('Y');">Y</div>
+							<div class="keyboard_button" onclick="do_write('U');">U</div>
+							<div class="keyboard_button" onclick="do_write('I');">I</div>
+							<div class="keyboard_button" onclick="do_write('O');">O</div>
+							<div class="keyboard_button" onclick="do_write('P');">P</div>
 						</div>
 						<div class="keyboard_row keyboard_inactive" id="keyboard_row2">
-							<div class="keyboard_button">A</div>
-							<div class="keyboard_button">S</div>
-							<div class="keyboard_button">D</div>
-							<div class="keyboard_button">F</div>
-							<div class="keyboard_button">G</div>
-							<div class="keyboard_button">H</div>
-							<div class="keyboard_button">J</div>
-							<div class="keyboard_button">K</div>
-							<div class="keyboard_button">L</div>
+							<div class="keyboard_button" onclick="do_write('A');">A</div>
+							<div class="keyboard_button" onclick="do_write('S');">S</div>
+							<div class="keyboard_button" onclick="do_write('D');">D</div>
+							<div class="keyboard_button" onclick="do_write('F');">F</div>
+							<div class="keyboard_button" onclick="do_write('G');">G</div>
+							<div class="keyboard_button" onclick="do_write('H');">H</div>
+							<div class="keyboard_button" onclick="do_write('J');">J</div>
+							<div class="keyboard_button" onclick="do_write('K');">K</div>
+							<div class="keyboard_button" onclick="do_write('L');">L</div>
 						</div>
 						<div class="keyboard_row keyboard_inactive" id="keyboard_row3">
-							<div class="keyboard_button">Z</div>
-							<div class="keyboard_button">X</div>
-							<div class="keyboard_button">C</div>
-							<div class="keyboard_button">V</div>
-							<div class="keyboard_button">B</div>
-							<div class="keyboard_button">N</div>
-							<div class="keyboard_button">M</div>
+							<div class="keyboard_button" onclick="do_write('Z');">Z</div>
+							<div class="keyboard_button" onclick="do_write('X');">X</div>
+							<div class="keyboard_button" onclick="do_write('C');">C</div>
+							<div class="keyboard_button" onclick="do_write('V');">V</div>
+							<div class="keyboard_button" onclick="do_write('B');">B</div>
+							<div class="keyboard_button" onclick="do_write('N');">N</div>
+							<div class="keyboard_button" onclick="do_write('M');">M</div>
 						</div>
+						<button id="keyboard_done" onclick="exit_write_mode();">&#10003;</button>
 						<button id="keyboard_row_up" onclick="change_keyboard_row('up');">&#708;</button>
 						<button id="keyboard_row_down" onclick="change_keyboard_row('down');">&#709;</button>
 					</div>
