@@ -421,7 +421,7 @@ function loadEventList(place_name){
 		events_element.innerHTML = "";
 		console.log(events.length);
 		for(let i = 0; i < events.length; i ++){
-		let info_img = "<img class='info_icon' src='img/infoicon.png'>";
+		let info_img = "<img class='info_icon' src='img/infoicon.png' onclick='changeEvent(\""+ events[i] +"\" , \"" + place_name +"\");'>";
 		events_element.innerHTML += "<li class='iGuide_event_frame'><div class='iGuide_event'>" +
 			events[i]+ "</div>" + info_img + "</li>";
 		}
@@ -479,6 +479,25 @@ function changeEventsScreen(place_name){
 			break;
 	}
 	change_screen("iGuide_events");
+}
+
+function changeEvent(event_name, place_name){
+	let event = EVENTS[event_name];
+	let place = LOCATIONS[current_location].places[place_name];
+	console.log(event);
+	document.getElementById("iGuide_event_title").innerHTML = event.name;
+	document.getElementById("iGuide_event_info_container").innerHTML = event.info + "<button id='payButton'>Comprar" + event.price + "</button>";
+	let bottom = document.getElementById("iGuide_events_info_bottom_container");
+	let infoButton = "<button type='button' class='infobutton' onclick='changeInfoScreen(\""+ place_name +"\");'>Descrição</button>";
+	switch(place.type){
+		case("park"):
+			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>------</button>";
+			break;
+		case("shop"):
+			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>Lojas</button>";
+			break;
+	}
+	change_screen("iGuide_event_info");
 }
 
 

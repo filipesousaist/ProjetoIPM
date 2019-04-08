@@ -35,7 +35,7 @@ const DEFAULT_LOCATION = "Lisboa";
 const EVENTS= {
   "Ver estrelas no Parque":{
     name: "Ver estrelas no Parque",
-    info: "Ver estrelas no parque é do caralho",
+    info: "Ver estrelas no park é uma expriencia magica. Mas ver estrelas com os outros ainda mais é.",
     price: "5€"
   }
 }
@@ -52,7 +52,7 @@ const LOCATIONS =
         info: "Parque Eduardo VII é o maior parque na zona de Lisboa",
         type: "park",
         position: {x: 50, y: 60},
-        events: ["Ver estrelas no Parque", "FREE MAE DO PEDRO", "FREE MARC"]
+        events: ["Ver estrelas no Parque", "Convivio da Igreja", "Feira do livro."]
       },
 
       "Shopping Amoreiras":
