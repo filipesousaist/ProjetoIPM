@@ -729,7 +729,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	border-bottom: none;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
-	z-index: -1;
 	overflow-y: scroll;
 }
 
@@ -756,7 +755,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 {
    position: relative;
    top: 8mm;
-   background-color: #f44336;
+   background-color: #36f454;
    border: none;
    color: white;
    padding: 11px 18px;
@@ -765,6 +764,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
    display: inline-block;
    font-size: 10px;
    margin: 2px 2px;
+   border-radius: 3mm;
 }
 
 /**************
