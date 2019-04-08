@@ -157,7 +157,7 @@ const LOCATIONS =
 
 const PLACE_TYPE_IMG =
 {
-  "monument": "img/monument.png",
+  "monument": "img/monument.svg",
   "museum": "img/museum.png",
   "shop": "img/shop.png",
   "park": "img/park.png"
