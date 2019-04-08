@@ -500,9 +500,14 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 .iGuide_place_frame
 {
-	width: 5cm;
+	width: 4.8cm;
 	height: 1cm;
 	background-image: linear-gradient(to right top, #5ffbf1, #46eefa, #41dfff, #52cffe, #69bff8, #69bff8, #69bff8, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+	margin: 5px 0 0px 0;
+    border-radius: 3mm;
+    width: 4.8cm;
+    left: 1mm;
+    position: relative;
 }
 
 .iGuide_place
@@ -742,8 +747,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 #iGuide_events_list, #iGuide_shops_list{
 	position: relative;
-    top: -3.5mm;
-	left: -0.2mm;
+    top: -2mm;
+    left: -12.5mm;
+    list-style: none;
 }
 
 #payButton

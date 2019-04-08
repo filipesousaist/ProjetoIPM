@@ -427,7 +427,7 @@ function loadEventList(place_name){
 		console.log(events.length);
 		for(let i = 0; i < events.length; i ++){
 		let info_img = "<img class='info_icon' src='img/infoicon.png' onclick='changeEvent(\""+ events[i] +"\" , \"" + place_name +"\");'>";
-		events_element.innerHTML += "<li class='iGuide_event_frame'><div class='iGuide_event'>" +
+		events_element.innerHTML += "<li class='iGuide_place_frame'><div class='iGuide_event'>" +
 			events[i]+ "</div>" + info_img + "</li>";
 		}
 	}
@@ -440,7 +440,7 @@ function loadShopList(place_name){
 	console.log(shops.length);
 	for(let i = 0; i < shops.length; i ++){
 		let info_img = "<img class='info_icon' src='img/infoicon.png''>";
-		shops_element.innerHTML += "<li class='iGuide_event_frame'><div class='iGuide_event'>" +
+		shops_element.innerHTML += "<li class='iGuide_place_frame'><div class='iGuide_event'>" +
 		shops[i]+ "</div>" + info_img + "</li>";
 	}
 }
