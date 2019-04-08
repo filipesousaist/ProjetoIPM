@@ -548,7 +548,7 @@ function add_payment(type)
 		payment_list_element.innerHTML +=
 			"<li class='payment_box_p' id=\"" + saved_payment_methods + "\">" +
 				"<div class='payment_type'>Paypal</div>" +
-				"<div class='hidden_card'>" + "examplemail@emaildomain.com" + "</div>" +
+				"<div class='hidden_card'>" + document.getElementById("paypal_email").value + "</div>" +
 				"<img class='p_info_img' src='img/paypal.png' onclick='complete_payment();'>" +
 				"<img id='delete_b' src='img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
 			"</li>";
@@ -556,11 +556,13 @@ function add_payment(type)
 		break;
 
 	case "card":
+		let cardno = document.getElementById("card_number").value;
+		let card4dig = cardno[12] + cardno[12] + cardno[14] + cardno[15];
 		let payment_list_element_c = document.getElementById("payment_list");
 		payment_list_element_c.innerHTML +=
 			"<li class='payment_box_c' id='"+ saved_payment_methods +"'>" +
 				"<div class='payment_type'>Cartão de Crédito</div>" +
-				"<div class='hidden_card'>XXXX-XXXX-XXXX-1234</div>" +
+				"<div class='hidden_card'>" + "XXXX-XXXX-XXXX-" + card4dig + "</div>" +
 				"<img class='p_info_img' src='img/visa.png' onclick='complete_payment();'>" +
 				"<img id='delete_b' src='img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
 			"</li>";
