@@ -18,13 +18,9 @@
 				<button id="ppi_button_resize" onclick="resize_screen();">Ajustar tamanho</button>
 				<br>
 				<button id="ppi_button_reset" onclick="reset_screen_size();">Repor tamanho</button>
-				<h3>DEBUG</h3>
-				<button id="ppi_button_resize" onclick="fill_paypal();">PREENCHER PAYPAL</button>
-				<br>
-				<button id="ppi_button_resize" onclick="fill_card();">PREENCHER CARTAO</button>
 			</div>
 
-			<br>
+			<br/>
 			<hr class="sidebar_line">
 
 			<div>
@@ -99,50 +95,44 @@
 					<div class="screen" id="iGuide_main">
 						<div class="screen_title_container">iGuide</div>
 						<div id="iGuide_near_you_container">Perto de si:</div>
-						<ul id="iGuide_places_near_you"></ul>
+						<ul id="iGuide_places_list"></ul>
 					</div>
 
 					<!-- Ecrã do iGuide com informações sobre um local -->
 					<div class="screen" id="iGuide_info">
 						<div class="screen_title_container">iGuide</div>
-						<div class="iGuide_info_body">
+
+						<div id="iGuide_info_body">
 							<div id="iGuide_info_top">
-								<img id="iGuide_info_icon">
-								<div id="iGuide_info_title"></div>
+								<img id="iGuide_info_place_icon"/> <!-- "src" da img varia consoante o ecrã -->
+								<div id="iGuide_info_place_name"></div>
 							</div>
-							<div id="iGuide_info_container"></div>
-						</div>
-						<div id="iGuide_info_bottom_container"></div>
-					</div>
 
-					<div class="screen" id="iGuide_events">
-						<div class="screen_title_container">iGuide</div>
-						<div class="iGuide_info_body">
-							<div id="iGuide_events_location"></div>
-							<div id= "iGuide_events_container">
-								<ul id="iGuide_events_list"></ul>
+							<div class="iGuide_info_container" id="iGuide_info_description"></div>
+
+							<div class="iGuide_info_container" id="iGuide_info_events">
+								<!-- Lista de eventos -->
+								<div id="iGuide_info_no_events">Não há eventos a decorrer...</div>
+								<ul id="iGuide_info_events_list"></ul>
 							</div>
-						</div>
-						<div id="iGuide_events_bottom_container"></div>
-					</div>
 
-					<div class="screen" id="iGuide_shops">
-						<div class="screen_title_container">iGuide</div>
-						<div class="iGuide_info_body">
-							<div id="iGuide_shops_location"></div>
-							<div id="iGuide_shops_container">
-								<ul id="iGuide_shops_list"></ul>
+							<div class="iGuide_info_container" id="iGuide_event_info">
+								<div id="iGuide_event_title"></div>
+								<div id="iGuide_event_body">
+									<div id="iGuide_event_description"></div>
+									<button id="iGuide_event_pay_button" onclick="change_screen('payment_methods')"></button>
+								</div>
+							</div>
+
+							<div class="iGuide_info_container" id="iGuide_info_shops">
+								<!-- Lista de lojas -->
+								<ul id="iGuide_info_shops_list"></ul>
 							</div>
 						</div>
-						<div id="iGuide_shops_bottom_container"></div>
+
+						<div id="iGuide_info_footer"></div>
 					</div>
 
-					<div class="screen" id="iGuide_event_info">
-						<div class="screen_title_container">iGuide</div>
-						<div id="iGuide_event_title"></div>
-						<div id="iGuide_event_info_container"></div>
-						<div id="iGuide_events_info_bottom_container"></div>
-					</div>
 					<!-- Ecrã principal do iWay -->
 					<div class="screen" id="iWay_main">
 						<div class="screen_title_container">iWay</div>

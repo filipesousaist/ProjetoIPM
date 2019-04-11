@@ -468,10 +468,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 
 #iGuide_near_you_container
 {
-	position: absolute;
+	position: relative;
 	width: 4.5cm; /* (+ 0.5cm padding_left) = 5cm */
 	height: 4.5mm; /* (+ 0.5mm padding_top) = 5mm */
-	top: 4.8mm;
+	top: 0;
 	left: -0.2mm;
 	padding-top: 0.5mm;
 	padding-left: 0.5cm;
@@ -481,7 +481,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-size: 10pt;
 }
 
-#iGuide_places_near_you
+#iGuide_places_list
 {
 	position: absolute;
 	top: 9.8mm;
@@ -498,49 +498,85 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	border-bottom-right-radius: 3mm;
 }
 
-.iGuide_place_frame
+.iGuide_list_item
 {
+	position: relative;
 	width: 4.8cm;
 	height: 1cm;
-	background-image: linear-gradient(to right top, #5ffbf1, #46eefa, #41dfff, #52cffe, #69bff8, #69bff8, #69bff8, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
-	margin: 5px 0 0px 0;
+	left: 1mm;
+	margin: 1mm 0 1mm 0;
   border-radius: 3mm;
-  width: 4.8cm;
-  left: 1mm;
-  position: relative;
+	background-image: linear-gradient(to right top, #5ffbf1, #46eefa, #41dfff, #52cffe, #69bff8, #69bff8, #69bff8, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+	font-family: Verdana, sans-serif;
+	display: flex;
+	align-items: center;
 }
 
-.iGuide_place
+.iGuide_compass
 {
-	width: 3cm;
-	font-family: Verdana, sans-serif;
+	position: relative;
+	width: 1cm;
+	height: 1cm;
+	font-size: 6pt;
+	font-weight: bold;
+	display: inline;
+}
+
+.iGuide_compass_orientation
+{
+	position: absolute;
+	left: 2mm;
+	top: 2mm;
+}
+
+.iGuide_compass_arrow
+{
+
+	position: absolute;
+	width: 3mm;
+	right: 1mm;
+	top: 2mm;
+}
+
+.iGuide_compass_distance
+{
+	position: absolute;
+	left: 2mm;
+	bottom: 2mm;
+}
+
+.iGuide_list_text
+{
+	position: relative;
+	width: 2.7cm;
+	left: 1.5mm;
 	font-size: 8pt;
-	padding-top: 2.5mm;
-	padding-left: 2.5mm;
 	overflow: hidden;
 	white-space: nowrap;
 	-o-text-overflow: ellipsis;
 	text-overflow: ellipsis;
+	display: inline;
 }
 
-.info_icon
+.iGuide_info_icon
 {
-	position: relative;
+	position: absolute;
 	width: 0.7cm;
 	height: 0.7cm;
-	left: 3.8cm;
-	top: -4.5mm;
+	right: 1.5mm;
+	display: inline;
 }
 
 /**********************
  * iGuide info screen *
  **********************/
 
-.iGuide_info_body
+#iGuide_info_body
 {
 	width: 5cm;
-	height: 3.33cm;
+	height: 3cm;
 	background-color: transparent;
+	overflow-x: hidden;
 	overflow-y: scroll;
 }
 
@@ -550,88 +586,49 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	min-height: 8mm;
 	border: 0.2mm solid black;
 	background-color: lightgrey;
+	display: flex;
+	align-items: center;
 }
 
-#iGuide_info_title
+#iGuide_info_place_icon
+{
+	width: 6mm;
+	padding-left: 2.5mm;
+	display: inline;
+}
+
+#iGuide_info_place_name
 {
 	position: relative;
-	left: 1cm;
-	width: 3.5cm;
+	width: calc(100% - 2mm);
+	left: 1.5mm;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 10pt;
-	padding: 5%;
+	padding: 1mm;
+	display: inline;
 }
 
-#iGuide_info_icon
-{
-	position: absolute;
-	top: 50%;
-	transform: translate(0, -50%);
-	width: 0.7cm;
-	height: 0.7cm;
-	padding-left: 2mm;
-}
-
-#iGuide_info_container
+.iGuide_info_container
 {
 	position: relative;
-	border: 0.2mm solid black;
-	width: calc(100% - 4mm);
+	width: calc(100% - 4.4mm);
+	min-height: 2.12cm;
 	left: -0.2mm;
 	padding-left: 2mm;
 	padding-right: 2mm;
+	border: 0.2mm solid black;
+	overflow-y: scroll;
 	background-color: lightgrey;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 13px;
+	display: none;
 }
 
-#iGuide_events_container
-{
-	position: relative;
-	border: 0.2mm solid black;
-	width: calc(100% - 4mm);
-	left: -0.2mm;
-	padding-left: 2mm;
-	padding-right: 2mm;
-	background-color: lightgrey;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 13px;
-	z-index: 0;
-	top: -0.2mm;
-	min-height: 2.5cm;
-}
-
-#iGuide_shops_container
-{
-	position: relative;
-	border: 0.2mm solid black;
-	width: calc(100% - 4mm);
-	left: -0.2mm;
-	padding-left: 2mm;
-	padding-right: 2mm;
-	background-color: lightgrey;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 13px;
-	z-index: 0;
-}
-
-#iGuide_events_location{
-	position: relative;
-	border: 0.2mm solid black;
-	background-color: #BBBBBB;
-	font-family: Verdana, sans-serif;
-	font-size: 10pt;
-	padding-left: 0.75cm;
-	left: -1.6mm;
-	padding: 0;
-	width: 100%;
-	top: -0.1mm;
-}
-
-#iGuide_info_bottom_container
+#iGuide_info_footer
 {
 	position: absolute;
 	border: 0.2mm solid black;
+	height: 4.6mm;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	bottom: 0;
 	font-size: 13px;
@@ -640,138 +637,73 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	width: 100%;
 }
 
-.infobutton{
-	width: 33.3%;
+.iGuide_info_tab_button
+{
+	position: absolute;
+	height: 100%;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 10px;
+	background-color: lightgray;
 }
 
-#iGuide_events_bottom_container
+.iGuide_info_tab_button:disabled
 {
-	position: absolute;
-	border: 0.2mm solid black;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 13px;
-	border-bottom-left-radius: 3mm;
-	border-bottom-right-radius: 3mm;
-	z-index: 1;
-	position: relative;
-	bottom: 0;
-	width: 100%;
+	color: black;
 }
 
-.iGuide_event_frame
+#iGuide_info_no_events
 {
-	list-style: none;
-	position: relative;
-	left: -1.2cm;
-	width: 5cm;
-	height: 1.2cm;
-	background-image: linear-gradient(to right top, #5ffbf1, #46eefa, #41dfff, #52cffe, #69bff8, #69bff8, #69bff8, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+	display: none;
 }
 
-.iGuide_event
+.iGuide_event_list_text
 {
-	width: 3cm;
-	font-family: Verdana, sans-serif;
-	font-size: 8pt;
-	padding-top: 2.5mm;
-	padding-left: 2.5mm;
-	overflow: hidden;
-	white-space: nowrap;
-	-o-text-overflow: ellipsis;
-	text-overflow: ellipsis;
+	width: 3.5cm;
+	left: 1mm;
 }
 
 #iGuide_event_title
 {
-	position: absolute;
-	background-color: #BBBBBB;
-	border: 0.2mm solid black;
-	height: 5%;
-	width: 100%;
+	position: relative;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 10pt;
-	padding: 5%;
 }
 
-#iGuide_shops_location
+#iGuide_event_description
 {
 	position: relative;
-	border: 0.2mm solid black;
-	background-color: #BBBBBB;
-	font-family: Verdana, sans-serif;
-	font-size: 10pt;
-	padding-left: 0.75cm;
-	left: -1.6mm;
-	width: 105%;
-	top: -0.1mm;
-}
-
-#iGuide_shops_bottom_container
-{
-	position: absolute;
-	bottom: 0;
-	border: 0.2mm solid black;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 13px;
-	border-bottom-left-radius: 3mm;
-	border-bottom-right-radius: 3mm;
-	z-index: 1;
-	width: 100%;
-}
-
-
-#iGuide_event_info_container
-{
-	top: 1.2cm;
-	position: absolute;
-	border: 0.2mm solid black;
 	width: calc(100% - 4mm);
-	height: 2.5cm;
 	left: -0.2mm;
 	padding-left: 2mm;
 	padding-right: 2mm;
 	background-color: lightgrey;
-	border-bottom: none;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 13px;
-	overflow-y: scroll;
+	font-size: 8pt;
 }
 
-#iGuide_events_info_bottom_container
-{
-	border: 0.2mm solid black;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 13px;
-	border-bottom-left-radius: 3mm;
-	border-bottom-right-radius: 3mm;
-	z-index: 1;
-	position: relative;
-	top: 3cm;
-}
-
-#iGuide_events_list, #iGuide_shops_list{
-	position: relative;
-    top: -2mm;
-    left: -12.5mm;
-    list-style: none;
-}
-
-#payButton
+#iGuide_event_pay_button
 {
    position: relative;
-   top: 8mm;
+	 left: 50%;
+	 margin-top: 1mm;
+	 margin-bottom: 2mm;
+	 padding: 1mm;
+	 transform: translateX(-50%);
    background-color: #36f454;
    border: none;
-   color: white;
-   padding: 11px 18px;
+   color: black;
    text-align: center;
    text-decoration: none;
-   display: inline-block;
    font-size: 10px;
-   margin: 2px 2px;
    border-radius: 3mm;
+}
+
+#iGuide_info_events_list, #iGuide_info_shops_list
+{
+	position: relative;
+  top: -2mm;
+  left: -12.5mm;
+  list-style: none;
 }
 
 /**************

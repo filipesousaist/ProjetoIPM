@@ -2,16 +2,25 @@ const MAX_POS = {x: 1000, y: 750};
 const SPEED_FAST = 15;
 const SPEED_SLOW = 5;
 const POSITION_UPDATE_INTERVAL = 50; // Milisegundos
-const NEAR_DISTANCE = 200;
+const NEAR_DISTANCE = 500;
 
+// Geral
 var power;
 var current_screen;
+// Mapa
 var current_location;
 var current_position;
 var current_speed;
 var move_directions;
+// Teclado
 var keyboard_row;
+var current_input_id;
+// Pagamentos
 var saved_payment_methods = 0;
+// iGuide
+var iGuide_current_place;
+
+
 
 ////////////////////
 // Inicializações //
@@ -99,6 +108,9 @@ function handle_key_up(e)
 	if (e == undefined)
 		return;
 
+	else if (["ArrowUp", "ArrowLeft", "ArrowDown", "ArrowRight"].includes(e.key))
+		e.preventDefault();
+
 	switch (e.key)
 	{
 	case "x":
@@ -107,25 +119,21 @@ function handle_key_up(e)
 
 	case "w":
 	case "ArrowUp":
-		e.preventDefault();
 		move_directions.up = false;
 		break;
 
 	case "a":
 	case "ArrowLeft":
-		e.preventDefault();
 		move_directions.left = false;
 		break;
 
 	case "s":
 	case "ArrowDown":
-		e.preventDefault();
 		move_directions.down = false;
 		break;
 
 	case "d":
 	case "ArrowRight":
-		e.preventDefault();
 		move_directions.right = false;
 		break;
 
@@ -140,29 +148,28 @@ function handle_key_down(e)
 	if (e == undefined)
 		return;
 
+	else if (["ArrowUp", "ArrowLeft", "ArrowDown", "ArrowRight"].includes(e.key))
+		e.preventDefault();
+
 	switch (e.key)
 	{
 	case "w":
 	case "ArrowUp":
-		e.preventDefault();
 		move_directions.up = true;
 		break;
 
 	case "a":
 	case "ArrowLeft":
-		e.preventDefault();
 		move_directions.left = true;
 		break;
 
 	case "s":
 	case "ArrowDown":
-		e.preventDefault();
 		move_directions.down = true;
 		break;
 
 	case "d":
 	case "ArrowRight":
-		e.preventDefault();
 		move_directions.right = true;
 		break;
 
@@ -346,13 +353,13 @@ function go_back()
 
 function fadein(id, seconds)
 {
-	document.getElementById(id).style.opacity = "1";
+	document.getElementById(id).style.opacity = 1;
 	document.getElementById(id).style.animation = "fade_in " + seconds + "s";
 }
 
 function fadeout(id, seconds)
 {
-	document.getElementById(id).style.opacity = "0";
+	document.getElementById(id).style.opacity = 0;
 	document.getElementById(id).style.animation = "fade_out " + seconds + "s";
 }
 
@@ -372,10 +379,8 @@ function update_clock()
 	var hours = add0(date.getHours());
 	var minutes = add0(date.getMinutes());
 
-	var sep;
 	var main_menu = SCREENS["main_menu"];
-
-	sep = main_menu.blink ? "&nbsp" : ":";
+	var sep = main_menu.blink ? "&nbsp" : ":";
 
 	main_menu.blink = ! main_menu.blink;
 
@@ -388,74 +393,58 @@ function update_clock()
 
 function iGuide_update_places()
 {
-	let sorted_places = [];
-	for (let place in LOCATIONS[current_location].places)
-		if (distance(place) <= NEAR_DISTANCE)
-		{
-			let i = 0;
-			while (i < sorted_places.length)
-			{
-				if (distance(place) < distance(sorted_places[i]))
-				{
-					sorted_places.splice(i, 0, place);
-					break;
-				}
-				i ++;
-			}
-			if (i == sorted_places.length)
-				sorted_places.push(place);
-		}
+	// Calcular todas as distâncias, ângulos e orienta
+	let place_data = {}; // Objeto que vai conter distâncias, ângulos e orientações
+	for (let place_name in LOCATIONS[current_location].places)
+	{
+		place_data[place_name] = {};
+		place_data[place_name].distance = get_distance(place_name);
+		place_data[place_name].angle = get_angle(place_name);
+		place_data[place_name].orientation =
+			get_orientation(place_data[place_name].angle);
+	}
 
-	let places_element = document.getElementById("iGuide_places_near_you");
+	// Ordenar lugares por distância
+	let sorted_places = [];
+	for (let place_name in LOCATIONS[current_location].places)
+	{
+		let i = 0;
+		for (; i < sorted_places.length; i ++)
+			if (place_data[place_name].distance < place_data[sorted_places[i]].distance)
+			{
+				sorted_places.splice(i, 0, place_name);
+				break;
+			}
+		if (i == sorted_places.length)
+			sorted_places.push(place_name);
+	}
+
+	// Mostrar a lista de lugares
+	let places_element = document.getElementById("iGuide_places_list");
 	places_element.innerHTML = "";
 	for (let i = 0; i < sorted_places.length; i ++)
 	{
-		let info_img = "<img class='info_icon' src='img/infoicon.png' onclick='changeInfoScreen(\""+ sorted_places[i] +"\");'>";
-		places_element.innerHTML += "<li class='iGuide_place_frame'><div class='iGuide_place'>" +
-			sorted_places[i] + "</div>" + info_img + "</li>";
+		let data = place_data[sorted_places[i]];
+
+		let orientation = "<div class='iGuide_compass_orientation'>" +
+			data.orientation + "</div>";
+		let arrow = "<image class='iGuide_compass_arrow' src='img/arrow.png'" +
+			"style='transform: rotate(" + -data.angle + "rad);'>";
+		let distance = "<div class='iGuide_compass_distance'>" +
+		Math.round(place_data[sorted_places[i]].distance) + "m</div>";
+		let compass = "<div class='iGuide_compass'>" +
+			orientation + arrow + distance +"</div>";
+
+		let place_name = "<div class='iGuide_list_text'>" +
+			sorted_places[i] + "</div>";
+		let info_img = "<image class='iGuide_info_icon' src='img/infoicon.png'" +
+			"onclick='iGuide_info_load(\""+ sorted_places[i] +"\");'></div>";
+		places_element.innerHTML += "<li class='iGuide_list_item'>" +
+			compass + place_name + info_img + "</li>";
 	}
 }
 
-function loadEventList(place_name){
-	let events = LOCATIONS[current_location].places[place_name].events;
-	let events_element = document.getElementById("iGuide_events_list");
-	if (events.includes("EMPTY")){
-		events_element.innerHTML= "Não há eventos a decorrer...";
-	}
-	else{
-		events_element.innerHTML = "";
-		console.log(events.length);
-		for(let i = 0; i < events.length; i ++){
-		let info_img = "<img class='info_icon' src='img/infoicon.png' onclick='changeEvent(\""+ events[i] +"\" , \"" + place_name +"\");'>";
-		events_element.innerHTML += "<li class='iGuide_place_frame'><div class='iGuide_event'>" +
-			events[i]+ "</div>" + info_img + "</li>";
-		}
-	}
-}
-
-function loadShopList(place_name){
-	let shops = LOCATIONS[current_location].places[place_name].shops;
-	let shops_element = document.getElementById("iGuide_shops_list");
-	shops_element.innerHTML = "";
-	console.log(shops.length);
-	for(let i = 0; i < shops.length; i ++){
-		shops_element.innerHTML += "<li class='iGuide_place_frame'><div class='iGuide_event'>" +
-		shops[i] + "</div></li>";
-	}
-}
-
-function changeShopScreen(place_name){
-	let place = LOCATIONS[current_location].places[place_name];
-	document.getElementById("iGuide_shops_location").innerHTML = place.name;
-	loadShopList(place_name);
-	let bottom = document.getElementById("iGuide_shops_bottom_container");
-	let eventsButton = "<button type='button' class='infobutton'onclick='changeEventsScreen(\""+ place_name +"\");'>Eventos</button>";
-	let infoButton = "<button type='button' class='infobutton' onclick='changeInfoScreen(\""+ place_name +"\");'>Descrição</button>";
-	bottom.innerHTML = infoButton + eventsButton + "<button class='infobutton' type='button'>Lojas</button>";
-	change_screen("iGuide_shops");
-}
-
-function distance(place_name)
+function get_distance(place_name)
 {
 	let place_pos = LOCATIONS[current_location].places[place_name].position;
 	let x_diff = place_pos.x - current_position.x;
@@ -463,71 +452,95 @@ function distance(place_name)
 	return Math.sqrt(Math.pow(x_diff, 2) + Math.pow(y_diff, 2));
 }
 
-function changeInfoScreen(place_name)
+function get_angle(place_name)
 {
-	let place = LOCATIONS[current_location].places[place_name];
-	document.getElementById("iGuide_info_icon").src = PLACE_TYPE_IMG[place.type];
-	document.getElementById("iGuide_info_title").innerHTML = place.name;
-	document.getElementById("iGuide_info_container").innerHTML = place.info;
-	let bottom = document.getElementById("iGuide_info_bottom_container");
-	let eventsButton = "<button type='button' class='infobutton'onclick='changeEventsScreen(\""+ place_name +"\");'>Eventos</button>";
-	let emptyButton = "<button type='button' class='infobutton'>------</button>";
-	console.log(place.type);
-	let infoButton = "<button type='button' class='infobutton'>Descrição</button>";
-	let shopButton = "<button class='infobutton' onclick='changeShopScreen(\""+ place_name+"\");' type='button'>Lojas</button>";
-	switch(place.type){
-		case("park"):
-			bottom.innerHTML = infoButton + eventsButton + emptyButton;
-			break;
-		case("shop"):
-			bottom.innerHTML = infoButton + eventsButton + shopButton;
-			break;
-		case("monument"):
-			bottom.innerHTML = infoButton + emptyButton + emptyButton;
-			break;
-		case("museum"):
-			bottom.innerHTML = infoButton + emptyButton + emptyButton;
-			break;
-	}
+	let place_pos = LOCATIONS[current_location].places[place_name].position;
+	let x_diff = place_pos.x - current_position.x;
+	let y_diff = place_pos.y - current_position.y;
+	return Math.atan2(-y_diff, x_diff);
+}
+
+function get_orientation(angle)
+{
+	return ["O", "SO", "S", "SE", "E", "NE", "N", "NO", "O"][Math.round(4 * angle / Math.PI + 4)];
+}
+
+/////////////////////////
+// iGuide: informações //
+/////////////////////////
+
+function iGuide_info_load(place_name)
+{
+	iGuide_current_place = LOCATIONS[current_location].places[place_name];
 	change_screen("iGuide_info");
 }
 
-function changeEventsScreen(place_name){
-	let place = LOCATIONS[current_location].places[place_name];
-	document.getElementById("iGuide_events_location").innerHTML = place.name;
-	loadEventList(place_name);
-	let bottom = document.getElementById("iGuide_events_bottom_container");
-	let infoButton = "<button type='button' class='infobutton' onclick='changeInfoScreen(\""+ place_name +"\");'>Descrição</button>";
-	let shopButton = "<button class='infobutton' onclick='changeShopScreen(\""+ place_name+"\");' type='button'>Lojas</button>";
-	switch(place.type){
-		case("park"):
-			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>------</button>";
-			break;
-		case("shop"):
-			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + shopButton;
-			break;
+function iGuide_info_change_tab(new_tab_id)
+{
+	let current_tab = SCREENS["iGuide_info"].current_tab;
+
+	if (current_tab == null || new_tab_id != current_tab.id)
+	{
+		// Mudar o botão selecionado
+		if (current_tab != null)
+		{
+			let current_button_element = document.getElementById(current_tab.id + "_button");
+			current_button_element.style.backgroundColor = "lightgray";
+			current_button_element.disabled = false;
+
+			if (current_tab.on_exit != undefined)
+				current_tab.on_exit();
+
+			replace_element(current_tab.id, new_tab_id);
+		}
+		else
+			document.getElementById(new_tab_id).style.display = "block";
+
+		let new_button_element = document.getElementById(new_tab_id + "_button");
+		new_button_element.style.backgroundColor = "gray";
+		new_button_element.disabled = true;
+
+		let new_tab = IGUIDE_INFO_TABS[new_tab_id];
+		if (new_tab.on_load != undefined)
+			new_tab.on_load();
+
+		SCREENS["iGuide_info"].current_tab = new_tab;
 	}
-	change_screen("iGuide_events");
 }
 
-function changeEvent(event_name, place_name){
-	let event = EVENTS[event_name];
-	let place = LOCATIONS[current_location].places[place_name];
-	console.log(event);
-	document.getElementById("iGuide_event_title").innerHTML = event.name;
-	document.getElementById("iGuide_event_info_container").innerHTML = event.info + "<button id='payButton' onclick='change_screen(\"payment_methods\");'> Comprar " + event.price + "</button>";
-	let bottom = document.getElementById("iGuide_events_info_bottom_container");
-	let infoButton = "<button type='button' class='infobutton' onclick='changeInfoScreen(\""+ place_name +"\");'>Descrição</button>";
-	let shopButton = "<button class='infobutton' onclick='changeShopScreen(\""+ place_name+"\");' type='button'>Lojas</button>";
-	switch(place.type){
-		case("park"):
-			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + "<button class='infobutton' type='button'>------</button>";
-			break;
-		case("shop"):
-			bottom.innerHTML = infoButton + "<button type='button' class='infobutton'>Eventos</button>" + shopButton;
-			break;
+function iGuide_info_show_event(event_name)
+{
+	SCREENS["iGuide_info"].in_event = true;
+
+	let current_event = EVENTS[event_name];
+
+	document.getElementById("iGuide_event_title").innerHTML = event_name;
+	document.getElementById("iGuide_event_description").innerHTML = current_event.description;
+
+	let pay_button = document.getElementById("iGuide_event_pay_button");
+	if (current_event.price > 0)
+	{
+		pay_button.disabled = false;
+		pay_button.innerHTML = "Comprar (" + current_event.price + "€)";
 	}
-	change_screen("iGuide_event_info");
+	else
+	{
+		pay_button.disabled = true;
+		pay_button.innerHTML = "Gratuito";
+	}
+
+	document.getElementById("iGuide_info_events").style.display = "none";
+	document.getElementById("iGuide_event_info").style.display = "block";
+
+	document.getElementById("back_button").onclick = iGuide_info_leave_event;
+}
+
+function iGuide_info_leave_event()
+{
+	SCREENS["iGuide_info"].in_event = false;
+	document.getElementById("iGuide_event_info").style.display = "none";
+	document.getElementById("iGuide_info_events").style.display = "block";
+	document.getElementById("back_button").onclick = go_back;
 }
 
 
@@ -537,7 +550,6 @@ function changeEvent(event_name, place_name){
 
 function add_payment(type)
 {
-
 	document.getElementById("empty_pm").style.display = "none";
 
 	switch(type)
@@ -551,12 +563,12 @@ function add_payment(type)
 				"<img class='p_info_img' src='img/paypal.png' onclick='complete_payment();'>" +
 				"<img id='delete_b' src='img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
 			"</li>";
-		saved_payment_methods++;
+		saved_payment_methods ++;
 		break;
 
 	case "card":
 		let cardno = document.getElementById("card_number").value;
-		let card4dig = cardno[12] + cardno[12] + cardno[14] + cardno[15];
+		let card4dig = cardno[12] + cardno[13] + cardno[14] + cardno[15];
 		let payment_list_element_c = document.getElementById("payment_list");
 		payment_list_element_c.innerHTML +=
 			"<li class='payment_box_c' id='"+ saved_payment_methods +"'>" +
@@ -565,17 +577,16 @@ function add_payment(type)
 				"<img class='p_info_img' src='img/visa.png' onclick='complete_payment();'>" +
 				"<img id='delete_b' src='img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
 			"</li>";
-		saved_payment_methods++;
+		saved_payment_methods ++;
 		break;
 	}
-
 }
 
 function show_delete_option()
 {
 	let ul = document.getElementById("payment_list");
 	let items = ul.getElementsByTagName("li");
-	for (let i = 0; i < items.length; ++ i)
+	for (let i = 0; i < items.length; i ++)
 	{
 		if (items[i].getElementsByTagName("img")[1].style.zIndex == "-1")
 		{
@@ -611,28 +622,30 @@ function payment_form(id)
 	}
 }
 
- function fill_paypal()
- {
-	 document.getElementById("paypal_email").value = "exemplo@gmail.com";
-	 document.getElementById("paypal_pw").value = "123abc";
+function fill_paypal()
+{
+	document.getElementById("paypal_email").value = "exemplo@gmail.com";
+	document.getElementById("paypal_pw").value = "123abc";
+}
 
- }
+function fill_card()
+{
+	document.getElementById("card_number").value = "1234 5678 1234 1234";
+	document.getElementById("card_date").value = "12/09";
+	document.getElementById("card_cvv").value = "123";
+}
 
- function fill_card()
- {
-	 document.getElementById("card_number").value = "1234 5678 1234 1234";
-	 document.getElementById("card_date").value = "12/09";
-	 document.getElementById("card_cvv").value = "123";
- }
-
- function complete_payment(){
+function complete_payment()
+{
 	change_screen("payment_complete");
-	setTimeout(function(){
+	setTimeout(function()
+	{
 		document.getElementById("payment_before").style.opacity = "0";
 		document.getElementById("payment_after").style.opacity = "1";
 	}, 2000);
 
-	setTimeout(function(){
+	setTimeout(function()
+	{
 		change_screen("payment_methods");
 		document.getElementById("payment_before").style.opacity = "1";
 		document.getElementById("payment_after").style.opacity = "0";
@@ -644,8 +657,6 @@ function payment_form(id)
 /////////////
 // Teclado //
 /////////////
-
-var current_input_id;
 
 function change_keyboard_row(direction)
 {
@@ -663,9 +674,11 @@ function change_keyboard_row(direction)
 	new_row_element.classList.add("keyboard_active");
 }
 
-function write_mode(id){
+function write_mode(id)
+{
 	current_input_id = id;
 	document.getElementById("keyboard").style.display = "block";
+	document.getElementById("back_button").onclick = exit_write_mode;
 }
 
 function do_write(w)
@@ -678,6 +691,7 @@ function exit_write_mode()
 	while (keyboard_row != 1)
 		change_keyboard_row("up"); // TODO: Arranjar forma melhor de fazer isto!
 	document.getElementById("keyboard").style.display = "none";
+	document.getElementById("back_button").onclick = go_back;
 }
 
 /////////////////////
@@ -688,6 +702,11 @@ SCREENS["main_menu"].on_init = function()
 {
 	update_location();
 };
+
+SCREENS["iGuide_main"].on_init = function()
+{
+	iGuide_update_places();
+}
 
 /////////////////////
 // Funções on_load //
@@ -715,10 +734,89 @@ SCREENS["main_menu"].on_load = function()
 
 SCREENS["add_payment"].on_load = function()
 {
-	// Keyboard
 	keyboard_row = 1;
 	document.getElementById("keyboard_row1").classList.remove("keyboard_inactive");
 	document.getElementById("keyboard_row1").classList.add("keyboard_active");
+}
+
+SCREENS["iGuide_info"].on_load = function()
+{
+	// Mostrar ícone e nome do local
+	document.getElementById("iGuide_info_place_icon").src =
+		PLACE_TYPE_DATA[iGuide_current_place.type].img;
+	document.getElementById("iGuide_info_place_name").innerHTML =
+		iGuide_current_place.name;
+
+	// Mostrar tabs
+	let tabs = PLACE_TYPE_DATA[iGuide_current_place.type].tabs;
+
+	// Alterar botões
+	if (SCREENS["iGuide_info"].current_tab == null || SCREENS["iGuide_info"].current_tab.id != tabs[0])
+	{
+		let bottom = document.getElementById("iGuide_info_footer");
+		bottom.innerHTML = "";
+		let button_width = 100 / tabs.length;
+		let button_left = 0;
+
+		for (let i = 0; i < tabs.length; ++ i)
+		{
+			let button_element = document.createElement("button");
+
+			button_element.id = tabs[i] + "_button";
+			button_element.classList.add("iGuide_info_tab_button");
+			button_element.onclick = function(){ iGuide_info_change_tab(tabs[i]); };
+			button_element.style.width = button_width + "%";
+			button_element.style.left = button_left + "%";
+			button_element.innerHTML = IGUIDE_INFO_TABS[tabs[i]].name;
+
+			bottom.appendChild(button_element);
+			button_left += button_width; // O próximo botão começa onde este acaba
+		}
+	}
+
+	// Mudar para a 1ª tab
+	iGuide_info_change_tab(tabs[0]);
+}
+
+IGUIDE_INFO_TABS["iGuide_info_description"].on_load = function()
+{
+	document.getElementById("iGuide_info_description").innerHTML =
+		iGuide_current_place.description;
+}
+
+IGUIDE_INFO_TABS["iGuide_info_events"].on_load = function()
+{
+	let events = iGuide_current_place.events;
+	if (events == undefined)
+	{
+		document.getElementById("iGuide_info_no_events").style.display = "block";
+		document.getElementById("iGuide_info_events_list").style.display = "none";
+	}
+	else
+	{
+		document.getElementById("iGuide_info_no_events").style.display = "none";
+		document.getElementById("iGuide_info_events_list").style.display = "block";
+		let events_list_element = document.getElementById("iGuide_info_events_list");
+		events_list_element.innerHTML = "";
+		for (let i = 0; i < events.length; i ++)
+		{
+			let info_img = "<img class='iGuide_info_icon' src='img/infoicon.png'" +
+				"onclick='iGuide_info_show_event(\""+ events[i] +"\");'>";
+			events_list_element.innerHTML +=
+				"<li class='iGuide_list_item'><div class='iGuide_event_list_text iGuide_list_text'>" +
+				events[i]+ "</div>" + info_img + "</li>";
+		}
+	}
+}
+
+IGUIDE_INFO_TABS["iGuide_info_shops"].on_load = function()
+{
+	let shops = iGuide_current_place.shops;
+	let shops_element = document.getElementById("iGuide_info_shops_list");
+	shops_element.innerHTML = "";
+	for (let i = 0; i < shops.length; i ++)
+		shops_element.innerHTML += "<li class='iGuide_list_item'>" +
+			"<div class='iGuide_list_text'>" + shops[i] + "</div></li>";
 }
 
 /////////////////////
@@ -764,3 +862,15 @@ SCREENS["add_payment"].on_exit = function()
 
 	exit_write_mode(); // TODO: Arranjar forma melhor de fazer isto!
 };
+
+SCREENS["iGuide_info"].on_exit = function()
+{
+	if (SCREENS["iGuide_info"].in_event)
+		iGuide_info_leave_event();
+}
+
+IGUIDE_INFO_TABS["iGuide_info_events"].on_exit = function()
+{
+	if (SCREENS["iGuide_info"].in_event)
+		iGuide_info_leave_event();
+}
