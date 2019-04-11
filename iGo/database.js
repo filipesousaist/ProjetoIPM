@@ -4,7 +4,7 @@ const SCREENS =
 
   "off":          {id: "off"},
 
-  "main_menu":    {id: "main_menu",   clock_blink: false,   timeout: null},
+  "main_menu":    {id: "main_menu"},
 
   "apps":         {id: "apps",        parent_id: "main_menu"},
 
@@ -25,7 +25,7 @@ const SCREENS =
   "add_payment": {id: "add_payment", parent_id: "payment_methods"},
 
   "payment_complete": {id: "payment_complete"}
-}
+};
 
 const DEFAULT_LOCATION = "Lisboa";
 
@@ -163,34 +163,38 @@ const LOCATIONS =
     },
     temperature: 15
   }
-}
+};
 
 const PLACE_TYPE_DATA =
 {
   "monument":
   {
+    name: "Monumento",
     img: "img/monument.svg",
     tabs: ["iGuide_info_description"]
   },
 
   "museum":
   {
+    name: "Museu",
     img: "img/museum.png",
     tabs: ["iGuide_info_description"]
   },
 
   "shop":
   {
+    name: "Loja",
     img: "img/shop.png",
     tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
   },
 
   "park":
   {
+    name: "Jardim",
     img: "img/park.png",
     tabs: ["iGuide_info_description", "iGuide_info_events"]
   }
-}
+};
 
 
 const IGUIDE_INFO_TABS =
@@ -212,7 +216,7 @@ const IGUIDE_INFO_TABS =
     id: "iGuide_info_shops",
     name: "Lojas"
   }
-}
+};
 
 
 const PAYMENT =
@@ -229,4 +233,4 @@ const PAYMENT =
 		img_visa: "img/visa.png",
 		img_mc: "img/mastercard.png"
 	}
-}
+};
