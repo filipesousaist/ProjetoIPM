@@ -63,7 +63,9 @@ const LOCATIONS =
         description: "O Parque Eduardo VII de Inglaterra é o maior parque do centro de Lisboa, sendo comummente conhecido apenas por Parque Eduardo VII.",
         type: "park",
         position: {x: 50, y: 60},
-        events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"]
+        events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
+		place_wp: "img/iguide_places_img/pevii.png",
+		color_wp: "#33cc00"
       },
 
       "Shopping Amoreiras":
@@ -72,7 +74,9 @@ const LOCATIONS =
         description: "Inaugurado a 27 de Setembro de 1985 e inserido num complexo de escritórios e habitações, com uma arquitectura ousada para a época.",
         type: "shop",
         position: {x: 150, y: 160},
-        shops: ["FNAC", "WORTEN", "BERTRAND"]
+        shops: ["FNAC", "WORTEN", "BERTRAND"],
+		place_wp: "img/iguide_places_img/asc.png",
+		color_wp: "#0073e6"
       },
 
     	"Instituto Gulbenkian":
@@ -80,7 +84,9 @@ const LOCATIONS =
         name: "Instituto Gulbenkian",
         description: "O Instituto Gulbenkian de Ciência (IGC) MHSE é um centro internacional dedicado à investigação biológica e biomédica e à formação pós-graduada, localizado em Oeiras, Portugal.",
         type: "museum",
-        position: {x: 40, y: 400}
+        position: {x: 40, y: 400},
+		place_wp: "img/iguide_places_img/ig.png",
+		color_wp: "#ff6600"
       },
 
     	"Padrão dos Descobrimentos":
@@ -88,7 +94,9 @@ const LOCATIONS =
         name: "Padrão dos Descobrimentos",
         description: "Em posição destacada na margem direita do rio Tejo, o monumento original, em materiais perecíveis, foi erguido em 1940 por ocasião da Exposição do Mundo Português para homenagear as figuras históricas envolvidas nos Descobrimentos portugueses.",
         type: "monument",
-        position: {x: 600, y: 420}
+        position: {x: 600, y: 420},
+		place_wp: "img/iguide_places_img/pdd.png",
+		color_wp: "#ff3333"	
       },
 
     	"Torre de Belém":
@@ -96,7 +104,9 @@ const LOCATIONS =
         name: "Torre de Belém",
         description: "Um dos ex libris da cidade, o monumento é um ícone da arquitetura do reinado de D. Manuel I, numa síntese entre a torre de menagem de tradição medieval e o baluarte moderno, onde se dispunham peças de artilharia.",
         type: "monument",
-        position: {x: 590, y: 100}
+        position: {x: 590, y: 100},
+		place_wp: "img/iguide_places_img/tdb.png",
+		color_wp: "#ff3333"
       },
 
       "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo":
@@ -104,7 +114,8 @@ const LOCATIONS =
         name: "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo",
         description: "Local com uma descrição muito comprida, que ocupa várias linhas no ecrã do iGo",
         type: "museum",
-        position: {x: 870, y: 700}
+        position: {x: 870, y: 700},
+		color_wp: "#FFB6C1"
       }
     },
     temperature: 22
