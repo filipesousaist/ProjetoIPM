@@ -7,11 +7,14 @@ const NEAR_DISTANCE = 500;
 // Geral
 var power;
 var current_screen;
+var new_screen;
 // Mapa
 var current_location;
 var current_position;
 var current_speed;
 var move_directions;
+// Relógio
+var clock = {blink: false, timeout: null};
 // Teclado
 var keyboard_row;
 var current_input_id;
@@ -323,14 +326,17 @@ function change_screen(new_screen_id)
 {
 	if (new_screen_id != current_screen.id)
 	{
+		new_screen = SCREENS[new_screen_id];
+
 		if (current_screen.on_exit != undefined)
 			current_screen.on_exit();
+		global_on_exit();
 
 		replace_element(current_screen.id, new_screen_id);
 
-		let new_screen = SCREENS[new_screen_id];
 		if (new_screen.on_load != undefined)
 			new_screen.on_load();
+		global_on_load();
 
 		current_screen = new_screen;
 	}
@@ -338,10 +344,10 @@ function change_screen(new_screen_id)
 
 function replace_element(old_id, new_id)
 {
-	document.getElementById(new_id).style.display = "block";
-
 	if (new_id != "error_screen")
 		document.getElementById(old_id).style.display = "none";
+
+	document.getElementById(new_id).style.display = "block";
 }
 
 function go_back()
@@ -373,18 +379,18 @@ function update_location()
 	document.getElementById("degrees").innerHTML = LOCATIONS[current_location].temperature + "&deg;";
 }
 
-function update_clock()
+function update_clock(clock_element)
 {
 	var date = new Date();
 	var hours = add0(date.getHours());
 	var minutes = add0(date.getMinutes());
 
 	var main_menu = SCREENS["main_menu"];
-	var sep = main_menu.blink ? "&nbsp" : ":";
+	var sep = clock.blink ? "&nbsp" : ":";
 
-	main_menu.blink = ! main_menu.blink;
+	clock.blink = ! clock.blink;
 
-	document.getElementById("clock").innerHTML = hours + sep + minutes;
+	clock_element.innerHTML = hours + sep + minutes;
 }
 
 ////////////
@@ -406,7 +412,8 @@ function iGuide_update_places()
 
 	// Ordenar lugares por distância
 	let sorted_places = [];
-	for (let place_name in LOCATIONS[current_location].places)
+	let places = LOCATIONS[current_location].places;
+	for (let place_name in places)
 	{
 		let i = 0;
 		for (; i < sorted_places.length; i ++)
@@ -431,26 +438,27 @@ function iGuide_update_places()
 		let arrow = "<image class='iGuide_compass_arrow' src='img/arrow.png'" +
 			"style='transform: rotate(" + -data.angle + "rad);'>";
 		let distance = "<div class='iGuide_compass_distance'>" +
-		Math.round(place_data[sorted_places[i]].distance) + "m</div>";
+			Math.round(data.distance) + "m</div>";
 		let compass = "<div class='iGuide_compass'>" +
 			orientation + arrow + distance +"</div>";
-		
-		let place_type = "<div class='iGuide_list_mon_type'>" + "Monumento" + "</div>";
-		
+
+		let place_type = "<div class='iGuide_list_mon_type'>" +
+			PLACE_TYPE_DATA[places[sorted_places[i]].type].name + "</div>";
+
 		let place_name = "<div class='iGuide_list_text'>" +
 			sorted_places[i] + "</div>";
 		let info_img = "<image class='iGuide_info_icon' src='img/park.png'" +
 			"onclick='iGuide_info_load(\""+ sorted_places[i] +"\");'></div>";
-		
+
 		let stars = "<div class='rating_stars'>";
 
 		for(let c = 0; c < LOCATIONS[current_location]["places"][sorted_places[i]]["rating"]; c++) stars += "<span>★</span>";
 		stars += "</div>";
-		
+
 		let repr_img = "<img class='iGuide_list_repr_img' src=\"" + LOCATIONS[current_location]["places"][sorted_places[i]]["place_wp"] + "\">";
-		
-		places_element.innerHTML += "<li class='iGuide_list_item' style='background-color:" + LOCATIONS[current_location]["places"][sorted_places[i]]["color_wp"] + "'>" + 
-		info_img + place_type + repr_img + 
+
+		places_element.innerHTML += "<li class='iGuide_list_item' style='background-color:" + LOCATIONS[current_location]["places"][sorted_places[i]]["color_wp"] + "'>" +
+		info_img + place_type + repr_img +
 		compass + place_name + stars + "</li>";
 	}
 }
@@ -490,33 +498,30 @@ function iGuide_info_change_tab(new_tab_id)
 {
 	let current_tab = SCREENS["iGuide_info"].current_tab;
 
-	if (current_tab == null || new_tab_id != current_tab.id)
+	if (current_tab != null)
 	{
 		// Mudar o botão selecionado
-		if (current_tab != null)
-		{
-			let current_button_element = document.getElementById(current_tab.id + "_button");
-			current_button_element.style.backgroundColor = "lightgray";
-			current_button_element.disabled = false;
+		let current_button_element = document.getElementById(current_tab.id + "_button");
+		current_button_element.style.backgroundColor = "lightgray";
+		current_button_element.disabled = false;
 
-			if (current_tab.on_exit != undefined)
-				current_tab.on_exit();
+		if (current_tab.on_exit != undefined)
+			current_tab.on_exit();
 
-			replace_element(current_tab.id, new_tab_id);
-		}
-		else
-			document.getElementById(new_tab_id).style.display = "block";
-
-		let new_button_element = document.getElementById(new_tab_id + "_button");
-		new_button_element.style.backgroundColor = "gray";
-		new_button_element.disabled = true;
-
-		let new_tab = IGUIDE_INFO_TABS[new_tab_id];
-		if (new_tab.on_load != undefined)
-			new_tab.on_load();
-
-		SCREENS["iGuide_info"].current_tab = new_tab;
+		replace_element(current_tab.id, new_tab_id);
 	}
+	else
+		document.getElementById(new_tab_id).style.display = "block";
+
+	let new_button_element = document.getElementById(new_tab_id + "_button");
+	new_button_element.style.backgroundColor = "gray";
+	new_button_element.disabled = true;
+
+	let new_tab = IGUIDE_INFO_TABS[new_tab_id];
+	if (new_tab.on_load != undefined)
+		new_tab.on_load();
+
+	SCREENS["iGuide_info"].current_tab = new_tab;
 }
 
 function iGuide_info_show_event(event_name)
@@ -709,19 +714,29 @@ function exit_write_mode()
 // Funções on_init //
 /////////////////////
 
-SCREENS["main_menu"].on_init = function()
-{
-	update_location();
-};
+SCREENS["main_menu"].on_init = update_location;
 
-SCREENS["iGuide_main"].on_init = function()
-{
-	iGuide_update_places();
-}
+SCREENS["iGuide_main"].on_init = iGuide_update_places;
 
 /////////////////////
 // Funções on_load //
 /////////////////////
+
+function global_on_load()
+{
+	// Função que inclui funcionalidades diversas que tenham de ser executadas
+	// sempre na saída (para não sobrecarregar a função change_screen)
+
+	// Atualizar relógio do novo ecrã
+	let clock_elements_list = document.getElementById(new_screen.id).getElementsByClassName("clock");
+	if (clock_elements_list.length > 0)
+	{
+		clock.blink = false;
+		update_clock(clock_elements_list[0]);
+		clock.timeout = setInterval(function(){update_clock(clock_elements_list[0])}, 1000);
+	}
+
+}
 
 SCREENS["off"].on_load = function()
 {
@@ -734,13 +749,6 @@ SCREENS["error_screen"].on_load = function()
 {
 	SCREENS["error_screen"].parent_id = current_screen.id;
 	fadein("error_screen", 0.3);
-};
-
-SCREENS["main_menu"].on_load = function()
-{
-	SCREENS["main_menu"].clock_blink = false;
-	update_clock();
-	SCREENS["main_menu"].timeout = setInterval(update_clock, 1000);
 };
 
 SCREENS["add_payment"].on_load = function()
@@ -758,31 +766,27 @@ SCREENS["iGuide_info"].on_load = function()
 	document.getElementById("iGuide_info_place_name").innerHTML =
 		iGuide_current_place.name;
 
-	// Mostrar tabs
+	// Alterar botões
 	let tabs = PLACE_TYPE_DATA[iGuide_current_place.type].tabs;
 
-	// Alterar botões
-	if (SCREENS["iGuide_info"].current_tab == null || SCREENS["iGuide_info"].current_tab.id != tabs[0])
+	let bottom = document.getElementById("iGuide_info_footer");
+	bottom.innerHTML = "";
+	let button_width = 100 / tabs.length;
+	let button_left = 0;
+
+	for (let i = 0; i < tabs.length; i ++)
 	{
-		let bottom = document.getElementById("iGuide_info_footer");
-		bottom.innerHTML = "";
-		let button_width = 100 / tabs.length;
-		let button_left = 0;
+		let button_element = document.createElement("button");
 
-		for (let i = 0; i < tabs.length; ++ i)
-		{
-			let button_element = document.createElement("button");
+		button_element.id = tabs[i] + "_button";
+		button_element.classList.add("iGuide_info_tab_button");
+		button_element.onclick = function(){ iGuide_info_change_tab(tabs[i]); };
+		button_element.style.width = button_width + "%";
+		button_element.style.left = button_left + "%";
+		button_element.innerHTML = IGUIDE_INFO_TABS[tabs[i]].name;
 
-			button_element.id = tabs[i] + "_button";
-			button_element.classList.add("iGuide_info_tab_button");
-			button_element.onclick = function(){ iGuide_info_change_tab(tabs[i]); };
-			button_element.style.width = button_width + "%";
-			button_element.style.left = button_left + "%";
-			button_element.innerHTML = IGUIDE_INFO_TABS[tabs[i]].name;
-
-			bottom.appendChild(button_element);
-			button_left += button_width; // O próximo botão começa onde este acaba
-		}
+		bottom.appendChild(button_element);
+		button_left += button_width; // O próximo botão começa onde este acaba
 	}
 
 	// Mudar para a 1ª tab
@@ -834,6 +838,16 @@ IGUIDE_INFO_TABS["iGuide_info_shops"].on_load = function()
 // Funções on_exit //
 /////////////////////
 
+function global_on_exit()
+{
+	// Função que inclui funcionalidades diversas que tenham de ser executadas
+	// sempre na saída (para não sobrecarregar a função change_screen)
+
+	// Eliminar timeout do relógio, se este ecrã tiver um relógio
+	if (document.getElementById(current_screen.id).getElementsByClassName("clock").length > 0)
+		clearInterval(clock.timeout);
+}
+
 SCREENS["off"].on_exit = function()
 {
 	document.getElementById("home_button").onclick = function(){ change_screen("main_menu"); }
@@ -843,11 +857,6 @@ SCREENS["off"].on_exit = function()
 SCREENS["error_screen"].on_exit = function()
 {
 	document.getElementById("error_screen").style.animation = "";
-};
-
-SCREENS["main_menu"].on_exit = function()
-{
-	clearInterval(SCREENS["main_menu"].timeout);
 };
 
 SCREENS["add_payment"].on_exit = function()
