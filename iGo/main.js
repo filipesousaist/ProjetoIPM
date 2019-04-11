@@ -447,15 +447,18 @@ function iGuide_update_places()
 
 		let place_name = "<div class='iGuide_list_text'>" +
 			sorted_places[i] + "</div>";
-		let info_img = "<image class='iGuide_info_icon' src='img/Museum.png'" +
+		let info_img = "<image class='iGuide_info_icon' src='img/park.png'" +
 			"onclick='iGuide_info_load(\""+ sorted_places[i] +"\");'></div>";
 
 		let rating = Math.floor(Math.random() * 5)+1;
 		let stars = "<div class='rating_stars'>" +
 		 	"<span>★</span>".repeat(rating) + "</div>";
 
-		places_element.innerHTML += "<li class='iGuide_list_item'>" + info_img + place_type +
-			compass + place_name + stars + "</li>";
+		let repr_img = "<img class='iGuide_list_repr_img' src=\"" + places[sorted_places[i]].place_wp + "\">";
+
+		places_element.innerHTML += "<li class='iGuide_list_item' style='background-color:" +
+			places[sorted_places[i]].color_wp + "'>" + info_img + place_type +
+			repr_img + compass + place_name + stars + "</li>";
 	}
 }
 
