@@ -434,13 +434,21 @@ function iGuide_update_places()
 		Math.round(place_data[sorted_places[i]].distance) + "m</div>";
 		let compass = "<div class='iGuide_compass'>" +
 			orientation + arrow + distance +"</div>";
-
+		
+		let place_type = "<div class='iGuide_list_mon_type'>" + "Monumento" + "</div>";
+		
 		let place_name = "<div class='iGuide_list_text'>" +
 			sorted_places[i] + "</div>";
-		let info_img = "<image class='iGuide_info_icon' src='img/infoicon.png'" +
+		let info_img = "<image class='iGuide_info_icon' src='img/Museum.png'" +
 			"onclick='iGuide_info_load(\""+ sorted_places[i] +"\");'></div>";
-		places_element.innerHTML += "<li class='iGuide_list_item'>" +
-			compass + place_name + info_img + "</li>";
+		
+		let stars = "<div class='rating_stars'>";
+		let rating = Math.floor(Math.random() * 5)+1;
+		for(let c = 0; c < rating; c++) stars += "<span>★</span>";
+		stars += "</div>";
+		
+		places_element.innerHTML += "<li class='iGuide_list_item'>" + info_img + place_type + 
+			compass + place_name + stars + "</li>";
 	}
 }
 

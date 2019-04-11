@@ -466,6 +466,19 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
  * iGuide main *
  ***************/
 
+#iGuide_main{
+	background-color: #87CEEB;
+	overflow-y: scroll;
+}
+
+#iguide_main_container{
+	width: 5cm;
+	height: 3cm;
+	background-color: transparent;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+ 
 #iGuide_near_you_container
 {
 	position: relative;
@@ -475,8 +488,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	left: -0.2mm;
 	padding-top: 0.5mm;
 	padding-left: 0.5cm;
-	background-color: #BBBBBB;
-	border: 0.2mm solid black;
 	font-family: Verdana, sans-serif;
 	font-size: 10pt;
 }
@@ -489,11 +500,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	width: 5cm;
 	height: 3cm;
 	list-style: none;
-	overflow-x: hidden;
 	margin-top: 0;
 	padding-left: 0;
-	background-color: #DDDDDD;
-	border: 0.2mm solid black;
 	border-bottom-left-radius: 3mm;
 	border-bottom-right-radius: 3mm;
 }
@@ -501,15 +509,14 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 .iGuide_list_item
 {
 	position: relative;
-	width: 4.8cm;
-	height: 1cm;
-	left: 1mm;
+	width: 5cm;
+	height: 1.3cm;
 	margin: 1mm 0 1mm 0;
-  border-radius: 3mm;
-	background-image: linear-gradient(to right top, #5ffbf1, #46eefa, #41dfff, #52cffe, #69bff8, #69bff8, #69bff8, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+	background-color: green;
 	font-family: Verdana, sans-serif;
 	display: flex;
 	align-items: center;
+	background: url('img/mon.png');
 }
 
 .iGuide_compass
@@ -520,6 +527,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-size: 6pt;
 	font-weight: bold;
 	display: inline;
+	left: 2.2cm;
 }
 
 .iGuide_compass_orientation
@@ -548,23 +556,49 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 .iGuide_list_text
 {
 	position: relative;
-	width: 2.7cm;
-	left: 1.5mm;
-	font-size: 8pt;
-	overflow: hidden;
-	white-space: nowrap;
-	-o-text-overflow: ellipsis;
-	text-overflow: ellipsis;
-	display: inline;
+    width: 2.7cm;
+    left: -1.21cm;
+    font-size: 8pt;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline;
+    font-family: Tahoma, Geneva, sans-serif;
+	color: white;
 }
 
 .iGuide_info_icon
 {
 	position: absolute;
-	width: 0.7cm;
-	height: 0.7cm;
-	right: 1.5mm;
-	display: inline;
+    width: 0.7cm;
+    height: 0.7cm;
+    display: inline;
+    left: 3mm;
+    top: 2.5mm;
+}
+
+.rating_stars{
+	position: absolute;
+    top: 7.7mm;
+    left: 1.25cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 9pt;
+	color: white;
+}
+
+.iGuide_list_mon_type{
+	position: relative;
+    width: 1.7cm;
+    left: 1.3cm;
+    top: -3.5mm;
+    font-size: 6pt;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+	color: lightgrey;
 }
 
 /**********************
