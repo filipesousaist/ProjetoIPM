@@ -228,7 +228,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: absolute;
 	width: 5cm;
 	height: 1cm;
-	background-color: #4455CC;
+	background-color: #6644EE;
 	box-shadow: 0 0.3mm 0.8mm grey;
 	border-top-right-radius: 3mm;
 	border-top-left-radius: 3mm;
@@ -255,10 +255,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #clock
 {
 	position: absolute;
-	right: 14mm;
-	top: 2mm;
+	right: 13mm;
+	top: 1.8mm;
 	font-family: courier;
-	font-size: 18pt;
+	font-size: 19pt;
 	font-weight: bold;
 }
 
