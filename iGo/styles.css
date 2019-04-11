@@ -516,8 +516,17 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-family: Verdana, sans-serif;
 	display: flex;
 	align-items: center;
-	background: url('img/mon.png');
+	background-color: purple;
 }
+
+.iGuide_list_repr_img{
+	position: absolute;
+	width: 5cm;
+	height: 1.3cm;
+	background: url('img/mon.png');
+	opacity: 0.3;
+}
+
 
 .iGuide_compass
 {
@@ -533,24 +542,28 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 .iGuide_compass_orientation
 {
 	position: absolute;
-	left: 2mm;
-	top: 2mm;
+    left: 4.3mm;
+    top: 5.5mm;
+    font-weight: bold;
+    color: lightgrey;
 }
 
 .iGuide_compass_arrow
 {
 
 	position: absolute;
-	width: 3mm;
-	right: 1mm;
-	top: 2mm;
+    width: 3mm;
+    right: -2mm;
+    top: 5.3mm;
+    color: lightgrey;
 }
 
 .iGuide_compass_distance
 {
 	position: absolute;
-	left: 2mm;
-	bottom: 2mm;
+    left: 4.2mm;
+    bottom: -1mm;
+    color: lightgrey;
 }
 
 .iGuide_list_text

@@ -447,7 +447,9 @@ function iGuide_update_places()
 		for(let c = 0; c < rating; c++) stars += "<span>★</span>";
 		stars += "</div>";
 		
-		places_element.innerHTML += "<li class='iGuide_list_item'>" + info_img + place_type + 
+		let repr_img = "<img class='iGuide_list_repr_img' src='img/mon.png'>"
+		
+		places_element.innerHTML += "<li class='iGuide_list_item'>" + info_img + place_type + repr_img + 
 			compass + place_name + stars + "</li>";
 	}
 }
