@@ -65,7 +65,8 @@ const LOCATIONS =
         position: {x: 50, y: 60},
         events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
 		place_wp: "img/iguide_places_img/pevii.png",
-		color_wp: "#33cc00"
+		color_wp: "#33cc00",
+		rating: 4
       },
 
       "Shopping Amoreiras":
@@ -76,7 +77,8 @@ const LOCATIONS =
         position: {x: 150, y: 160},
         shops: ["FNAC", "WORTEN", "BERTRAND"],
 		place_wp: "img/iguide_places_img/asc.png",
-		color_wp: "#0073e6"
+		color_wp: "#0073e6",
+		rating: 3
       },
 
     	"Instituto Gulbenkian":
@@ -86,7 +88,8 @@ const LOCATIONS =
         type: "museum",
         position: {x: 40, y: 400},
 		place_wp: "img/iguide_places_img/ig.png",
-		color_wp: "#ff6600"
+		color_wp: "#ff6600",
+		rating: 3
       },
 
     	"Padrão dos Descobrimentos":
@@ -96,7 +99,8 @@ const LOCATIONS =
         type: "monument",
         position: {x: 600, y: 420},
 		place_wp: "img/iguide_places_img/pdd.png",
-		color_wp: "#ff3333"	
+		color_wp: "#ff3333",
+		rating: 5		
       },
 
     	"Torre de Belém":
@@ -106,7 +110,8 @@ const LOCATIONS =
         type: "monument",
         position: {x: 590, y: 100},
 		place_wp: "img/iguide_places_img/tdb.png",
-		color_wp: "#ff3333"
+		color_wp: "#ff3333",
+		rating: 5
       },
 
       "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo":
@@ -115,7 +120,8 @@ const LOCATIONS =
         description: "Local com uma descrição muito comprida, que ocupa várias linhas no ecrã do iGo",
         type: "museum",
         position: {x: 870, y: 700},
-		color_wp: "#FFB6C1"
+		color_wp: "#FFB6C1",
+		rating: 1
       }
     },
     temperature: 22
