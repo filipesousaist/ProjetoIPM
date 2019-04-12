@@ -504,6 +504,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
     padding-left: 0.5cm;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 10pt;
+	color: lightgrey;
 }
 
 #iGuide_near_you_desc
@@ -517,6 +518,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
     padding-left: 0.5cm;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 6pt;
+	color: lightgrey;
 }
 
 
@@ -651,7 +653,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_info_body
 {
 	width: 5cm;
-	height: 3cm;
+	height: 3.5cm;
 	background-color: transparent;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -661,10 +663,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 {
 	position: relative;
 	min-height: 8mm;
-	border: 0.2mm solid black;
-	background-color: lightgrey;
+	background-color: #383838;
 	display: flex;
 	align-items: center;
+	top: 4.6mm;
 }
 
 #iGuide_info_place_icon
@@ -679,32 +681,34 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
 	width: calc(100% - 2mm);
 	left: 1.5mm;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 10pt;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 9pt;
 	padding: 1mm;
 	display: inline;
+	font-weight: bold;
+	color: lightgrey;
 }
 
 .iGuide_info_container
 {
 	position: relative;
 	width: calc(100% - 4.4mm);
-	min-height: 2.12cm;
-	left: -0.2mm;
+	min-height: 2.22cm;
 	padding-left: 2mm;
 	padding-right: 2mm;
-	border: 0.2mm solid black;
 	overflow-y: scroll;
-	background-color: lightgrey;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 13px;
+	background-color: #383838;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 7pt;
 	display: none;
+	top: 4.6mm;
+	color: lightgrey;
+	padding-bottom: 3mm;
 }
 
 #iGuide_info_footer
 {
 	position: absolute;
-	border: 0.2mm solid black;
 	height: 4.6mm;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	bottom: 0;
@@ -712,15 +716,19 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	border-bottom-left-radius: 3mm;
 	border-bottom-right-radius: 3mm;
 	width: 100%;
+	top: 5mm;
 }
 
 .iGuide_info_tab_button
 {
 	position: absolute;
-	height: 100%;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 10px;
-	background-color: lightgray;
+    height: 100%;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 10px;
+    background-color: grey;
+    border: none;
+    color: white;
+}
 }
 
 .iGuide_info_tab_button:disabled
@@ -731,6 +739,12 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_info_no_events
 {
 	display: none;
+    position: relative;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 11pt;
+    top: 4mm;
+    text-align: center;
+    opacity: 0.1;
 }
 
 .iGuide_event_list_text
@@ -742,7 +756,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_event_title
 {
 	position: relative;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 10pt;
 }
 
@@ -781,6 +795,16 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
   top: -2mm;
   left: -12.5mm;
   list-style: none;
+}
+
+.place_img_bg{
+	width: 4.5cm;
+    height: 2cm;
+    left: 0.5mm;
+    top: 1mm;
+    position: relative;
+	margin-bottom: 2mm;
+	
 }
 
 /**************

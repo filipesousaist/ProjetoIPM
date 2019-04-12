@@ -501,7 +501,7 @@ function iGuide_info_change_tab(new_tab_id)
 	{
 		// Mudar o botão selecionado
 		let current_button_element = document.getElementById(current_tab.id + "_button");
-		current_button_element.style.backgroundColor = "lightgray";
+		current_button_element.style.backgroundColor = "grey";
 		current_button_element.disabled = false;
 
 		if (current_tab.on_exit != undefined)
@@ -513,7 +513,7 @@ function iGuide_info_change_tab(new_tab_id)
 		document.getElementById(new_tab_id).style.display = "block";
 
 	let new_button_element = document.getElementById(new_tab_id + "_button");
-	new_button_element.style.backgroundColor = "gray";
+	new_button_element.style.backgroundColor = "#383838";
 	new_button_element.disabled = true;
 
 	let new_tab = IGUIDE_INFO_TABS[new_tab_id];
@@ -794,7 +794,8 @@ SCREENS["iGuide_info"].on_load = function()
 
 IGUIDE_INFO_TABS["iGuide_info_description"].on_load = function()
 {
-	document.getElementById("iGuide_info_description").innerHTML =
+	document.getElementById("iGuide_info_description").innerHTML = 
+		iGuide_current_place.bg + 
 		iGuide_current_place.description;
 }
 
