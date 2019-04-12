@@ -480,7 +480,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
  ***************/
 
 #iGuide_main{
-	background-color: #ccd9ff;
+	background: #383838;
+	/*background-color: #ccd9ff;*/
 	overflow-y: scroll;
 }
 
