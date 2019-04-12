@@ -546,12 +546,14 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	background-color: purple;
 }
 
-.iGuide_list_repr_img{
+.iGuide_list_repr_img
+{
 	position: absolute;
 	width: 5cm;
 	height: 1.3cm;
 	background: url('img/mon.png');
 	opacity: 0.3;
+	pointer-events: none;
 }
 
 
