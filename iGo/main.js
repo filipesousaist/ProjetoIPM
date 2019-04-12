@@ -498,7 +498,7 @@ function iGuide_info_change_tab(new_tab_id)
 	{
 		// Mudar o botão selecionado
 		let current_button_element = document.getElementById(current_tab.id + "_button");
-		current_button_element.style.backgroundColor = "lightgray";
+		current_button_element.style.backgroundColor = "grey";
 		current_button_element.disabled = false;
 
 		if (current_tab.on_exit != undefined)
@@ -510,7 +510,7 @@ function iGuide_info_change_tab(new_tab_id)
 		document.getElementById(new_tab_id).style.display = "block";
 
 	let new_button_element = document.getElementById(new_tab_id + "_button");
-	new_button_element.style.backgroundColor = "gray";
+	new_button_element.style.backgroundColor = "#383838";
 	new_button_element.disabled = true;
 
 	let new_tab = IGUIDE_INFO_TABS[new_tab_id];
@@ -694,8 +694,15 @@ function write_mode(id)
 }
 
 function do_write(w)
-{
-	document.getElementById(current_input_id).value += w;
+{	
+
+	if( w == 'delete' ){
+		let content = document.getElementById(current_input_id).value;
+		document.getElementById(current_input_id).value = content.slice(0, -1);
+	}
+	else if(upper_on == 1)
+		document.getElementById(current_input_id).value += w;
+	else document.getElementById(current_input_id).value += w.toLowerCase();
 }
 
 function exit_write_mode()
@@ -705,6 +712,30 @@ function exit_write_mode()
 	document.getElementById("keyboard").style.display = "none";
 	document.getElementById("back_button").onclick = go_back;
 }
+
+
+var upper_on = 0;
+
+function change_keyboard_upper(){
+	
+	if(upper_on == 0){
+		
+		let all_char = document.querySelectorAll(".keyboard_button");
+		for( let i = 0; i < all_char.length; i++){
+			let content = all_char[i].innerHTML;
+			all_char[i].innerHTML = content.toUpperCase();	
+		}
+		upper_on = 1;
+	} else {
+		let all_char = document.querySelectorAll(".keyboard_button");
+		for( let i = 0; i < all_char.length; i++){
+			let content = all_char[i].innerHTML;
+			all_char[i].innerHTML = content.toLowerCase();
+		}
+		upper_on = 0;
+	}
+}
+
 
 /////////////////////
 // Funções on_init //
@@ -791,7 +822,8 @@ SCREENS["iGuide_info"].on_load = function()
 
 IGUIDE_INFO_TABS["iGuide_info_description"].on_load = function()
 {
-	document.getElementById("iGuide_info_description").innerHTML =
+	document.getElementById("iGuide_info_description").innerHTML = 
+		iGuide_current_place.bg + 
 		iGuide_current_place.description;
 }
 
