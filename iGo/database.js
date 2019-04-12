@@ -64,9 +64,8 @@ const LOCATIONS =
         type: "park",
         position: {x: 50, y: 60},
         events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
-		place_wp: "img/iguide_places_img/pevii.png",
-		color_wp: "#33cc00",
-		rating: 4
+    		place_wp: "img/iGuide_place_bg/pevii_green.png",
+    		rating: 4
       },
 
       "Shopping Amoreiras":
@@ -76,9 +75,8 @@ const LOCATIONS =
         type: "shop",
         position: {x: 150, y: 160},
         shops: ["FNAC", "WORTEN", "BERTRAND"],
-		place_wp: "img/iguide_places_img/asc.png",
-		color_wp: "#0073e6",
-		rating: 3
+    		place_wp: "img/iGuide_place_bg/asc_blue.png",
+    		rating: 3
       },
 
     	"Instituto Gulbenkian":
@@ -87,9 +85,8 @@ const LOCATIONS =
         description: "O Instituto Gulbenkian de Ciência (IGC) MHSE é um centro internacional dedicado à investigação biológica e biomédica e à formação pós-graduada, localizado em Oeiras, Portugal.",
         type: "museum",
         position: {x: 40, y: 400},
-		place_wp: "img/iguide_places_img/ig.png",
-		color_wp: "#ff6600",
-		rating: 3
+    		place_wp: "img/iGuide_place_bg/ig_orange.png",
+    		rating: 3
       },
 
     	"Padrão dos Descobrimentos":
@@ -98,9 +95,8 @@ const LOCATIONS =
         description: "Em posição destacada na margem direita do rio Tejo, o monumento original, em materiais perecíveis, foi erguido em 1940 por ocasião da Exposição do Mundo Português para homenagear as figuras históricas envolvidas nos Descobrimentos portugueses.",
         type: "monument",
         position: {x: 600, y: 420},
-		place_wp: "img/iguide_places_img/pdd.png",
-		color_wp: "#ff3333",
-		rating: 5		
+    		place_wp: "img/iGuide_place_bg/pdd_red.png",
+    		rating: 5
       },
 
     	"Torre de Belém":
@@ -109,19 +105,8 @@ const LOCATIONS =
         description: "Um dos ex libris da cidade, o monumento é um ícone da arquitetura do reinado de D. Manuel I, numa síntese entre a torre de menagem de tradição medieval e o baluarte moderno, onde se dispunham peças de artilharia.",
         type: "monument",
         position: {x: 590, y: 100},
-		place_wp: "img/iguide_places_img/tdb.png",
-		color_wp: "#ff3333",
-		rating: 5
-      },
-
-      "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo":
-      {
-        name: "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo",
-        description: "Local com uma descrição muito comprida, que ocupa várias linhas no ecrã do iGo",
-        type: "museum",
-        position: {x: 870, y: 700},
-		color_wp: "#FFB6C1",
-		rating: 1
+    		place_wp: "img/iGuide_place_bg/tdb_red.png",
+    		rating: 5
       }
     },
     temperature: 22
@@ -187,28 +172,28 @@ const PLACE_TYPE_DATA =
   "monument":
   {
     name: "Monumento",
-    img: "img/monument.svg",
+    img: "img/iGuide_place_icons/monument_white.png",
     tabs: ["iGuide_info_description"]
   },
 
   "museum":
   {
     name: "Museu",
-    img: "img/museum.png",
+    img: "img/iGuide_place_icons/museum_white.png",
     tabs: ["iGuide_info_description"]
   },
 
   "shop":
   {
     name: "Loja",
-    img: "img/shop.png",
+    img: "img/iGuide_place_icons/shop_white.png",
     tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
   },
 
   "park":
   {
     name: "Jardim",
-    img: "img/park.png",
+    img: "img/iGuide_place_icons/park_white.png",
     tabs: ["iGuide_info_description", "iGuide_info_events"]
   }
 };

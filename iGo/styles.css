@@ -508,29 +508,29 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_near_you_desc
 {
 	position: relative;
-    width: 4.5cm;
-    height: 4.5mm;
-    top: 0;
-    left: -2.3mm;
-    padding-top: 0.5mm;
-    padding-left: 0.5cm;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 6pt;
+  width: 4.5cm;
+  height: 4.5mm;
+  top: 0;
+  left: -2.3mm;
+  padding-top: 0.5mm;
+  padding-left: 0.5cm;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 6pt;
 }
 
 
 #iGuide_places_list
 {
 	position: absolute;
-    top: 20mm;
-    left: -0.2mm;
-    width: 5cm;
-    height: 3cm;
-    list-style: none;
-    margin-top: 0;
-    padding-left: 0;
-    border-bottom-left-radius: 3mm;
-    border-bottom-right-radius: 3mm;
+  top: 20mm;
+  left: -0.2mm;
+  width: 5cm;
+  height: 3cm;
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0;
+  border-bottom-left-radius: 3mm;
+  border-bottom-right-radius: 3mm;
 }
 
 .iGuide_list_item
@@ -539,11 +539,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	width: 5cm;
 	height: 1.3cm;
 	margin: 1mm 0 1mm 0;
-	background-color: green;
 	font-family: Verdana, sans-serif;
 	display: flex;
+	background-color: green;
 	align-items: center;
-	background-color: purple;
 }
 
 .iGuide_list_repr_img
@@ -551,97 +550,78 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: absolute;
 	width: 5cm;
 	height: 1.3cm;
-	background: url('img/mon.png');
-	opacity: 0.3;
-	pointer-events: none;
 }
 
 
-.iGuide_compass
+.iGuide_info_icon
 {
 	position: relative;
-	width: 1cm;
-	height: 1cm;
-	font-size: 6pt;
-	font-weight: bold;
-	display: inline;
-	left: 2.2cm;
-}
-
-.iGuide_compass_orientation
-{
-	position: absolute;
-    left: 4.3mm;
-    top: 5.5mm;
-    font-weight: bold;
-    color: lightgrey;
-}
-
-.iGuide_compass_arrow
-{
-
-	position: absolute;
-    width: 3mm;
-    right: -2mm;
-    top: 5.3mm;
-    color: lightgrey;
-}
-
-.iGuide_compass_distance
-{
-	position: absolute;
-    left: 4.2mm;
-    bottom: -1mm;
-    color: lightgrey;
+	left: 2mm;
+  width: 0.7cm;
+  height: 0.7cm;
 }
 
 .iGuide_list_text
 {
 	position: relative;
-    width: 2.7cm;
-    left: -1.21cm;
-    font-size: 8pt;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline;
-    font-family: Tahoma, Geneva, sans-serif;
+  width: 2.7cm;
+  left: 5mm;
+  text-overflow: ellipsis;
+  display: inline;
+  font-family: Tahoma, Geneva, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
 	color: white;
 }
 
-.iGuide_info_icon
+.rating_stars
 {
 	position: absolute;
-    width: 0.7cm;
-    height: 0.7cm;
-    display: inline;
-    left: 3mm;
-    top: 2.5mm;
+  top: 7.7mm;
+  left: 1.25cm;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
+	color: white;
 }
 
-.rating_stars{
+.iGuide_compass
+{
 	position: absolute;
-    top: 7.7mm;
-    left: 1.25cm;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 9pt;
-	color: white;
+	width: 1cm;
+	height: 1cm;
+	right: 2mm;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 6pt;
+	font-weight: bold;
 }
 
-.iGuide_list_mon_type{
-	position: relative;
-    width: 1.7cm;
-    left: 1.3cm;
-    top: -3.5mm;
-    font-size: 6pt;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-weight: bold;
-	color: white;
+.iGuide_compass_orientation
+{
+	position: absolute;
+  left: 1.3mm;
+  top: 2.5mm;
+  font-weight: bold;
+  color: white
 }
+
+.iGuide_compass_arrow
+{
+	position: absolute;
+  width: 3mm;
+  right: 1mm;
+  top: 2.3mm;
+}
+
+.iGuide_compass_distance
+{
+	position: absolute;
+  left: 1.2mm;
+  bottom: 2mm;
+  color: white;
+}
+
+
 
 /**********************
  * iGuide info screen *
