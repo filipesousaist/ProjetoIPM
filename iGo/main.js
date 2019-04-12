@@ -697,8 +697,15 @@ function write_mode(id)
 }
 
 function do_write(w)
-{
-	document.getElementById(current_input_id).value += w;
+{	
+
+	if( w == 'delete' ){
+		let content = document.getElementById(current_input_id).value;
+		document.getElementById(current_input_id).value = content.slice(0, -1);
+	}
+	else if(upper_on == 1)
+		document.getElementById(current_input_id).value += w;
+	else document.getElementById(current_input_id).value += w.toLowerCase();
 }
 
 function exit_write_mode()
@@ -708,6 +715,30 @@ function exit_write_mode()
 	document.getElementById("keyboard").style.display = "none";
 	document.getElementById("back_button").onclick = go_back;
 }
+
+
+var upper_on = 0;
+
+function change_keyboard_upper(){
+	
+	if(upper_on == 0){
+		
+		let all_char = document.querySelectorAll(".keyboard_button");
+		for( let i = 0; i < all_char.length; i++){
+			let content = all_char[i].innerHTML;
+			all_char[i].innerHTML = content.toUpperCase();	
+		}
+		upper_on = 1;
+	} else {
+		let all_char = document.querySelectorAll(".keyboard_button");
+		for( let i = 0; i < all_char.length; i++){
+			let content = all_char[i].innerHTML;
+			all_char[i].innerHTML = content.toLowerCase();
+		}
+		upper_on = 0;
+	}
+}
+
 
 /////////////////////
 // Funções on_init //
