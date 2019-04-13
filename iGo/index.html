@@ -217,8 +217,8 @@
 						<div id="payment_after">Pagamento Concluído!</div>
 					</div>
 
-					<div id="keyboard" >
-						<div class="keyboard_row keyboard_active" id="keyboard_row0">
+					<div id="keyboard">
+						<div class="keyboard_row" id="keyboard_row_0">
 							<div class="keyboard_button" onclick="do_write('1');">1</div>
 							<div class="keyboard_button" onclick="do_write('2');">2</div>
 							<div class="keyboard_button" onclick="do_write('3');">3</div>
@@ -230,7 +230,8 @@
 							<div class="keyboard_button" onclick="do_write('9');">9</div>
 							<div class="keyboard_button" onclick="do_write('0');">0</div>
 						</div>
-						<div class="keyboard_row keyboard_active" id="keyboard_row1">
+
+						<div class="keyboard_row" id="keyboard_row_1">
 							<div class="keyboard_button" onclick="do_write('Q');">q</div>
 							<div class="keyboard_button" onclick="do_write('W');">w</div>
 							<div class="keyboard_button" onclick="do_write('E');">e</div>
@@ -242,7 +243,8 @@
 							<div class="keyboard_button" onclick="do_write('O');">o</div>
 							<div class="keyboard_button" onclick="do_write('P');">p</div>
 						</div>
-						<div class="keyboard_row keyboard_active" id="keyboard_row2">
+
+						<div class="keyboard_row" id="keyboard_row_2">
 							<div class="keyboard_button" onclick="do_write('A');">a</div>
 							<div class="keyboard_button" onclick="do_write('S');">s</div>
 							<div class="keyboard_button" onclick="do_write('D');">d</div>
@@ -253,7 +255,11 @@
 							<div class="keyboard_button" onclick="do_write('K');">k</div>
 							<div class="keyboard_button" onclick="do_write('L');">l</div>
 						</div>
-						<div class="keyboard_row keyboard_active" id="keyboard_row3">
+
+						<div class="keyboard_row" id="keyboard_row_3">
+							<button class="keyboard_special_button" id="keyboard_shift" onclick="change_keyboard_case();">
+								<img id="keyboard_shift_img" src="img/shift.svg">
+							</button>
 							<div class="keyboard_button" onclick="do_write('Z');">z</div>
 							<div class="keyboard_button" onclick="do_write('X');">x</div>
 							<div class="keyboard_button" onclick="do_write('C');">c</div>
@@ -261,30 +267,20 @@
 							<div class="keyboard_button" onclick="do_write('B');">b</div>
 							<div class="keyboard_button" onclick="do_write('N');">n</div>
 							<div class="keyboard_button" onclick="do_write('M');">m</div>
+							<button class="keyboard_special_button" id="keyboard_delete" onclick="do_write('delete');">
+								<img id="keyboard_delete_img" src="img/keyboard_delete.svg">
+							</button>
 						</div>
-						
-						
-						<button id="keyboard_delete" onclick="do_write('delete');">
-							<img id="keyboard_delete_img" src="img/keyboard_delete.svg">
-						</button>
-						
-						<button id="keyboard_done" onclick="exit_write_mode();">
-							<img id="keyboard_done_img" src="img/keyboard_done.svg">
-						</button>
-						
-						<button id="keyboard_shift" onclick="change_keyboard_upper();">
-							<img id="keyboard_shift_img" src="img/shift.svg">
-						</button>
-						
-						<button id="keyboard_space" onclick="do_write(' ');">
-						</button>
-						
-						<div id="keyboard_button_point" onclick="do_write('.');">.</div>
-						
-						<div id="keyboard_button_at" onclick="do_write('@');">@</div>
-					
-					</div>
 
+						<div class="keyboard_row" id="keyboard_row_4">
+							<div class="keyboard_special_button" id="keyboard_button_point" onclick="do_write('.');">.</div>
+							<div class="keyboard_button" id="keyboard_space" onclick="do_write(' ');"></div>
+							<div class="keyboard_special_button" id="keyboard_button_at" onclick="do_write('@');">@</div>
+							<div class="keyboard_special_button" id="keyboard_done" onclick="exit_write_mode();">
+								<img id="keyboard_done_img" src="img/keyboard_done.svg">
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div class="screen_container" id="screen_container_frame"></div>

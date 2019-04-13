@@ -568,13 +568,16 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 {
 	position: relative;
   width: 2.7cm;
-	top: 0mm;
+	top: -2mm;
   left: 5mm;
+	overflow: hidden;
   text-overflow: ellipsis;
+	white-space: nowrap;
   display: inline;
   font-family: Tahoma, Geneva, sans-serif;
 	font-size: 8pt;
 	color: white;
+	font-weight: bold;
 }
 
 .rating_stars
@@ -1079,170 +1082,125 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #keyboard
 {
 	z-index: 4;
-    position: absolute;
-    width: 100%;
-    height: 1.9cm;
-    left: 0;
-    bottom: 0;
-    background-color: lightgrey;
-    border: 0.2mm solid gray;
-    display: none;
-    border-bottom-left-radius: 3mm;
-    border-bottom-right-radius: 3mm;
+  position: absolute;
+  width: calc(100% - 1.15mm);
+  padding-left: 0.75mm;
+  bottom: 0;
+  background-color: lightgrey;
+  border: 0.2mm solid gray;
+  display: none;
+  border-bottom-left-radius: 3mm;
+  border-bottom-right-radius: 3mm;
+  align-items: center;
 }
 
 .keyboard_row
 {
 	position: relative;
-    top: -2mm;
-    margin-bottom: -0.5mm;
-    left: 3.5mm;
 }
 
-.keyboard_active
+.keyboard_button, .keyboard_special_button
 {
 	z-index: 2;
+  position: relative;
+  width: 3.9mm;
 	height: 4mm;
+	margin-left: -0.05mm;
+	padding-top: 0.5mm;
+	border-radius: 1mm;
+  border: none;
+  display: inline-block;
+  text-align: center;
+	font-size: 8pt;
+	font-family: courier, sans-serif;
+  font-weight: bold;
+}
+
+#keyboard_row_2
+{
+	left: 2.5mm;
+}
+
+#keyboard_row_3
+{
+	left: 0.5mm;
+}
+
+#keyboard_row_4
+{
+	left: 3.5mm;
+}
+
+#keyboard_row_4 .keyboard_button, #keyboard_row_4 .keyboard_special_button
+{
+	height: 3mm;
 }
 
 .keyboard_button
 {
-	z-index: 3;
-	position: relative;
-    width: 3.8mm;
-    left: -2.6mm;
-	margin-top: 0;
-	top: 1mm;
-    border-radius: 1mm;
-    margin-left: 0.05mm;
-    font-family: courier, sans-serif;
-    font-weight: bold;
-    background: white;
-    display: inline-block;
-	height: 3mm;
-    text-align: center;
-    font-size: 8pt;
-    color: black;
+	background: white;
+	color: black;
 }
 
-#keyboard_row2{
-	left: 6mm;
+.keyboard_special_button
+{
+	border: none;
+	background: gray;
+	color: white;
 }
 
-#keyboard_row3{
-	left: 10.9mm;
+#keyboard_shift
+{
+  width: 6mm;
+  top: 0.7mm;
 }
 
-#keyboard_delete {
-	z-index: 3;
-	left: 42.7mm;
-    width: 6mm;
-    position: relative;
-    height: 3mm;
-    top: -3.96mm;
-    border-radius: 1mm;
-    border: none;
-    background: gray;
+#keyboard_delete
+{
+	width: 6mm;
+	top: 1.2mm;
 }
 
-#keyboard_shift{
-	z-index: 3;
-	left: -5.9mm;
-    position: relative;
-    width: 6mm;
-    height: 3mm;
-    border-radius: 1mm;
-    top: -3.96mm;
-    border: none;
-    background: gray;
+#keyboard_button_point
+{
+  width: 3.8mm;
+	top: -0.4mm;
 }
 
-#keyboard_space{
-	z-index: 3;
-	position: relative;
-    width: 2.38cm;
-    top: -0.4mm;
-    left: -1mm;
-    border: none;
-    height: 3mm;
-    background: white;
-    border-radius: 1mm;
+#keyboard_space
+{
+	width: 2.5cm;
+	top: 0.3mm;
 }
 
-#keyboard_button_point{
-
-	z-index: 3;
-	height: 3mm;
-    margin-top: 2.5mm;
-    text-align: center;
-    font-size: 8pt;
-    color: white;
-    width: 3.8mm;
-    left: 8.3mm;
-    border-radius: 1mm;
-    margin-left: 0.05mm;
-    font-family: courier, sans-serif;
-    font-weight: bold;
-    background: grey;
-    display: inline-block;
-    position: absolute;
-    top: 12mm;
+#keyboard_button_at
+{
+	width: 3.8mm;
+	top: -0.4mm;
 }
 
-#keyboard_button_at{
-
-	z-index: 3;
-	height: 3mm;
-    margin-top: 2.5mm;
-    text-align: center;
-    font-size: 8pt;
-    color: white;
-    position: absolute;
-    width: 3.8mm;
-    top: 12mm;
-    left: 37.6mm;
-    border-radius: 1mm;
-    margin-left: 0.05mm;
-    font-family: courier, sans-serif;
-    font-weight: bold;
-    background: grey;
-    display: inline-block;
+#keyboard_done
+{
+	width: 6mm;
+	top: 0.3mm;
 }
 
-#keyboard_shift_img{
-	position: absolute;
-    height: 2.8mm;
-    top: 0.1mm;
-    left: 1.7mm;
+#keyboard_shift_img
+{
+  height: 2.8mm;
 }
 
-#keyboard_delete_img{
-	position: absolute;
-    height: 3.2mm;
-    left: 1.5mm;
-    top: -0.1mm;
+#keyboard_delete_img
+{
+  height: 3.2mm;
 }
 
-#keyboard_done{
-	z-index: 3;
-	left: 42.7mm;
-    width: 5mm;
-    position: relative;
-    height: 3mm;
-    top: 14.5mm;
-    position: absolute;
-    border-radius: 1mm;
-    border: none;
-    background: gray;
+#keyboard_done_img
+{
+  width: 3mm;
+  top: 0.1mm;
+  left: 1mm;
 }
-
-#keyboard_done_img{
-	position: absolute;
-    width: 3mm;
-    top: 0.1mm;
-    left: 1mm;
-}
-
 
 /********
  * Fade *

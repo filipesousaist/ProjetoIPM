@@ -16,7 +16,7 @@ var move_directions;
 // Relógio
 var clock = {blink: false, timeout: null};
 // Teclado
-var keyboard_row;
+var upper_on = false;
 var current_input_id;
 // Pagamentos
 var saved_payment_methods = 0;
@@ -498,7 +498,7 @@ function iGuide_info_change_tab(new_tab_id)
 	{
 		// Mudar o botão selecionado
 		let current_button_element = document.getElementById(current_tab.id + "_button");
-		current_button_element.style.backgroundColor = "grey";
+		current_button_element.style.backgroundColor = "lightgray";
 		current_button_element.disabled = false;
 
 		if (current_tab.on_exit != undefined)
@@ -510,7 +510,7 @@ function iGuide_info_change_tab(new_tab_id)
 		document.getElementById(new_tab_id).style.display = "block";
 
 	let new_button_element = document.getElementById(new_tab_id + "_button");
-	new_button_element.style.backgroundColor = "#383838";
+	new_button_element.style.backgroundColor = "gray";
 	new_button_element.disabled = true;
 
 	let new_tab = IGUIDE_INFO_TABS[new_tab_id];
@@ -670,22 +670,6 @@ function complete_payment()
 // Teclado //
 /////////////
 
-function change_keyboard_row(direction)
-{
-	let old_row_element = document.getElementById("keyboard_row" + keyboard_row);
-	old_row_element.classList.remove("keyboard_active");
-	old_row_element.classList.add("keyboard_inactive");
-
-	if (direction == "up")
-		keyboard_row = keyboard_row - 1 >= 0 ? keyboard_row - 1 : 3;
-	else if (direction == "down")
-		keyboard_row = keyboard_row + 1 <= 3 ? keyboard_row + 1 : 0;
-
-	let new_row_element = document.getElementById("keyboard_row" + keyboard_row);
-	new_row_element.classList.remove("keyboard_inactive");
-	new_row_element.classList.add("keyboard_active");
-}
-
 function write_mode(id)
 {
 	current_input_id = id;
@@ -693,47 +677,39 @@ function write_mode(id)
 	document.getElementById("back_button").onclick = exit_write_mode;
 }
 
-function do_write(w)
-{	
-
-	if( w == 'delete' ){
-		let content = document.getElementById(current_input_id).value;
-		document.getElementById(current_input_id).value = content.slice(0, -1);
-	}
-	else if(upper_on == 1)
-		document.getElementById(current_input_id).value += w;
-	else document.getElementById(current_input_id).value += w.toLowerCase();
-}
-
 function exit_write_mode()
 {
-	while (keyboard_row != 1)
-		change_keyboard_row("up"); // TODO: Arranjar forma melhor de fazer isto!
+	upper_on = false; // Desligar o shift
 	document.getElementById("keyboard").style.display = "none";
 	document.getElementById("back_button").onclick = go_back;
 }
 
+function do_write(w)
+{
+	// Nota: w vem sempre em maiúscula
 
-var upper_on = 0;
+	// Se o shift está ligado e foi premida uma letra, mudar para minúsculas
+	if (upper_on && /^[A-Z]/.test(w))
+		change_keyboard_case();
 
-function change_keyboard_upper(){
-	
-	if(upper_on == 0){
-		
-		let all_char = document.querySelectorAll(".keyboard_button");
-		for( let i = 0; i < all_char.length; i++){
-			let content = all_char[i].innerHTML;
-			all_char[i].innerHTML = content.toUpperCase();	
-		}
-		upper_on = 1;
-	} else {
-		let all_char = document.querySelectorAll(".keyboard_button");
-		for( let i = 0; i < all_char.length; i++){
-			let content = all_char[i].innerHTML;
-			all_char[i].innerHTML = content.toLowerCase();
-		}
-		upper_on = 0;
-	}
+	else if (! upper_on)
+		w = w.toLowerCase();
+
+	document.getElementById(current_input_id).value += w;
+}
+
+function change_keyboard_case()
+{
+	let all_keys = document.querySelectorAll(".keyboard_button");
+
+	if (upper_on)
+		for (let i = 0; i < all_keys.length; i++)
+			all_keys[i].innerHTML = all_keys[i].innerHTML.toLowerCase();
+	else
+		for (let i = 0; i < all_keys.length; i++)
+			all_keys[i].innerHTML = all_keys[i].innerHTML.toUpperCase();
+
+	upper_on = ! upper_on;
 }
 
 
@@ -778,13 +754,6 @@ SCREENS["error_screen"].on_load = function()
 	fadein("error_screen", 0.3);
 };
 
-SCREENS["add_payment"].on_load = function()
-{
-	keyboard_row = 1;
-	document.getElementById("keyboard_row1").classList.remove("keyboard_inactive");
-	document.getElementById("keyboard_row1").classList.add("keyboard_active");
-}
-
 SCREENS["iGuide_info"].on_load = function()
 {
 	// Mostrar ícone e nome do local
@@ -822,8 +791,7 @@ SCREENS["iGuide_info"].on_load = function()
 
 IGUIDE_INFO_TABS["iGuide_info_description"].on_load = function()
 {
-	document.getElementById("iGuide_info_description").innerHTML = 
-		iGuide_current_place.bg + 
+	document.getElementById("iGuide_info_description").innerHTML =
 		iGuide_current_place.description;
 }
 

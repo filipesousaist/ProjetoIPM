@@ -63,7 +63,7 @@ const LOCATIONS =
         description: "O Parque Eduardo VII de Inglaterra é o maior parque do centro de Lisboa, sendo comummente conhecido apenas por Parque Eduardo VII.",
 		bg: "<img class='place_img_bg' src='img/iguide_places_img/parqueduardo.png'>",
         type: "park",
-        position: {x: 50, y: 60},
+        position: {x: 600, y: 420},
         events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
     		place_wp: "img/iGuide_place_bg/pevii_green.png",
     		rating: 4
@@ -98,7 +98,7 @@ const LOCATIONS =
         description: "Em posição destacada na margem direita do rio Tejo, o monumento original, em materiais perecíveis, foi erguido em 1940 por ocasião da Exposição do Mundo Português para homenagear as figuras históricas envolvidas nos Descobrimentos portugueses.",
 		bg: "<img class='place_img_bg' src='img/iguide_places_img/padrao.jpg'>",
         type: "monument",
-        position: {x: 600, y: 420},
+        position: {x: 50, y: 60},
     		place_wp: "img/iGuide_place_bg/pdd_red.png",
     		rating: 5
       },
