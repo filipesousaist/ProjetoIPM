@@ -96,7 +96,7 @@ const LOCATIONS =
       {
         name: "Padrão dos Descobrimentos",
         description: "Em posição destacada na margem direita do rio Tejo, o monumento original, em materiais perecíveis, foi erguido em 1940 por ocasião da Exposição do Mundo Português para homenagear as figuras históricas envolvidas nos Descobrimentos portugueses.",
-		bg: "<img class='place_img_bg' src='img/iguide_places_img/padrao.jpg'>",
+		    bg: "<img class='place_img_bg' src='img/iguide_places_img/padrao.jpg'>",
         type: "monument",
         position: {x: 50, y: 60},
     		place_wp: "img/iGuide_place_bg/pdd_red.png",
