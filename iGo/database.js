@@ -65,12 +65,11 @@ const LOCATIONS =
       {
         name: "Parque Eduardo VII",
         description: "O Parque Eduardo VII de Inglaterra é o maior parque do centro de Lisboa, sendo comummente conhecido apenas por Parque Eduardo VII.",
-		bg: "<img class='place_img_bg' src='img/iguide_places_img/parqueduardo.png'>",
+		    bg: "<img class='place_img_bg' src='img/iguide_places_img/parqueduardo.png'>",
         type: "park",
         position: {x: 600, y: 420},
         events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
-    		place_wp: "img/iGuide_place_bg/pevii_green.png",
-    		rating: 4
+    		wallpaper: "img/iGuide_place_bg/pevii_green.png"
       },
 
       "Shopping Amoreiras":
@@ -78,22 +77,20 @@ const LOCATIONS =
         name: "Shopping Amoreiras",
         description: "Inaugurado a 27 de Setembro de 1985 e inserido num complexo de escritórios e habitações, com uma arquitectura ousada para a época.",
         bg: "<img class='place_img_bg' src='img/iguide_places_img/amoreiras.jpg'>",
-		type: "shop",
+		    type: "shop",
         position: {x: 150, y: 160},
         shops: ["FNAC", "WORTEN", "BERTRAND"],
-    		place_wp: "img/iGuide_place_bg/asc_blue.png",
-    		rating: 3
+    		wallpaper: "img/iGuide_place_bg/asc_blue.png"
       },
 
     	"Instituto Gulbenkian":
       {
         name: "Instituto Gulbenkian",
         description: "O Instituto Gulbenkian de Ciência (IGC) MHSE é um centro internacional dedicado à investigação biológica e biomédica e à formação pós-graduada, localizado em Oeiras, Portugal.",
-		bg: "<img class='place_img_bg' src='img/iguide_places_img/instituto.jpg'>",
+		    bg: "<img class='place_img_bg' src='img/iguide_places_img/instituto.jpg'>",
         type: "museum",
         position: {x: 40, y: 400},
-    		place_wp: "img/iGuide_place_bg/ig_orange.png",
-    		rating: 3
+    		wallpaper: "img/iGuide_place_bg/ig_orange.png"
       },
 
     	"Padrão dos Descobrimentos":
@@ -103,8 +100,7 @@ const LOCATIONS =
 		    bg: "<img class='place_img_bg' src='img/iguide_places_img/padrao.jpg'>",
         type: "monument",
         position: {x: 50, y: 60},
-    		place_wp: "img/iGuide_place_bg/pdd_red.png",
-    		rating: 5
+    		wallpaper: "img/iGuide_place_bg/pdd_red.png"
       },
 
     	"Torre de Belém":
@@ -114,8 +110,7 @@ const LOCATIONS =
         bg: "<img class='place_img_bg' src='img/iguide_places_img/torre.jpg'>",
 		    type: "monument",
         position: {x: 590, y: 100},
-    		place_wp: "img/iGuide_place_bg/tdb_red.png",
-    		rating: 5
+    		wallpaper: "img/iGuide_place_bg/tdb_red.png"
       }
     },
     temperature: 22
@@ -253,7 +248,7 @@ const MYWEBMEMBERS = {
   "Marc Jelkic":{
     name: "Marc Jelkic",
     location: 1,
-  }, 
+  },
   "Afonso Vasconscelos":{
     name: "Afonso Vasconscelos",
     location: 2,
@@ -261,7 +256,7 @@ const MYWEBMEMBERS = {
   "Pedro Morreira":{
     name: "Pedro Morreira",
     location: 3,
-  }, 
+  },
   "Rodrigo Rosa":{
     name: "Rodrigo Rosa",
     location: 2,
@@ -275,4 +270,3 @@ const MYWEBMEMBERS = {
     location: 5,
    }
  };
-

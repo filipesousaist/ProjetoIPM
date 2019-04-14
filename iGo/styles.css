@@ -196,6 +196,22 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	bottom: 4.5mm;
 }
 
+/**********/
+/* Global */
+/**********/
+
+.clock
+{
+	position: absolute;
+	right: 5mm;
+	margin-top: 0.5mm;
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: courier;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
 /**************/
 /* Off screen */
 /**************/
@@ -252,14 +268,11 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	left: 8mm;
 }
 
-#clock
+#main_menu_clock
 {
-	position: absolute;
 	right: 13mm;
-	top: 1.8mm;
-	font-family: courier;
+	margin-top: 0;
 	font-size: 19pt;
-	font-weight: bold;
 }
 
 /* Right container */
@@ -466,8 +479,9 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
  * iGuide main *
  ***************/
 
-#iGuide_main{
-	background-color: #87CEEB;
+#iGuide_main
+{
+	background-color: #383838;
 	overflow-y: scroll;
 }
 
@@ -478,7 +492,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
- 
+
 #iGuide_near_you_container
 {
 	position: relative;
