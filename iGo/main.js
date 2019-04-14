@@ -13,7 +13,7 @@ var current_position;
 var current_speed;
 var move_directions;
 // Teclado
-var keyboard_row;
+var upper_on = false;
 var current_input_id;
 // Pagamentos
 var saved_payment_methods = 0;
@@ -431,29 +431,26 @@ function iGuide_update_places()
 
 		let orientation = "<div class='iGuide_compass_orientation'>" +
 			data.orientation + "</div>";
-		let arrow = "<image class='iGuide_compass_arrow' src='img/arrow.png'" +
+		let arrow = "<image class='iGuide_compass_arrow' src='img/arrow_white.png'" +
 			"style='transform: rotate(" + -data.angle + "rad);'>";
 		let distance = "<div class='iGuide_compass_distance'>" +
 		Math.round(place_data[sorted_places[i]].distance) + "m</div>";
 		let compass = "<div class='iGuide_compass'>" +
 			orientation + arrow + distance +"</div>";
-		
-		let place_type = "<div class='iGuide_list_mon_type'>" + "Monumento" + "</div>";
-		
 		let place_name = "<div class='iGuide_list_text'>" +
 			sorted_places[i] + "</div>";
-		let info_img = "<image class='iGuide_info_icon' src='img/park.png'" +
-			"onclick='iGuide_info_load(\""+ sorted_places[i] +"\");'></div>";
-		
-		let stars = "<div class='rating_stars'>";
+		let place_icon = "<image class='iGuide_info_icon' src='" +
+			PLACE_TYPE_DATA[places[sorted_places[i]].type].img +
+			"' onclick='iGuide_info_load(\""+ sorted_places[i] +"\");'></div>";
+
 		let rating = Math.floor(Math.random() * 5)+1;
-		for(let c = 0; c < rating; c++) stars += "<span>★</span>";
-		stars += "</div>";
-		
-		let repr_img = "<img class='iGuide_list_repr_img' src=\"" + LOCATIONS[current_location]["places"][sorted_places[i]]["place_wp"] + "\">";
-		
-		places_element.innerHTML += "<li class='iGuide_list_item' style='background-color:" + LOCATIONS[current_location]["places"][sorted_places[i]]["color_wp"] + "'>" + info_img + place_type + repr_img + 
-			compass + place_name + stars + "</li>";
+		let stars = "<div class='rating_stars'>" +
+		 	"<span>★</span>".repeat(rating) + "</div>";
+
+		let repr_img = "<img class='iGuide_list_repr_img' src='" + places[sorted_places[i]].place_wp + "'>";
+
+		places_element.innerHTML += "<li class='iGuide_list_item'>" + repr_img +
+			place_icon + compass + place_name + stars + "</li>";
 	}
 }
 
@@ -671,22 +668,6 @@ function complete_payment()
 // Teclado //
 /////////////
 
-function change_keyboard_row(direction)
-{
-	let old_row_element = document.getElementById("keyboard_row" + keyboard_row);
-	old_row_element.classList.remove("keyboard_active");
-	old_row_element.classList.add("keyboard_inactive");
-
-	if (direction == "up")
-		keyboard_row = keyboard_row - 1 >= 0 ? keyboard_row - 1 : 3;
-	else if (direction == "down")
-		keyboard_row = keyboard_row + 1 <= 3 ? keyboard_row + 1 : 0;
-
-	let new_row_element = document.getElementById("keyboard_row" + keyboard_row);
-	new_row_element.classList.remove("keyboard_inactive");
-	new_row_element.classList.add("keyboard_active");
-}
-
 function write_mode(id)
 {
 	current_input_id = id;
@@ -694,18 +675,41 @@ function write_mode(id)
 	document.getElementById("back_button").onclick = exit_write_mode;
 }
 
-function do_write(w)
-{
-	document.getElementById(current_input_id).value += w;
-}
-
 function exit_write_mode()
 {
-	while (keyboard_row != 1)
-		change_keyboard_row("up"); // TODO: Arranjar forma melhor de fazer isto!
+	upper_on = false; // Desligar o shift
 	document.getElementById("keyboard").style.display = "none";
 	document.getElementById("back_button").onclick = go_back;
 }
+
+function do_write(w)
+{
+	// Nota: w vem sempre em maiúscula
+
+	// Se o shift está ligado e foi premida uma letra, mudar para minúsculas
+	if (upper_on && /^[A-Z]/.test(w))
+		change_keyboard_case();
+
+	else if (! upper_on)
+		w = w.toLowerCase();
+
+	document.getElementById(current_input_id).value += w;
+}
+
+function change_keyboard_case()
+{
+	let all_keys = document.querySelectorAll(".keyboard_button");
+
+	if (upper_on)
+		for (let i = 0; i < all_keys.length; i++)
+			all_keys[i].innerHTML = all_keys[i].innerHTML.toLowerCase();
+	else
+		for (let i = 0; i < all_keys.length; i++)
+			all_keys[i].innerHTML = all_keys[i].innerHTML.toUpperCase();
+
+	upper_on = ! upper_on;
+}
+
 
 /////////////////////
 // Funções on_init //
@@ -738,19 +742,6 @@ SCREENS["error_screen"].on_load = function()
 	fadein("error_screen", 0.3);
 };
 
-SCREENS["main_menu"].on_load = function()
-{
-	SCREENS["main_menu"].clock_blink = false;
-	update_clock();
-	SCREENS["main_menu"].timeout = setInterval(update_clock, 1000);
-};
-
-SCREENS["add_payment"].on_load = function()
-{
-	keyboard_row = 1;
-	document.getElementById("keyboard_row1").classList.remove("keyboard_inactive");
-	document.getElementById("keyboard_row1").classList.add("keyboard_active");
-}
 
 SCREENS["iGuide_info"].on_load = function()
 {

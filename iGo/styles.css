@@ -482,28 +482,43 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_near_you_container
 {
 	position: relative;
-	width: 4.5cm; /* (+ 0.5cm padding_left) = 5cm */
-	height: 4.5mm; /* (+ 0.5mm padding_top) = 5mm */
-	top: 0;
-	left: -0.2mm;
-	padding-top: 0.5mm;
-	padding-left: 0.5cm;
-	font-family: Verdana, sans-serif;
-	font-size: 10pt;
+    width: 4.5cm;
+    height: 4.5mm;
+    top: 1mm;
+    left: -2.3mm;
+    padding-top: 0.5mm;
+    padding-left: 0.5cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 10pt;
+	color: lightgrey;
+}
+
+#iGuide_near_you_desc
+{
+	position: relative;
+  width: 4.5cm;
+  height: 4.5mm;
+  top: 0;
+  left: -2.3mm;
+  padding-top: 0.5mm;
+  padding-left: 0.5cm;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 6pt;
+	color: lightgrey;
 }
 
 #iGuide_places_list
 {
 	position: absolute;
-	top: 9.8mm;
-	left: -0.2mm;
-	width: 5cm;
-	height: 3cm;
-	list-style: none;
-	margin-top: 0;
-	padding-left: 0;
-	border-bottom-left-radius: 3mm;
-	border-bottom-right-radius: 3mm;
+  top: 20mm;
+  left: -0.2mm;
+  width: 5cm;
+  height: 3cm;
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0;
+  border-bottom-left-radius: 3mm;
+  border-bottom-right-radius: 3mm;
 }
 
 .iGuide_list_item
@@ -512,107 +527,91 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	width: 5cm;
 	height: 1.3cm;
 	margin: 1mm 0 1mm 0;
-	background-color: green;
 	font-family: Verdana, sans-serif;
 	display: flex;
+	background-color: green;
 	align-items: center;
-	background-color: purple;
 }
 
 .iGuide_list_repr_img{
 	position: absolute;
 	width: 5cm;
 	height: 1.3cm;
-	background: url('img/mon.png');
-	opacity: 0.3;
 }
 
 
-.iGuide_compass
+.iGuide_info_icon
 {
 	position: relative;
-	width: 1cm;
-	height: 1cm;
-	font-size: 6pt;
-	font-weight: bold;
-	display: inline;
-	left: 2.2cm;
-}
-
-.iGuide_compass_orientation
-{
-	position: absolute;
-    left: 4.3mm;
-    top: 5.5mm;
-    font-weight: bold;
-    color: lightgrey;
-}
-
-.iGuide_compass_arrow
-{
-
-	position: absolute;
-    width: 3mm;
-    right: -2mm;
-    top: 5.3mm;
-    color: lightgrey;
-}
-
-.iGuide_compass_distance
-{
-	position: absolute;
-    left: 4.2mm;
-    bottom: -1mm;
-    color: lightgrey;
+	left: 2mm;
+  width: 0.7cm;
+  height: 0.7cm;
 }
 
 .iGuide_list_text
 {
 	position: relative;
-    width: 2.7cm;
-    left: -1.21cm;
-    font-size: 8pt;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline;
-    font-family: Tahoma, Geneva, sans-serif;
+  width: 2.7cm;
+	top: -2mm;
+  left: 5mm;
+	overflow: hidden;
+  text-overflow: ellipsis;
+	white-space: nowrap;
+  display: inline;
+  font-family: Tahoma, Geneva, sans-serif;
+	font-size: 8pt;
 	color: white;
+	font-weight: bold;
 }
 
-.iGuide_info_icon
+.rating_stars
 {
 	position: absolute;
-    width: 0.7cm;
-    height: 0.7cm;
-    display: inline;
-    left: 3mm;
-    top: 2.5mm;
+  top: 7.7mm;
+  left: 1.25cm;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
+	color: white;
 }
 
-.rating_stars{
+.iGuide_compass
+{
 	position: absolute;
-    top: 7.7mm;
-    left: 1.25cm;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 9pt;
-	color: white;
+	width: 1cm;
+	height: 1cm;
+	right: 2mm;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 6pt;
+	font-weight: bold;
 }
 
-.iGuide_list_mon_type{
-	position: relative;
-    width: 1.7cm;
-    left: 1.3cm;
-    top: -3.5mm;
-    font-size: 6pt;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-weight: bold;
-	color: white;
+.iGuide_compass_orientation
+{
+	position: absolute;
+  left: 1.3mm;
+  top: 2.5mm;
+  font-weight: bold;
+  color: white
 }
+
+.iGuide_compass_arrow
+{
+	position: absolute;
+  width: 3mm;
+  right: 1mm;
+  top: 2.3mm;
+}
+
+.iGuide_compass_distance
+{
+	position: absolute;
+  left: 1.2mm;
+  bottom: 2mm;
+  color: white;
+}
+
+
 
 /**********************
  * iGuide info screen *
@@ -621,7 +620,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_info_body
 {
 	width: 5cm;
-	height: 3cm;
+	height: 3.5cm;
 	background-color: transparent;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -631,10 +630,10 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 {
 	position: relative;
 	min-height: 8mm;
-	border: 0.2mm solid black;
-	background-color: lightgrey;
+	background-color: #383838;
 	display: flex;
 	align-items: center;
+	top: 4.6mm;
 }
 
 #iGuide_info_place_icon
@@ -649,32 +648,34 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
 	width: calc(100% - 2mm);
 	left: 1.5mm;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 10pt;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 9pt;
 	padding: 1mm;
 	display: inline;
+	font-weight: bold;
+	color: lightgrey;
 }
 
 .iGuide_info_container
 {
 	position: relative;
 	width: calc(100% - 4.4mm);
-	min-height: 2.12cm;
-	left: -0.2mm;
+	min-height: 2.22cm;
 	padding-left: 2mm;
 	padding-right: 2mm;
-	border: 0.2mm solid black;
 	overflow-y: scroll;
-	background-color: lightgrey;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 13px;
+	background-color: #383838;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 7pt;
 	display: none;
+	top: 4.6mm;
+	color: lightgrey;
+	padding-bottom: 3mm;
 }
 
 #iGuide_info_footer
 {
 	position: absolute;
-	border: 0.2mm solid black;
 	height: 4.6mm;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	bottom: 0;
@@ -682,15 +683,19 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	border-bottom-left-radius: 3mm;
 	border-bottom-right-radius: 3mm;
 	width: 100%;
+	top: 5mm;
 }
 
 .iGuide_info_tab_button
 {
 	position: absolute;
-	height: 100%;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 10px;
-	background-color: lightgray;
+    height: 100%;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 10px;
+    background-color: grey;
+    border: none;
+    color: white;
+}
 }
 
 .iGuide_info_tab_button:disabled
@@ -701,6 +706,12 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_info_no_events
 {
 	display: none;
+    position: relative;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 11pt;
+    top: 4mm;
+    text-align: center;
+    opacity: 0.1;
 }
 
 .iGuide_event_list_text
@@ -712,7 +723,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_event_title
 {
 	position: relative;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 10pt;
 }
 
@@ -751,6 +762,16 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
   top: -2mm;
   left: -12.5mm;
   list-style: none;
+}
+
+.place_img_bg{
+	width: 4.5cm;
+    height: 2cm;
+    left: 0.5mm;
+    top: 1mm;
+    position: relative;
+	margin-bottom: 2mm;
+
 }
 
 /**************
@@ -1045,102 +1066,124 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #keyboard
 {
 	z-index: 4;
-	position: absolute;
-	width: 100%;
-	height: 1cm;
-	left: 0;
-	bottom: 0;
-	background-color: white;
-	border: 0.2mm solid gray;
-	display: none;
-	border-bottom-left-radius: 3mm;
-	border-bottom-right-radius: 3mm;
+  position: absolute;
+  width: calc(100% - 1.15mm);
+  padding-left: 0.75mm;
+  bottom: 0;
+  background-color: lightgrey;
+  border: 0.2mm solid gray;
+  display: none;
+  border-bottom-left-radius: 3mm;
+  border-bottom-right-radius: 3mm;
+  align-items: center;
 }
 
 .keyboard_row
 {
 	position: relative;
-	top: -2mm;
+}
+
+.keyboard_button, .keyboard_special_button
+{
+	z-index: 2;
+  position: relative;
+  width: 3.9mm;
+	height: 4mm;
+	margin-left: -0.05mm;
+	padding-top: 0.5mm;
+	border-radius: 1mm;
+  border: none;
+  display: inline-block;
+  text-align: center;
+	font-size: 8pt;
+	font-family: courier, sans-serif;
+  font-weight: bold;
+}
+
+#keyboard_row_2
+{
+	left: 2.5mm;
+}
+
+#keyboard_row_3
+{
+	left: 0.5mm;
+}
+
+#keyboard_row_4
+{
 	left: 3.5mm;
 }
 
-.keyboard_active
+#keyboard_row_4 .keyboard_button, #keyboard_row_4 .keyboard_special_button
 {
-	z-index: 2;
-	height: 4mm;
-}
-
-.keyboard_inactive
-{
-	z-index: 1;
-	height: 1.5mm;
-	pointer-events: none;
+	height: 3mm;
 }
 
 .keyboard_button
 {
-	position: relative;
-	width: 3.8mm;
-	margin-left: -1mm;
-	font-family: courier, sans-serif;
-	font-weight: bold;
-	background-image: linear-gradient(to left top, #bbbbbb, #cccccc, #dddddd, #eeeeee, #ffffff);
-	display: inline-block;
-}
-
-.keyboard_active .keyboard_button
-{
-	height: 4mm;
-	margin-top: 2.5mm;
-	font-size: 10pt;
+	background: white;
 	color: black;
 }
 
-.keyboard_inactive .keyboard_button
+.keyboard_special_button
 {
-	height: 1.5mm;
-	font-size: 5pt;
-	color: grey;
+	border: none;
+	background: gray;
+	color: white;
+}
+
+#keyboard_shift
+{
+  width: 6mm;
+  top: 0.7mm;
+}
+
+#keyboard_delete
+{
+	width: 6mm;
+	top: 1.2mm;
+}
+
+#keyboard_button_point
+{
+  width: 3.8mm;
+	top: -0.4mm;
+}
+
+#keyboard_space
+{
+	width: 2.5cm;
+	top: 0.3mm;
+}
+
+#keyboard_button_at
+{
+	width: 3.8mm;
+	top: -0.4mm;
 }
 
 #keyboard_done
 {
-	z-index: 3;
-	position: absolute;
-	width: 3mm;
-	padding: 0;
-	height: 4mm;
-	right: 1mm;
-	bottom: 4.5mm;
-	font-size: 8pt;
-	font-weight: bold;
-	text-align: center;
+	width: 6mm;
+	top: 0.3mm;
 }
 
-#keyboard_row_up
+#keyboard_shift_img
 {
-	z-index: 3;
-	position: absolute;
-	width: 3mm;
-	padding: 0;
-	height: 3mm;
-	right: 5mm;
-	bottom: 6.5mm;
-	font-size: 8pt;
-	font-weight: bold;
+  height: 2.8mm;
 }
 
-#keyboard_row_down
+#keyboard_delete_img
 {
-	z-index: 3;
-	position: absolute;
-	width: 3mm;
-	padding: 0;
-	height: 3mm;
-	right: 5mm;
-	bottom: 2.5mm;
-	font-size: 8pt;
-	font-weight: bold;
+  height: 3.2mm;
+}
+
+#keyboard_done_img
+{
+  width: 3mm;
+  top: 0.1mm;
+  left: 1mm;
 }
 
 /**********
