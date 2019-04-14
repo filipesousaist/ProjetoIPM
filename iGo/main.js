@@ -7,14 +7,11 @@ const NEAR_DISTANCE = 500;
 // Geral
 var power;
 var current_screen;
-var new_screen;
 // Mapa
 var current_location;
 var current_position;
 var current_speed;
 var move_directions;
-// Relógio
-var clock = {blink: false, timeout: null};
 // Teclado
 var keyboard_row;
 var current_input_id;
@@ -22,6 +19,9 @@ var current_input_id;
 var saved_payment_methods = 0;
 // iGuide
 var iGuide_current_place;
+// iGroup
+var iGroup_groups = [];
+var current_group;
 
 
 
@@ -326,17 +326,14 @@ function change_screen(new_screen_id)
 {
 	if (new_screen_id != current_screen.id)
 	{
-		new_screen = SCREENS[new_screen_id];
-
 		if (current_screen.on_exit != undefined)
 			current_screen.on_exit();
-		global_on_exit();
 
 		replace_element(current_screen.id, new_screen_id);
 
+		let new_screen = SCREENS[new_screen_id];
 		if (new_screen.on_load != undefined)
 			new_screen.on_load();
-		global_on_load();
 
 		current_screen = new_screen;
 	}
@@ -344,10 +341,10 @@ function change_screen(new_screen_id)
 
 function replace_element(old_id, new_id)
 {
+	document.getElementById(new_id).style.display = "block";
+
 	if (new_id != "error_screen")
 		document.getElementById(old_id).style.display = "none";
-
-	document.getElementById(new_id).style.display = "block";
 }
 
 function go_back()
@@ -379,18 +376,18 @@ function update_location()
 	document.getElementById("degrees").innerHTML = LOCATIONS[current_location].temperature + "&deg;";
 }
 
-function update_clock(clock_element)
+function update_clock()
 {
 	var date = new Date();
 	var hours = add0(date.getHours());
 	var minutes = add0(date.getMinutes());
 
 	var main_menu = SCREENS["main_menu"];
-	var sep = clock.blink ? "&nbsp" : ":";
+	var sep = main_menu.blink ? "&nbsp" : ":";
 
-	clock.blink = ! clock.blink;
+	main_menu.blink = ! main_menu.blink;
 
-	clock_element.innerHTML = hours + sep + minutes;
+	document.getElementById("clock").innerHTML = hours + sep + minutes;
 }
 
 ////////////
@@ -412,8 +409,7 @@ function iGuide_update_places()
 
 	// Ordenar lugares por distância
 	let sorted_places = [];
-	let places = LOCATIONS[current_location].places;
-	for (let place_name in places)
+	for (let place_name in LOCATIONS[current_location].places)
 	{
 		let i = 0;
 		for (; i < sorted_places.length; i ++)
@@ -438,27 +434,26 @@ function iGuide_update_places()
 		let arrow = "<image class='iGuide_compass_arrow' src='img/arrow.png'" +
 			"style='transform: rotate(" + -data.angle + "rad);'>";
 		let distance = "<div class='iGuide_compass_distance'>" +
-			Math.round(data.distance) + "m</div>";
+		Math.round(place_data[sorted_places[i]].distance) + "m</div>";
 		let compass = "<div class='iGuide_compass'>" +
 			orientation + arrow + distance +"</div>";
-
-		let place_type = "<div class='iGuide_list_mon_type'>" +
-			PLACE_TYPE_DATA[places[sorted_places[i]].type].name + "</div>";
-
+		
+		let place_type = "<div class='iGuide_list_mon_type'>" + "Monumento" + "</div>";
+		
 		let place_name = "<div class='iGuide_list_text'>" +
 			sorted_places[i] + "</div>";
 		let info_img = "<image class='iGuide_info_icon' src='img/park.png'" +
 			"onclick='iGuide_info_load(\""+ sorted_places[i] +"\");'></div>";
-
+		
+		let stars = "<div class='rating_stars'>";
 		let rating = Math.floor(Math.random() * 5)+1;
-		let stars = "<div class='rating_stars'>" +
-		 	"<span>★</span>".repeat(rating) + "</div>";
-
-		let repr_img = "<img class='iGuide_list_repr_img' src=\"" + places[sorted_places[i]].place_wp + "\">";
-
-		places_element.innerHTML += "<li class='iGuide_list_item' style='background-color:" +
-			places[sorted_places[i]].color_wp + "'>" + info_img + place_type +
-			repr_img + compass + place_name + stars + "</li>";
+		for(let c = 0; c < rating; c++) stars += "<span>★</span>";
+		stars += "</div>";
+		
+		let repr_img = "<img class='iGuide_list_repr_img' src=\"" + LOCATIONS[current_location]["places"][sorted_places[i]]["place_wp"] + "\">";
+		
+		places_element.innerHTML += "<li class='iGuide_list_item' style='background-color:" + LOCATIONS[current_location]["places"][sorted_places[i]]["color_wp"] + "'>" + info_img + place_type + repr_img + 
+			compass + place_name + stars + "</li>";
 	}
 }
 
@@ -497,30 +492,33 @@ function iGuide_info_change_tab(new_tab_id)
 {
 	let current_tab = SCREENS["iGuide_info"].current_tab;
 
-	if (current_tab != null)
+	if (current_tab == null || new_tab_id != current_tab.id)
 	{
 		// Mudar o botão selecionado
-		let current_button_element = document.getElementById(current_tab.id + "_button");
-		current_button_element.style.backgroundColor = "lightgray";
-		current_button_element.disabled = false;
+		if (current_tab != null)
+		{
+			let current_button_element = document.getElementById(current_tab.id + "_button");
+			current_button_element.style.backgroundColor = "lightgray";
+			current_button_element.disabled = false;
 
-		if (current_tab.on_exit != undefined)
-			current_tab.on_exit();
+			if (current_tab.on_exit != undefined)
+				current_tab.on_exit();
 
-		replace_element(current_tab.id, new_tab_id);
+			replace_element(current_tab.id, new_tab_id);
+		}
+		else
+			document.getElementById(new_tab_id).style.display = "block";
+
+		let new_button_element = document.getElementById(new_tab_id + "_button");
+		new_button_element.style.backgroundColor = "gray";
+		new_button_element.disabled = true;
+
+		let new_tab = IGUIDE_INFO_TABS[new_tab_id];
+		if (new_tab.on_load != undefined)
+			new_tab.on_load();
+
+		SCREENS["iGuide_info"].current_tab = new_tab;
 	}
-	else
-		document.getElementById(new_tab_id).style.display = "block";
-
-	let new_button_element = document.getElementById(new_tab_id + "_button");
-	new_button_element.style.backgroundColor = "gray";
-	new_button_element.disabled = true;
-
-	let new_tab = IGUIDE_INFO_TABS[new_tab_id];
-	if (new_tab.on_load != undefined)
-		new_tab.on_load();
-
-	SCREENS["iGuide_info"].current_tab = new_tab;
 }
 
 function iGuide_info_show_event(event_name)
@@ -713,29 +711,19 @@ function exit_write_mode()
 // Funções on_init //
 /////////////////////
 
-SCREENS["main_menu"].on_init = update_location;
+SCREENS["main_menu"].on_init = function()
+{
+	update_location();
+};
 
-SCREENS["iGuide_main"].on_init = iGuide_update_places;
+SCREENS["iGuide_main"].on_init = function()
+{
+	iGuide_update_places();
+}
 
 /////////////////////
 // Funções on_load //
 /////////////////////
-
-function global_on_load()
-{
-	// Função que inclui funcionalidades diversas que tenham de ser executadas
-	// sempre na saída (para não sobrecarregar a função change_screen)
-
-	// Atualizar relógio do novo ecrã
-	let clock_elements_list = document.getElementById(new_screen.id).getElementsByClassName("clock");
-	if (clock_elements_list.length > 0)
-	{
-		clock.blink = false;
-		update_clock(clock_elements_list[0]);
-		clock.timeout = setInterval(function(){update_clock(clock_elements_list[0])}, 1000);
-	}
-
-}
 
 SCREENS["off"].on_load = function()
 {
@@ -748,6 +736,13 @@ SCREENS["error_screen"].on_load = function()
 {
 	SCREENS["error_screen"].parent_id = current_screen.id;
 	fadein("error_screen", 0.3);
+};
+
+SCREENS["main_menu"].on_load = function()
+{
+	SCREENS["main_menu"].clock_blink = false;
+	update_clock();
+	SCREENS["main_menu"].timeout = setInterval(update_clock, 1000);
 };
 
 SCREENS["add_payment"].on_load = function()
@@ -765,27 +760,31 @@ SCREENS["iGuide_info"].on_load = function()
 	document.getElementById("iGuide_info_place_name").innerHTML =
 		iGuide_current_place.name;
 
-	// Alterar botões
+	// Mostrar tabs
 	let tabs = PLACE_TYPE_DATA[iGuide_current_place.type].tabs;
 
-	let bottom = document.getElementById("iGuide_info_footer");
-	bottom.innerHTML = "";
-	let button_width = 100 / tabs.length;
-	let button_left = 0;
-
-	for (let i = 0; i < tabs.length; i ++)
+	// Alterar botões
+	if (SCREENS["iGuide_info"].current_tab == null || SCREENS["iGuide_info"].current_tab.id != tabs[0])
 	{
-		let button_element = document.createElement("button");
+		let bottom = document.getElementById("iGuide_info_footer");
+		bottom.innerHTML = "";
+		let button_width = 100 / tabs.length;
+		let button_left = 0;
 
-		button_element.id = tabs[i] + "_button";
-		button_element.classList.add("iGuide_info_tab_button");
-		button_element.onclick = function(){ iGuide_info_change_tab(tabs[i]); };
-		button_element.style.width = button_width + "%";
-		button_element.style.left = button_left + "%";
-		button_element.innerHTML = IGUIDE_INFO_TABS[tabs[i]].name;
+		for (let i = 0; i < tabs.length; ++ i)
+		{
+			let button_element = document.createElement("button");
 
-		bottom.appendChild(button_element);
-		button_left += button_width; // O próximo botão começa onde este acaba
+			button_element.id = tabs[i] + "_button";
+			button_element.classList.add("iGuide_info_tab_button");
+			button_element.onclick = function(){ iGuide_info_change_tab(tabs[i]); };
+			button_element.style.width = button_width + "%";
+			button_element.style.left = button_left + "%";
+			button_element.innerHTML = IGUIDE_INFO_TABS[tabs[i]].name;
+
+			bottom.appendChild(button_element);
+			button_left += button_width; // O próximo botão começa onde este acaba
+		}
 	}
 
 	// Mudar para a 1ª tab
@@ -837,16 +836,6 @@ IGUIDE_INFO_TABS["iGuide_info_shops"].on_load = function()
 // Funções on_exit //
 /////////////////////
 
-function global_on_exit()
-{
-	// Função que inclui funcionalidades diversas que tenham de ser executadas
-	// sempre na saída (para não sobrecarregar a função change_screen)
-
-	// Eliminar timeout do relógio, se este ecrã tiver um relógio
-	if (document.getElementById(current_screen.id).getElementsByClassName("clock").length > 0)
-		clearInterval(clock.timeout);
-}
-
 SCREENS["off"].on_exit = function()
 {
 	document.getElementById("home_button").onclick = function(){ change_screen("main_menu"); }
@@ -856,6 +845,11 @@ SCREENS["off"].on_exit = function()
 SCREENS["error_screen"].on_exit = function()
 {
 	document.getElementById("error_screen").style.animation = "";
+};
+
+SCREENS["main_menu"].on_exit = function()
+{
+	clearInterval(SCREENS["main_menu"].timeout);
 };
 
 SCREENS["add_payment"].on_exit = function()
@@ -892,4 +886,69 @@ IGUIDE_INFO_TABS["iGuide_info_events"].on_exit = function()
 {
 	if (SCREENS["iGuide_info"].in_event)
 		iGuide_info_leave_event();
+}
+
+
+////////////
+// iGroup //
+////////////
+
+function addMember(member){
+	if(!current_group["Members"].includes(member)){
+		current_group["Members"].push(member);
+	}
+}
+
+function requestMember(memberName){
+	let member = MYWEBMEMBERS[memberName];
+	addMember(member);
+}
+
+function addGroup(){
+	var group_name = document.getElementById("iGroup_name_value");
+	var group_location = document.getElementById("iGroup_location_value");
+	var group_date = document.getElementById("iGroup_date_value");
+	var name_error = document.getElementById("Name_error_message");
+	var location_error = document.getElementById("Location_error_message");
+	var date_error= document.getElementById("Date_error_message");
+	if((group_name.value != "") && (group_location.value != "") && (group_date.value != "")){
+		var group = {name: group_name.value, location: group_location.value, date: group_date.value};
+		iGroup_groups.push(group);
+		change_screen("iGroup_main");
+		name_error.style.visibility = "hidden";
+		location_error.style.visibility="hidden";
+		date_error.style.visibility="hidden";
+	}
+	(group_name.value == "") ? name_error.style.visibility="visible" : name_error.style.visibility="hidden";
+	(group_location.value == "") ? location_error.style.visibility="visible" : location_error.style.visibility="hidden";
+	(group_date.value == "") ? date_error.style.visibility="visible" : date_error.style.visibility="hidden";
+	group_name.value="";
+	group_date.value="";
+	group_location.value="";
+}
+
+function showGroupList(){
+	var list = document.getElementById('iGroup_group_list');
+	list.innerHTML = "";
+	console.log(iGroup_groups.length);
+	if(iGroup_groups.length == 0){
+		list.innerHTML = "Não tens nenhum grupo.";
+		list.innerHTML += "<button onclick='change_screen(iGroup_create)'>Criar grupo</button>";
+	}
+	else{
+		for(let i = 0; i < iGroup_groups.length; i++){
+		console.log(iGroup_groups[i]);
+		list.innerHTML += "<li>"+ iGroup_groups[i].name + "</li>";
+		}
+	}
+	change_screen('iGroup_groups');
+}
+
+function showGroupScreen(groupName){
+	for (let i = 0; i < iGroup_groups.length ; i++){
+		if(iGroup_groups[i].name == groupName){
+			current_group = iGroup_groups[i];
+			break;
+		}
+	}
 }

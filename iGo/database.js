@@ -4,7 +4,7 @@ const SCREENS =
 
   "off":          {id: "off"},
 
-  "main_menu":    {id: "main_menu"},
+  "main_menu":    {id: "main_menu",   clock_blink: false,   timeout: null},
 
   "apps":         {id: "apps",        parent_id: "main_menu"},
 
@@ -18,6 +18,10 @@ const SCREENS =
 
   "iGroup_main":  {id: "iGroup_main", parent_id: "apps"},
 
+  "iGroup_create": {id: "iGroup_create", parent_id: "iGroup_main"},
+
+  "iGroup_groups": {id: "iGroup_groups", parent_id: "iGroup_main"},
+
   "iGuide_info":  {id: "iGuide_info", parent_id: "iGuide_main", current_tab: null, in_event: false},
 
   "payment_methods": {id: "payment_methods", parent_id: "iGuide_info"},
@@ -25,7 +29,7 @@ const SCREENS =
   "add_payment": {id: "add_payment", parent_id: "payment_methods"},
 
   "payment_complete": {id: "payment_complete"}
-};
+}
 
 const DEFAULT_LOCATION = "Lisboa";
 
@@ -65,8 +69,7 @@ const LOCATIONS =
         position: {x: 50, y: 60},
         events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
 		place_wp: "img/iguide_places_img/pevii.png",
-		color_wp: "#33cc00",
-		rating: 4
+		color_wp: "#33cc00"
       },
 
       "Shopping Amoreiras":
@@ -77,8 +80,7 @@ const LOCATIONS =
         position: {x: 150, y: 160},
         shops: ["FNAC", "WORTEN", "BERTRAND"],
 		place_wp: "img/iguide_places_img/asc.png",
-		color_wp: "#0073e6",
-		rating: 3
+		color_wp: "#0073e6"
       },
 
     	"Instituto Gulbenkian":
@@ -88,8 +90,7 @@ const LOCATIONS =
         type: "museum",
         position: {x: 40, y: 400},
 		place_wp: "img/iguide_places_img/ig.png",
-		color_wp: "#ff6600",
-		rating: 3
+		color_wp: "#ff6600"
       },
 
     	"Padrão dos Descobrimentos":
@@ -99,8 +100,7 @@ const LOCATIONS =
         type: "monument",
         position: {x: 600, y: 420},
 		place_wp: "img/iguide_places_img/pdd.png",
-		color_wp: "#ff3333",
-		rating: 5		
+		color_wp: "#ff3333"	
       },
 
     	"Torre de Belém":
@@ -110,8 +110,7 @@ const LOCATIONS =
         type: "monument",
         position: {x: 590, y: 100},
 		place_wp: "img/iguide_places_img/tdb.png",
-		color_wp: "#ff3333",
-		rating: 5
+		color_wp: "#ff3333"
       },
 
       "Local com um nome muito comprido, que ocupa várias linhas no ecrã do iGo":
@@ -120,8 +119,7 @@ const LOCATIONS =
         description: "Local com uma descrição muito comprida, que ocupa várias linhas no ecrã do iGo",
         type: "museum",
         position: {x: 870, y: 700},
-		color_wp: "#FFB6C1",
-		rating: 1
+		color_wp: "#FFB6C1"
       }
     },
     temperature: 22
@@ -180,39 +178,34 @@ const LOCATIONS =
     },
     temperature: 15
   }
-};
+}
 
 const PLACE_TYPE_DATA =
 {
   "monument":
   {
-    name: "Monumento",
     img: "img/monument.svg",
     tabs: ["iGuide_info_description"]
   },
 
   "museum":
   {
-    name: "Museu",
     img: "img/museum.png",
     tabs: ["iGuide_info_description"]
   },
 
   "shop":
   {
-    name: "Loja",
     img: "img/shop.png",
     tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
   },
 
   "park":
   {
-    name: "Jardim",
     img: "img/park.png",
     tabs: ["iGuide_info_description", "iGuide_info_events"]
   }
-};
-
+}
 
 const IGUIDE_INFO_TABS =
 {
@@ -233,7 +226,7 @@ const IGUIDE_INFO_TABS =
     id: "iGuide_info_shops",
     name: "Lojas"
   }
-};
+}
 
 
 const PAYMENT =
@@ -250,4 +243,36 @@ const PAYMENT =
 		img_visa: "img/visa.png",
 		img_mc: "img/mastercard.png"
 	}
-};
+}
+
+const MYWEBMEMBERS = {
+  "Ambrosio Santos":{
+    name:"Ambrosio Santos",
+    location: 0,
+  },
+  "Marc Jelkic":{
+    name: "Marc Jelkic",
+    location: 1,
+  }, 
+  "Afonso Vasconscelos":{
+    name: "Afonso Vasconscelos",
+    location: 2,
+  },
+  "Pedro Morreira":{
+    name: "Pedro Morreira",
+    location: 3,
+  }, 
+  "Rodrigo Rosa":{
+    name: "Rodrigo Rosa",
+    location: 2,
+  },
+  "Filipe Sousa":{
+    name: "Filipe Sousa",
+    location: 4,
+   },
+   "Miguel Mota":{
+    name: "Miguel Mota",
+    location: 5,
+   }
+ };
+

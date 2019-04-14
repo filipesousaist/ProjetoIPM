@@ -38,7 +38,7 @@
 					<!-- Ecrã desligado -->
 					<div class="screen" id="off"></div>
 
-					<!-- Logótipo do iGo -->
+					<!-- Logótipo -->
 					<div id="screen_logo_container" align="center" ><br>iGo &trade;</div>
 
 					<!-- Menu inicial -->
@@ -47,7 +47,7 @@
 						<div id="main_menu_top_container">
 							<img class="main_menu_top_icon" id="battery_icon" src="img/battery4.png">
 							<img class="main_menu_top_icon" id="wifi_icon" src="img/wifi2.png">
-							<div class="clock" id="main_menu_clock"></div>
+							<div id="clock"></div>
 						</div>
 
 						<div id="main_menu_center_container">
@@ -67,10 +67,7 @@
 
 					<!-- Ecrã das aplicações -->
 					<div class="screen" id="apps">
-						<div class="screen_title_container">
-							Apps
-							<div class="clock"></div>
-						</div>
+						<div class= "screen_title_container">Apps</div>
 
 						<div class="app_container" id="iGuide_container" onclick="change_screen('iGuide_main');" align="center">
 							<img class="app_icon" src="img/book.png">
@@ -96,23 +93,16 @@
 
 					<!-- Ecrã principal do iGuide -->
 					<div class="screen" id="iGuide_main">
-						<div class="screen_title_container">
-							iGuide
-							<div class="clock"></div>
-						</div>
+						<div class="screen_title_container">iGuide</div>
 						<div id="iguide_main_container">
-							<div id="iGuide_near_you_container">Perto de si...</div>
-							<div id="iGuide_near_you_desc">Veja todos os pontos de interesse perto de si, ou então adicione filtros a seu gosto!</div>
+							<div id="iGuide_near_you_container">Perto de si:</div>
 							<ul id="iGuide_places_list"></ul>
 						</div>
 					</div>
 
 					<!-- Ecrã do iGuide com informações sobre um local -->
 					<div class="screen" id="iGuide_info">
-						<div class="screen_title_container">
-							iGuide
-							<div class="clock"></div>
-						</div>
+						<div class="screen_title_container">iGuide</div>
 
 						<div id="iGuide_info_body">
 							<div id="iGuide_info_top">
@@ -147,19 +137,39 @@
 
 					<!-- Ecrã principal do iWay -->
 					<div class="screen" id="iWay_main">
-						<div class="screen_title_container">
-							iWay
-							<div class="clock"></div>
-						</div>
+						<div class="screen_title_container">iWay</div>
 					</div>
 
 					<!-- Ecrã principal do iGroup -->
 					<div class="screen" id="iGroup_main">
-						<div class="screen_title_container">
-							iGroup
-							<div class="clock"></div>
+						<div class="screen_title_container">iGroup</div>
+						<div id = "iGroup_main_body">
+							<div class="iGroup_mainButton" id="iGroup_createGroup" onclick="change_screen('iGroup_create')">Criar Grupo</div>
+							<div class="iGroup_mainButton" id="iGroup_myGroups" onclick="showGroupList()">Os meus grupos</div>
 						</div>
 					</div>
+
+					<div class="screen" id="iGroup_create">
+						<div class="screen_title_container">iGroup</div>
+						<div id="iGroup_create_body">
+						<div id="iGroup_create_name">Nome do grupo:</div>
+						<div id="Name_error_message" style="visibility: hidden; color: red; font-size: 10px;">Insira um nome valido</div>
+						<input id="iGroup_name_value" type="text" name="Name">
+						<div id="iGroup_create_location">Destino:</div>
+						<div id="Location_error_message" style="visibility: hidden; color: red; font-size: 10px;">Insira uma localização valida</div>
+						<input id="iGroup_location_value" type="text" name="Location">
+						<div id="iGroup_create_date">Data de Partida:</div>
+						<div id="Date_error_message" style="visibility: hidden; color: red; font-size: 10px;">Insira uma data valida</div>
+						<input id="iGroup_date_value" type="date" name="Date">
+						<button onclick="addGroup()">Criar Grupo</button>
+						</div>
+					</div>
+
+					<div class="screen" id="iGroup_groups">
+						<div class="screen_title_container">iGroup</div>
+						<ul id="iGroup_group_list"></ul>
+					</div>
+
 
 					<!-- Ecrã de erro -->
 					<div id="error_screen">
