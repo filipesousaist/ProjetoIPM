@@ -361,10 +361,11 @@ function change_screen(new_screen_id)
 
 function replace_element(old_id, new_id)
 {
-	if (new_id != "error_screen")
+	if (new_id != "error_screen" && old_id != null)
 		document.getElementById(old_id).style.display = "none";
 
-	document.getElementById(new_id).style.display = "block";
+	if (new_id != null)
+		document.getElementById(new_id).style.display = "block";
 }
 
 function go_back()
@@ -462,7 +463,7 @@ function iGuide_update_places()
 			place.name + "</div>";
 		let place_icon = "<image class='iGuide_info_icon' src='" +
 			PLACE_TYPE_DATA[place.type].img +
-			"' onclick='iGuide_info_load('"+ place.name +"');'></div>";
+			"' onclick='iGuide_info_load(\""+ place.name +"\");'></div>";
 
 		let stars = "<div class='rating_stars'>" +
 		 	"<span>★</span>".repeat(place.rating) + "</div>";
@@ -508,29 +509,30 @@ function iGuide_info_load(place_name)
 function iGuide_info_change_tab(new_tab_id)
 {
 	let current_tab = SCREENS["iGuide_info"].current_tab;
+	let current_tab_id = null;
+	if (current_tab != null)
+		current_tab_id = current_tab.id;
+
+	let new_tab = SCREENS["iGuide_info"].new_tab = null;
+	if (new_tab_id != null)
+		new_tab = SCREENS["iGuide_info"].new_tab = IGUIDE_INFO_TABS[new_tab_id];
 
 	// Mudar o botão selecionado
 	if (current_tab != null)
 	{
-		let current_button_element = document.getElementById(current_tab.id + "_button");
-		current_button_element.style.backgroundColor = "lightgray";
-		current_button_element.disabled = false;
-
+		iGuide_info_tabs_global_on_exit();
 		if (current_tab.on_exit != undefined)
 			current_tab.on_exit();
-
-		replace_element(current_tab.id, new_tab_id);
 	}
-	else
-		document.getElementById(new_tab_id).style.display = "block";
 
-	let new_button_element = document.getElementById(new_tab_id + "_button");
-	new_button_element.style.backgroundColor = "gray";
-	new_button_element.disabled = true;
+	replace_element(current_tab_id, new_tab_id);
 
-	let new_tab = IGUIDE_INFO_TABS[new_tab_id];
-	if (new_tab.on_load != undefined)
-		new_tab.on_load();
+	if (new_tab != null)
+	{
+		iGuide_info_tabs_global_on_load();
+		if (new_tab.on_load != undefined)
+			new_tab.on_load();
+	}
 
 	SCREENS["iGuide_info"].current_tab = new_tab;
 }
@@ -805,6 +807,14 @@ SCREENS["iGuide_info"].on_load = function()
 	iGuide_info_change_tab(tabs[0]);
 }
 
+function iGuide_info_tabs_global_on_load()
+{
+	let new_button_element =
+		document.getElementById(SCREENS["iGuide_info"].new_tab.id + "_button");
+	new_button_element.style.backgroundColor = "#383838";
+	new_button_element.disabled = true;
+}
+
 IGUIDE_INFO_TABS["iGuide_info_description"].on_load = function()
 {
 	document.getElementById("iGuide_info_description").innerHTML =
@@ -904,6 +914,17 @@ SCREENS["iGuide_info"].on_exit = function()
 {
 	if (SCREENS["iGuide_info"].in_event)
 		iGuide_info_leave_event();
+}
+
+function iGuide_info_tabs_global_on_exit()
+{
+	let current_tab = SCREENS["iGuide_info"].current_tab;
+	if (PLACE_TYPE_DATA[iGuide_current_place.type].tabs.includes(current_tab.id))
+	{
+		let current_button_element = document.getElementById(current_tab.id + "_button");
+		current_button_element.style.backgroundColor = "gray";
+		current_button_element.disabled = false;
+	}
 }
 
 IGUIDE_INFO_TABS["iGuide_info_events"].on_exit = function()
