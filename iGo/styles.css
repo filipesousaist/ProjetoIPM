@@ -1202,6 +1202,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
  * iGroup *
  *********/
 
+
 #iGroup_main_body
 {
 	background-color: #87CEEB;
@@ -1238,6 +1239,12 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	overflow-y: scroll;
 	height: 100%;
 	list-style: none;
+}
+
+#iGroup_group_main_body{
+    overflow-y: scroll;
+    height: 3.5cm;
+    position: absolute;
 }
 
 /********
