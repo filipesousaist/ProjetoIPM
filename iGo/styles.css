@@ -482,12 +482,13 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_main
 {
 	background-color: #383838;
-	overflow-y: scroll;
 }
 
-#iguide_main_container{
+#iGuide_body
+{
+	position: relative;
 	width: 5cm;
-	height: 3cm;
+	height: 3.5cm;
 	background-color: transparent;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -496,14 +497,14 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_near_you_container
 {
 	position: relative;
-    width: 4.5cm;
-    height: 4.5mm;
-    top: 1mm;
-    left: -2.3mm;
-    padding-top: 0.5mm;
-    padding-left: 0.5cm;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 10pt;
+  width: 4.5cm;
+  height: 4.5mm;
+  top: 1mm;
+  left: -2.3mm;
+  padding-top: 0.5mm;
+  padding-left: 0.5cm;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 10pt;
 	color: lightgrey;
 }
 
@@ -524,7 +525,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 #iGuide_places_list
 {
 	position: absolute;
-  top: 1.1cm;
+  top: 6mm;
   left: -0.2mm;
   width: 5cm;
   height: 3cm;
@@ -673,7 +674,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 .iGuide_info_container
 {
 	position: relative;
-	width: calc(100% - 4.4mm);
+	width: calc(100% - 4mm);
 	min-height: 2.22cm;
 	padding-left: 2mm;
 	padding-right: 2mm;
@@ -684,7 +685,6 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	display: none;
 	top: 4.6mm;
 	color: lightgrey;
-	padding-bottom: 3mm;
 }
 
 #iGuide_info_footer
@@ -731,7 +731,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 .iGuide_event_list_text
 {
 	width: 3.5cm;
-	left: 1mm;
+	left: 4mm;
 }
 
 #iGuide_event_title
@@ -746,9 +746,7 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	position: relative;
 	width: calc(100% - 4mm);
 	left: -0.2mm;
-	padding-left: 2mm;
-	padding-right: 2mm;
-	background-color: lightgrey;
+	padding: 2mm;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 8pt;
 }
