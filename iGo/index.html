@@ -216,6 +216,80 @@
 						<ul id="iGroup_group_list"></ul>
 					</div>
 
+					<div class="screen" id="iGroup_group_main">
+						<div class="screen_title_container">iGroup
+							<div class="clock"></div>
+						</div>
+						<div id="iGroup_group_main_body">
+						<ul id="iGroup_group_main_options_list">
+						<li onclick='change_screen("iGroup_group_addMember")'> Adicionar Membros </li>
+						<li onclick='change_screen("iGroup_group_addEvent")'> Adicionar Evento </li>
+						<li onclick='showMembersList()'> Ver Membros </li>
+						<li onclick='showEventsList()'> Ver Eventos </li>
+						<li> Ver Localização de Membros </li>
+						<li onclick='showInbox()'> Ver notificações </li>
+						</ul>
+						</div>
+					</div>
+
+					<div class="screen" id="iGroup_group_addMember">
+						<div class="screen_title_container">iGroup
+							<div class="clock"></div>
+						</div>
+						<div id="iGroup_group_addMember_body">
+							<div id="iGroup_add_member_name">Nome do Membro:</div>
+							<div id="Member_error_message" style="visibility: hidden; color: red; font-size: 10px;">Esse membro não existe.</div>
+							<input id="iGroup_member_name_value" type="text" name="Name">
+							<button onclick="requestMember()">Adicionar Membro</button>
+						</div>
+					</div>
+
+					<div class="screen" id="iGroup_group_addEvent">
+						<div class="screen_title_container">iGroup
+							<div class="clock"></div>
+						</div>
+						<div id="iGroup_group_addEvent_body">
+							<div id="iGroup_add_event_name">Nome do Evento:</div>
+							<input id="iGroup_event_name_value" type="text" name="Name">
+							<div id="iGroup_add_event_date">Data do Evento:</div>
+							<input id="iGroup_event_date_value" type="date" name="Date">
+							<button onclick="addEvent()">Adicionar Evento</button>
+						</div>
+					</div>
+
+					<div class="screen" id="iGroup_group_main_memberList">
+						<div class="screen_title_container">iGroup
+							<div class="clock"></div>
+						</div>
+						<ul id="iGroup_group_memberList">
+						</ul>
+					</div>
+
+					<div class="screen" id="iGroup_group_main_eventsList">
+						<div class="screen_title_container">iGroup
+							<div class="clock"></div>
+						</div>
+						<ul id="iGroup_group_eventsList">
+						</ul>
+					</div>
+
+					<div class="screen" id="iGroup_group_inbox">
+						<div class="screen_title_container">iGroup
+							<div class="clock"></div>
+						</div>
+						<ul id="iGroup_group_inboxList">
+						</ul>
+					</div>
+
+
+					<div class="screen" id="iGroup_group_notificationInfo">
+						<div class="screen_title_container">iGroup
+							<div class="clock"></div>
+						</div>
+						<div id="notificationNameInfo"></div>
+						<div id="notificationTextInfo"></div>
+					</div>
+
 
 					<!-- Ecrã de erro -->
 					<div id="error_screen">

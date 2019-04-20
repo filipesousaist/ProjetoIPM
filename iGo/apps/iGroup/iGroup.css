@@ -10,11 +10,13 @@
 	height: 100%;
 }
 
-#iGroup_createGroup{
+#iGroup_createGroup
+{
 	background-color: limegreen;
 }
 
-#iGroup_myGroups{
+#iGroup_myGroups
+{
 	background-color: grey;
 }
 
@@ -40,4 +42,11 @@
 	overflow-y: scroll;
 	height: 100%;
 	list-style: none;
+}
+
+#iGroup_group_main_body
+{
+  overflow-y: scroll;
+  height: 3.5cm;
+  position: absolute;
 }
