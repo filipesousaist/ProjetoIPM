@@ -253,32 +253,49 @@ const PAYMENT =
 }
 
 const MYWEBMEMBERS = {
-  "Ambrosio Santos":{
-    name:"Ambrosio Santos",
+  "Ambrósio Santos":
+  {
+    name: "Ambrósio Santos",
     location: 0,
   },
-  "Marc Jelkic":{
+  "Marc Jelkic":
+  {
     name: "Marc Jelkic",
     location: 1,
   },
-  "Afonso Vasconscelos":{
-    name: "Afonso Vasconscelos",
+  "Afonso Vasconcelos":
+  {
+    name: "Afonso Vasconcelos",
     location: 2,
   },
-  "Pedro Morreira":{
-    name: "Pedro Morreira",
+  "Pedro Moreira":
+  {
+    name: "Pedro Moreira",
     location: 3,
   },
-  "Rodrigo Rosa":{
+  "Rodrigo Rosa":
+  {
     name: "Rodrigo Rosa",
     location: 2,
   },
-  "Filipe Sousa":{
+  "Filipe Sousa":
+  {
     name: "Filipe Sousa",
     location: 4,
-   },
-   "Miguel Mota":{
+  },
+  "Miguel Mota":
+  {
     name: "Miguel Mota",
     location: 5,
+  },
+   "Pedro Leitão":
+   {
+    name: "Pedro Leitão",
+    location: 6,
+    },
+   "Tomás Gomes":
+   {
+    name: "Tomás Gomes",
+    location: 7,
    }
  };
