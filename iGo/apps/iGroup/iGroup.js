@@ -6,7 +6,7 @@
 
 var iGroup_groups = [];
 var current_group;
-var loggedUser = MYWEBMEMBERS["Ambrosio Santos"];
+var loggedUser = MYWEBMEMBERS["Ambrósio Santos"];
 
 function addMember(member){
 	var member_error = document.getElementById("Memeber_error_message");
@@ -93,6 +93,7 @@ function showMembersList(){
 	list.innerHTML = "";
 	var membersList = current_group["members"];
 	for(let i = 0; i < membersList.length; i++){
+		console.log(membersList[i]);
 		console.log(membersList.length);
 		list.innerHTML += "<li>"+ membersList[i].name + "</li>";
 	}
