@@ -77,52 +77,52 @@ const LOCATIONS =
       {
         name: "Parque Eduardo VII",
         description: "O Parque Eduardo VII de Inglaterra é o maior parque do centro de Lisboa, sendo comummente conhecido apenas por Parque Eduardo VII.",
-		    bg: "<img class='place_img_bg' src='img/iguide_places_img/parqueduardo.png'>",
+		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/parqueduardo.png'>",
         type: "park",
         position: {x: 600, y: 420},
         events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
-    		wallpaper: "img/iGuide_place_bg/pevii_green.png"
+    		wallpaper: "apps/iGuide/img/place_bg/pevii_green.png"
       },
 
       "Shopping Amoreiras":
       {
         name: "Shopping Amoreiras",
         description: "Inaugurado a 27 de Setembro de 1985 e inserido num complexo de escritórios e habitações, com uma arquitectura ousada para a época.",
-        bg: "<img class='place_img_bg' src='img/iguide_places_img/amoreiras.jpg'>",
+        bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/amoreiras.jpg'>",
 		    type: "shop",
         position: {x: 150, y: 160},
         shops: ["FNAC", "WORTEN", "BERTRAND"],
-    		wallpaper: "img/iGuide_place_bg/asc_blue.png"
+    		wallpaper: "apps/iGuide/img/place_bg/asc_blue.png"
       },
 
     	"Instituto Gulbenkian":
       {
         name: "Instituto Gulbenkian",
         description: "O Instituto Gulbenkian de Ciência (IGC) MHSE é um centro internacional dedicado à investigação biológica e biomédica e à formação pós-graduada, localizado em Oeiras, Portugal.",
-		    bg: "<img class='place_img_bg' src='img/iguide_places_img/instituto.jpg'>",
+		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/instituto.jpg'>",
         type: "museum",
         position: {x: 40, y: 400},
-    		wallpaper: "img/iGuide_place_bg/ig_orange.png"
+    		wallpaper: "apps/iGuide/img/place_bg/ig_orange.png"
       },
 
     	"Padrão dos Descobrimentos":
       {
         name: "Padrão dos Descobrimentos",
         description: "Em posição destacada na margem direita do rio Tejo, o monumento original, em materiais perecíveis, foi erguido em 1940 por ocasião da Exposição do Mundo Português para homenagear as figuras históricas envolvidas nos Descobrimentos portugueses.",
-		    bg: "<img class='place_img_bg' src='img/iguide_places_img/padrao.jpg'>",
+		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/padrao.jpg'>",
         type: "monument",
         position: {x: 50, y: 60},
-    		wallpaper: "img/iGuide_place_bg/pdd_red.png"
+    		wallpaper: "apps/iGuide/img/place_bg/pdd_red.png"
       },
 
     	"Torre de Belém":
       {
         name: "Torre de Belém",
         description: "Um dos ex libris da cidade, o monumento é um ícone da arquitetura do reinado de D. Manuel I, numa síntese entre a torre de menagem de tradição medieval e o baluarte moderno, onde se dispunham peças de artilharia.",
-        bg: "<img class='place_img_bg' src='img/iguide_places_img/torre.jpg'>",
+        bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/torre.jpg'>",
 		    type: "monument",
         position: {x: 590, y: 100},
-    		wallpaper: "img/iGuide_place_bg/tdb_red.png"
+    		wallpaper: "apps/iGuide/img/place_bg/tdb_red.png"
       }
     },
     temperature: 22
@@ -188,28 +188,28 @@ const PLACE_TYPE_DATA =
   "monument":
   {
     name: "Monumento",
-    img: "img/iGuide_place_icons/monument_white.png",
+    img: "apps/iGuide/img/place_icons/monument_white.png",
     tabs: ["iGuide_info_description"]
   },
 
   "museum":
   {
     name: "Museu",
-    img: "img/iGuide_place_icons/museum_white.png",
+    img: "apps/iGuide/img/place_icons/museum_white.png",
     tabs: ["iGuide_info_description"]
   },
 
   "shop":
   {
     name: "Loja",
-    img: "img/iGuide_place_icons/shop_white.png",
+    img: "apps/iGuide/img/place_icons/shop_white.png",
     tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
   },
 
   "park":
   {
     name: "Jardim",
-    img: "img/iGuide_place_icons/park_white.png",
+    img: "apps/iGuide/img/place_icons/park_white.png",
     tabs: ["iGuide_info_description", "iGuide_info_events"]
   }
 }

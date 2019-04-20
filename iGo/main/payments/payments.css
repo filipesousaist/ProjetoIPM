@@ -177,12 +177,13 @@
   font-size: 9pt;
 }
 
-#paypal_email, #card_number{
+#paypal_email, #card_number
+{
 	position: relative;
-    left: 2mm;
-    top: 4mm;
-    border-radius: 2mm;
-    border: none;
+  left: 2mm;
+  top: 4mm;
+  border-radius: 2mm;
+  border: none;
 	width: 4.1cm;
 
 }
@@ -269,19 +270,21 @@
   z-index:3;
 }
 
-#loading{
+#loading
+{
 	position: relative;
-    width: 4cm;
-    height: 0.5cm;
-    top: 1.2cm;
-    left: 10%;
+  width: 4cm;
+  height: 0.5cm;
+  top: 1.2cm;
+  left: 10%;
 	opacity: 1;
 }
 
-#payment_after{
+#payment_after
+{
 	position: relative;
-    top: 6mm;
-    left: 4.5mm;
+  top: 6mm;
+  left: 4.5mm;
 	font-family: Tahoma, Geneva, sans-serif;
 	color: white;
 	opacity: 0;

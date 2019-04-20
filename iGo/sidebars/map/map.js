@@ -117,7 +117,7 @@ function update_map()
 	for (let p in places)
 	{
 		location_img = document.createElement("img");
-		location_img.src = "img/location.png";
+		location_img.src = "sidebars/map/img/location.png";
 		location_img.class = "map_place_img";
 		location_img.title = p;
 		location_img.style.position = "absolute";

@@ -8,10 +8,10 @@
 		<!-- Sidebars -->
 		<link rel="stylesheet" href="sidebars/sidebars.css">
 		<script src="sidebars/ppi.js"></script>
-		<script src="sidebars/map.js"></script>
+		<script src="sidebars/map/map.js"></script>
 		<!-- Menu Inicial -->
-		<link rel="stylesheet" href="main/main_menu.css">
-		<script src="main/main_menu.js"></script>
+		<link rel="stylesheet" href="main/main_menu/main_menu.css">
+		<script src="main/main_menu/main_menu.js"></script>
 		<!-- Menu das Aplicações -->
 		<link rel="stylesheet" href="apps/apps.css">
 		<!-- iGuide -->
@@ -23,11 +23,11 @@
 		<link rel="stylesheet" href="apps/iGroup/iGroup.css">
 		<script src="apps/iGroup/iGroup.js"></script>
 		<!-- Pagamentos -->
-		<link rel="stylesheet" href="main/payments.css">
-		<script src="main/payments.js"></script>
+		<link rel="stylesheet" href="main/payments/payments.css">
+		<script src="main/payments/payments.js"></script>
 		<!-- Teclado -->
-		<link rel="stylesheet" href="main/keyboard.css">
-		<script src="main/keyboard.js"></script>
+		<link rel="stylesheet" href="main/keyboard/keyboard.css">
+		<script src="main/keyboard/keyboard.js"></script>
 		<!-- Main -->
 		<link rel="stylesheet" href="main/main.css">
 		<script src="main/main.js"></script>
@@ -70,22 +70,22 @@
 					<div class="screen" id="main_menu">
 
 						<div id="main_menu_top_container">
-							<img class="main_menu_top_icon" id="battery_icon" src="img/battery4.png">
-							<img class="main_menu_top_icon" id="wifi_icon" src="img/wifi2.png">
+							<img class="main_menu_top_icon" id="battery_icon" src="main/main_menu/img/battery4.png">
+							<img class="main_menu_top_icon" id="wifi_icon" src="main/main_menu/img/wifi2.png">
 							<div class="clock" id="main_menu_clock"></div>
 						</div>
 
 						<div id="main_menu_center_container">
 							<div id="city_name"></div>
 							<div id="degrees"></div>
-							<img id="weather" src="img/temp_img.svg">
+							<img id="weather" src="main/main_menu/img/weather.svg">
 						</div>
 
 						<div id="main_menu_right_container">
-							<img class="main_menu_right_icon" id="apps_icon" src="img/apps.png" onclick="change_screen('apps');">
-							<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="change_screen('error_screen');" >
+							<img class="main_menu_right_icon" id="apps_icon" src="main/main_menu/img/apps.png" onclick="change_screen('apps');">
+							<img class="main_menu_right_icon" id="location_icon" src="main/main_menu/img/location.png" onclick="change_screen('error_screen');" >
 							<!-- TODO: MyWeb -->
-							<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="change_screen('error_screen');">
+							<img class="main_menu_right_icon" id="options_icon" src="main/main_menu/img/options.png" onclick="change_screen('error_screen');">
 						</div>
 
 					</div>
@@ -98,17 +98,17 @@
 						</div>
 
 						<div class="app_container" id="iGuide_container" onclick="change_screen('iGuide_main');" align="center">
-							<img class="app_icon" src="img/book.png">
+							<img class="app_icon" src="apps/img/book.png">
 							<p class="app_name">iGuide</p>
 						</div>
 
 						<div class="app_container" id="iWay_container" align="center">
-							<img class="app_icon" src="img/way.png">
+							<img class="app_icon" src="apps/img/way.png">
 							<p class="app_name">iWay</p>
 						</div>
 
 						<div class="app_container" id="iGroup_container" onclick="change_screen('iGroup_main');" align="center">
-							<img class="app_icon" src="img/group.png">
+							<img class="app_icon" src="apps/img/group.png">
 							<p class="app_name">iGroup</p>
 						</div>
 					</div>
@@ -301,8 +301,8 @@
 					<div class="screen" id="payment_methods">
 						<div id="payment_title">Métodos de Pagamento</div>
 						<div id="payment_descr">Selecione abaixo o seu método de pagamento de preferência...</div>
-						<img id="add_pm" src="img/plus.svg" onclick="change_screen('add_payment');">
-						<img id="delete_pm" src="img/delete.svg" onclick="show_delete_option();">
+						<img id="add_pm" src="main/payments/img/plus.svg" onclick="change_screen('add_payment');">
+						<img id="delete_pm" src="main/payments/img/delete.svg" onclick="show_delete_option();">
 						<div id="empty_pm">Não existem métodos de pagamento guardados.</div>
 						<ul id="payment_list"></ul>
 					</div>
@@ -342,7 +342,7 @@
 						<div id="payment_title">Processando Pagamento</div>
 						<div id="payment_descr">Esta etapa poderá demorar alguns segundos....</div>
 						<div id="payment_before">
-							<img id="loading" src="img/ajax-loader.gif">
+							<img id="loading" src="main/payments/img/ajax-loader.gif">
 						</div>
 						<div id="payment_after">Pagamento Concluído!</div>
 					</div>
@@ -388,7 +388,7 @@
 
 						<div class="keyboard_row" id="keyboard_row_3">
 							<button class="keyboard_special_button" id="keyboard_shift" onclick="change_keyboard_case();">
-								<img id="keyboard_shift_img" src="img/shift.svg">
+								<img id="keyboard_shift_img" src="main/keyboard/img/shift.svg">
 							</button>
 							<div class="keyboard_button" onclick="do_write('Z');">z</div>
 							<div class="keyboard_button" onclick="do_write('X');">x</div>
@@ -398,7 +398,7 @@
 							<div class="keyboard_button" onclick="do_write('N');">n</div>
 							<div class="keyboard_button" onclick="do_write('M');">m</div>
 							<button class="keyboard_special_button" id="keyboard_delete" onclick="do_write('delete');">
-								<img id="keyboard_delete_img" src="img/keyboard_delete.svg">
+								<img id="keyboard_delete_img" src="main/keyboard/img/delete.svg">
 							</button>
 						</div>
 
@@ -407,7 +407,7 @@
 							<div class="keyboard_button" id="keyboard_space" onclick="do_write(' ');"></div>
 							<div class="keyboard_special_button" id="keyboard_button_at" onclick="do_write('@');">@</div>
 							<div class="keyboard_special_button" id="keyboard_done" onclick="exit_write_mode();">
-								<img id="keyboard_done_img" src="img/keyboard_done.svg">
+								<img id="keyboard_done_img" src="main/keyboard/img/done.svg">
 							</div>
 						</div>
 					</div>
@@ -416,8 +416,8 @@
 				<div class="screen_container" id="screen_container_frame"></div>
 
 				<div id="buttons_container">
-					<img class="button" id="home_button" src="img/home.png" onclick="change_screen('main_menu');">
-					<img class="button" id="back_button" src="img/back.png" onclick="go_back();">
+					<img class="button" id="home_button" src="main/img/home.png" onclick="change_screen('main_menu');">
+					<img class="button" id="back_button" src="main/img/back.png" onclick="go_back();">
 				</div>
 			</div>
 		</div>
@@ -426,7 +426,7 @@
 			<div id="map_container">
 				<h3>Mapa:</h3>
 				<div id="map">
-					<img id="your_position" src="img/position.png"></img>
+					<img id="your_position" src="sidebars/map/img/position.png"></img>
 				</div>
 				<br>
 				<button id="go_to_location" onclick="change_location();">Ir</button>

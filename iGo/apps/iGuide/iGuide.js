@@ -58,7 +58,7 @@ function iGuide_update_places()
 
 		let orientation = "<div class='iGuide_compass_orientation'>" +
 			orientations[place.name] + "</div>";
-		let arrow = "<image class='iGuide_compass_arrow' src='img/arrow_white.png'" +
+		let arrow = "<image class='iGuide_compass_arrow' src='apps/iGuide/img/arrow_white.png'" +
 			"style='transform: rotate(" + -angles[place.name] + "rad);'>";
 		let distance = "<div class='iGuide_compass_distance'>" +
 			Math.round(distances[place.name]) + "m</div>";
