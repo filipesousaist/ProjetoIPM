@@ -1,0 +1,43 @@
+/**************/
+/**************/
+/*** IGROUP ***/
+/**************/
+/**************/
+
+#iGroup_main_body
+{
+	background-color: #87CEEB;
+	height: 100%;
+}
+
+#iGroup_createGroup{
+	background-color: limegreen;
+}
+
+#iGroup_myGroups{
+	background-color: grey;
+}
+
+.iGroup_mainButton
+{
+	border: 1mm solid black;
+	height: 30%;
+	border-radius: 3mm;
+	position: relative;
+	top: 2mm;
+	text-align: center;
+}
+
+#iGroup_create_body
+{
+	overflow-y: scroll;
+	height: 3.5cm;
+	position: absolute;
+}
+
+#iGroup_group_list
+{
+	overflow-y: scroll;
+	height: 100%;
+	list-style: none;
+}

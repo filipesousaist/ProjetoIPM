@@ -1,0 +1,163 @@
+/*******************/
+/*******************/
+/*** IGUIDE INFO ***/
+/*******************/
+/*******************/
+
+#iGuide_info_body
+{
+	width: 5cm;
+	height: 3.5cm;
+	background-color: transparent;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#iGuide_info_top
+{
+	position: relative;
+	min-height: 8mm;
+	background-color: #383838;
+	display: flex;
+	align-items: center;
+	top: 4.6mm;
+}
+
+#iGuide_info_place_icon
+{
+	width: 6mm;
+	padding-left: 2.5mm;
+	display: inline;
+}
+
+#iGuide_info_place_name
+{
+	position: relative;
+	width: calc(100% - 2mm);
+	left: 1.5mm;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 9pt;
+	padding: 1mm;
+	display: inline;
+	font-weight: bold;
+	color: lightgrey;
+}
+
+.iGuide_info_container
+{
+	position: relative;
+	width: calc(100% - 4mm);
+	min-height: 2.22cm;
+	padding-left: 2mm;
+	padding-right: 2mm;
+	overflow-y: scroll;
+	background-color: #383838;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 7pt;
+	display: none;
+	top: 4.6mm;
+	color: lightgrey;
+}
+
+#iGuide_info_footer
+{
+	position: absolute;
+	height: 4.6mm;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	bottom: 0;
+	font-size: 13px;
+	border-bottom-left-radius: 3mm;
+	border-bottom-right-radius: 3mm;
+	width: 100%;
+	top: 5mm;
+}
+
+.iGuide_info_tab_button
+{
+	position: absolute;
+    height: 100%;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 10px;
+    background-color: grey;
+    border: none;
+    color: white;
+}
+}
+
+.iGuide_info_tab_button:disabled
+{
+	color: black;
+}
+
+.place_img_bg
+{
+	width: 4.5cm;
+  height: 2cm;
+  left: 0.5mm;
+  top: 1mm;
+  position: relative;
+	margin-bottom: 2mm;
+}
+
+/**********
+ * Events *
+ **********/
+
+#iGuide_info_no_events
+{
+	display: none;
+  position: relative;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 11pt;
+  top: 4mm;
+  text-align: center;
+  opacity: 0.1;
+}
+
+.iGuide_event_list_text
+{
+	width: 3.5cm;
+	left: 4mm;
+}
+
+#iGuide_event_title
+{
+	position: relative;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 10pt;
+}
+
+#iGuide_event_description
+{
+	position: relative;
+	width: calc(100% - 4mm);
+	left: -0.2mm;
+	padding: 2mm;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+#iGuide_event_pay_button
+{
+   position: relative;
+	 left: 50%;
+	 margin-top: 1mm;
+	 margin-bottom: 2mm;
+	 padding: 1mm;
+	 transform: translateX(-50%);
+   background-color: #36f454;
+   border: none;
+   color: black;
+   text-align: center;
+   text-decoration: none;
+   font-size: 10px;
+   border-radius: 3mm;
+}
+
+#iGuide_info_events_list, #iGuide_info_shops_list
+{
+	position: relative;
+  top: -2mm;
+  left: -12.5mm;
+  list-style: none;
+}

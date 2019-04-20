@@ -1,0 +1,128 @@
+/****************/
+/****************/
+/*** KEYBOARD ***/
+/****************/
+/****************/
+
+#keyboard
+{
+	z-index: 4;
+  position: absolute;
+  width: calc(100% - 1.15mm);
+  padding-left: 0.75mm;
+  bottom: 0;
+  background-color: lightgrey;
+  border: 0.2mm solid gray;
+  display: none;
+  border-bottom-left-radius: 3mm;
+  border-bottom-right-radius: 3mm;
+  align-items: center;
+}
+
+.keyboard_row
+{
+	position: relative;
+}
+
+.keyboard_button, .keyboard_special_button
+{
+	z-index: 2;
+  position: relative;
+  width: 3.9mm;
+	height: 4mm;
+	margin-left: -0.05mm;
+	padding-top: 0.5mm;
+	border-radius: 1mm;
+  border: none;
+  display: inline-block;
+  text-align: center;
+	font-size: 8pt;
+	font-family: courier, sans-serif;
+  font-weight: bold;
+}
+
+#keyboard_row_2
+{
+	left: 2.5mm;
+}
+
+#keyboard_row_3
+{
+	left: 0.5mm;
+}
+
+#keyboard_row_4
+{
+	left: 3.5mm;
+}
+
+#keyboard_row_4 .keyboard_button, #keyboard_row_4 .keyboard_special_button
+{
+	height: 3mm;
+}
+
+.keyboard_button
+{
+	background: white;
+	color: black;
+}
+
+.keyboard_special_button
+{
+	border: none;
+	background: gray;
+	color: white;
+}
+
+#keyboard_shift
+{
+  width: 6mm;
+  top: 0.7mm;
+}
+
+#keyboard_delete
+{
+	width: 6mm;
+	top: 1.2mm;
+}
+
+#keyboard_button_point
+{
+  width: 3.8mm;
+	top: -0.4mm;
+}
+
+#keyboard_space
+{
+	width: 2.5cm;
+	top: 0.3mm;
+}
+
+#keyboard_button_at
+{
+	width: 3.8mm;
+	top: -0.4mm;
+}
+
+#keyboard_done
+{
+	width: 6mm;
+	top: 0.3mm;
+}
+
+#keyboard_shift_img
+{
+  height: 2.8mm;
+}
+
+#keyboard_delete_img
+{
+  height: 3.2mm;
+}
+
+#keyboard_done_img
+{
+  width: 3mm;
+  top: 0.1mm;
+  left: 1mm;
+}
