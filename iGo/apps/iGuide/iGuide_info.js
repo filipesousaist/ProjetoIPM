@@ -46,16 +46,13 @@ function iGuide_info_show_event(event_name)
 	SCREENS["iGuide_info"].in_event = true;
 
 	let current_event = EVENTS[event_name];
-	
-	document.getElementById("iGuide_info_top").style.display="none";
-	
-	document.getElementById("iGuide_event_img_container").innerHTML = "<img class='iGuide_event_img' src='apps/iGuide/img/place_img/torre.jpg'>";
-	document.getElementById("iGuide_event_title").innerHTML = event_name;
 
-	/*******************/
+	document.getElementById("iGuide_info_top").style.display="none";
+
+	document.getElementById("iGuide_event_img_container").innerHTML = "<img class='iGuide_event_img' src='apps/iGuide/img/place_img/torre.jpg'>";
 	document.getElementById("iGuide_event_loc").innerHTML = current_event.loc;
-	/*******************/
-	
+	document.getElementById("iGuide_event_title").innerHTML += event_name;
+
 	let pay_button = document.getElementById("iGuide_event_pay_button");
 	if (current_event.price > 0)
 	{
