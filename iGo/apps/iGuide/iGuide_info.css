@@ -174,14 +174,15 @@
   list-style: none;
 }
 
-/**********
+/***********
  * Gallery *
- **********/
+ ***********/
 
-#iguide_galery_img{
+#iguide_galery_img
+{
 	position: relative;
-    width: 4.5cm;
-    left: 0.25cm;
+  width: 4.5cm;
+  left: 0.25cm;
 }
 
 .iguide_img_item{
