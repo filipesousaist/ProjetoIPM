@@ -80,6 +80,7 @@ const LOCATIONS =
 		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/parqueduardo.png'>",
         type: "park",
         position: {x: 600, y: 420},
+		galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/parqueduardo.png'>", "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/parqueduardo.png'>"],
         events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
     		wallpaper: "apps/iGuide/img/place_bg/pevii_green.png"
       },
@@ -91,7 +92,7 @@ const LOCATIONS =
         bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/amoreiras.jpg'>",
 		    type: "shop",
         position: {x: 150, y: 160},
-        shops: ["FNAC", "WORTEN", "BERTRAND"],
+        galery: ["<img class='place_img_bg' id='iguide_galery_img'  src='apps/iGuide/img/place_img/amoreiras.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/asc_blue.png"
       },
 
@@ -102,6 +103,7 @@ const LOCATIONS =
 		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/instituto.jpg'>",
         type: "museum",
         position: {x: 40, y: 400},
+		galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/instituto.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/ig_orange.png"
       },
 
@@ -112,6 +114,7 @@ const LOCATIONS =
 		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/padrao.jpg'>",
         type: "monument",
         position: {x: 50, y: 60},
+		galery: ["<img class='place_img_bg' id='iguide_galery_img'  src='apps/iGuide/img/place_img/padrao.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/pdd_red.png"
       },
 
@@ -122,6 +125,7 @@ const LOCATIONS =
         bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/torre.jpg'>",
 		    type: "monument",
         position: {x: 590, y: 100},
+		galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/torre.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/tdb_red.png"
       }
     },
@@ -137,7 +141,8 @@ const LOCATIONS =
         name: "Big Ben",
         description: "Apesar do termo também ser usado para se referir à torre do relógio onde o sino está localizado, a estrutura é oficialmente conhecida como a Elizabeth Tower, rebatizada para comemorar o Jubileu de Diamante da Rainha Isabel II do Reino Unido.",
         type: "monument",
-        position: {x: 500, y: 160}
+        position: {x: 500, y: 160},
+		galery: ["FNAC", "WORTEN", "BERTRAND"]
       },
 
       "Palácio de Buckingham":
@@ -145,6 +150,7 @@ const LOCATIONS =
         name: "Palácio de Buckingham",
         description: "O Palácio de Buckingham é a residência oficial e principal local de trabalho do Monarca do Reino Unido em Londres. Localizado na Cidade de Westminster, o palácio é frequentemente o centro de ocasiões de estado e hospitalidade real.",
         type: "monument",
+		galery: ["FNAC", "WORTEN", "BERTRAND"],
         position: {x: 950, y: 330}
       }
     },
@@ -160,6 +166,7 @@ const LOCATIONS =
         name: "Torre Eiffel",
         description: "Possui 324 metros de altura e fica cerca de 15 centímetros mais alta no verão, devido à dilatação térmica do ferro. Foi a estrutura mais alta do mundo desde a sua conclusão até 1930, quando perdeu o posto para o Chrysler Building, em Nova Iorque, Estados Unidos.",
         type: "monument",
+		galery: ["FNAC", "WORTEN", "BERTRAND"],
         position: {x: 60, y: 500}
       },
 
@@ -168,6 +175,7 @@ const LOCATIONS =
         name: "Arco do Triunfo",
         description: "O Arco do Triunfo (francês: Arc de Triomphe) é um monumento localizado na cidade de Paris, construído em comemoração às vitórias militares do Napoleão Bonaparte, o qual ordenou a sua construção em 1806. Inaugurado em 1836, a monumental obra detém, gravados, os nomes de 128 batalhas e 558 generais.",
         type: "monument",
+		galery: ["FNAC", "WORTEN", "BERTRAND"],
         position: {x: 150, y: 260}
       },
 
@@ -176,6 +184,7 @@ const LOCATIONS =
         name: "Louvre",
         description: "O Museu do Louvre (em francês: Musée du Louvre), é o maior museu de arte do mundo e um monumento histórico em Paris, França. Um marco central da cidade, está localizado na margem direita do rio Sena, no 1.º arrondissement. Aproximadamente 38.000 objetos, da pré-história ao século XXI, são exibidos em uma área de 72.735 metros quadrados.",
         type: "museum",
+		galery: ["FNAC", "WORTEN", "BERTRAND"],
         position: {x: 350, y: 460}
       }
     },
@@ -189,28 +198,28 @@ const PLACE_TYPE_DATA =
   {
     name: "Monumento",
     img: "apps/iGuide/img/place_icons/monument_white.png",
-    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
+    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_galery"]
   },
 
   "museum":
   {
     name: "Museu",
     img: "apps/iGuide/img/place_icons/museum_white.png",
-    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
+    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_galery"]
   },
 
   "shop":
   {
     name: "Loja",
     img: "apps/iGuide/img/place_icons/shop_white.png",
-    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
+    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_galery"]
   },
 
   "park":
   {
     name: "Jardim",
     img: "apps/iGuide/img/place_icons/park_white.png",
-    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
+    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_galery"]
   }
 }
 
@@ -228,10 +237,10 @@ const IGUIDE_INFO_TABS =
     name: "Eventos"
   },
 
-  "iGuide_info_shops":
+  "iGuide_info_galery":
   {
-    id: "iGuide_info_shops",
-    name: "Lojas"
+    id: "iGuide_info_galery",
+    name: "Galeria"
   }
 }
 

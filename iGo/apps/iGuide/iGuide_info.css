@@ -155,10 +155,25 @@
    border-radius: 3mm;
 }
 
-#iGuide_info_events_list, #iGuide_info_shops_list
+#iGuide_info_events_list, #iGuide_info_img_list
 {
 	position: relative;
   top: -2mm;
   left: -12.5mm;
   list-style: none;
+}
+
+
+/**********
+ * Galery *
+ **********/
+
+#iguide_galery_img{
+	position: relative;
+    width: 4.5cm;
+    left: 0.25cm;
+}
+
+.iguide_img_item{
+	
 }
