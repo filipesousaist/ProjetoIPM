@@ -189,14 +189,14 @@ const PLACE_TYPE_DATA =
   {
     name: "Monumento",
     img: "apps/iGuide/img/place_icons/monument_white.png",
-    tabs: ["iGuide_info_description"]
+    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
   },
 
   "museum":
   {
     name: "Museu",
     img: "apps/iGuide/img/place_icons/museum_white.png",
-    tabs: ["iGuide_info_description"]
+    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
   },
 
   "shop":
@@ -210,7 +210,7 @@ const PLACE_TYPE_DATA =
   {
     name: "Jardim",
     img: "apps/iGuide/img/place_icons/park_white.png",
-    tabs: ["iGuide_info_description", "iGuide_info_events"]
+    tabs: ["iGuide_info_description", "iGuide_info_events", "iGuide_info_shops"]
   }
 }
 

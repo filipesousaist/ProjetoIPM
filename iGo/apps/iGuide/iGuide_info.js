@@ -85,7 +85,7 @@ function iGuide_info_tabs_global_on_load()
 {
 	let new_button_element =
 		document.getElementById(SCREENS["iGuide_info"].new_tab.id + "_button");
-	new_button_element.style.backgroundColor = "#383838";
+	new_button_element.style.backgroundColor = "#c7c2c2";
 	new_button_element.disabled = true;
 }
 
@@ -157,12 +157,12 @@ IGUIDE_INFO_TABS["iGuide_info_events"].on_load = function()
 
 IGUIDE_INFO_TABS["iGuide_info_shops"].on_load = function()
 {
-	let shops = iGuide_current_place.shops;
+	/*let shops = iGuide_current_place.shops;
 	let shops_element = document.getElementById("iGuide_info_shops_list");
 	shops_element.innerHTML = "";
 	for (let i = 0; i < shops.length; i ++)
 		shops_element.innerHTML += "<li class='iGuide_list_item'>" +
-			"<div class='iGuide_list_text'>" + shops[i] + "</div></li>";
+			"<div class='iGuide_list_text'>" + shops[i] + "</div></li>";*/
 }
 
 
@@ -179,10 +179,11 @@ SCREENS["iGuide_info"].on_exit = function()
 function iGuide_info_tabs_global_on_exit()
 {
 	let current_tab = SCREENS["iGuide_info"].current_tab;
+	alert(PLACE_TYPE_DATA[iGuide_current_place.type].tabs.includes(current_tab.id));
 	if (PLACE_TYPE_DATA[iGuide_current_place.type].tabs.includes(current_tab.id))
 	{
 		let current_button_element = document.getElementById(current_tab.id + "_button");
-		current_button_element.style.backgroundColor = "gray";
+		current_button_element.style.backgroundColor = "#a7a7a7";
 		current_button_element.disabled = false;
 	}
 }
