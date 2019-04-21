@@ -122,11 +122,29 @@
 					<!-- Ecrã principal do iGuide -->
 					<div class="screen" id="iGuide_main">
 						<div class="screen_title_container">
-							iGuide
+								<div class="s_t_c_title">iGuide</div>
 							<div class="clock"></div>
 						</div>
 						<div id="iGuide_body">
-							<div id="iGuide_near_you_container">Perto de si:</div>
+							<div id="iGuide_near_you_container">Perto de si...</div>
+							<div id="iGuide_near_you_desc">
+								Veja todos os pontos de interesse próximos de si ou então use filtros baseando-se
+								nas suas preferências.
+							</div>
+							<ul id="iGuide_places_filter">
+								<li id="filter_park">
+									<img class="iguide_filter_img" id="park" src="apps/iGuide/img/place_icons/park_white.png" onclick="filter_unfilter_place('park');">
+								</li>
+								<li id="filter_shop">
+									<img class="iguide_filter_img" id="shop" src="apps/iGuide/img/place_icons/shop_white.png" onclick="filter_unfilter_place('shop');">
+								</li>
+								<li id="filter_museum">
+									<img class="iguide_filter_img" id="museum" src="apps/iGuide/img/place_icons/museum_white.png" onclick="filter_unfilter_place('museum');">
+								</li>
+								<li id="filter_monument">
+									<img class="iguide_filter_img" id="monument" src="apps/iGuide/img/place_icons/monument_white.png" onclick="filter_unfilter_place('monument');">
+								<li>
+							</ul>
 							<ul id="iGuide_places_list"></ul>
 						</div>
 					</div>
@@ -160,9 +178,9 @@
 								</div>
 							</div>
 
-							<div class="iGuide_info_container" id="iGuide_info_shops">
+							<div class="iGuide_info_container" id="iGuide_info_galery">
 								<!-- Lista de lojas -->
-								<ul id="iGuide_info_shops_list"></ul>
+								<ul id="iGuide_info_img_list"></ul>
 							</div>
 						</div>
 

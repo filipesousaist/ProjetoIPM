@@ -17,7 +17,7 @@
 {
 	position: relative;
 	min-height: 8mm;
-	background-color: #383838;
+	background-color: #c7c2c2;
 	display: flex;
 	align-items: center;
 	top: 4.6mm;
@@ -40,7 +40,7 @@
 	padding: 1mm;
 	display: inline;
 	font-weight: bold;
-	color: lightgrey;
+	color: #181818;
 }
 
 .iGuide_info_container
@@ -51,12 +51,12 @@
 	padding-left: 2mm;
 	padding-right: 2mm;
 	overflow-y: scroll;
-	background-color: #383838;
+	background-color: #c7c2c2;
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 7pt;
 	display: none;
 	top: 4.6mm;
-	color: lightgrey;
+	color: #4b3d3d;
 }
 
 #iGuide_info_footer
@@ -69,7 +69,7 @@
 	border-bottom-left-radius: 3mm;
 	border-bottom-right-radius: 3mm;
 	width: 100%;
-	top: 5mm;
+	top: 5.5mm;
 }
 
 .iGuide_info_tab_button
@@ -78,9 +78,9 @@
     height: 100%;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 10px;
-    background-color: grey;
+    background-color: rgb(167, 167, 167);
     border: none;
-    color: white;
+    color: #5e5e5e;
 }
 }
 
@@ -111,7 +111,8 @@
   font-size: 11pt;
   top: 4mm;
   text-align: center;
-  opacity: 0.1;
+  opacity: 0.4;
+  color: #080707;
 }
 
 .iGuide_event_list_text
@@ -154,10 +155,25 @@
    border-radius: 3mm;
 }
 
-#iGuide_info_events_list, #iGuide_info_shops_list
+#iGuide_info_events_list, #iGuide_info_img_list
 {
 	position: relative;
   top: -2mm;
   left: -12.5mm;
   list-style: none;
+}
+
+
+/**********
+ * Galery *
+ **********/
+
+#iguide_galery_img{
+	position: relative;
+    width: 4.5cm;
+    left: 0.25cm;
+}
+
+.iguide_img_item{
+	
 }

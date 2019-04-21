@@ -6,6 +6,8 @@
 
 var iGuide_current_place;
 
+var filtered_places = [];
+
 function init_ratings()
 {
 	for (let location_name in LOCATIONS)
@@ -53,30 +55,33 @@ function iGuide_update_places()
 	let places_element = document.getElementById("iGuide_places_list");
 	places_element.innerHTML = "";
 	for (let i = 0; i < sorted_places.length; i ++)
-	{
+	{	
 		let place = places[sorted_places[i]];
+		
+		if(!filtered_places.includes(place.type)){
+		
+			let orientation = "<div class='iGuide_compass_orientation'>" +
+				orientations[place.name] + "</div>";
+			let arrow = "<image class='iGuide_compass_arrow' src='apps/iGuide/img/arrow_white.png'" +
+				"style='transform: rotate(" + -angles[place.name] + "rad);'>";
+			let distance = "<div class='iGuide_compass_distance'>" +
+				Math.round(distances[place.name]) + "m</div>";
+			let compass = "<div class='iGuide_compass'>" +
+				orientation + arrow + distance +"</div>";
+			let place_name = "<div class='iGuide_list_text'>" +
+				place.name + "</div>";
+			let place_icon = "<image class='iGuide_info_icon' src='" +
+				PLACE_TYPE_DATA[place.type].img +
+				"' onclick='iGuide_info_load(\""+ place.name +"\");'></div>";
 
-		let orientation = "<div class='iGuide_compass_orientation'>" +
-			orientations[place.name] + "</div>";
-		let arrow = "<image class='iGuide_compass_arrow' src='apps/iGuide/img/arrow_white.png'" +
-			"style='transform: rotate(" + -angles[place.name] + "rad);'>";
-		let distance = "<div class='iGuide_compass_distance'>" +
-			Math.round(distances[place.name]) + "m</div>";
-		let compass = "<div class='iGuide_compass'>" +
-			orientation + arrow + distance +"</div>";
-		let place_name = "<div class='iGuide_list_text'>" +
-			place.name + "</div>";
-		let place_icon = "<image class='iGuide_info_icon' src='" +
-			PLACE_TYPE_DATA[place.type].img +
-			"' onclick='iGuide_info_load(\""+ place.name +"\");'></div>";
+			let stars = "<div class='rating_stars'>" +
+				"<span>★</span>".repeat(place.rating) + "</div>";
 
-		let stars = "<div class='rating_stars'>" +
-		 	"<span>★</span>".repeat(place.rating) + "</div>";
+			let repr_img = "<img class='iGuide_list_repr_img' src='" + place.wallpaper + "'>";
 
-		let repr_img = "<img class='iGuide_list_repr_img' src='" + place.wallpaper + "'>";
-
-		places_element.innerHTML += "<li class='iGuide_list_item'>" + repr_img +
-			place_icon + compass + place_name + stars + "</li>";
+			places_element.innerHTML += "<li class='iGuide_list_item'>" + repr_img +
+				place_icon + compass + place_name + stars + "</li>";		
+		}
 	}
 }
 
@@ -99,6 +104,28 @@ function get_angle(place_name)
 function get_orientation(angle)
 {
 	return ["O", "SO", "S", "SE", "E", "NE", "N", "NO", "O"][Math.round(4 * angle / Math.PI + 4)];
+}
+
+function arrayRemove(arr, value) {
+
+   return arr.filter(function(ele){
+       return ele != value;
+   });
+
+}
+
+function filter_unfilter_place(type){
+	
+	if(filtered_places.includes(type)){
+		filtered_places = arrayRemove(filtered_places, type);
+		document.getElementById(type).src="apps/iGuide/img/place_icons/" + type + "_white.png";
+		iGuide_update_places();
+	} else { 
+		filtered_places.push(type);
+		document.getElementById(type).src="apps/iGuide/img/place_icons/" + type + ".png";
+		iGuide_update_places();
+	}
+
 }
 
 /////////////////////

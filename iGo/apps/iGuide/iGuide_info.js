@@ -85,7 +85,7 @@ function iGuide_info_tabs_global_on_load()
 {
 	let new_button_element =
 		document.getElementById(SCREENS["iGuide_info"].new_tab.id + "_button");
-	new_button_element.style.backgroundColor = "#383838";
+	new_button_element.style.backgroundColor = "#c7c2c2";
 	new_button_element.disabled = true;
 }
 
@@ -93,7 +93,7 @@ SCREENS["iGuide_info"].on_load = function()
 {
 	// Mostrar ícone e nome do local
 	document.getElementById("iGuide_info_place_icon").src =
-		PLACE_TYPE_DATA[iGuide_current_place.type].img;
+		"apps/iGuide/img/place_icons/" + iGuide_current_place.type + ".png";
 	document.getElementById("iGuide_info_place_name").innerHTML =
 		iGuide_current_place.name;
 
@@ -127,7 +127,7 @@ SCREENS["iGuide_info"].on_load = function()
 IGUIDE_INFO_TABS["iGuide_info_description"].on_load = function()
 {
 	document.getElementById("iGuide_info_description").innerHTML =
-		iGuide_current_place.description;
+		 iGuide_current_place.bg +iGuide_current_place.description;
 }
 
 IGUIDE_INFO_TABS["iGuide_info_events"].on_load = function()
@@ -155,14 +155,13 @@ IGUIDE_INFO_TABS["iGuide_info_events"].on_load = function()
 	}
 }
 
-IGUIDE_INFO_TABS["iGuide_info_shops"].on_load = function()
+IGUIDE_INFO_TABS["iGuide_info_galery"].on_load = function()
 {
-	let shops = iGuide_current_place.shops;
-	let shops_element = document.getElementById("iGuide_info_shops_list");
-	shops_element.innerHTML = "";
-	for (let i = 0; i < shops.length; i ++)
-		shops_element.innerHTML += "<li class='iGuide_list_item'>" +
-			"<div class='iGuide_list_text'>" + shops[i] + "</div></li>";
+	let galery = iGuide_current_place.galery;
+	let galery_element = document.getElementById("iGuide_info_img_list");
+	galery_element.innerHTML = "";
+	for (let i = 0; i < galery.length; i ++)
+		galery_element.innerHTML += "<li>" + galery[i] + "</li>";
 }
 
 
@@ -182,7 +181,7 @@ function iGuide_info_tabs_global_on_exit()
 	if (PLACE_TYPE_DATA[iGuide_current_place.type].tabs.includes(current_tab.id))
 	{
 		let current_button_element = document.getElementById(current_tab.id + "_button");
-		current_button_element.style.backgroundColor = "gray";
+		current_button_element.style.backgroundColor = "#a7a7a7";
 		current_button_element.disabled = false;
 	}
 }

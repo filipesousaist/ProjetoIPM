@@ -131,8 +131,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	top: 50%;
 	transform: translateY(-50%);
 	font-family: courier;
-	font-size: 10pt;
-	font-weight: bold;
+	font-size: 8pt;
+	font-family: "Trebuchet MS";
 }
 
 /**************/
@@ -203,17 +203,20 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 .screen_title_container
 {
 	position: relative;
-	width: 4.5cm; /* (+ 0.5cm padding_left) = 5cm */
-	height: 4.5mm; /* (+ 0.5mm padding_top) = 5mm */
-	padding-top: 0.5mm;
-	padding-left: 5mm;
-	background-color: #4455CC;
-	box-shadow: 0 0.3mm 0.8mm grey;
-	border-top-right-radius: 3mm;
-	border-top-left-radius: 3mm;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 10pt;
-	font-weight: bold;
+    border-bottom-color: #9b9e99;
+    width: 4.5cm;
+    height: 4.5mm;
+    padding-top: 0.5mm;
+    padding-left: 5mm;
+    border-bottom: 0.5mm solid #696969;
+    background-color: #3e3e3e;
+    /* box-shadow: 0 0.3mm 0.8mm grey; */
+    border-top-right-radius: 3mm;
+    border-top-left-radius: 3mm;
+    font-family: "Trebuchet MS";
+    font-size: 8pt;
+    /* font-weight: bold; */
+    color: whitesmoke;
 }
 
 /********
