@@ -111,7 +111,8 @@
   font-size: 11pt;
   top: 4mm;
   text-align: center;
-  opacity: 0.1;
+  opacity: 0.4;
+  color: #080707;
 }
 
 .iGuide_event_list_text

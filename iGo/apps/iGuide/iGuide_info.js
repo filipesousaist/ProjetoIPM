@@ -93,7 +93,7 @@ SCREENS["iGuide_info"].on_load = function()
 {
 	// Mostrar ícone e nome do local
 	document.getElementById("iGuide_info_place_icon").src =
-		PLACE_TYPE_DATA[iGuide_current_place.type].img;
+		"apps/iGuide/img/place_icons/" + iGuide_current_place.type + ".png";
 	document.getElementById("iGuide_info_place_name").innerHTML =
 		iGuide_current_place.name;
 
@@ -179,7 +179,6 @@ SCREENS["iGuide_info"].on_exit = function()
 function iGuide_info_tabs_global_on_exit()
 {
 	let current_tab = SCREENS["iGuide_info"].current_tab;
-	alert(PLACE_TYPE_DATA[iGuide_current_place.type].tabs.includes(current_tab.id));
 	if (PLACE_TYPE_DATA[iGuide_current_place.type].tabs.includes(current_tab.id))
 	{
 		let current_button_element = document.getElementById(current_tab.id + "_button");
