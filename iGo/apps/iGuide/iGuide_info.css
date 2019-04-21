@@ -132,38 +132,63 @@
   height: 0.7cm;
 }
 
+#iGuide_event_img_container
+{
+	position: relative;
+}
+
+.iGuide_event_img{
+	position: relative;
+    height: 2.5cm;
+    width: 5cm;
+    left: -2mm;
+}
+
 #iGuide_event_title
 {
 	position: relative;
-	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 10pt;
+    width: calc(100% - 7mm);
+    left: 1.4mm;
+    padding: 2mm;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 9pt;
+    border: 0.1mm solid lightgrey;
+    background: #fefffe;
+    top: -7mm;
+	font-weight: bold;
 }
 
-#iGuide_event_description
+#iGuide_event_loc
 {
 	position: relative;
-	width: calc(100% - 4mm);
-	left: -0.2mm;
-	padding: 2mm;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 8pt;
+    width: calc(100% - 7mm);
+    left: 1.4mm;
+    padding: 2mm;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 9pt;
+    background: #fefffe;
+    top: -7mm;
+	font-weight: bold;
 }
 
 #iGuide_event_pay_button
 {
-	position: relative;
-	left: 50%;
-	margin-top: 1mm;
-	margin-bottom: 2mm;
-	padding: 1mm;
-	transform: translateX(-50%);
-	background-color: #36f454;
-	border: none;
-	color: black;
-	text-align: center;
-	text-decoration: none;
-	font-size: 10px;
-	border-radius: 3mm;
+   position: relative;
+    /* left: 50%; */
+    margin-top: 1mm;
+    margin-bottom: 2mm;
+    padding: 1mm;
+    /* transform: translateX(-50%); */
+    background-color: #44ec5e;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+    /* border-radius: 3mm; */
+    width: 4.29cm;
+    left: 1.6mm;
+    top: -7.5mm;
 }
 
 #iGuide_info_events_list, #iGuide_info_img_list

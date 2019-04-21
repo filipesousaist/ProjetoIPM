@@ -50,6 +50,7 @@ const EVENTS =
   "Ver estrelas no parque":
   {
     name: "Ver estrelas no parque",
+	loc: "Parque Eduardo Vii",
     description: "Ver estrelas no parque é uma expriencia mágica. Mas ver estrelas com os outros ainda mais é.",
     price: 5,
     wallpaper: "apps/iGuide/img/events_bg/estrelas.jpg"
@@ -57,6 +58,7 @@ const EVENTS =
   "Convívio da igreja":
   {
     name: "Convívio da igreja",
+	loc: "Parque Eduardo Vii",
     description: "Venha partilhar as suas ideias com outros membros da igreja Católica",
     price: 0,
     wallpaper: "apps/iGuide/img/events_bg/convívio.jpg"
@@ -64,6 +66,7 @@ const EVENTS =
   "Feira do livro":
   {
     name: "Feira do livro",
+	loc: "Parque Eduardo Vii",
     description: "Feira anual com uma grande variedade de livros para descobrir",
     price: 0,
     wallpaper: "apps/iGuide/img/events_bg/livros.jpg"
