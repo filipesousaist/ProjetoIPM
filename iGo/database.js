@@ -50,18 +50,21 @@ const EVENTS =
   "Ver estrelas no parque":
   {
     name: "Ver estrelas no parque",
+	loc: "Parque Eduardo Vii",
     description: "Ver estrelas no parque é uma expriencia mágica. Mas ver estrelas com os outros ainda mais é.",
     price: 5
   },
   "Convívio da igreja":
   {
     name: "Convívio da igreja",
+	loc: "Parque Eduardo Vii",
     description: "Venha partilhar as suas ideias com outros membros da igreja Católica",
     price: 0
   },
   "Feira do livro":
   {
     name: "Feira do livro",
+	loc: "Parque Eduardo Vii",
     description: "Feira anual com uma grande variedade de livros para descobrir",
     price: 0
   }
