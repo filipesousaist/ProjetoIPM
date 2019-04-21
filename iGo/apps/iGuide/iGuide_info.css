@@ -117,8 +117,19 @@
 
 .iGuide_event_list_text
 {
-	width: 3.5cm;
+	width: 3cm;
 	left: 4mm;
+	top: 0;
+	font-size: 8pt;
+	text-overflow: ellipsis;
+}
+
+.iGuide_event_info_icon
+{
+	position: relative;
+  left: 5.5mm;
+  width: 0.7cm;
+  height: 0.7cm;
 }
 
 #iGuide_event_img_container
@@ -188,9 +199,8 @@
   list-style: none;
 }
 
-
 /**********
- * Galery *
+ * Gallery *
  **********/
 
 #iguide_galery_img{
@@ -200,5 +210,5 @@
 }
 
 .iguide_img_item{
-	
+
 }

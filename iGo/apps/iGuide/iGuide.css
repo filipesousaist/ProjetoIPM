@@ -90,13 +90,12 @@
     border-radius: 2mm;
 }
 
-
 .iGuide_info_icon
 {
 	position: relative;
-    left: 2.5mm;
-    width: 0.7cm;
-    height: 0.7cm;
+  left: 2.5mm;
+  width: 0.7cm;
+  height: 0.7cm;
 }
 
 .iGuide_list_text

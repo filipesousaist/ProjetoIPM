@@ -52,21 +52,24 @@ const EVENTS =
     name: "Ver estrelas no parque",
 	loc: "Parque Eduardo Vii",
     description: "Ver estrelas no parque é uma expriencia mágica. Mas ver estrelas com os outros ainda mais é.",
-    price: 5
+    price: 5,
+    wallpaper: "apps/iGuide/img/events_bg/estrelas.jpg"
   },
   "Convívio da igreja":
   {
     name: "Convívio da igreja",
 	loc: "Parque Eduardo Vii",
     description: "Venha partilhar as suas ideias com outros membros da igreja Católica",
-    price: 0
+    price: 0,
+    wallpaper: "apps/iGuide/img/events_bg/convívio.jpg"
   },
   "Feira do livro":
   {
     name: "Feira do livro",
 	loc: "Parque Eduardo Vii",
     description: "Feira anual com uma grande variedade de livros para descobrir",
-    price: 0
+    price: 0,
+    wallpaper: "apps/iGuide/img/events_bg/livros.jpg"
   }
 }
 
@@ -83,7 +86,7 @@ const LOCATIONS =
 		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/parqueduardo.png'>",
         type: "park",
         position: {x: 600, y: 420},
-		galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/parqueduardo.png'>", "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/parqueduardo.png'>"],
+		    galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/parqueduardo.png'>"],
         events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
     		wallpaper: "apps/iGuide/img/place_bg/pevii_green.png"
       },
@@ -106,7 +109,7 @@ const LOCATIONS =
 		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/instituto.jpg'>",
         type: "museum",
         position: {x: 40, y: 400},
-		galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/instituto.jpg'>"],
+		    galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/instituto.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/ig_orange.png"
       },
 
@@ -117,7 +120,7 @@ const LOCATIONS =
 		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/padrao.jpg'>",
         type: "monument",
         position: {x: 50, y: 60},
-		galery: ["<img class='place_img_bg' id='iguide_galery_img'  src='apps/iGuide/img/place_img/padrao.jpg'>"],
+		    galery: ["<img class='place_img_bg' id='iguide_galery_img'  src='apps/iGuide/img/place_img/padrao.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/pdd_red.png"
       },
 
@@ -128,7 +131,7 @@ const LOCATIONS =
         bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/torre.jpg'>",
 		    type: "monument",
         position: {x: 590, y: 100},
-		galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/torre.jpg'>"],
+		    galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/torre.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/tdb_red.png"
       }
     },
@@ -169,7 +172,7 @@ const LOCATIONS =
         name: "Torre Eiffel",
         description: "Possui 324 metros de altura e fica cerca de 15 centímetros mais alta no verão, devido à dilatação térmica do ferro. Foi a estrutura mais alta do mundo desde a sua conclusão até 1930, quando perdeu o posto para o Chrysler Building, em Nova Iorque, Estados Unidos.",
         type: "monument",
-		galery: ["FNAC", "WORTEN", "BERTRAND"],
+		    galery: ["FNAC", "WORTEN", "BERTRAND"],
         position: {x: 60, y: 500}
       },
 
@@ -178,7 +181,7 @@ const LOCATIONS =
         name: "Arco do Triunfo",
         description: "O Arco do Triunfo (francês: Arc de Triomphe) é um monumento localizado na cidade de Paris, construído em comemoração às vitórias militares do Napoleão Bonaparte, o qual ordenou a sua construção em 1806. Inaugurado em 1836, a monumental obra detém, gravados, os nomes de 128 batalhas e 558 generais.",
         type: "monument",
-		galery: ["FNAC", "WORTEN", "BERTRAND"],
+		    galery: ["FNAC", "WORTEN", "BERTRAND"],
         position: {x: 150, y: 260}
       },
 
@@ -187,7 +190,7 @@ const LOCATIONS =
         name: "Louvre",
         description: "O Museu do Louvre (em francês: Musée du Louvre), é o maior museu de arte do mundo e um monumento histórico em Paris, França. Um marco central da cidade, está localizado na margem direita do rio Sena, no 1.º arrondissement. Aproximadamente 38.000 objetos, da pré-história ao século XXI, são exibidos em uma área de 72.735 metros quadrados.",
         type: "museum",
-		galery: ["FNAC", "WORTEN", "BERTRAND"],
+		    galery: ["FNAC", "WORTEN", "BERTRAND"],
         position: {x: 350, y: 460}
       }
     },

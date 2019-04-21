@@ -153,11 +153,15 @@ IGUIDE_INFO_TABS["iGuide_info_events"].on_load = function()
 		events_list_element.innerHTML = "";
 		for (let i = 0; i < events.length; i ++)
 		{
-			let info_img = "<img class='iGuide_info_icon' src='apps/iGuide/img/infoicon.png'" +
+			let repr_img = "<img class='iGuide_list_repr_img' src='" +
+				EVENTS[events[i]].wallpaper + "'>";
+			let event_name = "<div class='iGuide_event_list_text iGuide_list_text'>" +
+				events[i] + "</div>";
+			let info_img = "<img class='iGuide_event_info_icon' src='apps/iGuide/img/infoicon.png'" +
 				"onclick='iGuide_info_show_event(\""+ events[i] +"\");'>";
-			events_list_element.innerHTML +=
-				"<li class='iGuide_list_item'><div class='iGuide_event_list_text iGuide_list_text'>" +
-				events[i]+ "</div>" + info_img + "</li>";
+
+			events_list_element.innerHTML += "<li class='iGuide_list_item'>" +
+				repr_img + event_name + info_img + "</li>";
 		}
 	}
 }
