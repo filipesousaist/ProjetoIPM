@@ -261,7 +261,8 @@ const PAYMENT =
 	}
 }
 
-const MYWEBMEMBERS = {
+const MYWEBMEMBERS =
+{
   "Ambrósio Santos":
   {
     name: "Ambrósio Santos",
@@ -312,4 +313,4 @@ const MYWEBMEMBERS = {
     name: "André Silva",
     location: 8
   }
- };
+};

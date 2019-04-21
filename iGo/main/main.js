@@ -200,14 +200,16 @@ function fadeout(id, seconds)
 function update_clock(clock_element)
 {
 	var date = new Date();
-	var hours = add0(date.getHours());
-	var minutes = add0(date.getMinutes());
 
-	var sep = clock.blink ? "&nbsp" : ":";
+	var hours_element = clock_element.getElementsByClassName("clock_hours")[0];
+	var sep_element = clock_element.getElementsByClassName("clock_sep")[0];
+	var minutes_element = clock_element.getElementsByClassName("clock_minutes")[0];
+
+	hours_element.innerHTML = add0(date.getHours());
+	sep_element.innerHTML = clock.blink ? "&nbsp" : ":";
+	minutes_element.innerHTML = add0(date.getMinutes());
 
 	clock.blink = ! clock.blink;
-
-	clock_element.innerHTML = hours + sep + minutes;
 }
 
 

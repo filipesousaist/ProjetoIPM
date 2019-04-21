@@ -38,7 +38,8 @@
 
 #main_menu_clock
 {
-	right: 13mm;
+	width: 1.7cm;
+	left: 18.5mm;
 	margin-top: 0;
 	font-size: 19pt;
 }

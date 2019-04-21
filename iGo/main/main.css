@@ -126,8 +126,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 .clock
 {
 	position: absolute;
-	right: 5mm;
-	margin-top: 0.5mm;
+	width: 8mm;
+	right: 6mm;
 	top: 50%;
 	transform: translateY(-50%);
 	font-family: courier;
@@ -135,6 +135,28 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	font-family: "Trebuchet MS";
 }
 
+.clock_hours, .clock_minutes
+{
+	position: absolute;
+	transform: translateY(-50%);
+}
+
+.clock_sep
+{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.clock_hours
+{
+	left: 0;
+}
+
+.clock_minutes
+{
+	right: 0;
+}
 /**************/
 /* Off screen */
 /**************/
@@ -203,20 +225,18 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 .screen_title_container
 {
 	position: relative;
-    border-bottom-color: #9b9e99;
-    width: 4.5cm;
-    height: 4.5mm;
-    padding-top: 0.5mm;
-    padding-left: 5mm;
-    border-bottom: 0.5mm solid #696969;
-    background-color: #3e3e3e;
-    /* box-shadow: 0 0.3mm 0.8mm grey; */
-    border-top-right-radius: 3mm;
-    border-top-left-radius: 3mm;
-    font-family: "Trebuchet MS";
-    font-size: 8pt;
-    /* font-weight: bold; */
-    color: whitesmoke;
+  border-bottom-color: #9b9e99;
+  width: 4.5cm;
+  height: 4.5mm;
+  padding-top: 0.5mm;
+	padding-left: 5mm;
+  border-bottom: 0.5mm solid #696969;
+  background-color: #3e3e3e;
+  border-top-right-radius: 3mm;
+  border-top-left-radius: 3mm;
+  font-family: "Trebuchet MS";
+  font-size: 8pt;
+  color: whitesmoke;
 }
 
 /********
