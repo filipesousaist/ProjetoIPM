@@ -261,41 +261,46 @@ const MYWEBMEMBERS = {
   "Marc Jelkic":
   {
     name: "Marc Jelkic",
-    location: 1,
+    location: 1
   },
   "Afonso Vasconcelos":
   {
     name: "Afonso Vasconcelos",
-    location: 2,
+    location: 2
   },
   "Pedro Moreira":
   {
     name: "Pedro Moreira",
-    location: 3,
+    location: 3
   },
   "Rodrigo Rosa":
   {
     name: "Rodrigo Rosa",
-    location: 2,
+    location: 2
   },
   "Filipe Sousa":
   {
     name: "Filipe Sousa",
-    location: 4,
+    location: 4
   },
   "Miguel Mota":
   {
     name: "Miguel Mota",
-    location: 5,
+    location: 5
   },
-   "Pedro Leitão":
-   {
+  "Pedro Leitão":
+  {
     name: "Pedro Leitão",
-    location: 6,
-    },
-   "Tomás Gomes":
-   {
+    location: 6
+  },
+  "Tomás Gomes":
+  {
     name: "Tomás Gomes",
-    location: 7,
-   }
+    location: 7
+  },
+  "André Silva":
+  {
+    name: "André Silva",
+    location: 8
+  }
  };
