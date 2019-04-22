@@ -144,7 +144,7 @@
     left: -2mm;
 }
 
-#iGuide_event_title
+#iGuide_event_box
 {
 	position: relative;
     width: calc(100% - 7mm);
@@ -152,28 +152,55 @@
     padding: 2mm;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 9pt;
-    border: 0.1mm solid lightgrey;
+    border: 0.1mm solid #ae9c9c;
     background: #fefffe;
     top: -7mm;
 	font-weight: bold;
+	height: 2cm;
+}
+
+#iGuide_event_time
+{
+	position: relative;
+    width: calc(100% - 7mm);
+    left: 0.1mm;
+    /* padding: 2mm; */
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 6pt;
+    /* background: #fefffe; */
+    top: 0mm;
+    font-weight: bold;
+    color: #CCCCCC;
 }
 
 #iGuide_event_loc
 {
 	position: relative;
     width: calc(100% - 7mm);
-    left: 1.4mm;
-    padding: 2mm;
+    left: 0.1mm;
+    /* padding: 2mm; */
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 9pt;
-    background: #fefffe;
-    top: -7mm;
-	font-weight: bold;
+    font-size: 6pt;
+    /* background: #fefffe; */
+    top: 1mm;
+    font-weight: bold;
+    color: #4b3d3d;
+}
+
+#iGuide_event_price{
+	position: relative;
+    top: 3.5mm;
+    left: 4mm;
+    font-weight: 500;
+    color: #4167ff;
+    font-size: 14pt;
+    border-right: 0.3mm solid #CCCCCC;
+    width: 1.6cm;
 }
 
 #iGuide_event_pay_button
 {
-   position: relative;
+    position: relative;
     /* left: 50%; */
     margin-top: 1mm;
     margin-bottom: 2mm;
@@ -186,9 +213,10 @@
     text-decoration: none;
     font-size: 10px;
     /* border-radius: 3mm; */
-    width: 4.29cm;
-    left: 1.6mm;
+    width: 4.31cm;
+    left: 1.45mm;
     top: -7.5mm;
+    border: 0.01mm solid #ae9c9c;
 }
 
 #iGuide_info_events_list, #iGuide_info_img_list

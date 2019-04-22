@@ -49,15 +49,17 @@ function iGuide_info_show_event(event_name)
 
 	document.getElementById("iGuide_info_top").style.display="none";
 
-	document.getElementById("iGuide_event_img_container").innerHTML = "<img class='iGuide_event_img' src='apps/iGuide/img/place_img/torre.jpg'>";
+	document.getElementById("iGuide_event_img_container").innerHTML = "<img class='iGuide_event_img' src=" + current_event.wallpaper + ">";
+	document.getElementById("iGuide_event_time").innerHTML = current_event.time;
 	document.getElementById("iGuide_event_loc").innerHTML = current_event.loc;
-	document.getElementById("iGuide_event_title").innerHTML += event_name;
+	document.getElementById("iGuide_event_price").innerHTML = "€" + current_event.price; 
+	document.getElementById("iGuide_event_title").innerHTML = event_name;
 
 	let pay_button = document.getElementById("iGuide_event_pay_button");
 	if (current_event.price > 0)
 	{
 		pay_button.disabled = false;
-		pay_button.innerHTML = "Comprar (" + current_event.price + "€)";
+		pay_button.innerHTML = "Comprar Bilhete";
 	}
 	else
 	{
