@@ -229,10 +229,14 @@
 						</div>
 						<div id = "iGroup_main_body">
 							<div class="iGroup_mainButton" id="iGroup_createGroup" onclick="change_screen('iGroup_create')">
-								Criar Grupo
+								<img class="iGroup_main_icon" src="apps/iGroup/img/plus.png">
+								<div class="iGroup_main_text">Criar Grupo</div>
 							</div>
 							<br/>
-							<div class="iGroup_mainButton" id="iGroup_myGroups" onclick="showGroupList()">Os meus grupos</div>
+							<div class="iGroup_mainButton" id="iGroup_myGroups" onclick="showGroupList()">
+								<img class="iGroup_main_icon" src="apps/iGroup/img/group.png">
+								<div class="iGroup_main_text">Os meus grupos</div>
+							</div>
 						</div>
 					</div>
 
@@ -268,11 +272,12 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<ul id="iGroup_group_list"></ul>
+						<ul class="iGroup_list" id="iGroup_group_list"></ul>
 					</div>
 
 					<div class="screen" id="iGroup_group_main">
-						<div class="screen_title_container">iGroup
+						<div class="screen_title_container">
+							iGroup
 							<div class="clock">
 								<div class="clock_hours"></div>
 								<div class="clock_sep"></div>
@@ -280,19 +285,20 @@
 							</div>
 						</div>
 						<div id="iGroup_group_main_body">
-						<ul id="iGroup_group_main_options_list">
-						<li onclick='change_screen("iGroup_group_addMember")'> Adicionar Membros </li>
-						<li onclick='change_screen("iGroup_group_addEvent")'> Adicionar Evento </li>
-						<li onclick='showMembersList()'> Ver Membros </li>
-						<li onclick='showEventsList()'> Ver Eventos </li>
-						<li> Ver Localização de Membros </li>
-						<li onclick='showInbox()'> Ver notificações </li>
-						</ul>
+							<ul class="iGroup_list" id="iGroup_group_main_options_list">
+								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addMember")'>Adicionar Membros</li>
+								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addEvent")'>Adicionar Evento</li>
+								<li class="iGroup_list_item" onclick='showMembersList()'>Ver Membros</li>
+								<li class="iGroup_list_item" onclick='showEventsList()'>Ver Eventos</li>
+								<li class="iGroup_list_item">Ver Localização de Membros</li>
+								<li class="iGroup_list_item" onclick='showInbox()'>Ver notificações</li>
+							</ul>
 						</div>
 					</div>
 
 					<div class="screen" id="iGroup_group_addMember">
-						<div class="screen_title_container">iGroup
+						<div class="screen_title_container">
+							iGroup
 							<div class="clock">
 								<div class="clock_hours"></div>
 								<div class="clock_sep"></div>
@@ -308,7 +314,8 @@
 					</div>
 
 					<div class="screen" id="iGroup_group_addEvent">
-						<div class="screen_title_container">iGroup
+						<div class="screen_title_container">
+							iGroup
 							<div class="clock">
 								<div class="clock_hours"></div>
 								<div class="clock_sep"></div>
@@ -325,44 +332,48 @@
 					</div>
 
 					<div class="screen" id="iGroup_group_main_memberList">
-						<div class="screen_title_container">iGroup
+						<div class="screen_title_container">
+							iGroup
 							<div class="clock">
 								<div class="clock_hours"></div>
 								<div class="clock_sep"></div>
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<ul id="iGroup_group_memberList">
+						<ul class="iGroup_list" id="iGroup_group_memberList">
 						</ul>
 					</div>
 
 					<div class="screen" id="iGroup_group_main_eventsList">
-						<div class="screen_title_container">iGroup
+						<div class="screen_title_container">
+							iGroup
 							<div class="clock">
 								<div class="clock_hours"></div>
 								<div class="clock_sep"></div>
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<ul id="iGroup_group_eventsList">
+						<ul class="iGroup_list" id="iGroup_group_eventsList">
 						</ul>
 					</div>
 
 					<div class="screen" id="iGroup_group_inbox">
-						<div class="screen_title_container">iGroup
+						<div class="screen_title_container">
+							iGroup
 							<div class="clock">
 								<div class="clock_hours"></div>
 								<div class="clock_sep"></div>
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<ul id="iGroup_group_inboxList">
+						<ul class="iGroup_list" id="iGroup_group_inboxList">
 						</ul>
 					</div>
 
 
 					<div class="screen" id="iGroup_group_notificationInfo">
-						<div class="screen_title_container">iGroup
+						<div class="screen_title_container">
+							iGroup
 							<div class="clock">
 								<div class="clock_hours"></div>
 								<div class="clock_sep"></div>
