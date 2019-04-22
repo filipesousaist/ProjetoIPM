@@ -47,15 +47,16 @@
 {
 	position: relative;
 	width: calc(100% - 4mm);
+	top: 4.6mm;
 	min-height: 2.22cm;
 	padding-left: 2mm;
 	padding-right: 2mm;
+	overflow-x: hidden;
 	overflow-y: scroll;
 	background-color: #c7c2c2;
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 7pt;
 	display: none;
-	top: 4.6mm;
 	color: #4b3d3d;
 }
 
