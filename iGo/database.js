@@ -89,7 +89,9 @@ const LOCATIONS =
 		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/parqueduardo.png'>",
         type: "park",
         position: {x: 600, y: 420},
-		    galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/parqueduardo.png'>"],
+		    galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/pevii_3.jpg'>",
+					 "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/pevii_2.jpg'>",
+					 "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/pevii_1.jpg'>"],
         events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
     		wallpaper: "apps/iGuide/img/place_bg/pevii_green.png"
       },
@@ -101,7 +103,9 @@ const LOCATIONS =
         bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/amoreiras.jpg'>",
 		    type: "shop",
         position: {x: 150, y: 160},
-        galery: ["<img class='place_img_bg' id='iguide_galery_img'  src='apps/iGuide/img/place_img/amoreiras.jpg'>"],
+        galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/sa_3.jpg'>",
+					 "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/sa_2.jpg'>",
+					 "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/sa_1.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/asc_blue.png"
       },
 
@@ -112,7 +116,9 @@ const LOCATIONS =
 		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/instituto.jpg'>",
         type: "museum",
         position: {x: 40, y: 400},
-		    galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/instituto.jpg'>"],
+		   galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/ig_3.jpg'>",
+					 "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/ig_2.jpg'>",
+					 "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/ig_1.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/ig_orange.png"
       },
 
@@ -123,7 +129,9 @@ const LOCATIONS =
 		    bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/padrao.jpg'>",
         type: "monument",
         position: {x: 50, y: 60},
-		    galery: ["<img class='place_img_bg' id='iguide_galery_img'  src='apps/iGuide/img/place_img/padrao.jpg'>"],
+		    galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/pd_3.jpg'>",
+					 "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/pd_2.jpg'>",
+					 "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/pd_1.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/pdd_red.png"
       },
 
@@ -134,7 +142,9 @@ const LOCATIONS =
         bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/torre.jpg'>",
 		    type: "monument",
         position: {x: 590, y: 100},
-		    galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/torre.jpg'>"],
+		    galery: ["<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/tb_3.jpg'>",
+					 "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/tb_2.jpg'>",
+					 "<img class='place_img_bg' id='iguide_galery_img' src='apps/iGuide/img/place_img/tb_1.jpg'>"],
     		wallpaper: "apps/iGuide/img/place_bg/tdb_red.png"
       }
     },
