@@ -111,7 +111,8 @@ function complete_payment()
 		document.getElementById("payment_before").style.opacity = "1";
 		document.getElementById("payment_after").style.opacity = "0";
 	}, 3000);
-
+	
+	tickets++;
 	go_back();
 }
 

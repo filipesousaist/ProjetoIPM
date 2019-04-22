@@ -4,6 +4,8 @@
 /*******************/
 /*******************/
 
+var tickets = 0;
+
 function iGuide_info_load(place_name)
 {
 	iGuide_current_place = LOCATIONS[current_location].places[place_name];
@@ -52,19 +54,22 @@ function iGuide_info_show_event(event_name)
 	document.getElementById("iGuide_event_img_container").innerHTML = "<img class='iGuide_event_img' src=" + current_event.wallpaper + ">";
 	document.getElementById("iGuide_event_time").innerHTML = current_event.time;
 	document.getElementById("iGuide_event_loc").innerHTML = current_event.loc;
-	document.getElementById("iGuide_event_price").innerHTML = "€" + current_event.price; 
+	document.getElementById("iGuide_event_price").innerHTML = current_event.price;
+	
 	document.getElementById("iGuide_event_title").innerHTML = event_name;
 
 	let pay_button = document.getElementById("iGuide_event_pay_button");
-	if (current_event.price > 0)
+	if (current_event.price != "Grátis")
 	{
 		pay_button.disabled = false;
 		pay_button.innerHTML = "Comprar Bilhete";
+		document.getElementById("iGuide_event_ticket_count").innerHTML = tickets;
 	}
 	else
 	{
 		pay_button.disabled = true;
 		pay_button.innerHTML = "Gratuito";
+		document.getElementById("iGuide_event_ticket_count").innerHTML = "-";
 	}
 
 	document.getElementById("iGuide_info_events").style.display = "none";
