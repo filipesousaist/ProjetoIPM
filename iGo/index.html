@@ -244,7 +244,7 @@
 						</div>
 					</div>
 
-					<div class="screen" id="iGroup_create">
+					<div class="screen iGroup_screen" id="iGroup_create">
 						<div class="screen_title_container">
 							iGroup
 							<div class="clock">
@@ -254,20 +254,23 @@
 							</div>
 						</div>
 						<div id="iGroup_create_body">
-						<div id="iGroup_create_name">Nome do grupo:</div>
-						<div id="Name_error_message" style="visibility: hidden; color: red; font-size: 10px;">Insira um nome valido</div>
+						<h2 id="iGroup_create_name">Nome do grupo:</h2>
+						<div class="iGroup_error_message" id="Name_error_message">Insira um nome válido</div>
 						<input id="iGroup_name_value" type="text" name="Name">
-						<div id="iGroup_create_location">Destino:</div>
-						<div id="Location_error_message" style="visibility: hidden; color: red; font-size: 10px;">Insira uma localização valida</div>
+						<hr />
+						<h2 id="iGroup_create_location">Destino:</h2>
+						<div class="iGroup_error_message" id="Location_error_message">Insira uma localização válida</div>
 						<input id="iGroup_location_value" type="text" name="Location">
-						<div id="iGroup_create_date">Data de Partida:</div>
-						<div id="Date_error_message" style="visibility: hidden; color: red; font-size: 10px;">Insira uma data valida</div>
+						<hr />
+						<h2 id="iGroup_create_date">Data de Partida:</h2>
+						<div class="iGroup_error_message" id="Date_error_message">Insira uma data válida</div>
 						<input id="iGroup_date_value" type="date" name="Date">
+						<hr />
 						<button onclick="addGroup()">Criar Grupo</button>
 						</div>
 					</div>
 
-					<div class="screen" id="iGroup_groups">
+					<div class="screen iGroup_screen" id="iGroup_groups">
 						<div class="screen_title_container">
 							iGroup
 							<div class="clock">
@@ -300,7 +303,7 @@
 						</div>
 					</div>
 
-					<div class="screen" id="iGroup_group_addMember">
+					<div class="screen iGroup_screen" id="iGroup_group_addMember">
 						<div class="screen_title_container">
 							iGroup
 							<div class="clock">
@@ -310,14 +313,14 @@
 							</div>
 						</div>
 						<div id="iGroup_group_addMember_body">
-							<div id="iGroup_add_member_name">Nome do Membro:</div>
-							<div id="Member_error_message" style="visibility: hidden; color: red; font-size: 10px;">Esse membro não existe.</div>
+							<h2 id="iGroup_add_member_name">Nome do Membro:</h2>
+							<div class="iGroup_error_message" id="Member_error_message">Esse membro não existe.</div>
 							<input id="iGroup_member_name_value" type="text" name="Name">
 							<button onclick="requestMember()">Adicionar Membro</button>
 						</div>
 					</div>
 
-					<div class="screen" id="iGroup_group_addEvent">
+					<div class="screen iGroup_screen" id="iGroup_group_addEvent">
 						<div class="screen_title_container">
 							iGroup
 							<div class="clock">
@@ -327,15 +330,17 @@
 							</div>
 						</div>
 						<div id="iGroup_group_addEvent_body">
-							<div id="iGroup_add_event_name">Nome do Evento:</div>
+							<h2 id="iGroup_add_event_name">Nome do Evento:</h2>
 							<input id="iGroup_event_name_value" type="text" name="Name">
-							<div id="iGroup_add_event_date">Data do Evento:</div>
+							<hr />
+							<h2 id="iGroup_add_event_date">Data do Evento:</h2>
 							<input id="iGroup_event_date_value" type="date" name="Date">
+							<hr />
 							<button onclick="addEvent()">Adicionar Evento</button>
 						</div>
 					</div>
 
-					<div class="screen" id="iGroup_group_main_memberList">
+					<div class="screen iGroup_screen" id="iGroup_group_main_memberList">
 						<div class="screen_title_container">
 							iGroup
 							<div class="clock">
@@ -348,7 +353,7 @@
 						</ul>
 					</div>
 
-					<div class="screen" id="iGroup_group_main_eventsList">
+					<div class="screen iGroup_screen" id="iGroup_group_main_eventsList">
 						<div class="screen_title_container">
 							iGroup
 							<div class="clock">
@@ -361,7 +366,7 @@
 						</ul>
 					</div>
 
-					<div class="screen" id="iGroup_group_inbox">
+					<div class="screen iGroup_screen" id="iGroup_group_inbox">
 						<div class="screen_title_container">
 							iGroup
 							<div class="clock">
@@ -375,7 +380,7 @@
 					</div>
 
 
-					<div class="screen" id="iGroup_group_notificationInfo">
+					<div class="screen iGroup_screen" id="iGroup_group_notificationInfo">
 						<div class="screen_title_container">
 							iGroup
 							<div class="clock">

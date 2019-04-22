@@ -77,8 +77,10 @@ function showGroupList(){
 	var list = document.getElementById('iGroup_group_list');
 	list.innerHTML = "";
 	if(iGroup_groups.length == 0){
-		list.innerHTML = "Não tens nenhum grupo.";
-		list.innerHTML += "<button onclick=change_screen('iGroup_create')>Criar grupo</button>";
+		list.innerHTML = "<h1>Não tens nenhum grupo.</h1>";
+		list.innerHTML += "<div class='iGroup_mainButton' id='iGroup_createGroup' onclick='change_screen(\"iGroup_create\")'>" +
+			"<img class='iGroup_main_icon' src='apps/iGroup/img/plus.png'>" +
+			"<div class='iGroup_main_text'>Criar Grupo</div></div>";
 	}
 	else{
 		for(let i = 0; i < iGroup_groups.length; i++){
