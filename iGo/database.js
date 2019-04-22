@@ -53,7 +53,7 @@ const EVENTS =
 	time: "Terça, 6 Jul 2016 às 19:00",
 	loc: "Parque Eduardo VII",
     description: "Ver estrelas no parque é uma expriencia mágica. Mas ver estrelas com os outros ainda mais é.",
-    price: 5.75,
+    price: "€5.75",
     wallpaper: "apps/iGuide/img/events_bg/estrelas.jpg"
   },
   "Convívio da igreja":
@@ -62,7 +62,7 @@ const EVENTS =
 	time: "Quarta, 7 Jul 2016 às 15:00",
 	loc: "Parque Eduardo VII",
     description: "Venha partilhar as suas ideias com outros membros da igreja Católica",
-    price: 0.00,
+    price: "Grátis",
     wallpaper: "apps/iGuide/img/events_bg/convívio.jpg"
   },
   "Feira do livro":
@@ -71,7 +71,7 @@ const EVENTS =
 	time: "Sexta, 9 Jul 2016 às 9:00",
 	loc: "Parque Eduardo VII",
     description: "Feira anual com uma grande variedade de livros para descobrir",
-    price: 0.00,
+    price: "Grátis",
     wallpaper: "apps/iGuide/img/events_bg/livros.jpg"
   }
 }

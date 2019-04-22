@@ -175,6 +175,24 @@
     color: #CCCCCC;
 }
 
+#iGuide_event_ticket_img{
+	position: relative;
+    height: 0.5cm;
+    width: 0.5cm;
+    top: -7.5mm;
+    left: 30.5mm;
+}
+
+#iGuide_event_ticket_count{
+	position: relative;
+    left: 27mm;
+    top: -2.2mm;
+    color: #4167ff;
+    font-weight: 500;
+    font-size: 14pt;
+}
+
+
 #iGuide_event_loc
 {
 	position: relative;
@@ -197,7 +215,7 @@
     color: #4167ff;
     font-size: 14pt;
     border-right: 0.3mm solid #CCCCCC;
-    width: 1.6cm;
+    width: 1.74cm;
 }
 
 #iGuide_event_pay_button
