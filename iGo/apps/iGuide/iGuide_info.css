@@ -76,12 +76,12 @@
 .iGuide_info_tab_button
 {
 	position: absolute;
-    height: 100%;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 10px;
-    background-color: rgb(167, 167, 167);
-    border: none;
-    color: #5e5e5e;
+  height: 100%;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 10px;
+  background-color: rgb(167, 167, 167);
+  border: none;
+  color: #5e5e5e;
 }
 }
 

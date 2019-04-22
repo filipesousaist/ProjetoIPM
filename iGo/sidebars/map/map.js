@@ -9,7 +9,7 @@ const POSITION_UPDATE_INTERVAL = 50; // Milisegundos
 const SPEED_FAST = 15;
 const SPEED_SLOW = 5;
 
-var current_location;
+var current_location_name; /* SAVE */
 var current_position;
 var current_speed;
 var move_directions;
@@ -17,17 +17,11 @@ var move_directions;
 
 function init_locations()
 {
-	// Obter localização atual (variável global)
-	current_location = localStorage.getItem("current_location");
-	if (current_location == undefined)
-		current_location = DEFAULT_LOCATION;
-
 	// Adicionar localizações à lista
+	let locations_element = document.getElementById("map_locations");
 	for (let l in LOCATIONS)
-	{
-		document.getElementById("map_locations").innerHTML +=
-			"<option value='" + l + "'>" + l + "</option>";
-	}
+		locations_element.innerHTML += "<option value='" + l + "'>" + l + "</option>";
+	locations_element.value = current_location_name;
 
 	// Inicializar mapa e posições
 	update_map();
@@ -93,11 +87,10 @@ function update_position()
 
 function change_location()
 {
-	let new_location = document.getElementById("map_locations").value;
-	if (new_location != current_location)
+	let new_location_name = document.getElementById("map_locations").value;
+	if (new_location_name != current_location_name)
 	{
-		current_location = new_location;
-		localStorage.setItem("current_location", new_location);
+		current_location_name = new_location_name;
 		update_map();
 		update_location(); /* Menu inicial */
 		iGuide_update_places(); /* iGuide */
@@ -107,7 +100,7 @@ function change_location()
 function update_map()
 {
 	let map_element = document.getElementById("map");
-	let places = LOCATIONS[current_location].places;
+	let places = LOCATIONS[current_location_name].places;
 
 	let children = map_element.children;
 	for (let i = children.length - 1; i >= 0; i --)

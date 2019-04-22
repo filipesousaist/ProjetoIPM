@@ -43,15 +43,19 @@ const SCREENS =
   "payment_complete": {id: "payment_complete"}
 }
 
-const DEFAULT_LOCATION = "Lisboa";
+const DEFAULT =
+{
+  "current_location_name": "Lisboa",
+  "iGroup_groups": []
+}
 
 const EVENTS =
 {
   "Ver estrelas no parque":
   {
     name: "Ver estrelas no parque",
-	time: "Terça, 6 Jul 2016 às 19:00",
-	loc: "Parque Eduardo VII",
+  	time: "Terça, 6 Jul 2016 às 19:00",
+  	loc: "Parque Eduardo VII",
     description: "Ver estrelas no parque é uma expriencia mágica. Mas ver estrelas com os outros ainda mais é.",
     price: "€5.75",
     wallpaper: "apps/iGuide/img/events_bg/estrelas.jpg"
@@ -59,8 +63,8 @@ const EVENTS =
   "Convívio da igreja":
   {
     name: "Convívio da igreja",
-	time: "Quarta, 7 Jul 2016 às 15:00",
-	loc: "Parque Eduardo VII",
+  	time: "Quarta, 7 Jul 2016 às 15:00",
+  	loc: "Parque Eduardo VII",
     description: "Venha partilhar as suas ideias com outros membros da igreja Católica",
     price: "Grátis",
     wallpaper: "apps/iGuide/img/events_bg/convívio.jpg"
@@ -68,8 +72,8 @@ const EVENTS =
   "Feira do livro":
   {
     name: "Feira do livro",
-	time: "Sexta, 9 Jul 2016 às 9:00",
-	loc: "Parque Eduardo VII",
+  	time: "Sexta, 9 Jul 2016 às 9:00",
+  	loc: "Parque Eduardo VII",
     description: "Feira anual com uma grande variedade de livros para descobrir",
     price: "Grátis",
     wallpaper: "apps/iGuide/img/events_bg/livros.jpg"
@@ -161,7 +165,7 @@ const LOCATIONS =
         description: "Apesar do termo também ser usado para se referir à torre do relógio onde o sino está localizado, a estrutura é oficialmente conhecida como a Elizabeth Tower, rebatizada para comemorar o Jubileu de Diamante da Rainha Isabel II do Reino Unido.",
         type: "monument",
         position: {x: 500, y: 160},
-		galery: ["FNAC", "WORTEN", "BERTRAND"]
+		    galery: ["FNAC", "WORTEN", "BERTRAND"]
       },
 
       "Palácio de Buckingham":
@@ -169,7 +173,7 @@ const LOCATIONS =
         name: "Palácio de Buckingham",
         description: "O Palácio de Buckingham é a residência oficial e principal local de trabalho do Monarca do Reino Unido em Londres. Localizado na Cidade de Westminster, o palácio é frequentemente o centro de ocasiões de estado e hospitalidade real.",
         type: "monument",
-		galery: ["FNAC", "WORTEN", "BERTRAND"],
+		    galery: ["FNAC", "WORTEN", "BERTRAND"],
         position: {x: 950, y: 330}
       }
     },

@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="sidebars/sidebars.css">
 		<script src="sidebars/ppi.js"></script>
 		<script src="sidebars/map/map.js"></script>
+		<script src="sidebars/save.js"></script>
 		<!-- Menu Inicial -->
 		<link rel="stylesheet" href="main/main_menu/main_menu.css">
 		<script src="main/main_menu/main_menu.js"></script>
@@ -254,20 +255,20 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div id="iGroup_create_body">
-						<h2 id="iGroup_create_name">Nome do grupo:</h2>
-						<div class="iGroup_error_message" id="Name_error_message">Insira um nome válido</div>
-						<input id="iGroup_name_value" type="text" name="Name">
-						<hr />
-						<h2 id="iGroup_create_location">Destino:</h2>
-						<div class="iGroup_error_message" id="Location_error_message">Insira uma localização válida</div>
-						<input id="iGroup_location_value" type="text" name="Location">
-						<hr />
-						<h2 id="iGroup_create_date">Data de Partida:</h2>
-						<div class="iGroup_error_message" id="Date_error_message">Insira uma data válida</div>
-						<input id="iGroup_date_value" type="date" name="Date">
-						<hr />
-						<button onclick="addGroup()">Criar Grupo</button>
+						<div class="iGroup_screen_body" id="iGroup_create_body">
+							<h2 id="iGroup_create_name">Nome do grupo:</h2>
+							<div class="iGroup_error_message" id="Name_error_message">Insira um nome válido</div>
+							<input id="iGroup_name_value" type="text" name="Name">
+							<hr />
+							<h2 id="iGroup_create_location">Destino:</h2>
+							<div class="iGroup_error_message" id="Location_error_message">Insira uma localização válida</div>
+							<input id="iGroup_location_value" type="text" name="Location">
+							<hr />
+							<h2 id="iGroup_create_date">Data de Partida:</h2>
+							<div class="iGroup_error_message" id="Date_error_message">Insira uma data válida</div>
+							<input id="iGroup_date_value" type="date" name="Date">
+							<hr />
+							<button onclick="addGroup()">Criar Grupo</button>
 						</div>
 					</div>
 
@@ -294,9 +295,9 @@
 						</div>
 						<div id="iGroup_group_main_body">
 							<ul class="iGroup_list" id="iGroup_group_main_options_list">
-								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addMember")'>Adicionar Membros</li>
-								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addEvent")'>Adicionar Evento</li>
+								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addMember")'>Adicionar Membro</li>
 								<li class="iGroup_list_item" onclick='showMembersList()'>Ver Membros</li>
+								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addEvent")'>Adicionar Evento</li>
 								<li class="iGroup_list_item" onclick='showEventsList()'>Ver Eventos</li>
 								<li class="iGroup_list_item">Ver Localização de Membros</li>
 								<li class="iGroup_list_item" onclick='showInbox()'>Ver notificações</li>
@@ -313,7 +314,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div id="iGroup_group_addMember_body">
+						<div class="iGroup_screen_body" id="iGroup_group_addMember_body">
 							<h2 id="iGroup_add_member_name">Nome do Membro:</h2>
 							<div class="iGroup_error_message" id="Member_error_message">Esse membro não existe.</div>
 							<input id="iGroup_member_name_value" type="text" name="Name">
@@ -330,7 +331,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div id="iGroup_group_addEvent_body">
+						<div class="iGroup_screen_body" id="iGroup_group_addEvent_body">
 							<h2 id="iGroup_add_event_name">Nome do Evento:</h2>
 							<input id="iGroup_event_name_value" type="text" name="Name">
 							<hr />
@@ -350,8 +351,10 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<ul class="iGroup_list" id="iGroup_group_memberList">
-						</ul>
+						<div class="iGroup_screen_body">
+							<ul class="iGroup_list" id="iGroup_group_memberList">
+							</ul>
+						</div>
 					</div>
 
 					<div class="screen iGroup_screen" id="iGroup_group_main_eventsList">
@@ -363,8 +366,10 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<ul class="iGroup_list" id="iGroup_group_eventsList">
-						</ul>
+						<div class="iGroup_screen_body">
+							<ul class="iGroup_list" id="iGroup_group_eventsList">
+							</ul>
+						</div>
 					</div>
 
 					<div class="screen iGroup_screen" id="iGroup_group_inbox">
@@ -376,8 +381,10 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<ul class="iGroup_list" id="iGroup_group_inboxList">
-						</ul>
+						<div class="iGroup_screen_body">
+							<ul class="iGroup_list" id="iGroup_group_inboxList">
+							</ul>
+						</div>
 					</div>
 
 
@@ -390,8 +397,10 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div id="notificationNameInfo"></div>
-						<div id="notificationTextInfo"></div>
+						<div class="iGroup_screen_body">
+							<div id="notificationNameInfo"></div>
+							<div id="notificationTextInfo"></div>
+						</div>
 					</div>
 
 
@@ -533,18 +542,27 @@
 					<img id="your_position" src="sidebars/map/img/position.png"></img>
 				</div>
 				<br>
-				<button id="go_to_location" onclick="change_location();">Ir</button>
-				<select id="map_locations">
+				Local atual:
+				<select id="map_locations" onchange="change_location();">
 				</select>
 			</div>
-			<br>
-			<hr class="sidebar_line">
+
+			<br />
+			<hr class="sidebar_line" />
 
 			<div>
 				<h3>Controlos do mapa:</h3>
 				WASD / setas: Mover pessoa
-				<br>
+				<br />
 				Manter &lt;Shift&gt; premido: Mover lentamente
+			</div>
+
+			<br />
+			<hr class="sidebar_line" />
+
+			<div>
+				<h3>Dados do iGo:</h3>
+				<button id="save_button" onclick="save();">Guardar</button>
 			</div>
 		</div>
 	</body>

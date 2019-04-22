@@ -7,8 +7,8 @@
 
 function update_location()
 {
-	document.getElementById("city_name").innerHTML = current_location;
-	document.getElementById("degrees").innerHTML = LOCATIONS[current_location].temperature + "&deg;";
+	document.getElementById("city_name").innerHTML = current_location_name;
+	document.getElementById("degrees").innerHTML = LOCATIONS[current_location_name].temperature + "&deg;";
 }
 
 SCREENS["main_menu"].on_init = update_location;

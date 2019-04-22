@@ -5,7 +5,6 @@
 /**************/
 
 var iGuide_current_place;
-
 var filtered_places = [];
 
 function init_ratings()
@@ -23,7 +22,7 @@ function init_ratings()
 
 function iGuide_update_places()
 {
-	let places = LOCATIONS[current_location].places;
+	let places = LOCATIONS[current_location_name].places;
 
 	// Calcular todas as distâncias, ângulos e orientações
 	let distances = {};
@@ -55,11 +54,11 @@ function iGuide_update_places()
 	let places_element = document.getElementById("iGuide_places_list");
 	places_element.innerHTML = "";
 	for (let i = 0; i < sorted_places.length; i ++)
-	{	
+	{
 		let place = places[sorted_places[i]];
-		
+
 		if(!filtered_places.includes(place.type)){
-		
+
 			let orientation = "<div class='iGuide_compass_orientation'>" +
 				orientations[place.name] + "</div>";
 			let arrow = "<image class='iGuide_compass_arrow' src='apps/iGuide/img/arrow_white.png'" +
@@ -80,14 +79,14 @@ function iGuide_update_places()
 			let repr_img = "<img class='iGuide_list_repr_img' src='" + place.wallpaper + "'>";
 
 			places_element.innerHTML += "<li class='iGuide_list_item'>" + repr_img +
-				place_icon + compass + place_name + stars + "</li>";		
+				place_icon + compass + place_name + stars + "</li>";
 		}
 	}
 }
 
 function get_distance(place_name)
 {
-	let place_pos = LOCATIONS[current_location].places[place_name].position;
+	let place_pos = LOCATIONS[current_location_name].places[place_name].position;
 	let x_diff = place_pos.x - current_position.x;
 	let y_diff = place_pos.y - current_position.y;
 	return Math.sqrt(Math.pow(x_diff, 2) + Math.pow(y_diff, 2));
@@ -95,7 +94,7 @@ function get_distance(place_name)
 
 function get_angle(place_name)
 {
-	let place_pos = LOCATIONS[current_location].places[place_name].position;
+	let place_pos = LOCATIONS[current_location_name].places[place_name].position;
 	let x_diff = place_pos.x - current_position.x;
 	let y_diff = place_pos.y - current_position.y;
 	return Math.atan2(-y_diff, x_diff);
@@ -106,26 +105,24 @@ function get_orientation(angle)
 	return ["O", "SO", "S", "SE", "E", "NE", "N", "NO", "O"][Math.round(4 * angle / Math.PI + 4)];
 }
 
-function arrayRemove(arr, value) {
-
-   return arr.filter(function(ele){
-       return ele != value;
-   });
-
+function arrayRemove(arr, value)
+{
+   return arr.filter(function(ele){return ele != value;});
 }
 
-function filter_unfilter_place(type){
-	
-	if(filtered_places.includes(type)){
+function filter_unfilter_place(type)
+{
+	if (filtered_places.includes(type))
+	{
 		filtered_places = arrayRemove(filtered_places, type);
 		document.getElementById(type).src="apps/iGuide/img/place_icons/" + type + "_white.png";
-		iGuide_update_places();
-	} else { 
+	}
+	else
+	{
 		filtered_places.push(type);
 		document.getElementById(type).src="apps/iGuide/img/place_icons/" + type + ".png";
-		iGuide_update_places();
 	}
-
+	iGuide_update_places();
 }
 
 /////////////////////

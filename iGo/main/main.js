@@ -17,6 +17,8 @@ var clock = {blink: false, timeout: null};
 
 function init()
 {
+	load(); // Obter valores de algumas variáveis globais
+
 	init_ppi();
 	init_locations();
 	init_ratings();

@@ -8,7 +8,7 @@ var tickets = 0;
 
 function iGuide_info_load(place_name)
 {
-	iGuide_current_place = LOCATIONS[current_location].places[place_name];
+	iGuide_current_place = LOCATIONS[current_location_name].places[place_name];
 	change_screen("iGuide_info");
 }
 
@@ -55,7 +55,7 @@ function iGuide_info_show_event(event_name)
 	document.getElementById("iGuide_event_time").innerHTML = current_event.time;
 	document.getElementById("iGuide_event_loc").innerHTML = current_event.loc;
 	document.getElementById("iGuide_event_price").innerHTML = current_event.price;
-	
+
 	document.getElementById("iGuide_event_title").innerHTML = event_name;
 
 	let pay_button = document.getElementById("iGuide_event_pay_button");
@@ -81,7 +81,7 @@ function iGuide_info_show_event(event_name)
 function iGuide_info_leave_event()
 {
 	SCREENS["iGuide_info"].in_event = false;
-	document.getElementById("iGuide_info_top").style.display="block";
+	document.getElementById("iGuide_info_top").style.display = "block";
 	document.getElementById("iGuide_event_info").style.display = "none";
 	document.getElementById("iGuide_info_events").style.display = "block";
 	document.getElementById("back_button").onclick = go_back;

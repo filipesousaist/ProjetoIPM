@@ -31,12 +31,23 @@
 	margin: 2mm;
 }
 
+.iGroup_screen hr
+{
+	margin-left: 5mm;
+}
+
 .iGroup_error_message
 {
 	padding-left: 5mm;
 	visibility: hidden;
 	color: red;
 	font-size: 10px;
+}
+
+.iGroup_screen_body
+{
+	height: 3.5cm;
+	overflow-y: scroll;
 }
 
 #iGroup_main_body
@@ -86,12 +97,12 @@
 	font-size: 11pt;
 }
 
-#iGroup_create_body
+/*#iGroup_create_body
 {
 	overflow-y: scroll;
 	height: 3.5cm;
 	position: absolute;
-}
+}*/
 
 .iGroup_list
 {
