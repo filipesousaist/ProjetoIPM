@@ -39,8 +39,8 @@ function addEvent(){
 	var event = {name: event_name.value, date: event_date.value};
 	var eventsList = current_group["events"];
 	eventsList.push(event);
-	var Notification = {title: "Evento " + event_name.value + " adicionado.", date: new Date() };
-	current_group["inbox"].push(Notification);
+	var notification = {title: "Evento " + event_name.value + " adicionado.", date: new Date() };
+	current_group["inbox"].push(notification);
 	console.log(current_group["inbox"]);
 	event_name.value = "";
 	event_date.value = "";
@@ -82,7 +82,7 @@ function showGroupList(){
 	}
 	else{
 		for(let i = 0; i < iGroup_groups.length; i++){
-		list.innerHTML += "<li onclick=showGroupScreen(\""+ iGroup_groups[i].name +"\");>"+ iGroup_groups[i].name + "</li>";
+		list.innerHTML += "<li class='iGroup_list_item' onclick=showGroupScreen(\""+ iGroup_groups[i].name +"\");>"+ iGroup_groups[i].name + "</li>";
 		}
 	}
 	change_screen('iGroup_groups');
@@ -95,7 +95,7 @@ function showMembersList(){
 	for(let i = 0; i < membersList.length; i++){
 		console.log(membersList[i]);
 		console.log(membersList.length);
-		list.innerHTML += "<li>"+ membersList[i].name + "</li>";
+		list.innerHTML += "<li class='iGroup_list_item'>"+ membersList[i].name + "</li>";
 	}
 	change_screen('iGroup_group_main_memberList');
 }
@@ -115,7 +115,7 @@ function showEventsList(){
 	list.innerHTML = "";
 	var eventsList = current_group["events"];
 	for(let i = 0; i < eventsList.length; i++){
-		list.innerHTML += "<li>"+ eventsList[i].name + " - " + eventsList[i].date + "</li>";
+		list.innerHTML += "<li class='iGroup_list_item'>"+ eventsList[i].name + " - " + eventsList[i].date + "</li>";
 	}
 	change_screen('iGroup_group_main_eventsList');
 }
@@ -127,7 +127,7 @@ function showInbox(){
 	list.innerHTML = "";
 	var inbox = current_group["inbox"];
 	for(let i = inbox.length - 1; i >= 0; i--){
-		list.innerHTML += "<li>"+ inbox[i].title + " - " + inbox[i].date + "</li>";
+		list.innerHTML += "<li class='iGroup_list_item'>"+ inbox[i].title + " - " + inbox[i].date + "</li>";
 	}
 	change_screen('iGroup_group_inbox');
 }

@@ -70,6 +70,8 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
 	display: none;
 	border-radius: 3mm;
 	overflow: hidden;
+	background-color: #c7c2c2;
+	font-family: Tahoma, Geneva, sans-serif;
 }
 
 /***********

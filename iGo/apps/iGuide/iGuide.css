@@ -71,23 +71,23 @@
 .iGuide_list_item
 {
 	position: relative;
-    width: 4cm;
-    height: 1.3cm;
-    margin: 1mm 0 1mm 0;
-    font-family: Verdana, sans-serif;
-    display: flex;
-    background-color: green;
-    align-items: center;
-    left: 0.25cm;
-    border-radius: 2mm;
+  width: 4cm;
+  height: 1.3cm;
+  margin: 1mm 0 1mm 0;
+  font-family: Verdana, sans-serif;
+  display: flex;
+  background-color: green;
+  align-items: center;
+  left: 0.25cm;
+  border-radius: 2mm;
 }
 
 .iGuide_list_repr_img
 {
 	position: absolute;
-    width: 4.5cm;
-    height: 1.3cm;
-    border-radius: 2mm;
+  width: 4.5cm;
+  height: 1.3cm;
+  border-radius: 2mm;
 }
 
 .iGuide_info_icon

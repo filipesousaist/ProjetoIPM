@@ -24,8 +24,6 @@ const SCREENS =
 
   "iGroup_group_main": {id: "iGroup_group_main", parent_id: "iGroup_groups"},
 
-  "iGroup_group_inbox": {id: "iGroup_group_inbox", parent_id: "iGroup_groups"},
-
   "iGroup_group_addMember": {id: "iGroup_group_addMember", parent_id: "iGroup_group_main"},
 
   "iGroup_group_addEvent": {id: "iGroup_group_addEvent", parent_id: "iGroup_group_main"},
@@ -33,6 +31,8 @@ const SCREENS =
   "iGroup_group_main_memberList": {id: "iGroup_group_main_memberList", parent_id: "iGroup_group_main"},
 
   "iGroup_group_main_eventsList": {id: "iGroup_group_main_eventsList", parent_id: "iGroup_group_main"},
+
+  "iGroup_group_inbox": {id: "iGroup_group_inbox", parent_id: "iGroup_group_main"},
 
   "iGuide_info":  {id: "iGuide_info", parent_id: "iGuide_main", current_tab: null, in_event: false},
 
