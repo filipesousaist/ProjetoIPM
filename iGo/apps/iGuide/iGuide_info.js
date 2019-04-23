@@ -51,7 +51,8 @@ function iGuide_info_show_event(event_name)
 
 	document.getElementById("iGuide_info_top").style.display="none";
 
-	document.getElementById("iGuide_event_img_container").innerHTML = "<img class='iGuide_event_img' src=" + current_event.wallpaper + ">";
+	document.getElementById("iGuide_event_img_container").innerHTML =
+		"<img class='iGuide_event_img' src=" + current_event.wallpaper + ">";
 	document.getElementById("iGuide_event_time").innerHTML = current_event.time;
 	document.getElementById("iGuide_event_loc").innerHTML = current_event.loc;
 	document.getElementById("iGuide_event_price").innerHTML = current_event.price;
@@ -170,13 +171,13 @@ IGUIDE_INFO_TABS["iGuide_info_events"].on_load = function()
 	}
 }
 
-IGUIDE_INFO_TABS["iGuide_info_galery"].on_load = function()
+IGUIDE_INFO_TABS["iGuide_info_gallery"].on_load = function()
 {
-	let galery = iGuide_current_place.galery;
-	let galery_element = document.getElementById("iGuide_info_img_list");
-	galery_element.innerHTML = "";
-	for (let i = 0; i < galery.length; i ++)
-		galery_element.innerHTML += "<li>" + galery[i] + "</li>";
+	let gallery = iGuide_current_place.gallery;
+	let gallery_element = document.getElementById("iGuide_info_img_list");
+	gallery_element.innerHTML = "";
+	for (let i = 0; i < gallery.length; i ++)
+		gallery_element.innerHTML += "<li>" + gallery[i] + "</li>";
 }
 
 

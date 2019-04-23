@@ -19,6 +19,7 @@ function init()
 {
 	load(); // Obter valores de algumas variáveis globais
 
+	init_auto_save();
 	init_ppi();
 	init_locations();
 	init_ratings();
