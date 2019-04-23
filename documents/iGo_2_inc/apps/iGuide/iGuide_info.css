@@ -1,0 +1,262 @@
+/*******************/
+/*******************/
+/*** IGUIDE INFO ***/
+/*******************/
+/*******************/
+
+#iGuide_info_body
+{
+	width: 5cm;
+	height: 3.5cm;
+	background-color: transparent;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#iGuide_info_top
+{
+	position: relative;
+	min-height: 8mm;
+	background-color: #c7c2c2;
+	display: flex;
+	align-items: center;
+	top: 4.6mm;
+}
+
+#iGuide_info_place_icon
+{
+	width: 6mm;
+	padding-left: 2.5mm;
+	display: inline;
+}
+
+#iGuide_info_place_name
+{
+	position: relative;
+	width: calc(100% - 2mm);
+	left: 1.5mm;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 9pt;
+	padding: 1mm;
+	display: inline;
+	font-weight: bold;
+	color: #181818;
+}
+
+.iGuide_info_container
+{
+	position: relative;
+	width: calc(100% - 4mm);
+	top: 4.6mm;
+	min-height: 2.22cm;
+	padding-left: 2mm;
+	padding-right: 2mm;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background-color: #c7c2c2;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 7pt;
+	display: none;
+	color: #4b3d3d;
+}
+
+#iGuide_info_footer
+{
+	position: absolute;
+	height: 4.6mm;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	bottom: 0;
+	font-size: 13px;
+	border-bottom-left-radius: 3mm;
+	border-bottom-right-radius: 3mm;
+	width: 100%;
+	top: 5.5mm;
+}
+
+.iGuide_info_tab_button
+{
+	position: absolute;
+  height: 100%;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 10px;
+  background-color: rgb(167, 167, 167);
+  border: none;
+  color: #5e5e5e;
+}
+}
+
+.iGuide_info_tab_button:disabled
+{
+	color: black;
+}
+
+.place_img_bg
+{
+	width: 4.5cm;
+  left: 0.5mm;
+  top: 1mm;
+  position: relative;
+	margin-bottom: 2mm;
+}
+
+/**********
+ * Events *
+ **********/
+
+#iGuide_info_no_events
+{
+	display: none;
+  position: relative;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 11pt;
+  top: 4mm;
+  text-align: center;
+  opacity: 0.4;
+  color: #080707;
+}
+
+.iGuide_event_list_text
+{
+	width: 3cm;
+	left: 4mm;
+	top: 0;
+	font-size: 8pt;
+	text-overflow: ellipsis;
+}
+
+.iGuide_event_info_icon
+{
+	position: relative;
+  left: 5.5mm;
+  width: 0.7cm;
+  height: 0.7cm;
+}
+
+#iGuide_event_img_container
+{
+	position: relative;
+}
+
+.iGuide_event_img{
+	position: relative;
+    height: 2.5cm;
+    width: 5cm;
+    left: -2mm;
+}
+
+#iGuide_event_box
+{
+	position: relative;
+    width: calc(100% - 7mm);
+    left: 1.4mm;
+    padding: 2mm;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 9pt;
+    border: 0.1mm solid #ae9c9c;
+    background: #fefffe;
+    top: -7mm;
+	font-weight: bold;
+	height: 2cm;
+	border-radius: 1mm;
+}
+
+#iGuide_event_time
+{
+	position: relative;
+    width: calc(100% - 7mm);
+    left: 0.1mm;
+    /* padding: 2mm; */
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 6pt;
+    /* background: #fefffe; */
+    top: 0mm;
+    font-weight: bold;
+    color: #CCCCCC;
+}
+
+#iGuide_event_ticket_img{
+	position: relative;
+    height: 0.5cm;
+    width: 0.5cm;
+    top: -7.5mm;
+    left: 30.5mm;
+}
+
+#iGuide_event_ticket_count{
+	position: relative;
+    left: 27mm;
+    top: -2.2mm;
+    color: #4167ff;
+    font-weight: 500;
+    font-size: 14pt;
+}
+
+
+#iGuide_event_loc
+{
+	position: relative;
+    width: calc(100% - 7mm);
+    left: 0.1mm;
+    /* padding: 2mm; */
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 6pt;
+    /* background: #fefffe; */
+    top: 1mm;
+    font-weight: bold;
+    color: #4b3d3d;
+}
+
+#iGuide_event_price{
+	position: relative;
+    top: 3.5mm;
+    left: 4mm;
+    font-weight: 500;
+    color: #4167ff;
+    font-size: 14pt;
+    border-right: 0.3mm solid #CCCCCC;
+    width: 1.74cm;
+}
+
+#iGuide_event_pay_button
+{
+    position: relative;
+    /* left: 50%; */
+    margin-top: 1mm;
+    margin-bottom: 2mm;
+    padding: 1mm;
+    /* transform: translateX(-50%); */
+    background-color: #44ec5e;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+    border-radius: 1mm;
+    width: 4.31cm;
+    left: 1.45mm;
+    top: -7.5mm;
+    border: 0.1mm solid #ae9c9c;
+}
+
+#iGuide_info_events_list, #iGuide_info_img_list
+{
+	position: relative;
+  top: -2mm;
+  left: -12.5mm;
+  list-style: none;
+}
+
+/***********
+ * Gallery *
+ ***********/
+
+#iguide_gallery_img
+{
+	position: relative;
+  width: 4.5cm;
+  left: 0.25cm;
+}
+
+.iguide_img_item{
+
+}

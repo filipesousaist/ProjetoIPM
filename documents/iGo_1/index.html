@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="styles.css">
+		<script src="../../util/util.js"></script>
+		<script src="database.js"></script>
+		<script src="main.js"></script>
+	</head>
+
+	<body onload="init();" ondragstart="return false;">
+		<div class="sidebar" id="left_sidebar">
+			<div id="ppi_container">
+				<h3>Definições:</h3>
+				<label id="ppi_label" for="ppi_input">Píxeis por polegada</label>
+				<input id="ppi_input" type="number" min="0" max="300" placeholder="Inserir ppi">
+				<br>
+				<button id="ppi_button_resize" onclick="resize_screen();">Ajustar tamanho</button>
+				<br>
+				<button id="ppi_button_reset" onclick="reset_screen_size();">Repor tamanho</button>
+				<h3>DEBUG</h3>
+				<button id="ppi_button_resize" onclick="fill_paypal();">PREENCHER PAYPAL</button>
+				<br>
+				<button id="ppi_button_resize" onclick="fill_card();">PREENCHER CARTAO</button>
+			</div>
+
+			<br>
+			<hr class="sidebar_line">
+
+			<div>
+				<h3>Controlos do iGo:</h3>
+				X: Ligar/desligar
+			</div>
+		</div>
+
+		<div id="main">
+			<div id="iGo">
+				<div id="power_button" onclick="turn_off_on();"></div>
+
+				<div class="screen_container" id="screen_container_base">
+
+					<!-- Ecrã desligado -->
+					<div class="screen" id="off"></div>
+
+					<!-- Logótipo -->
+					<div id="screen_logo_container" align="center" ><br>iGo &trade;</div>
+
+					<!-- Menu inicial -->
+					<div class="screen" id="main_menu">
+
+						<div id="main_menu_top_container">
+							<img class="main_menu_top_icon" id="battery_icon" src="img/battery4.png">
+							<img class="main_menu_top_icon" id="wifi_icon" src="img/wifi2.png">
+							<div id="clock"></div>
+						</div>
+
+						<div id="main_menu_center_container">
+							<div id="city_name"></div>
+							<div id="degrees"></div>
+							<img id="weather" src="img/temp_img.svg">
+						</div>
+
+						<div id="main_menu_right_container">
+							<img class="main_menu_right_icon" id="apps_icon" src="img/apps.png" onclick="change_screen('apps');">
+							<img class="main_menu_right_icon" id="location_icon" src="img/location.png" onclick="change_screen('error_screen');" >
+							<!-- TODO: MyWeb -->
+							<img class="main_menu_right_icon" id="options_icon" src="img/options.png" onclick="change_screen('error_screen');">
+						</div>
+
+					</div>
+
+					<!-- Ecrã das aplicações -->
+					<div class="screen" id="apps">
+						<div class= "screen_title_container">Apps</div>
+
+						<div class="app_container" id="iGuide_container" onclick="change_screen('iGuide_main');" align="center">
+							<img class="app_icon" src="img/book.png">
+							<p class="app_name">iGuide</p>
+						</div>
+
+						<div class="app_container" id="iWay_container" align="center">
+							<img class="app_icon" src="img/way.png">
+							<p class="app_name">iWay</p>
+						</div>
+
+						<div class="app_container" id="iGroup_container" onclick="change_screen('iGroup_main');" align="center">
+							<img class="app_icon" src="img/group.png">
+							<p class="app_name">iGroup</p>
+						</div>
+					</div>
+
+					<!-- Ecrã da localização -->
+					<div class="screen" id="location"></div>
+
+					<!-- Ecrã das opções -->
+					<div class="screen" id="options"></div>
+
+					<!-- Ecrã principal do iGuide -->
+					<div class="screen" id="iGuide_main">
+						<div class="screen_title_container">iGuide</div>
+						<div id="iGuide_near_you_container">Perto de si:</div>
+						<ul id="iGuide_places_near_you"></ul>
+					</div>
+
+					<!-- Ecrã do iGuide com informações sobre um local -->
+					<div class="screen" id="iGuide_info">
+						<div class="screen_title_container">iGuide</div>
+						<div id="iGuide_info_top">
+							<img id="iGuide_info_icon">
+							<div id="iGuide_info_title"></div>
+						</div>
+						<div id="iGuide_info_container"></div>
+						<div id="iGuide_info_bottom_container"></div>
+					</div>
+
+					<div class="screen" id="iGuide_events">
+						<div class="screen_title_container">iGuide</div>
+						<div id="iGuide_events_location"></div>
+						<div id= "iGuide_events_container">
+							<ul id="iGuide_events_list"></ul>
+						</div>
+						<div id="iGuide_events_bottom_container"></div>
+					</div>
+
+					<div class="screen" id="iGuide_shops">
+						<div class="screen_title_container">iGuide</div>
+						<div id="iGuide_shops_location"></div>
+						<div id="iGuide_shops_container">
+							<ul id="iGuide_shops_list"></ul>
+						</div>
+						<div id="iGuide_shops_bottom_container"></div>
+					</div>
+					
+					<div class="screen" id="iGuide_event_info">
+						<div class="screen_title_container">iGuide</div>
+						<div id="iGuide_event_title"></div>
+						<div id="iGuide_event_info_container"></div>
+						<div id="iGuide_events_info_bottom_container"></div>
+					</div>
+					<!-- Ecrã principal do iWay -->
+					<div class="screen" id="iWay_main">
+						<div class="screen_title_container">iWay</div>
+					</div>
+
+					<!-- Ecrã principal do iGroup -->
+					<div class="screen" id="iGroup_main">
+						<div class="screen_title_container">iGroup</div>
+					</div>
+
+					<!-- Ecrã de erro -->
+					<div id="error_screen">
+						<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
+						<button class="error_button" onclick="go_back();">Voltar</button>
+					</div>
+
+					<!-- Ecrã de métodos de pagamento -->
+					<div class="screen" id="payment_methods">
+						<div id="payment_title">Métodos de Pagamento</div>
+						<div id="payment_descr">Selecione abaixo o seu método de pagamento de preferência...</div>
+						<img id="add_pm" src="img/plus.svg" onclick="change_screen('add_payment');">
+						<img id="delete_pm" src="img/delete.svg" onclick="show_delete_option();">
+						<div id="empty_pm">Não existem métodos de pagamento guardados.</div>
+						<ul id="payment_list"></ul>
+					</div>
+
+					<!--Adicionar método de pagamento -->
+					<div class="screen" id="add_payment">
+						<div id="payment_title">Ad. Método Pagamento</div>
+						<div id="payment_descr">Escolha abaixo o método de pagamento que deseja adicionar.</div>
+						<ul id="add_payment_list">
+							<li id="add_payment_list_paypal" onclick="payment_form('add_payment_list_paypal');">
+								<div id="add_payment_list_title">Paypal</div>
+								<div id="add_payment_form_paypal">
+									<div id="paypal_email_title">Email</div>
+									<input id="paypal_email" type="text" name="email" onclick="write_mode('paypal_email');">
+									<div id="paypal_pw_title">Password</div>
+									<input id="paypal_pw" type="password" name="password"  onclick="write_mode('paypal_pw');">
+									<div id="add_confirm_paypal" onclick="add_payment('paypal'); go_back();">Adicionar</div>
+								</div>
+							</li>
+							<li id="add_payment_list_card" onclick="payment_form('add_payment_list_card');">
+								<div id="add_payment_list_title" onclick="">Cartão Débito/Crédito</div>
+								<div id="add_payment_form_card">
+									<div id="card_number_title">Núm. cartão</div>
+									<input id="card_number" type="text" name="cardno"  onclick="write_mode('card_number');">
+									<div id="card_date_title">Data</div>
+									<input id="card_date" type="text" name="cardate"  onclick="write_mode('card_date');">
+									<div id="card_cvv_title">CVV</div>
+									<input id="card_cvv" type="text" name="cardate"  onclick="write_mode('card_cvv');">
+									<div id="add_confirm_card" onclick="add_payment('card'); go_back();">Adicionar</div>
+								</div>
+
+							</li>
+						</ul>
+					</div>
+
+					<!-- Confirmação pagamento -->
+					<div class="screen" id="payment_complete">
+						<div id="payment_title">Processando Pagamento</div>
+						<div id="payment_descr">Esta etapa poderá demorar alguns segundos....</div>
+						<div id="payment_before">
+							<img id="loading" src="img/ajax-loader.gif">
+						</div>
+						<div id="payment_after">Pagamento Concluído!</div>
+					</div>
+
+					<div id="keyboard" >
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row0">
+							<div class="keyboard_button" onclick="do_write('1');">1</div>
+							<div class="keyboard_button" onclick="do_write('2');">2</div>
+							<div class="keyboard_button" onclick="do_write('3');">3</div>
+							<div class="keyboard_button" onclick="do_write('4');">4</div>
+							<div class="keyboard_button" onclick="do_write('5');">5</div>
+							<div class="keyboard_button" onclick="do_write('6');">6</div>
+							<div class="keyboard_button" onclick="do_write('7');">7</div>
+							<div class="keyboard_button" onclick="do_write('8');">8</div>
+							<div class="keyboard_button" onclick="do_write('9');">9</div>
+							<div class="keyboard_button" onclick="do_write('0');">0</div>
+						</div>
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row1">
+							<div class="keyboard_button" onclick="do_write('Q');">Q</div>
+							<div class="keyboard_button" onclick="do_write('W');">W</div>
+							<div class="keyboard_button" onclick="do_write('E');">E</div>
+							<div class="keyboard_button" onclick="do_write('R');">R</div>
+							<div class="keyboard_button" onclick="do_write('T');">T</div>
+							<div class="keyboard_button" onclick="do_write('Y');">Y</div>
+							<div class="keyboard_button" onclick="do_write('U');">U</div>
+							<div class="keyboard_button" onclick="do_write('I');">I</div>
+							<div class="keyboard_button" onclick="do_write('O');">O</div>
+							<div class="keyboard_button" onclick="do_write('P');">P</div>
+						</div>
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row2">
+							<div class="keyboard_button" onclick="do_write('A');">A</div>
+							<div class="keyboard_button" onclick="do_write('S');">S</div>
+							<div class="keyboard_button" onclick="do_write('D');">D</div>
+							<div class="keyboard_button" onclick="do_write('F');">F</div>
+							<div class="keyboard_button" onclick="do_write('G');">G</div>
+							<div class="keyboard_button" onclick="do_write('H');">H</div>
+							<div class="keyboard_button" onclick="do_write('J');">J</div>
+							<div class="keyboard_button" onclick="do_write('K');">K</div>
+							<div class="keyboard_button" onclick="do_write('L');">L</div>
+						</div>
+						<div class="keyboard_row keyboard_inactive" id="keyboard_row3">
+							<div class="keyboard_button" onclick="do_write('Z');">Z</div>
+							<div class="keyboard_button" onclick="do_write('X');">X</div>
+							<div class="keyboard_button" onclick="do_write('C');">C</div>
+							<div class="keyboard_button" onclick="do_write('V');">V</div>
+							<div class="keyboard_button" onclick="do_write('B');">B</div>
+							<div class="keyboard_button" onclick="do_write('N');">N</div>
+							<div class="keyboard_button" onclick="do_write('M');">M</div>
+						</div>
+						<button id="keyboard_done" onclick="exit_write_mode();">&#10003;</button>
+						<button id="keyboard_row_up" onclick="change_keyboard_row('up');">&#708;</button>
+						<button id="keyboard_row_down" onclick="change_keyboard_row('down');">&#709;</button>
+					</div>
+
+				</div>
+
+				<div class="screen_container" id="screen_container_frame"></div>
+
+				<div id="buttons_container">
+					<img class="button" id="home_button" src="img/home.png" onclick="change_screen('main_menu');">
+					<img class="button" id="back_button" src="img/back.png" onclick="go_back();">
+				</div>
+			</div>
+		</div>
+
+		<div class="sidebar" id="right_sidebar">
+			<div id="map_container">
+				<h3>Mapa:</h3>
+				<div id="map">
+					<img id="your_position" src="img/position.png"></img>
+				</div>
+				<br>
+				<button id="go_to_location" onclick="change_location();">Ir</button>
+				<select id="map_locations">
+				</select>
+			</div>
+			<br>
+			<hr class="sidebar_line">
+
+			<div>
+				<h3>Controlos do mapa:</h3>
+				WASD / setas: Mover pessoa
+				<br>
+				Manter &lt;Shift&gt; premido: Mover lentamente
+			</div>
+		</div>
+	</body>
+</html>

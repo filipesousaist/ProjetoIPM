@@ -1,0 +1,134 @@
+/*****************/
+/*****************/
+/*** MAIN MENU ***/
+/*****************/
+/*****************/
+
+/* Top container */
+
+#main_menu_top_container
+{
+	z-index: 2;
+	position: absolute;
+	width: 5cm;
+	height: 1cm;
+	background-color: #6644EE;
+	box-shadow: 0 0.3mm 0.8mm grey;
+	border-top-right-radius: 3mm;
+	border-top-left-radius: 3mm;
+}
+
+.main_menu_top_icon
+{
+	position: absolute;
+	width: 6mm;
+	height: 6mm;
+	top: 2mm;
+}
+
+#battery_icon
+{
+	left: 1mm;
+}
+
+#wifi_icon
+{
+	left: 8mm;
+}
+
+#main_menu_clock
+{
+	width: 1.7cm;
+	left: 18.5mm;
+	margin-top: 0;
+	font-size: 19pt;
+}
+
+/* Right container */
+
+#main_menu_right_container
+{
+	z-index: 3;
+	position: absolute;
+	width: 1cm;
+	height: 4cm;
+	left: 40mm;
+	background-color: transparent;
+	border-top-right-radius: 3mm;
+	border-bottom-right-radius: 3mm;
+}
+
+.main_menu_right_icon
+{
+	position: absolute;
+	left: 1mm;
+	width: 5mm;
+	height: 5mm;
+	padding: 1mm;
+	border-radius: 1.5mm;
+	background-color: #F6F6F6;
+	box-shadow: 0 0 2pt gray;
+}
+
+.main_menu_right_icon:active
+{
+	background-color: #BBBBBB;
+}
+
+#apps_icon
+{
+	top: 1.5mm;
+}
+
+#location_icon
+{
+	top: 11.5mm;
+}
+
+#options_icon
+{
+	top: 31.5mm;
+}
+
+/* Center container */
+
+#main_menu_center_container
+{
+	z-index: 1;
+	position: absolute;
+	width: 4cm;
+	padding-right: 1cm;
+	height: 3cm;
+	top: 9.8mm;
+	background-image: url("img/main_bg.jpeg");
+	background-size: cover;
+	border-bottom-left-radius: 3mm;
+	border-bottom-right-radius: 3mm;
+}
+
+#weather
+{
+	position: absolute;
+	height: 70%;
+	width: 60%;
+	top: 8mm;
+	left: 16mm;
+}
+
+#city_name {
+	position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	left: 2cm;
+	top: 3mm;
+	font-size: 18pt;
+	transform: translate(-50%, 0);
+}
+
+#degrees
+{
+	position: absolute;
+	font-family: "Lucida Console", Lucida, monospace;
+	top: 14mm;
+	left: 4mm;
+	font-size: 28pt;
+}

@@ -1,0 +1,153 @@
+/**************/
+/**************/
+/*** IGROUP ***/
+/**************/
+/**************/
+
+.iGroup_screen h1
+{
+	font-size: 9pt;
+	padding-left: 5mm;
+	margin-top: 1mm;
+	margin-bottom: 1mm;
+}
+
+.iGroup_screen h2
+{
+	font-size: 10pt;
+	padding-left: 5mm;
+	margin-top: 1mm;
+	margin-bottom: 1mm;
+}
+
+.iGroup_screen input
+{
+	max-width: 3.9cm;
+	margin-left: 5mm;
+}
+
+.iGroup_screen button
+{
+	margin: 2mm;
+}
+
+.iGroup_screen hr
+{
+	margin-left: 5mm;
+}
+
+.iGroup_error_message
+{
+	padding-left: 5mm;
+	visibility: hidden;
+	color: red;
+	font-size: 10px;
+}
+
+.iGroup_screen_body
+{
+	height: 3.5cm;
+	overflow-y: scroll;
+}
+
+#iGroup_main_body
+{
+	background-color: transparent;
+	height: 100%;
+}
+
+#iGroup_createGroup
+{
+	background-color: limegreen;
+}
+
+#iGroup_myGroups
+{
+	background-color: #2954ff;
+}
+
+.iGroup_mainButton
+{
+	left: 2.5mm;
+	width: 4.5cm;
+	height: 1.2cm;
+	border-radius: 3mm;
+	position: relative;
+	top: 2mm;
+	text-align: center;
+}
+
+.iGroup_main_icon
+{
+	position: absolute;
+	left: 2.5mm;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 0.8cm;
+	height: 0.8cm;
+}
+
+.iGroup_main_text
+{
+	position: absolute;
+	width: 3cm;
+	right: 2mm;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 11pt;
+}
+
+/*#iGroup_create_body
+{
+	overflow-y: scroll;
+	height: 3.5cm;
+	position: absolute;
+}*/
+
+.iGroup_list
+{
+  top: 6mm;
+  left: -0.2mm;
+  width: 5cm;
+  height: 3cm;
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0;
+  border-bottom-left-radius: 3mm;
+  border-bottom-right-radius: 3mm;
+}
+
+.iGroup_list_item
+{
+	position: relative;
+  width: 4.3cm;
+	height: 1cm;
+	left: 2.5mm;
+  margin: 1mm 0 1mm 0;
+	padding-left: 2mm;
+  font-family: Verdana, sans-serif;
+	font-size: 10pt;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  border-radius: 2mm;
+}
+
+#iGroup_group_list
+{
+	overflow-y: scroll;
+	height: 100%;
+	list-style: none;
+}
+
+#iGroup_group_main_body
+{
+  overflow-y: scroll;
+  height: 3.5cm;
+  position: absolute;
+}
+
+#iGroup_group_addMember_body
+{
+	overflow-y: scroll;
+}

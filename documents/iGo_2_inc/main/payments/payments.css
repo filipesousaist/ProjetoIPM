@@ -1,0 +1,291 @@
+/****************/
+/****************/
+/*** PAYMENTS ***/
+/****************/
+/****************/
+
+#payment_methods, #add_payment, #payment_complete
+{
+	background-color: 	#191970;
+	overflow-y: scroll;
+}
+
+#payment_title
+{
+	position: relative;
+	top: 2mm;
+	padding-left: 2mm;
+	padding-right: 2mm;
+	color: white;
+	font-size: 12pt;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+#payment_descr
+{
+	position: relative;
+	top: 4mm;
+	padding-left: 2mm;
+	padding-right: 2mm;
+	color: white;
+	font-size: 7pt;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+#empty_pm
+{
+	position: relative;
+  color: lightgrey;
+  opacity: 0.15;
+  top: 9mm;
+	text-align: center;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 9pt;
+	display: block;
+}
+
+#add_pm
+{
+	position: relative;
+	top: 7mm;
+	left: 40%;
+	transform: translate(-50%, 0);
+	width: 0.5cm;
+	height: 0.5cm;
+	border-radius: 50%;
+	border: 1px solid #ddd;
+}
+
+#delete_pm
+{
+	position: relative;
+	top: 7mm;
+	left: 48%;
+	transform: translate(-50%, 0);
+	width: 0.5cm;
+	height: 0.5cm;
+	border-radius: 50%;
+	border: 1px solid #ddd;
+}
+
+#add_pm:hover
+{
+	box-shadow: 0 0 5px 1px rgba(0, 140, 186, 0.5);
+}
+
+#delete_pm:hover
+{
+	box-shadow: 0 0 5px 1px rgba(0, 140, 186, 0.5);
+}
+
+#payment_list, #add_payment_list
+{
+	position: relative;
+	padding-left: 0;
+	top: 4mm;
+	list-style: none;
+}
+
+.payment_box_c, #add_payment_list_card, .payment_box_p, #add_payment_list_paypal
+{
+	position: relative;
+	width: 4.5cm;
+	height: 1cm;
+	border-radius: 2mm;
+	margin-left: 2.5mm;
+	margin-top: 1mm;
+	transition-property: height;
+	transition-duration: 0.5s;
+}
+
+.payment_box_c, #add_payment_list_card
+{
+	background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,79,158,1) 100%);
+}
+
+.payment_box_p, #add_payment_list_paypal
+{
+	background: -webkit-linear-gradient(left, rgba(242,0,61,1) 0%, rgba(193,70,161,1) 0%, rgba(168,0,119,1) 0%, rgba(168,0,119,1) 19%, rgba(217,54,63,1) 61%, rgba(217,54,63,1) 100%);
+}
+
+.p_info_img
+{
+	position: absolute;
+	width: 0.8cm;
+	height: 0.8cm;
+	left: 3.5cm;
+	top: 50%;
+	border-radius: 50%;
+	transform: translate(0, -50%);
+}
+
+.payment_type
+{
+	position: relative;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: white;
+	font-size: 9pt;
+	top:1mm;
+	left: 2mm;
+	font-weight: bold;
+}
+
+.hidden_card
+{
+	position: relative;
+	color: white;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 6.5pt;
+	top: 1mm;
+	left: 2mm;
+}
+
+#delete_b {
+  position: relative;
+  width: 0.8cm;
+  height: 0.8cm;
+  left: 3.5cm;
+  top: -5.9mm;
+  border-radius: 50%;
+	z-index: -1;
+}
+
+#add_payment_list_title
+{
+	position: relative;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: white;
+	font-size: 10pt;
+	text-align: center;
+	font-weight: bold;
+	top: 2.6mm;
+}
+
+
+#add_payment_form_card, #add_payment_form_paypal
+{
+	opacity: 0;
+}
+
+#paypal_email_title, #card_number_title
+{
+	position: relative;
+  top: 4mm;
+  left: 2mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
+}
+
+#paypal_email, #card_number
+{
+	position: relative;
+  left: 2mm;
+  top: 4mm;
+  border-radius: 2mm;
+  border: none;
+	width: 4.1cm;
+
+}
+
+#paypal_pw_title, #card_date_title{
+	position: relative;
+  top: 6mm;
+  left: 2mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
+}
+
+#paypal_pw{
+	position: relative;
+  left: 2mm;
+  top: 6mm;
+  border-radius: 2mm;
+  border: none;
+	width: 4.1cm;
+}
+
+#card_date{
+	position: relative;
+  left: 2mm;
+  top: 6mm;
+  border-radius: 2mm;
+  border: none;
+	width: 1.5cm;
+}
+
+#card_cvv_title
+{
+	position: relative;
+  top: -3.6mm;
+  left: 25mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
+}
+
+#card_cvv{
+	position: relative;
+    left: 25mm;
+    top: -3.4mm;
+    border-radius: 2mm;
+    border: none;
+	width: 1.5cm;
+}
+
+#add_confirm_paypal
+{
+  position: relative;
+  font-family: Tahoma, Geneva, sans-serif;
+  background-color: grey;
+  border: none;
+  border-radius: 3mm;
+  left: 2mm;
+  color: white;
+  padding: 4px 40px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 13px;
+  top: 9mm;
+  width: 2cm;
+  z-index:3;
+}
+
+
+#add_confirm_card{
+  position: relative;
+  font-family: Tahoma, Geneva, sans-serif;
+  background-color: grey;
+  border: none;
+  border-radius: 3mm;
+  left: 2mm;
+  color: white;
+  padding: 4px 40px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 13px;
+  top: 1mm;
+  width: 2cm;
+  z-index:3;
+}
+
+#loading
+{
+	position: relative;
+  width: 4cm;
+  height: 0.5cm;
+  top: 1.2cm;
+  left: 10%;
+	opacity: 1;
+}
+
+#payment_after
+{
+	position: relative;
+  top: 6mm;
+  left: 4.5mm;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: white;
+	opacity: 0;
+}

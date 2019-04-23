@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<!-- Geral -->
+		<script src="../../util/util.js"></script>
+		<script src="database.js"></script>
+		<!-- Sidebars -->
+		<link rel="stylesheet" href="sidebars/sidebars.css">
+		<script src="sidebars/ppi.js"></script>
+		<script src="sidebars/map/map.js"></script>
+		<script src="sidebars/save.js"></script>
+		<!-- Menu Inicial -->
+		<link rel="stylesheet" href="main/main_menu/main_menu.css">
+		<script src="main/main_menu/main_menu.js"></script>
+		<!-- Menu das Aplicações -->
+		<link rel="stylesheet" href="apps/apps.css">
+		<!-- iGuide -->
+		<link rel="stylesheet" href="apps/iGuide/iGuide.css">
+		<script src="apps/iGuide/iGuide.js"></script>
+		<link rel="stylesheet" href="apps/iGuide/iGuide_info.css">
+		<script src="apps/iGuide/iGuide_info.js"></script>
+		<!-- iGroup -->
+		<link rel="stylesheet" href="apps/iGroup/iGroup.css">
+		<script src="apps/iGroup/iGroup.js"></script>
+		<!-- Pagamentos -->
+		<link rel="stylesheet" href="main/payments/payments.css">
+		<script src="main/payments/payments.js"></script>
+		<!-- Teclado -->
+		<link rel="stylesheet" href="main/keyboard/keyboard.css">
+		<script src="main/keyboard/keyboard.js"></script>
+		<!-- Main -->
+		<link rel="stylesheet" href="main/main.css">
+		<script src="main/main.js"></script>
+	</head>
+
+	<body onload="init();" ondragstart="return false;">
+		<div class="sidebar" id="left_sidebar">
+			<div id="ppi_container">
+				<h3>Definições:</h3>
+				<label id="ppi_label" for="ppi_input">Píxeis por polegada</label>
+				<input id="ppi_input" type="number" min="0" max="300" placeholder="Inserir ppi">
+				<br>
+				<button id="ppi_button_resize" onclick="resize_screen();">Ajustar tamanho</button>
+				<br>
+				<button id="ppi_button_reset" onclick="reset_screen_size();">Repor tamanho</button>
+			</div>
+
+			<br/>
+			<hr class="sidebar_line">
+
+			<div>
+				<h3>Controlos do iGo:</h3>
+				X: Ligar/desligar
+			</div>
+		</div>
+
+		<div id="main">
+			<div id="iGo">
+				<div id="power_button" onclick="turn_off_on();"></div>
+
+				<div class="screen_container" id="screen_container_base">
+
+					<!-- Ecrã desligado -->
+					<div class="screen" id="off"></div>
+
+					<!-- Logótipo -->
+					<div id="screen_logo_container" align="center" ><br>iGo &trade;</div>
+
+					<!-- Menu inicial -->
+					<div class="screen" id="main_menu">
+
+						<div id="main_menu_top_container">
+							<img class="main_menu_top_icon" id="battery_icon" src="main/main_menu/img/battery4.png">
+							<img class="main_menu_top_icon" id="wifi_icon" src="main/main_menu/img/wifi2.png">
+							<div class="clock" id="main_menu_clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+
+						<div id="main_menu_center_container">
+							<div id="city_name"></div>
+							<div id="degrees"></div>
+							<img id="weather" src="main/main_menu/img/weather.svg">
+						</div>
+
+						<div id="main_menu_right_container">
+							<img class="main_menu_right_icon" id="apps_icon" src="main/main_menu/img/apps.png" onclick="change_screen('apps');">
+							<img class="main_menu_right_icon" id="location_icon" src="main/main_menu/img/location.png" onclick="change_screen('error_screen');" >
+							<!-- TODO: MyWeb -->
+							<img class="main_menu_right_icon" id="options_icon" src="main/main_menu/img/options.png" onclick="change_screen('error_screen');">
+						</div>
+
+					</div>
+
+					<!-- Ecrã das aplicações -->
+					<div class="screen" id="apps">
+						<div class="screen_title_container">
+							Apps
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+
+						<div class="app_container" id="iGuide_container" onclick="change_screen('iGuide_main');" align="center">
+							<img class="app_icon" src="apps/img/book.png">
+							<p class="app_name">iGuide</p>
+						</div>
+
+						<div class="app_container" id="iWay_container" align="center">
+							<img class="app_icon" src="apps/img/way.png">
+							<p class="app_name">iWay</p>
+						</div>
+
+						<div class="app_container" id="iGroup_container" onclick="change_screen('iGroup_main');" align="center">
+							<img class="app_icon" src="apps/img/group.png">
+							<p class="app_name">iGroup</p>
+						</div>
+					</div>
+
+					<!-- Ecrã da localização -->
+					<div class="screen" id="location"></div>
+
+					<!-- Ecrã das opções -->
+					<div class="screen" id="options"></div>
+
+					<!-- Ecrã principal do iGuide -->
+					<div class="screen" id="iGuide_main">
+						<div class="screen_title_container">
+							iGuide
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div id="iGuide_body">
+							<div id="iGuide_near_you_container">Perto de si...</div>
+							<div id="iGuide_near_you_desc">
+								Veja todos os pontos de interesse próximos de si ou então use filtros baseando-se
+								nas suas preferências.
+							</div>
+							<ul id="iGuide_places_filter">
+								<li id="filter_park">
+									<img class="iguide_filter_img" id="park" src="apps/iGuide/img/place_icons/park_white.png" onclick="filter_unfilter_place('park');">
+								</li>
+								<li id="filter_shop">
+									<img class="iguide_filter_img" id="shop" src="apps/iGuide/img/place_icons/shop_white.png" onclick="filter_unfilter_place('shop');">
+								</li>
+								<li id="filter_museum">
+									<img class="iguide_filter_img" id="museum" src="apps/iGuide/img/place_icons/museum_white.png" onclick="filter_unfilter_place('museum');">
+								</li>
+								<li id="filter_monument">
+									<img class="iguide_filter_img" id="monument" src="apps/iGuide/img/place_icons/monument_white.png" onclick="filter_unfilter_place('monument');">
+								<li>
+							</ul>
+							<ul id="iGuide_places_list"></ul>
+						</div>
+					</div>
+
+					<!-- Ecrã do iGuide com informações sobre um local -->
+					<div class="screen" id="iGuide_info">
+						<div class="screen_title_container">
+							iGuide
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+
+						<div id="iGuide_info_body">
+							<div id="iGuide_info_top">
+								<img id="iGuide_info_place_icon"/> <!-- "src" da img varia consoante o ecrã -->
+								<div id="iGuide_info_place_name"></div>
+							</div>
+
+							<div class="iGuide_info_container" id="iGuide_info_description"></div>
+
+							<div class="iGuide_info_container" id="iGuide_info_events">
+								<!-- Lista de eventos -->
+								<div id="iGuide_info_no_events">Não há eventos a decorrer...</div>
+								<ul id="iGuide_info_events_list"></ul>
+							</div>
+
+							<div class="iGuide_info_container" id="iGuide_event_info">
+								<div id="iGuide_event_img_container"></div>
+								<div id="iGuide_event_body">
+									<div id="iGuide_event_box">
+										<div id="iGuide_event_title"></div>
+										<div id="iGuide_event_time"></div>
+										<div id="iGuide_event_loc"></div>
+										<div id="iGuide_event_price"></div>
+										<div id="iGuide_event_ticket_count"></div>
+										<img id="iGuide_event_ticket_img" src="apps/iGuide/img/events_img/ticket.svg">
+									</div>
+								</div>
+								<button id="iGuide_event_pay_button" onclick="change_screen('payment_methods');"></button>
+							</div>
+
+							<div class="iGuide_info_container" id="iGuide_info_gallery">
+								<!-- Lista de lojas -->
+								<ul id="iGuide_info_img_list"></ul>
+							</div>
+						</div>
+
+						<div id="iGuide_info_footer"></div>
+					</div>
+
+					<!-- Ecrã principal do iWay -->
+					<div class="screen" id="iWay_main">
+						<div class="screen_title_container">
+							iWay
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Ecrã principal do iGroup -->
+					<div class="screen" id="iGroup_main">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div id = "iGroup_main_body">
+							<div class="iGroup_mainButton" id="iGroup_createGroup" onclick="change_screen('iGroup_create')">
+								<img class="iGroup_main_icon" src="apps/iGroup/img/plus.png">
+								<div class="iGroup_main_text">Criar Grupo</div>
+							</div>
+							<br/>
+							<div class="iGroup_mainButton" id="iGroup_myGroups" onclick="showGroupList()">
+								<img class="iGroup_main_icon" src="apps/iGroup/img/group.png">
+								<div class="iGroup_main_text">Os meus grupos</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="screen iGroup_screen" id="iGroup_create">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="iGroup_screen_body" id="iGroup_create_body">
+							<h2 id="iGroup_create_name">Nome do grupo:</h2>
+							<div class="iGroup_error_message" id="Name_error_message">Insira um nome válido</div>
+							<input id="iGroup_name_value" type="text" name="Name">
+							<hr />
+							<h2 id="iGroup_create_location">Destino:</h2>
+							<div class="iGroup_error_message" id="Location_error_message">Insira uma localização válida</div>
+							<input id="iGroup_location_value" type="text" name="Location">
+							<hr />
+							<h2 id="iGroup_create_date">Data de Partida:</h2>
+							<div class="iGroup_error_message" id="Date_error_message">Insira uma data válida</div>
+							<input id="iGroup_date_value" type="date" name="Date">
+							<hr />
+							<button onclick="addGroup()">Criar Grupo</button>
+						</div>
+					</div>
+
+					<div class="screen iGroup_screen" id="iGroup_groups">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<ul class="iGroup_list" id="iGroup_group_list"></ul>
+					</div>
+
+					<div class="screen" id="iGroup_group_main">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div id="iGroup_group_main_body">
+							<ul class="iGroup_list" id="iGroup_group_main_options_list">
+								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addMember")'>Adicionar Membro</li>
+								<li class="iGroup_list_item" onclick='showMembersList()'>Ver Membros</li>
+								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addEvent")'>Adicionar Evento</li>
+								<li class="iGroup_list_item" onclick='showEventsList()'>Ver Eventos</li>
+								<li class="iGroup_list_item">Ver Localização de Membros</li>
+								<li class="iGroup_list_item" onclick='showInbox()'>Ver notificações</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="screen iGroup_screen" id="iGroup_group_addMember">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="iGroup_screen_body" id="iGroup_group_addMember_body">
+							<h2 id="iGroup_add_member_name">Nome do Membro:</h2>
+							<div class="iGroup_error_message" id="Member_error_message">Esse membro não existe.</div>
+							<input id="iGroup_member_name_value" type="text" name="Name">
+							<button onclick="requestMember()">Adicionar Membro</button>
+						</div>
+					</div>
+
+					<div class="screen iGroup_screen" id="iGroup_group_addEvent">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="iGroup_screen_body" id="iGroup_group_addEvent_body">
+							<h2 id="iGroup_add_event_name">Nome do Evento:</h2>
+							<input id="iGroup_event_name_value" type="text" name="Name">
+							<hr />
+							<h2 id="iGroup_add_event_date">Data do Evento:</h2>
+							<input id="iGroup_event_date_value" type="date" name="Date">
+							<hr />
+							<button onclick="addEvent()">Adicionar Evento</button>
+						</div>
+					</div>
+
+					<div class="screen iGroup_screen" id="iGroup_group_main_memberList">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="iGroup_screen_body">
+							<ul class="iGroup_list" id="iGroup_group_memberList">
+							</ul>
+						</div>
+					</div>
+
+					<div class="screen iGroup_screen" id="iGroup_group_main_eventsList">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="iGroup_screen_body">
+							<ul class="iGroup_list" id="iGroup_group_eventsList">
+							</ul>
+						</div>
+					</div>
+
+					<div class="screen iGroup_screen" id="iGroup_group_inbox">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="iGroup_screen_body">
+							<ul class="iGroup_list" id="iGroup_group_inboxList">
+							</ul>
+						</div>
+					</div>
+
+
+					<div class="screen iGroup_screen" id="iGroup_group_notificationInfo">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="iGroup_screen_body">
+							<div id="notificationNameInfo"></div>
+							<div id="notificationTextInfo"></div>
+						</div>
+					</div>
+
+
+					<!-- Ecrã de erro -->
+					<div id="error_screen">
+						<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
+						<button class="error_button" onclick="go_back();">Voltar</button>
+					</div>
+
+					<!-- Ecrã de métodos de pagamento -->
+					<div class="screen" id="payment_methods">
+						<div id="payment_title">Métodos de Pagamento</div>
+						<div id="payment_descr">Selecione abaixo o seu método de pagamento de preferência...</div>
+						<img id="add_pm" src="main/payments/img/plus.svg" onclick="change_screen('add_payment');">
+						<img id="delete_pm" src="main/payments/img/delete.svg" onclick="show_delete_option();">
+						<div id="empty_pm">Não existem métodos de pagamento guardados.</div>
+						<ul id="payment_list"></ul>
+					</div>
+
+					<!--Adicionar método de pagamento -->
+					<div class="screen" id="add_payment">
+						<div id="payment_title">Adicionar Método de Pagamento</div>
+						<div id="payment_descr">Escolha abaixo o método de pagamento que deseja adicionar.</div>
+						<ul id="add_payment_list">
+							<li id="add_payment_list_paypal" onclick="payment_form('add_payment_list_paypal');">
+								<div id="add_payment_list_title">Paypal</div>
+								<div id="add_payment_form_paypal">
+									<div id="paypal_email_title">Email</div>
+									<input id="paypal_email" type="text" name="email" onclick="write_mode('paypal_email');">
+									<div id="paypal_pw_title">Password</div>
+									<input id="paypal_pw" type="password" name="password"  onclick="write_mode('paypal_pw');">
+									<div id="add_confirm_paypal" onclick="add_payment('paypal'); go_back();">Adicionar</div>
+								</div>
+							</li>
+							<li id="add_payment_list_card" onclick="payment_form('add_payment_list_card');">
+								<div id="add_payment_list_title" onclick="">Cartão Débito/Crédito</div>
+								<div id="add_payment_form_card">
+									<div id="card_number_title">Núm. cartão</div>
+									<input id="card_number" type="text" name="cardno"  onclick="write_mode('card_number');">
+									<div id="card_date_title">Data</div>
+									<input id="card_date" type="text" name="cardate"  onclick="write_mode('card_date');">
+									<div id="card_cvv_title">CVV</div>
+									<input id="card_cvv" type="text" name="cardate"  onclick="write_mode('card_cvv');">
+									<div id="add_confirm_card" onclick="add_payment('card'); go_back();">Adicionar</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Confirmação pagamento -->
+					<div class="screen" id="payment_complete">
+						<div id="payment_title">Processando Pagamento</div>
+						<div id="payment_descr">Esta etapa poderá demorar alguns segundos....</div>
+						<div id="payment_before">
+							<img id="loading" src="main/payments/img/ajax-loader.gif">
+						</div>
+						<div id="payment_after">Pagamento Concluído!</div>
+					</div>
+
+					<div id="keyboard">
+						<div class="keyboard_row" id="keyboard_row_0">
+							<div class="keyboard_button" onclick="do_write('1');">1</div>
+							<div class="keyboard_button" onclick="do_write('2');">2</div>
+							<div class="keyboard_button" onclick="do_write('3');">3</div>
+							<div class="keyboard_button" onclick="do_write('4');">4</div>
+							<div class="keyboard_button" onclick="do_write('5');">5</div>
+							<div class="keyboard_button" onclick="do_write('6');">6</div>
+							<div class="keyboard_button" onclick="do_write('7');">7</div>
+							<div class="keyboard_button" onclick="do_write('8');">8</div>
+							<div class="keyboard_button" onclick="do_write('9');">9</div>
+							<div class="keyboard_button" onclick="do_write('0');">0</div>
+						</div>
+
+						<div class="keyboard_row" id="keyboard_row_1">
+							<div class="keyboard_button" onclick="do_write('Q');">q</div>
+							<div class="keyboard_button" onclick="do_write('W');">w</div>
+							<div class="keyboard_button" onclick="do_write('E');">e</div>
+							<div class="keyboard_button" onclick="do_write('R');">r</div>
+							<div class="keyboard_button" onclick="do_write('T');">t</div>
+							<div class="keyboard_button" onclick="do_write('Y');">y</div>
+							<div class="keyboard_button" onclick="do_write('U');">u</div>
+							<div class="keyboard_button" onclick="do_write('I');">i</div>
+							<div class="keyboard_button" onclick="do_write('O');">o</div>
+							<div class="keyboard_button" onclick="do_write('P');">p</div>
+						</div>
+
+						<div class="keyboard_row" id="keyboard_row_2">
+							<div class="keyboard_button" onclick="do_write('A');">a</div>
+							<div class="keyboard_button" onclick="do_write('S');">s</div>
+							<div class="keyboard_button" onclick="do_write('D');">d</div>
+							<div class="keyboard_button" onclick="do_write('F');">f</div>
+							<div class="keyboard_button" onclick="do_write('G');">g</div>
+							<div class="keyboard_button" onclick="do_write('H');">h</div>
+							<div class="keyboard_button" onclick="do_write('J');">j</div>
+							<div class="keyboard_button" onclick="do_write('K');">k</div>
+							<div class="keyboard_button" onclick="do_write('L');">l</div>
+						</div>
+
+						<div class="keyboard_row" id="keyboard_row_3">
+							<button class="keyboard_special_button" id="keyboard_shift" onclick="change_keyboard_case();">
+								<img id="keyboard_shift_img" src="main/keyboard/img/shift.svg">
+							</button>
+							<div class="keyboard_button" onclick="do_write('Z');">z</div>
+							<div class="keyboard_button" onclick="do_write('X');">x</div>
+							<div class="keyboard_button" onclick="do_write('C');">c</div>
+							<div class="keyboard_button" onclick="do_write('V');">v</div>
+							<div class="keyboard_button" onclick="do_write('B');">b</div>
+							<div class="keyboard_button" onclick="do_write('N');">n</div>
+							<div class="keyboard_button" onclick="do_write('M');">m</div>
+							<button class="keyboard_special_button" id="keyboard_delete" onclick="do_write('delete');">
+								<img id="keyboard_delete_img" src="main/keyboard/img/delete.svg">
+							</button>
+						</div>
+
+						<div class="keyboard_row" id="keyboard_row_4">
+							<div class="keyboard_special_button" id="keyboard_button_point" onclick="do_write('.');">.</div>
+							<div class="keyboard_button" id="keyboard_space" onclick="do_write(' ');"></div>
+							<div class="keyboard_special_button" id="keyboard_button_at" onclick="do_write('@');">@</div>
+							<div class="keyboard_special_button" id="keyboard_done" onclick="exit_write_mode();">
+								<img id="keyboard_done_img" src="main/keyboard/img/done.svg">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="screen_container" id="screen_container_frame"></div>
+
+				<div id="buttons_container">
+					<img class="button" id="home_button" src="main/img/home.png" onclick="change_screen('main_menu');">
+					<img class="button" id="back_button" src="main/img/back.png" onclick="go_back();">
+				</div>
+			</div>
+		</div>
+
+		<div class="sidebar" id="right_sidebar">
+			<div id="map_container">
+				<h3>Mapa:</h3>
+				<div id="map">
+					<img id="your_position" src="sidebars/map/img/position.png"></img>
+				</div>
+				<br>
+				Local atual:
+				<select id="map_locations" onchange="change_location();">
+				</select>
+			</div>
+
+			<br />
+			<hr class="sidebar_line" />
+
+			<div>
+				<h3>Controlos do mapa:</h3>
+				WASD / setas: Mover pessoa
+				<br />
+				Manter &lt;Shift&gt; premido: Mover lentamente
+			</div>
+
+			<br />
+			<hr class="sidebar_line" />
+
+			<div>
+				<h3>Dados do iGo:</h3>
+				<button id="save_button" onclick="save();">Guardar</button>
+				<br /><br />
+				Guardar automaticamente:
+				<br />
+				<button id="auto_save_button" onclick="toggle_auto_save();"></button>
+			</div>
+		</div>
+	</body>
+</html>

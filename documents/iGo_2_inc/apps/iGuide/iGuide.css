@@ -1,0 +1,197 @@
+/**************/
+/**************/
+/*** IGUIDE ***/
+/**************/
+/**************/
+
+
+.s_t_c_title{
+	top: 0.5mm;
+	position: relative;
+}
+
+#iGuide_main
+{
+	background-color: #c7c2c2;
+}
+
+#iGuide_body
+{
+	position: relative;
+	width: 5cm;
+	height: 3.5cm;
+	background-color: transparent;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#iGuide_near_you_container
+{
+	position: relative;
+  width: 4.5cm;
+  height: 4.5mm;
+  top: 1mm;
+  left: -2.3mm;
+  padding-top: 0.5mm;
+  padding-left: 0.5cm;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 10pt;
+	color: #181818;
+}
+
+#iGuide_near_you_desc
+{
+	position: relative;
+  width: 4.5cm;
+  height: 4.5mm;
+  top: 0;
+  left: -2.3mm;
+  padding-top: 0.5mm;
+  padding-left: 0.5cm;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 6pt;
+	color: #4b3d3d;
+}
+
+
+#iGuide_places_list
+{
+  position: absolute;
+  top: 24mm;
+  left: -0.2mm;
+  width: 5cm;
+  height: 3cm;
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0;
+  border-bottom-left-radius: 3mm;
+  border-bottom-right-radius: 3mm;
+}
+
+.iGuide_list_item
+{
+	position: relative;
+  width: 4cm;
+  height: 1.3cm;
+  margin: 1mm 0 1mm 0;
+  font-family: Verdana, sans-serif;
+  display: flex;
+  background-color: green;
+  align-items: center;
+  left: 0.25cm;
+  border-radius: 2mm;
+}
+
+.iGuide_list_repr_img
+{
+	position: absolute;
+  width: 4.5cm;
+  height: 1.3cm;
+  border-radius: 2mm;
+}
+
+.iGuide_info_icon
+{
+	position: relative;
+  left: 2.5mm;
+  width: 0.7cm;
+  height: 0.7cm;
+}
+
+.iGuide_list_text
+{
+	    position: relative;
+    width: 2.7cm;
+    top: -2mm;
+    left: 5mm;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 7pt;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.rating_stars
+{
+	position: absolute;
+    top: 6mm;
+    left: 1.19cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 8pt;
+    color: whitesmoke;
+}
+
+.iGuide_compass
+{
+	    position: absolute;
+    width: 1cm;
+    height: 1cm;
+    right: -6mm;
+    top: 72%;
+    transform: translateY(-50%);
+    font-size: 6pt;
+    font-weight: bold;
+}
+
+.iGuide_compass_orientation
+{
+	position: absolute;
+    left: 1.3mm;
+    top: 3mm;
+    font-weight: bold;
+    color: whitesmoke;
+    font-size: 5.5pt;
+}
+
+.iGuide_compass_arrow
+{
+	    position: absolute;
+    width: 2.5mm;
+    right: 2mm;
+    top: 2.7mm;
+}
+
+.iGuide_compass_distance
+{
+	position: absolute;
+    left: 1.2mm;
+    bottom: 2mm;
+    color: whitesmoke;
+    font-size: 5.5pt;
+}
+
+#iGuide_places_filter{
+	position: relative;
+    list-style: none;
+    width: 3.53cm;
+    margin: 0;
+    padding-left: 0;
+    top: 5mm;
+    left: 0.7cm;
+    border: 0.3mm solid #4d4a4a;
+    border-radius: 1mm;
+    height: 0.7cm;
+    z-index: 0;
+    background-color: #858383;
+}
+
+.iguide_filter_img{
+	height: 0.5cm;
+    width: 0.5cm;
+    top: 1mm;
+    position: relative;
+}
+
+#filter_park, #filter_shop, #filter_museum, #filter_monument{
+	float: left;
+    padding-right: 1.9mm;
+    padding-left: 1.9mm;
+    /* top: 1mm; */
+    height: 0.7cm;
+    position: relative;
+    /* background-color: #b2a2a2; */
+    width: 5mm;
+}

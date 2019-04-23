@@ -1,0 +1,74 @@
+/************
+ * Sidebars *
+ ************/
+
+.sidebar
+{
+	position: fixed;
+	width: 5cm;
+	height: 100%;
+	background-image: linear-gradient(to right bottom, #1c2ff0, #004dec, #2262e3, #4374d6, #6284c6, #6284c6, #6284c6, #6284c6, #4374d6, #2262e3, #004dec, #1c2ff0);
+	text-align: center;
+}
+
+.sidebar div
+{
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.sidebar_line
+{
+	width: 80%;
+	height: 1px;
+	background-color: black;
+	border: none;
+}
+
+/* Left sidebar */
+
+#left_sidebar
+{
+	width: 5cm;
+	background-image: linear-gradient(to right bottom, #1c2ff0, #004dec, #2262e3, #4374d6, #6284c6, #6284c6, #6284c6, #6284c6, #4374d6, #2262e3, #004dec, #1c2ff0);
+}
+
+#ppi_container, #ppi_button_resize, #ppi_button_reset, #ppi_add_card, #ppi_add_paypal
+{
+	margin-top: 0.5cm;
+}
+
+#ppi_input
+{
+	margin-top: 0.2cm;
+}
+
+/* Right sidebar */
+
+#right_sidebar
+{
+	right: 0;
+	width: 10cm;
+	background-image: linear-gradient(to right bottom, #f29d1a, #f5b01f, #f6c228, #f6d535, #f5e744, #f5e744, #f5e744, #f5e744, #f6d535, #f6c228, #f5b01f, #f29d1a);
+}
+
+#map
+{
+	position: relative;
+	display: inline-block;
+	width: 8cm;
+	height: 6cm;
+	background-color: lightgray;
+}
+
+#your_position
+{
+	position: absolute;
+	width: 5mm;
+	height: 5mm;
+	z-index: 1;
+}
+
+.map_place_img
+{
+	z-index: 0;
+}
