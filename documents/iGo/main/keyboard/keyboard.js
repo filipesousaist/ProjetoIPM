@@ -35,6 +35,14 @@ function do_write(w)
 	document.getElementById(current_input_id).value += w;
 }
 
+function do_delete()
+{
+	let input = document.getElementById(current_input_id);
+
+	if (input.value.length > 0)
+		input.value = input.value.substring(0, input.value.length - 1);
+}
+
 function change_keyboard_case()
 {
 	let all_keys = document.querySelectorAll(".keyboard_button");

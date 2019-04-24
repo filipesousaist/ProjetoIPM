@@ -77,9 +77,9 @@ function payment_form(id)
 		document.getElementById(id).style.animation = "increase_size 1s";
 		document.getElementById(id).style.height = "4.1cm";
 		if (id == "add_payment_list_paypal")
-			fadein('add_payment_form_paypal',1.5);
+			fadein('add_payment_form_paypal', 1.5);
 		else
-			fadein('add_payment_form_card',1.5);
+			fadein('add_payment_form_card', 1.5);
 	}
 }
 
@@ -107,13 +107,13 @@ function complete_payment()
 
 	setTimeout(function()
 	{
-		change_screen("payment_methods");
 		document.getElementById("payment_before").style.opacity = "1";
 		document.getElementById("payment_after").style.opacity = "0";
+		go_back();
 	}, 3000);
-	
-	tickets++;
-	go_back();
+
+	tickets ++;
+	document.getElementById("iGuide_event_ticket_count").innerHTML = tickets;
 }
 
 

@@ -4,7 +4,7 @@
 /*******************/
 /*******************/
 
-#iGuide_info_body
+.iGuide_info_body
 {
 	width: 5cm;
 	height: 3.5cm;
@@ -49,6 +49,7 @@
 	width: calc(100% - 4mm);
 	top: 4.6mm;
 	min-height: 2.22cm;
+	margin-bottom: 2mm;
 	padding-left: 2mm;
 	padding-right: 2mm;
 	overflow-x: hidden;
@@ -60,7 +61,7 @@
 	color: #4b3d3d;
 }
 
-#iGuide_info_footer
+.iGuide_info_header
 {
 	position: absolute;
 	height: 4.6mm;
@@ -73,21 +74,39 @@
 	top: 5.5mm;
 }
 
+.iGuide_info_description_button
+{
+	left: 0;
+}
+
+.iGuide_info_events_button
+{
+	left: calc(100% / 3);
+}
+
+.iGuide_info_gallery_button
+{
+	left: calc(2 * 100% / 3);
+}
+
 .iGuide_info_tab_button
 {
 	position: absolute;
+	width: calc(100% / 3);
   height: 100%;
+	top: 0;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 10px;
-  background-color: rgb(167, 167, 167);
+	color: #5e5e5e;
+  background: rgb(167, 167, 167);
   border: none;
-  color: #5e5e5e;
-}
+	z-index: 1;
 }
 
 .iGuide_info_tab_button:disabled
 {
 	color: black;
+	background-color: rgb(199, 194, 194);
 }
 
 .place_img_bg
@@ -137,105 +156,101 @@
 	position: relative;
 }
 
-.iGuide_event_img{
+.iGuide_event_img
+{
 	position: relative;
-    height: 2.5cm;
-    width: 5cm;
-    left: -2mm;
+  width: 5cm;
 }
 
 #iGuide_event_box
 {
 	position: relative;
-    width: calc(100% - 7mm);
-    left: 1.4mm;
-    padding: 2mm;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 9pt;
-    border: 0.1mm solid #ae9c9c;
-    background: #fefffe;
-    top: -7mm;
-	font-weight: bold;
+  width: calc(100% - 7mm);
 	height: 2cm;
+  left: 1.4mm;
+	top: -3mm;
+  padding: 2mm;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 9pt;
+	font-weight: bold;
+  border: 0.1mm solid #ae9c9c;
+  background: #fefffe;
+
 	border-radius: 1mm;
 }
 
 #iGuide_event_time
 {
 	position: relative;
-    width: calc(100% - 7mm);
-    left: 0.1mm;
-    /* padding: 2mm; */
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 6pt;
-    /* background: #fefffe; */
-    top: 0mm;
-    font-weight: bold;
-    color: #CCCCCC;
+  width: calc(100% - 7mm);
+  left: 0.1mm;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 6pt;
+  top: 0mm;
+  font-weight: bold;
+  color: #AAAAAA;
 }
 
-#iGuide_event_ticket_img{
+#iGuide_event_ticket_img
+{
 	position: relative;
-    height: 0.5cm;
-    width: 0.5cm;
-    top: -7.5mm;
-    left: 30.5mm;
+  height: 0.5cm;
+  width: 0.5cm;
+  top: -7.5mm;
+  left: 30.5mm;
 }
 
-#iGuide_event_ticket_count{
+#iGuide_event_ticket_count
+{
 	position: relative;
-    left: 27mm;
-    top: -2.2mm;
-    color: #4167ff;
-    font-weight: 500;
-    font-size: 14pt;
+  left: 27mm;
+  top: -2.2mm;
+  color: #4167ff;
+  font-weight: 500;
+  font-size: 14pt;
 }
 
 
 #iGuide_event_loc
 {
 	position: relative;
-    width: calc(100% - 7mm);
-    left: 0.1mm;
-    /* padding: 2mm; */
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 6pt;
-    /* background: #fefffe; */
-    top: 1mm;
-    font-weight: bold;
-    color: #4b3d3d;
+  width: calc(100% - 7mm);
+  left: 0.1mm;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 6pt;
+  top: 1mm;
+  font-weight: bold;
+  color: #4b3d3d;
 }
 
-#iGuide_event_price{
+#iGuide_event_price
+{
 	position: relative;
-    top: 3.5mm;
-    left: 4mm;
-    font-weight: 500;
-    color: #4167ff;
-    font-size: 14pt;
-    border-right: 0.3mm solid #CCCCCC;
-    width: 1.74cm;
+  top: 3.5mm;
+  left: 4mm;
+  font-weight: 500;
+  color: #4167ff;
+  font-size: 14pt;
+  border-right: 0.3mm solid #CCCCCC;
+  width: 1.74cm;
 }
 
 #iGuide_event_pay_button
 {
-    position: relative;
-    /* left: 50%; */
-    margin-top: 1mm;
-    margin-bottom: 2mm;
-    padding: 1mm;
-    /* transform: translateX(-50%); */
-    background-color: #44ec5e;
-    border: none;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    font-size: 10px;
-    border-radius: 1mm;
-    width: 4.31cm;
-    left: 1.45mm;
-    top: -7.5mm;
-    border: 0.1mm solid #ae9c9c;
+  position: relative;
+	width: 4.25cm;
+	left: 50%;
+	top: -2mm;
+	transform: translateX(-50%);
+  margin-bottom: 2mm;
+  padding: 1mm;
+	border: 0.1mm solid #ae9c9c;
+	border-radius: 1mm;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+	background-color: #44ec5e;
+  color: black;
 }
 
 #iGuide_info_events_list, #iGuide_info_img_list

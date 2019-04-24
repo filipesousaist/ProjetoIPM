@@ -18,11 +18,6 @@
 #iGuide_body
 {
 	position: relative;
-	width: 5cm;
-	height: 3.5cm;
-	background-color: transparent;
-	overflow-x: hidden;
-	overflow-y: scroll;
 }
 
 #iGuide_near_you_container

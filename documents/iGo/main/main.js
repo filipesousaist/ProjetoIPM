@@ -4,10 +4,14 @@
 /************/
 /************/
 
-// Geral
+// Ligado/desligado
 var power;
+// Ecrãs
 var current_screen;
 var new_screen;
+var going_back = false;
+// Popups
+var popup_ids = [];
 // Relógio
 var clock = {blink: false, timeout: null};
 
@@ -41,8 +45,12 @@ function init()
 function init_screens()
 {
 	for (let s in SCREENS)
+	{
 		if (SCREENS[s].on_init != undefined)
 			SCREENS[s].on_init();
+		if (SCREENS[s].parent_id == "auto")
+			SCREENS[s].current_parent_id = null;
+	}
 }
 
 function init_keyboard_events()
@@ -152,40 +160,88 @@ function turn_off_on()
 	power = !power;
 }
 
-function change_screen(new_screen_id)
-{
-	if (new_screen_id != current_screen.id)
-	{
-		new_screen = SCREENS[new_screen_id];
-
-		if (current_screen.on_exit != undefined)
-			current_screen.on_exit();
-		global_on_exit();
-
-		replace_element(current_screen.id, new_screen_id);
-
-		if (new_screen.on_load != undefined)
-			new_screen.on_load();
-		global_on_load();
-
-		current_screen = new_screen;
-	}
-}
-
 function replace_element(old_id, new_id)
 {
-	if (new_id != "error_screen" && old_id != null)
+	if (old_id != null)
 		document.getElementById(old_id).style.display = "none";
 
 	if (new_id != null)
 		document.getElementById(new_id).style.display = "block";
 }
 
+function change_screen(new_screen_id)
+{
+	if (power && new_screen_id != current_screen.id)
+	{
+		new_screen = SCREENS[new_screen_id];
+
+		if (going_back)
+		{
+			if (current_screen.on_exit != undefined)
+				current_screen.on_exit();
+			global_on_exit();
+		}
+
+		replace_element(current_screen.id, new_screen_id);
+
+		if (! going_back)
+		{
+			if (new_screen.on_load != undefined)
+				new_screen.on_load();
+			global_on_load();
+		}
+
+		if (new_screen.parent_id == "auto" && new_screen.current_parent_id == null)
+			new_screen.current_parent_id = current_screen.id;
+
+		current_screen = new_screen;
+	}
+}
+
+function display_popup(popup_id)
+{
+	popup_ids.push(popup_id);
+	POPUPS[popup_id].on_load();
+	document.getElementById(popup_id).style.display = "block";
+}
+
+function hide_popup()
+{
+	let popup_id = popup_ids.pop();
+	POPUPS[popup_id].on_exit();
+	document.getElementById(popup_id).style.display = "none";
+}
+
+
 function go_back()
 {
-	var parent_screen_id = current_screen.parent_id;
-	if (parent_screen_id != undefined)
-		change_screen(parent_screen_id);
+	if (power)
+	{
+		going_back = true;
+
+		if (popup_ids.length > 0) // Dá prioridade a fechar popups
+			hide_popup();
+		else // Se não houver popups, vai para o ecrã anterior
+		{
+			if (current_screen.parent_id == "auto")
+			{
+				let current_parent_id = current_screen.current_parent_id;
+				current_screen.current_parent_id = null;
+				change_screen(current_parent_id);
+			}
+			else if (current_screen.parent_id != undefined)
+				change_screen(current_screen.parent_id);
+		}
+
+		going_back = false;
+	}
+}
+
+function home()
+{
+	if (power)
+		while (current_screen.id != "main_menu")
+			go_back();
 }
 
 function fadein(id, seconds)
@@ -237,15 +293,12 @@ function global_on_load()
 
 SCREENS["off"].on_load = function()
 {
-	document.getElementById("home_button").onclick = null;
-	document.getElementById("back_button").onclick = null;
 	document.getElementById("screen_logo_container").style.opacity = 0;
 };
 
-SCREENS["error_screen"].on_load = function()
+POPUPS["error_window"].on_load = function()
 {
-	SCREENS["error_screen"].parent_id = current_screen.id;
-	fadein("error_screen", 0.3);
+	fadein("error_window", 0.3);
 };
 
 /////////////////////
@@ -262,13 +315,7 @@ function global_on_exit()
 		clearInterval(clock.timeout);
 }
 
-SCREENS["off"].on_exit = function()
+POPUPS["error_window"].on_exit = function()
 {
-	document.getElementById("home_button").onclick = function(){ change_screen("main_menu"); }
-	document.getElementById("back_button").onclick = go_back;
-};
-
-SCREENS["error_screen"].on_exit = function()
-{
-	document.getElementById("error_screen").style.animation = "";
+	document.getElementById("error_window").style.animation = "";
 };

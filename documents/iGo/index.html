@@ -88,9 +88,9 @@
 
 						<div id="main_menu_right_container">
 							<img class="main_menu_right_icon" id="apps_icon" src="main/main_menu/img/apps.png" onclick="change_screen('apps');">
-							<img class="main_menu_right_icon" id="location_icon" src="main/main_menu/img/location.png" onclick="change_screen('error_screen');" >
+							<img class="main_menu_right_icon" id="location_icon" src="main/main_menu/img/location.png" onclick="display_popup('error_window');" >
 							<!-- TODO: MyWeb -->
-							<img class="main_menu_right_icon" id="options_icon" src="main/main_menu/img/options.png" onclick="change_screen('error_screen');">
+							<img class="main_menu_right_icon" id="options_icon" src="main/main_menu/img/options.png" onclick="display_popup('error_window');">
 						</div>
 
 					</div>
@@ -138,7 +138,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div id="iGuide_body">
+						<div class="screen_body" id="iGuide_body">
 							<div id="iGuide_near_you_container">Perto de si...</div>
 							<div id="iGuide_near_you_desc">
 								Veja todos os pontos de interesse próximos de si ou então use filtros baseando-se
@@ -173,7 +173,12 @@
 							</div>
 						</div>
 
-						<div id="iGuide_info_body">
+						<div class="screen_body">
+							<div class="iGuide_info_header">
+								<button class="iGuide_info_tab_button iGuide_info_description_button" onclick="iGuide_info_change_tab('iGuide_info_description');">Descrição</button>
+								<button class="iGuide_info_tab_button iGuide_info_events_button" onclick="iGuide_info_change_tab('iGuide_info_events');">Eventos</button>
+								<button class="iGuide_info_tab_button iGuide_info_gallery_button" onclick="iGuide_info_change_tab('iGuide_info_gallery');">Galeria</button>
+							</div>
 							<div id="iGuide_info_top">
 								<img id="iGuide_info_place_icon"/> <!-- "src" da img varia consoante o ecrã -->
 								<div id="iGuide_info_place_name"></div>
@@ -187,29 +192,44 @@
 								<ul id="iGuide_info_events_list"></ul>
 							</div>
 
-							<div class="iGuide_info_container" id="iGuide_event_info">
-								<div id="iGuide_event_img_container"></div>
-								<div id="iGuide_event_body">
-									<div id="iGuide_event_box">
-										<div id="iGuide_event_title"></div>
-										<div id="iGuide_event_time"></div>
-										<div id="iGuide_event_loc"></div>
-										<div id="iGuide_event_price"></div>
-										<div id="iGuide_event_ticket_count"></div>
-										<img id="iGuide_event_ticket_img" src="apps/iGuide/img/events_img/ticket.svg">
-									</div>
-								</div>
-								<button id="iGuide_event_pay_button" onclick="change_screen('payment_methods');"></button>
-							</div>
-
 							<div class="iGuide_info_container" id="iGuide_info_gallery">
-								<!-- Lista de lojas -->
+								<!-- Lista de imagens -->
 								<ul id="iGuide_info_img_list"></ul>
 							</div>
 						</div>
-
-						<div id="iGuide_info_footer"></div>
 					</div>
+
+					<div class="screen" id="iGuide_event_info">
+						<div class="screen_title_container">
+							iGuide
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="screen_body">
+							<div class="iGuide_info_header">
+								<button class="iGuide_info_tab_button iGuide_info_description_button" onclick="iGuide_info_change_tab('iGuide_info_description');">Descrição</button>
+								<button class="iGuide_info_tab_button iGuide_info_events_button" onclick="iGuide_info_change_tab('iGuide_info_events');" disabled>Eventos</button>
+								<button class="iGuide_info_tab_button iGuide_info_gallery_button" onclick="iGuide_info_change_tab('iGuide_info_gallery');">Galeria</button>
+							</div>
+							<div id="iGuide_event_img_container"></div>
+							<div id="iGuide_event_body">
+								<div id="iGuide_event_box">
+									<div id="iGuide_event_title"></div>
+									<div id="iGuide_event_time"></div>
+									<div id="iGuide_event_loc"></div>
+									<div id="iGuide_event_price"></div>
+									<div id="iGuide_event_ticket_count"></div>
+									<img id="iGuide_event_ticket_img" src="apps/iGuide/img/events_img/ticket.svg">
+								</div>
+							</div>
+							<button id="iGuide_event_pay_button" onclick="change_screen('payment_methods');"></button>
+						</div>
+					</div>
+
+
 
 					<!-- Ecrã principal do iWay -->
 					<div class="screen" id="iWay_main">
@@ -220,6 +240,9 @@
 								<div class="clock_sep"></div>
 								<div class="clock_minutes"></div>
 							</div>
+						</div>
+						<div class="screen_body">
+							<!-- TODO: Conteúdos do ecrã do iWay -->
 						</div>
 					</div>
 
@@ -233,7 +256,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div id = "iGroup_main_body">
+						<div class="screen_body" id="iGroup_main_body">
 							<div class="iGroup_mainButton" id="iGroup_createGroup" onclick="change_screen('iGroup_create')">
 								<img class="iGroup_main_icon" src="apps/iGroup/img/plus.png">
 								<div class="iGroup_main_text">Criar Grupo</div>
@@ -255,7 +278,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div class="iGroup_screen_body" id="iGroup_create_body">
+						<div class="screen_body" id="iGroup_create_body">
 							<h2 id="iGroup_create_name">Nome do grupo:</h2>
 							<div class="iGroup_error_message" id="Name_error_message">Insira um nome válido</div>
 							<input id="iGroup_name_value" type="text" name="Name">
@@ -281,7 +304,9 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<ul class="iGroup_list" id="iGroup_group_list"></ul>
+						<div class="screen_body">
+							<ul class="iGroup_list" id="iGroup_group_list"></ul>
+						</div>
 					</div>
 
 					<div class="screen" id="iGroup_group_main">
@@ -293,7 +318,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div id="iGroup_group_main_body">
+						<div class="screen_body" id="iGroup_group_main_body">
 							<ul class="iGroup_list" id="iGroup_group_main_options_list">
 								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addMember")'>Adicionar Membro</li>
 								<li class="iGroup_list_item" onclick='showMembersList()'>Ver Membros</li>
@@ -314,7 +339,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div class="iGroup_screen_body" id="iGroup_group_addMember_body">
+						<div class="screen_body" id="iGroup_group_addMember_body">
 							<h2 id="iGroup_add_member_name">Nome do Membro:</h2>
 							<div class="iGroup_error_message" id="Member_error_message">Esse membro não existe.</div>
 							<input id="iGroup_member_name_value" type="text" name="Name">
@@ -331,7 +356,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div class="iGroup_screen_body" id="iGroup_group_addEvent_body">
+						<div class="screen_body" id="iGroup_group_addEvent_body">
 							<h2 id="iGroup_add_event_name">Nome do Evento:</h2>
 							<input id="iGroup_event_name_value" type="text" name="Name">
 							<hr />
@@ -351,7 +376,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div class="iGroup_screen_body">
+						<div class="screen_body">
 							<ul class="iGroup_list" id="iGroup_group_memberList">
 							</ul>
 						</div>
@@ -366,7 +391,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div class="iGroup_screen_body">
+						<div class="screen_body">
 							<ul class="iGroup_list" id="iGroup_group_eventsList">
 							</ul>
 						</div>
@@ -381,7 +406,7 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div class="iGroup_screen_body">
+						<div class="screen_body">
 							<ul class="iGroup_list" id="iGroup_group_inboxList">
 							</ul>
 						</div>
@@ -397,17 +422,10 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						<div class="iGroup_screen_body">
+						<div class="screen_body">
 							<div id="notificationNameInfo"></div>
 							<div id="notificationTextInfo"></div>
 						</div>
-					</div>
-
-
-					<!-- Ecrã de erro -->
-					<div id="error_screen">
-						<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
-						<button class="error_button" onclick="go_back();">Voltar</button>
 					</div>
 
 					<!-- Ecrã de métodos de pagamento -->
@@ -460,6 +478,7 @@
 						<div id="payment_after">Pagamento Concluído!</div>
 					</div>
 
+					<!-- Teclado -->
 					<div id="keyboard">
 						<div class="keyboard_row" id="keyboard_row_0">
 							<div class="keyboard_button" onclick="do_write('1');">1</div>
@@ -510,7 +529,7 @@
 							<div class="keyboard_button" onclick="do_write('B');">b</div>
 							<div class="keyboard_button" onclick="do_write('N');">n</div>
 							<div class="keyboard_button" onclick="do_write('M');">m</div>
-							<button class="keyboard_special_button" id="keyboard_delete" onclick="do_write('delete');">
+							<button class="keyboard_special_button" id="keyboard_delete" onclick="do_delete();">
 								<img id="keyboard_delete_img" src="main/keyboard/img/delete.svg">
 							</button>
 						</div>
@@ -523,6 +542,12 @@
 								<img id="keyboard_done_img" src="main/keyboard/img/done.svg">
 							</div>
 						</div>
+					</div>
+
+					<!-- Janela de erro -->
+					<div id="error_window">
+						<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
+						<button class="error_button" onclick="go_back();">Voltar</button>
 					</div>
 				</div>
 
