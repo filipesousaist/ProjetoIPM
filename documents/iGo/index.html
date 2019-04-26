@@ -88,7 +88,7 @@
 
 						<div id="main_menu_right_container">
 							<img class="main_menu_right_icon" id="apps_icon" src="main/main_menu/img/apps.png" onclick="change_screen('apps');">
-							<img class="main_menu_right_icon" id="location_icon" src="main/main_menu/img/location.png" onclick="display_popup('error_window');" >
+							<img class="main_menu_right_icon" id="location_icon" src="main/main_menu/img/location.png" onclick="change_screen('location');" >
 							<!-- TODO: MyWeb -->
 							<img class="main_menu_right_icon" id="options_icon" src="main/main_menu/img/options.png" onclick="display_popup('error_window');">
 						</div>
@@ -123,7 +123,19 @@
 					</div>
 
 					<!-- Ecrã da localização -->
-					<div class="screen" id="location"></div>
+					<div class="screen" id="location">
+						<div class="screen_title_container">
+							<div id="location_name_text"></div>
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="screen_body" id="location_screen_body">
+
+						</div>
+					</div>
 
 					<!-- Ecrã das opções -->
 					<div class="screen" id="options"></div>

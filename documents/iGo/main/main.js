@@ -14,6 +14,7 @@ var going_back = false;
 var popup_ids = [];
 // Relógio
 var clock = {blink: false, timeout: null};
+const CLOCK_UPDATE_INTERVAL = 1000; // Milisegundos
 
 ////////////////////
 // Inicializações //
@@ -32,8 +33,7 @@ function init()
 
 	init_screens();
 
-	current_screen = SCREENS["off"];
-	current_screen.on_load();
+
 
 	power = false;
 	turn_off_on();
@@ -51,6 +51,13 @@ function init_screens()
 		if (SCREENS[s].parent_id == "auto")
 			SCREENS[s].current_parent_id = null;
 	}
+
+	// Inicializar ecrã atual
+	current_screen = new_screen = SCREENS["off"];
+	current_screen.on_load();
+
+	// Inicializar relógio
+	setInterval(update_clock, CLOCK_UPDATE_INTERVAL);
 }
 
 function init_keyboard_events()
@@ -177,9 +184,9 @@ function change_screen(new_screen_id)
 
 		if (going_back)
 		{
+			global_on_exit();
 			if (current_screen.on_exit != undefined)
 				current_screen.on_exit();
-			global_on_exit();
 		}
 
 		replace_element(current_screen.id, new_screen_id);
@@ -256,19 +263,28 @@ function fadeout(id, seconds)
 	document.getElementById(id).style.animation = "fade_out " + seconds + "s";
 }
 
-function update_clock(clock_element)
+function update_clock()
 {
-	var date = new Date();
+	let clock_elements_list =
+		document.getElementById(new_screen.id).getElementsByClassName("clock");
 
-	var hours_element = clock_element.getElementsByClassName("clock_hours")[0];
-	var sep_element = clock_element.getElementsByClassName("clock_sep")[0];
-	var minutes_element = clock_element.getElementsByClassName("clock_minutes")[0];
+	if (clock_elements_list.length > 0)
+	{
+		let clock_element = clock_elements_list[0];
+		let hours_element = clock_element.getElementsByClassName("clock_hours")[0];
+		let sep_element = clock_element.getElementsByClassName("clock_sep")[0];
+		let minutes_element = clock_element.getElementsByClassName("clock_minutes")[0];
 
-	hours_element.innerHTML = add0(date.getHours());
-	sep_element.innerHTML = clock.blink ? "&nbsp" : ":";
-	minutes_element.innerHTML = add0(date.getMinutes());
+		let date = new Date();
 
-	clock.blink = ! clock.blink;
+		hours_element.innerHTML = add0(date.getHours());
+		minutes_element.innerHTML = add0(date.getMinutes());
+		if (current_screen == new_screen)
+		{
+			sep_element.innerHTML = clock.blink ? "&nbsp" : ":";
+			clock.blink = ! clock.blink;
+		}		
+	}
 }
 
 
@@ -278,17 +294,7 @@ function update_clock(clock_element)
 
 function global_on_load()
 {
-	// Função que inclui funcionalidades diversas que tenham de ser executadas
-	// sempre na saída (para não sobrecarregar a função change_screen)
-
-	// Atualizar relógio do novo ecrã
-	let clock_elements_list = document.getElementById(new_screen.id).getElementsByClassName("clock");
-	if (clock_elements_list.length > 0)
-	{
-		clock.blink = false;
-		update_clock(clock_elements_list[0]);
-		clock.timeout = setInterval(function(){update_clock(clock_elements_list[0])}, 1000);
-	}
+	update_clock();
 }
 
 SCREENS["off"].on_load = function()
@@ -307,12 +313,7 @@ POPUPS["error_window"].on_load = function()
 
 function global_on_exit()
 {
-	// Função que inclui funcionalidades diversas que tenham de ser executadas
-	// sempre na saída (para não sobrecarregar a função change_screen)
-
-	// Eliminar timeout do relógio, se este ecrã tiver um relógio
-	if (document.getElementById(current_screen.id).getElementsByClassName("clock").length > 0)
-		clearInterval(clock.timeout);
+	update_clock();
 }
 
 POPUPS["error_window"].on_exit = function()

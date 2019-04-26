@@ -21,7 +21,10 @@ function init_locations()
 	let locations_element = document.getElementById("map_locations");
 	for (let l in LOCATIONS)
 		locations_element.innerHTML += "<option value='" + l + "'>" + l + "</option>";
-	locations_element.value = current_location_name;
+
+	// Atualizar localização no mapa e na app Localização
+	document.getElementById("location_name_text").innerHTML =
+		locations_element.value = current_location_name;
 
 	// Inicializar mapa e posições
 	update_map();
@@ -90,8 +93,9 @@ function change_location()
 	let new_location_name = document.getElementById("map_locations").value;
 	if (new_location_name != current_location_name)
 	{
-		current_location_name = new_location_name;
-		update_map();
+		document.getElementById("location_name_text").innerHTML =
+			current_location_name = new_location_name;
+		update_map(); /* Mapa da sidebar */
 		update_location(); /* Menu inicial */
 		iGuide_update_places(); /* iGuide */
 	}
