@@ -117,12 +117,12 @@ function filter_unfilter_place(type)
 	if (filtered_places.includes(type))
 	{
 		filtered_places = arrayRemove(filtered_places, type);
-		document.getElementById(type).src="apps/iGuide/img/place_icons/" + type + "_white.png";
+		document.getElementById(type).src="main/main_menu/apps/location/img/place_icons/" + type + "_white.png";
 	}
 	else
 	{
 		filtered_places.push(type);
-		document.getElementById(type).src="apps/iGuide/img/place_icons/" + type + ".png";
+		document.getElementById(type).src="main/main_menu/apps/location/img/place_icons/" + type + ".png";
 	}
 	iGuide_update_places();
 }

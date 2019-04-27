@@ -84,4 +84,7 @@ function reset_data()
 {
   for (let var_name in DEFAULT)
     localStorage.removeItem(var_name);
+
+  reset();
+  init();
 }

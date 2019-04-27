@@ -100,15 +100,7 @@ function showGroupList()
 	list.innerHTML = "";
 
 	// Ver a que grupos o utilizador pertence
-	let myGroups = [];
-	for (let i = 0; i < iGroup_groups.length; i ++)
-		for (let j = 0; j < iGroup_groups[i].members.length; j ++)
-			if (iGroup_groups[i].members[j].name == current_person_name)
-			{
-				myGroups.push(iGroup_groups[i]);
-				break;
-			}
-
+	let myGroups = getMyGroups();
 	if (myGroups.length == 0)
 	{
 		list.innerHTML = "<h1>Não tens nenhum grupo.</h1>";
@@ -122,6 +114,19 @@ function showGroupList()
 			list.innerHTML += "<li class='iGroup_list_item' onclick=showGroupScreen(\"" +
 				myGroups[i].name + "\");>" + myGroups[i].name + "</li>";
 	change_screen('iGroup_groups');
+}
+
+function getMyGroups()
+{
+	let myGroups = [];
+	for (let i = 0; i < iGroup_groups.length; i ++)
+		for (let j = 0; j < iGroup_groups[i].members.length; j ++)
+			if (iGroup_groups[i].members[j].name == current_person_name)
+			{
+				myGroups.push(iGroup_groups[i]);
+				break;
+			}
+	return myGroups;
 }
 
 function showMembersList()

@@ -9,10 +9,9 @@ const POSITION_UPDATE_INTERVAL = 50; // Milisegundos
 const SPEED_FAST = 15;
 const SPEED_SLOW = 5;
 
-var people; /* SAVE */
-var current_person_name; /* SAVE */
 var current_speed;
 var move_directions;
+var position_interval = null;
 
 
 function init_locations()
@@ -35,7 +34,7 @@ function init_locations()
 		update_map(map_elements[i]);
 
 	update_position();
-	setInterval(update_position, POSITION_UPDATE_INTERVAL);
+	position_interval = setInterval(update_position, POSITION_UPDATE_INTERVAL);
 
 	iGuide_update_places();
 	main_menu_update_location();

@@ -13,7 +13,7 @@ var going_back = false;
 // Popups
 var popup_ids = [];
 // Relógio
-var clock = {blink: false, timeout: null};
+var clock = {blink: false, interval: null};
 const CLOCK_UPDATE_INTERVAL = 1000; // Milisegundos
 
 ////////////////////
@@ -31,10 +31,20 @@ function init()
 	init_ratings();
 	init_screens();
 
-	power = false;
-	turn_off_on();
+	turn_on();
 
 	init_keyboard_events();
+}
+
+function reset()
+{
+	home();
+
+	clearInterval(clock.interval);
+	clearInterval(position_interval);
+	reset_keyboard_events();
+
+	turn_off();
 }
 
 
@@ -55,13 +65,19 @@ function init_screens()
 	current_screen.on_load();
 
 	// Inicializar relógio
-	setInterval(update_clock, CLOCK_UPDATE_INTERVAL);
+	clock.interval = setInterval(update_clock, CLOCK_UPDATE_INTERVAL);
 }
 
 function init_keyboard_events()
 {
 	document.body.addEventListener("keyup", handle_key_up);
 	document.body.addEventListener("keydown", handle_key_down);
+}
+
+function reset_keyboard_events()
+{
+	document.body.removeEventListener("keyup", handle_key_up);
+	document.body.removeEventListener("keydown", handle_key_down);
 }
 
 
@@ -140,7 +156,7 @@ function handle_key_down(e)
 		break;
 
 	case "Shift":
-		current_speed = SPEED_SLOW;
+		map_move_slow();
 		break;
 	}
 }
@@ -152,17 +168,24 @@ function handle_key_down(e)
 
 function turn_off_on()
 {
-	if (power)
-	{
-		document.getElementById("screen_logo_container").style.animation = "";
-		change_screen("off");
-	}
+	if (! power)
+		turn_on();
 	else
-	{
-		document.getElementById("screen_logo_container").style.animation = "fade_in_out 1.5s";
-		setTimeout(function(){change_screen("main_menu");}, 1600);
-	}
-	power = !power;
+		turn_off();
+}
+
+function turn_on()
+{
+	document.getElementById("screen_logo_container").style.animation = "fade_in_out 1.5s";
+	setTimeout(function(){change_screen("main_menu");}, 1600);
+	power = true;
+}
+
+function turn_off()
+{
+	document.getElementById("screen_logo_container").style.animation = "";
+	change_screen("off");
+	power = false;
 }
 
 function replace_element(old_id, new_id)
