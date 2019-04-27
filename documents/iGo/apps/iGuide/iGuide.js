@@ -22,7 +22,7 @@ function init_ratings()
 
 function iGuide_update_places()
 {
-	let places = LOCATIONS[current_location_name].places;
+	let places = LOCATIONS[people[current_person_name].location_name].places;
 
 	// Calcular todas as distâncias, ângulos e orientações
 	let distances = {};
@@ -57,8 +57,8 @@ function iGuide_update_places()
 	{
 		let place = places[sorted_places[i]];
 
-		if(!filtered_places.includes(place.type)){
-
+		if (! filtered_places.includes(place.type))
+		{
 			let orientation = "<div class='iGuide_compass_orientation'>" +
 				orientations[place.name] + "</div>";
 			let arrow = "<image class='iGuide_compass_arrow' src='apps/iGuide/img/arrow_white.png'" +
@@ -70,7 +70,7 @@ function iGuide_update_places()
 			let place_name = "<div class='iGuide_list_text'>" +
 				place.name + "</div>";
 			let place_icon = "<image class='iGuide_info_icon' src='" +
-				PLACE_TYPE_DATA[place.type].img +
+				PLACE_TYPE_DATA[place.type].img_white +
 				"' onclick='iGuide_info_load(\""+ place.name +"\");'></div>";
 
 			let stars = "<div class='rating_stars'>" +
@@ -86,17 +86,19 @@ function iGuide_update_places()
 
 function get_distance(place_name)
 {
-	let place_pos = LOCATIONS[current_location_name].places[place_name].position;
-	let x_diff = place_pos.x - current_position.x;
-	let y_diff = place_pos.y - current_position.y;
+	let person = people[current_person_name];
+	let place_pos = LOCATIONS[person.location_name].places[place_name].position;
+	let x_diff = place_pos.x - person.position.x;
+	let y_diff = place_pos.y - person.position.y;
 	return Math.sqrt(Math.pow(x_diff, 2) + Math.pow(y_diff, 2));
 }
 
 function get_angle(place_name)
 {
-	let place_pos = LOCATIONS[current_location_name].places[place_name].position;
-	let x_diff = place_pos.x - current_position.x;
-	let y_diff = place_pos.y - current_position.y;
+	let person = people[current_person_name];
+	let place_pos = LOCATIONS[person.location_name].places[place_name].position;
+	let x_diff = place_pos.x - person.position.x;
+	let y_diff = place_pos.y - person.position.y;
 	return Math.atan2(-y_diff, x_diff);
 }
 
@@ -124,9 +126,3 @@ function filter_unfilter_place(type)
 	}
 	iGuide_update_places();
 }
-
-/////////////////////
-// Funções on_init //
-/////////////////////
-
-SCREENS["iGuide_main"].on_init = iGuide_update_places;

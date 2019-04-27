@@ -50,25 +50,3 @@
 	width: 10cm;
 	background-image: linear-gradient(to right bottom, #f29d1a, #f5b01f, #f6c228, #f6d535, #f5e744, #f5e744, #f5e744, #f5e744, #f6d535, #f6c228, #f5b01f, #f29d1a);
 }
-
-#map
-{
-	position: relative;
-	display: inline-block;
-	width: 8cm;
-	height: 6cm;
-	background-color: lightgray;
-}
-
-#your_position
-{
-	position: absolute;
-	width: 5mm;
-	height: 5mm;
-	z-index: 1;
-}
-
-.map_place_img
-{
-	z-index: 0;
-}

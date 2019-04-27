@@ -24,16 +24,12 @@ function init()
 {
 	load(); // Obter valores de algumas variáveis globais
 
+	// Inicializar uma série de coisas
 	init_auto_save();
 	init_ppi();
 	init_locations();
 	init_ratings();
-
-	document.getElementById("off").style.display = "block";
-
 	init_screens();
-
-
 
 	power = false;
 	turn_off_on();
@@ -44,6 +40,8 @@ function init()
 
 function init_screens()
 {
+	document.getElementById("off").style.display = "block";
+
 	for (let s in SCREENS)
 	{
 		if (SCREENS[s].on_init != undefined)
@@ -283,7 +281,7 @@ function update_clock()
 		{
 			sep_element.innerHTML = clock.blink ? "&nbsp" : ":";
 			clock.blink = ! clock.blink;
-		}		
+		}
 	}
 }
 

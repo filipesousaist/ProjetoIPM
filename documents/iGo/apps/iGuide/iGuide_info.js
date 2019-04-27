@@ -159,10 +159,8 @@ SCREENS["iGuide_event_info"].on_exit = function()
 
 function iGuide_info_tabs_global_on_exit()
 {
-	let current_button_element =
-		document.getElementById("iGuide_info").getElementsByClassName(
-			iGuide_info_current_tab.id + "_button")[0];
-	current_button_element.disabled = false;
+	document.getElementById("iGuide_info").getElementsByClassName(
+		iGuide_info_current_tab.id + "_button").disabled = false;
 }
 
 IGUIDE_INFO_TABS["iGuide_info_events"].on_exit = function()

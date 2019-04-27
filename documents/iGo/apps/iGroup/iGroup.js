@@ -6,7 +6,6 @@
 
 var iGroup_groups; /* SAVE */
 var current_group;
-var loggedUser = MYWEBMEMBERS["Ambrósio Santos"];
 
 function addMember(member)
 {
@@ -14,26 +13,26 @@ function addMember(member)
 	if (!current_group["members"].includes(member))
 	{
 		current_group["members"].push(member);
-		if (member != loggedUser)
+		if (member.name != current_person.name)
 			current_group["inbox"].push({
 				title: member.name + "foi adicionado.",
-				date: new Date()
+				date: (new Date()).toDateString()
 				});
 		change_screen('iGroup_group_main');
 	}
 }
 
-function requestMember(){
+function requestMember()
+{
 	var member_error = document.getElementById("Member_error_message");
 	var member_name = document.getElementById("iGroup_member_name_value");
-	let member = MYWEBMEMBERS[member_name.value];
+	let member = people[member_name.value];
 	if (member != undefined){
 		member_error.style.visibility="hidden";
 		addMember(member);
 	}
-	else{
+	else
 		member_error.style.visibility="visible";
-	}
 	member_name.value = "";
 }
 
@@ -41,7 +40,6 @@ function addEvent()
 {
 	var event_name = document.getElementById("iGroup_event_name_value");
 	var event_date = document.getElementById("iGroup_event_date_value");
-	alert(typeof event_date.value);
 	var new_event =
 	{
 		name: event_name.value,
@@ -81,7 +79,7 @@ function addGroup()
 			name: group_name.value,
 			location: group_location.value,
 			date: group_date.value,
-			members: [loggedUser],
+			members: [people[current_person_name]],
 			events: [departure],
 			inbox: []
 		};
@@ -100,7 +98,18 @@ function showGroupList()
 {
 	var list = document.getElementById('iGroup_group_list');
 	list.innerHTML = "";
-	if (iGroup_groups.length == 0)
+
+	// Ver a que grupos o utilizador pertence
+	let myGroups = [];
+	for (let i = 0; i < iGroup_groups.length; i ++)
+		for (let j = 0; j < iGroup_groups[i].members.length; j ++)
+			if (iGroup_groups[i].members[j].name == current_person_name)
+			{
+				myGroups.push(iGroup_groups[i]);
+				break;
+			}
+
+	if (myGroups.length == 0)
 	{
 		list.innerHTML = "<h1>Não tens nenhum grupo.</h1>";
 		list.innerHTML += "<div class='iGroup_mainButton' id='iGroup_createGroup'" +
@@ -109,9 +118,9 @@ function showGroupList()
 			"<div class='iGroup_main_text'>Criar Grupo</div></div>";
 	}
 	else
-		for (let i = 0; i < iGroup_groups.length; i++)
+		for (let i = 0; i < myGroups.length; i++)
 			list.innerHTML += "<li class='iGroup_list_item' onclick=showGroupScreen(\"" +
-				iGroup_groups[i].name + "\");>" + iGroup_groups[i].name + "</li>";
+				myGroups[i].name + "\");>" + myGroups[i].name + "</li>";
 	change_screen('iGroup_groups');
 }
 
@@ -119,7 +128,7 @@ function showMembersList()
 {
 	var list = document.getElementById("iGroup_group_memberList");
 	list.innerHTML = "";
-	var membersList = current_group["members"];
+	var membersList = current_group.members;
 	for (let i = 0; i < membersList.length; i ++)
 		list.innerHTML += "<li class='iGroup_list_item'>"+ membersList[i].name + "</li>";
 	change_screen('iGroup_group_main_memberList');

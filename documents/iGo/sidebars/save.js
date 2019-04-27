@@ -13,16 +13,17 @@ var save_interval;
 function save()
 {
   save_var("auto_save", auto_save);
-  save_var("current_location_name", current_location_name);
   save_var("iGroup_groups", iGroup_groups);
-
+  save_var("people", people);
+  save_var("current_person_name", current_person_name);
 }
 
 function load()
 {
   auto_save = load_var("auto_save");
-  current_location_name = load_var("current_location_name");
   iGroup_groups = load_var("iGroup_groups");
+  people = load_var("people");
+  current_person_name = load_var("current_person_name");
 }
 
 function init_auto_save()
@@ -57,8 +58,6 @@ function update_auto_save_button()
     button.style.backgroundColor = "red";
     button.innerHTML = "Desligado";
   }
-
-
 }
 
 

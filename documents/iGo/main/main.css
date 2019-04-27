@@ -255,27 +255,32 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
  * Fade *
  ********/
 
-@keyframes fade_in {
+@keyframes fade_in
+{
 	0% {opacity: 0;}
 	100% {opacity: 1;}
 }
 
-@fade_out {
-	0% {opacity: 1; }
-	100% {opacity: 0; }
+@fade_out
+{
+	0% {opacity: 1;}
+	100% {opacity: 0;}
 }
 
-@keyframes increase_size {
-	0% { height: 1cm; }
-	100% { height: 4.1cm;}
+@keyframes increase_size
+{
+	0% {height: 1cm;}
+	100% {height: 4.1cm;}
 }
 
-@keyframes decrease_size {
-	0% { height: 4.1cm; }
-	100% { height: 1cm;}
+@keyframes decrease_size
+{
+	0% {height: 4.1cm;}
+	100% {height: 1cm;}
 }
 
-@keyframes fade_in_out {
+@keyframes fade_in_out
+{
 	0%,100% {opacity: 0;}
 	50% {opacity: 1;}
 }
@@ -284,19 +289,24 @@ html, body {height: 100%; width: 100%; margin: 0; position: absolute; user-selec
  * Custom scrollbar *
  ********************/
 
-::-webkit-scrollbar {
+::-webkit-scrollbar
+{
   width: 0;
+	height: 0;
 	background: transparent;
 }
 
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track
+{
   box-shadow: inset 0 0 1mm grey;
 }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb
+{
   background: #708090;
 }
 
-::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover
+{
   background: #696969;
 }

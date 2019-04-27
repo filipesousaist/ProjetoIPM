@@ -6,31 +6,33 @@
 		<script src="../../util/util.js"></script>
 		<script src="database.js"></script>
 		<!-- Sidebars -->
-		<link rel="stylesheet" href="sidebars/sidebars.css">
+		<link rel="stylesheet" href="sidebars/sidebars.css" />
 		<script src="sidebars/ppi.js"></script>
-		<script src="sidebars/map/map.js"></script>
 		<script src="sidebars/save.js"></script>
 		<!-- Menu Inicial -->
-		<link rel="stylesheet" href="main/main_menu/main_menu.css">
+		<link rel="stylesheet" href="main/main_menu/main_menu.css" />
 		<script src="main/main_menu/main_menu.js"></script>
+		<!-- Aplicações do Menu Inicial -->
+		<link rel="stylesheet" href="main/main_menu/apps/location/location.css" />
+		<script src="main/main_menu/apps/location/location.js"></script>
 		<!-- Menu das Aplicações -->
-		<link rel="stylesheet" href="apps/apps.css">
+		<link rel="stylesheet" href="apps/apps.css" />
 		<!-- iGuide -->
-		<link rel="stylesheet" href="apps/iGuide/iGuide.css">
+		<link rel="stylesheet" href="apps/iGuide/iGuide.css" />
 		<script src="apps/iGuide/iGuide.js"></script>
-		<link rel="stylesheet" href="apps/iGuide/iGuide_info.css">
+		<link rel="stylesheet" href="apps/iGuide/iGuide_info.css" />
 		<script src="apps/iGuide/iGuide_info.js"></script>
 		<!-- iGroup -->
-		<link rel="stylesheet" href="apps/iGroup/iGroup.css">
+		<link rel="stylesheet" href="apps/iGroup/iGroup.css" />
 		<script src="apps/iGroup/iGroup.js"></script>
 		<!-- Pagamentos -->
-		<link rel="stylesheet" href="main/payments/payments.css">
+		<link rel="stylesheet" href="main/payments/payments.css" />
 		<script src="main/payments/payments.js"></script>
 		<!-- Teclado -->
-		<link rel="stylesheet" href="main/keyboard/keyboard.css">
+		<link rel="stylesheet" href="main/keyboard/keyboard.css" />
 		<script src="main/keyboard/keyboard.js"></script>
 		<!-- Main -->
-		<link rel="stylesheet" href="main/main.css">
+		<link rel="stylesheet" href="main/main.css" />
 		<script src="main/main.js"></script>
 	</head>
 
@@ -133,7 +135,8 @@
 							</div>
 						</div>
 						<div class="screen_body" id="location_screen_body">
-
+							<div class="map" id="location_map">
+							</div>
 						</div>
 					</div>
 
@@ -158,16 +161,16 @@
 							</div>
 							<ul id="iGuide_places_filter">
 								<li id="filter_park">
-									<img class="iguide_filter_img" id="park" src="apps/iGuide/img/place_icons/park_white.png" onclick="filter_unfilter_place('park');">
+									<img class="iguide_filter_img" id="park" src="main/main_menu/apps/location/img/place_icons/park_white.png" onclick="filter_unfilter_place('park');">
 								</li>
 								<li id="filter_shop">
-									<img class="iguide_filter_img" id="shop" src="apps/iGuide/img/place_icons/shop_white.png" onclick="filter_unfilter_place('shop');">
+									<img class="iguide_filter_img" id="shop" src="main/main_menu/apps/location/img/place_icons/shop_white.png" onclick="filter_unfilter_place('shop');">
 								</li>
 								<li id="filter_museum">
-									<img class="iguide_filter_img" id="museum" src="apps/iGuide/img/place_icons/museum_white.png" onclick="filter_unfilter_place('museum');">
+									<img class="iguide_filter_img" id="museum" src="main/main_menu/apps/location/img/place_icons/museum_white.png" onclick="filter_unfilter_place('museum');">
 								</li>
 								<li id="filter_monument">
-									<img class="iguide_filter_img" id="monument" src="apps/iGuide/img/place_icons/monument_white.png" onclick="filter_unfilter_place('monument');">
+									<img class="iguide_filter_img" id="monument" src="main/main_menu/apps/location/img/place_icons/monument_white.png" onclick="filter_unfilter_place('monument');">
 								<li>
 							</ul>
 							<ul id="iGuide_places_list"></ul>
@@ -575,8 +578,7 @@
 		<div class="sidebar" id="right_sidebar">
 			<div id="map_container">
 				<h3>Mapa:</h3>
-				<div id="map">
-					<img id="your_position" src="sidebars/map/img/position.png"></img>
+				<div class="map" id="sidebar_map">
 				</div>
 				<br>
 				Local atual:

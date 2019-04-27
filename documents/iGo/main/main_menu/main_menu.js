@@ -5,15 +5,9 @@
 /*****************/
 
 
-function update_location()
+function main_menu_update_location()
 {
-	document.getElementById("city_name").innerHTML = current_location_name;
-	document.getElementById("degrees").innerHTML = LOCATIONS[current_location_name].temperature + "&deg;";
+	let location_name = people[current_person_name].location_name;
+	document.getElementById("city_name").innerHTML = location_name;
+	document.getElementById("degrees").innerHTML = LOCATIONS[location_name].temperature + "&deg;";
 }
-
-SCREENS["main_menu"].on_init = update_location;
-
-SCREENS["main_menu"].on_exit = function()
-{
-	clearInterval(SCREENS["main_menu"].timeout);
-};

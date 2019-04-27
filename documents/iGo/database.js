@@ -71,8 +71,138 @@ const POPUPS =
 const DEFAULT =
 {
 	"auto_save": true,
-	"current_location_name": "Lisboa",
-	"iGroup_groups": []
+	"iGroup_groups": [],
+	"people":
+	{
+		"Ambrósio Santos":
+		{
+			name: "Ambrósio Santos",
+			id: "Ambrósio_Santos",
+			location_name: "Paris",
+			position: {x: 300, y: 300}
+		},
+
+		"Marc Jelkic":
+		{
+			name: "Marc Jelkic",
+			id: "Marc_Jelkic",
+			location_name: "Paris",
+			position: {x: 900, y:700}
+		},
+
+		"Afonso Vasconcelos":
+		{
+			name: "Afonso Vasconcelos",
+			id: "Afonso_Vasconcelos",
+			location_name: "Lisboa",
+			position: {x: 200, y: 200}
+		},
+
+		"Pedro Moreira":
+		{
+			name: "Pedro Moreira",
+			id: "Pedro_Moreira",
+			location_name: "Lisboa",
+			position: {x: 50, y: 400}
+		},
+
+		"Rodrigo Rosa":
+		{
+			name: "Rodrigo Rosa",
+			id: "Rodrigo_Rosa",
+			location_name: "Lisboa",
+			position: {x: 200, y: 200}
+		},
+
+		"Filipe Sousa":
+		{
+			name: "Filipe Sousa",
+			id: "Filipe_Sousa",
+			location_name: "Lisboa",
+			position: {x: 800, y: 50}
+		},
+
+		"Miguel Mota":
+		{
+			name: "Miguel Mota",
+			id: "Miguel_Mota",
+			location_name: "Lisboa",
+			position: {x: 650, y: 600}
+		},
+
+		"Pedro Leitão":
+		{
+			name: "Pedro Leitão",
+			id: "Pedro_Leitão",
+			location_name: "Paris",
+			position: {x: 500, y: 500}
+		},
+
+		"Tomás Gomes":
+		{
+			name: "Tomás Gomes",
+			id: "Tomás_Gomes",
+			location_name: "Londres",
+			position: {x: 100, y: 400}
+		},
+
+		"André Silva":
+		{
+			name: "André Silva",
+			id: "André_Silva",
+			location_name: "Londres",
+			position: {x: 150, y: 100}
+		},
+
+		"Marta Xavier":
+		{
+			name: "Marta Xavier",
+			id: "Marta_Xavier",
+			location_name: "Londres",
+			position: {x: 650, y: 300}
+		},
+
+		"Carlos Ricardo":
+		{
+			name: "Carlos Ricardo",
+			id: "Carlos_Ricardo",
+			location_name: "Londres",
+			position: {x: 850, y: 700}
+		},
+
+		"João Lopes":
+		{
+			name: "João Lopes",
+			id: "João_Lopes",
+			location_name: "Lisboa",
+			position: {x: 300, y: 500}
+		},
+
+		"Guilherme Carlota":
+		{
+			name: "Guilherme Carlota",
+			id: "Guilherme_Carlota",
+			location_name: "Lisboa",
+			position: {x: 500, y: 450}
+		},
+
+		"Diogo Lobato":
+		{
+			name: "Diogo Lobato",
+			id: "Diogo_Lobato",
+			location_name: "Lisboa",
+			position: {x: 50, y: 650}
+		},
+
+		"Pedro Bicudo":
+		{
+			name: "Pedro Bicudo",
+			id: "Pedro_Bicudo",
+			location_name: "Paris",
+			position: {x: 500, y: 550}
+		}
+	},
+	"current_person_name": "Ambrósio Santos"
 }
 
 const EVENTS =
@@ -249,25 +379,29 @@ const PLACE_TYPE_DATA =
 	"monument":
 	{
 		name: "Monumento",
-		img: "apps/iGuide/img/place_icons/monument_white.png"
+		img: "main/main_menu/apps/location/img/place_icons/monument.png",
+		img_white: "main/main_menu/apps/location/img/place_icons/monument_white.png"
 	},
 
 	"museum":
 	{
 		name: "Museu",
-		img: "apps/iGuide/img/place_icons/museum_white.png"
+		img: "main/main_menu/apps/location/img/place_icons/museum.png",
+		img_white: "main/main_menu/apps/location/img/place_icons/museum_white.png"
 	},
 
 	"shop":
 	{
 		name: "Loja",
-		img: "apps/iGuide/img/place_icons/shop_white.png"
+		img: "main/main_menu/apps/location/img/place_icons/shop.png",
+		img_white: "main/main_menu/apps/location/img/place_icons/shop_white.png"
 	},
 
 	"park":
 	{
 		name: "Jardim",
-		img: "apps/iGuide/img/place_icons/park_white.png"
+		img: "main/main_menu/apps/location/img/place_icons/park.png",
+		img_white: "main/main_menu/apps/location/img/place_icons/park_white.png"
 	}
 }
 
@@ -309,56 +443,11 @@ const PAYMENT =
 	}
 }
 
-const MYWEBMEMBERS =
-{
-	"Ambrósio Santos":
-	{
-		name: "Ambrósio Santos",
-		location: 0,
-	},
-	"Marc Jelkic":
-	{
-		name: "Marc Jelkic",
-		location: 1
-	},
-	"Afonso Vasconcelos":
-	{
-		name: "Afonso Vasconcelos",
-		location: 2
-	},
-	"Pedro Moreira":
-	{
-		name: "Pedro Moreira",
-		location: 3
-	},
-	"Rodrigo Rosa":
-	{
-		name: "Rodrigo Rosa",
-		location: 2
-	},
-	"Filipe Sousa":
-	{
-		name: "Filipe Sousa",
-		location: 4
-	},
-	"Miguel Mota":
-	{
-		name: "Miguel Mota",
-		location: 5
-	},
-	"Pedro Leitão":
-	{
-		name: "Pedro Leitão",
-		location: 6
-	},
-	"Tomás Gomes":
-	{
-		name: "Tomás Gomes",
-		location: 7
-	},
-	"André Silva":
-	{
-		name: "André Silva",
-		location: 8
-	}
-};
+const MAP_PERSON_ICONS =
+[
+	"main/main_menu/apps/location/img/position_purple.png",
+	"main/main_menu/apps/location/img/position_yellow.png",
+	"main/main_menu/apps/location/img/position_red.png",
+	"main/main_menu/apps/location/img/position_blue.png",
+	"main/main_menu/apps/location/img/position_orange.png",
+]
