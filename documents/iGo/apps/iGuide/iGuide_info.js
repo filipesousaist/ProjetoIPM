@@ -12,7 +12,7 @@ var iGuide_info_event_name = null;
 
 function iGuide_info_load(place_name)
 {
-	iGuide_current_place = LOCATIONS[current_location_name].places[place_name];
+	iGuide_current_place = LOCATIONS[people[current_person_name].location_name].places[place_name];
 	change_screen("iGuide_info");
 }
 
@@ -68,7 +68,7 @@ SCREENS["iGuide_info"].on_load = function()
 {
 	// Mostrar ícone e nome do local
 	document.getElementById("iGuide_info_place_icon").src =
-		"apps/iGuide/img/place_icons/" + iGuide_current_place.type + ".png";
+		"main/main_menu/apps/location/img/place_icons/" + iGuide_current_place.type + ".png";
 	document.getElementById("iGuide_info_place_name").innerHTML =
 		iGuide_current_place.name;
 
