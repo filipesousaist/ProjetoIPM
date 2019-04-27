@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="sidebars/sidebars.css" />
 		<script src="sidebars/ppi.js"></script>
 		<script src="sidebars/save.js"></script>
+		<script src="sidebars/user.js"></script>
 		<!-- Menu Inicial -->
 		<link rel="stylesheet" href="main/main_menu/main_menu.css" />
 		<script src="main/main_menu/main_menu.js"></script>
@@ -582,8 +583,7 @@
 				</div>
 				<br>
 				Local atual:
-				<select id="map_locations" onchange="change_location();">
-				</select>
+				<select id="map_locations" onchange="change_location();"></select>
 			</div>
 
 			<br />
@@ -596,6 +596,12 @@
 				Manter &lt;Shift&gt; premido: Mover lentamente
 			</div>
 
+			<br />
+			<hr class="sidebar_line" />
+			<div>
+				<h3>Utilizador:</h3>
+				<select id="select_user" onchange="change_user();"></select>
+			</div>
 			<br />
 			<hr class="sidebar_line" />
 

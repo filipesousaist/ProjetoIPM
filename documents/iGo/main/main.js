@@ -28,6 +28,7 @@ function init()
 	init_auto_save();
 	init_ppi();
 	init_locations();
+	init_user();
 	init_ratings();
 	init_screens();
 
@@ -36,7 +37,7 @@ function init()
 	init_keyboard_events();
 }
 
-function reset()
+function exit()
 {
 	home();
 
@@ -45,6 +46,12 @@ function reset()
 	reset_keyboard_events();
 
 	turn_off();
+}
+
+function reload()
+{
+	exit();
+	init();
 }
 
 

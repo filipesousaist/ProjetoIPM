@@ -13,12 +13,14 @@ function addMember(member)
 	if (!current_group["members"].includes(member))
 	{
 		current_group["members"].push(member);
-		if (member.name != current_person.name)
+		if (member.name != current_person_name)
 			current_group["inbox"].push({
 				title: member.name + "foi adicionado.",
 				date: (new Date()).toDateString()
 				});
 		change_screen('iGroup_group_main');
+
+		update_maps();
 	}
 }
 
@@ -150,6 +152,16 @@ function showGroupScreen(groupName){
 	change_screen('iGroup_group_main');
 }
 
+function findGroupIndex(groups, user_name)
+{
+	let i = 0;
+	for (; i < groups.length; i ++)
+		for (let j = 0; j < groups[i].members.length; j ++)
+			if (groups[i].members[j].name == user_name)
+				return i;
+	return -1;
+}
+
 function showEventsList()
 {
 	var list = document.getElementById("iGroup_group_eventsList");
@@ -160,8 +172,6 @@ function showEventsList()
 			" - " + eventsList[i].date + "</li>";
 	change_screen('iGroup_group_main_eventsList');
 }
-
-
 
 function showInbox()
 {

@@ -18,6 +18,7 @@ function init_locations()
 {
 	// Adicionar localizações à lista
 	let locations_element = document.getElementById("map_locations");
+	locations_element.innerHTML = "";
 	for (let l in LOCATIONS)
 		locations_element.innerHTML += "<option value='" + l + "'>" + l + "</option>";
 
@@ -29,9 +30,7 @@ function init_locations()
 	current_speed = SPEED_FAST;
 	move_directions = {up: false, left: false, down: false, right: false};
 
-	let map_elements = document.getElementsByClassName("map");
-	for (let i = 0; i < map_elements.length; i ++)
-		update_map(map_elements[i]);
+	update_maps();
 
 	update_position();
 	position_interval = setInterval(update_position, POSITION_UPDATE_INTERVAL);
@@ -102,8 +101,7 @@ function change_location()
 	{
 		document.getElementById("location_name_text").innerHTML =
 			people[current_person_name].location_name = new_location_name;
-		update_map(document.getElementById("sidebar_map")); /* Mapa da sidebar */
-		update_map(document.getElementById("location_map")); /* Mapa da app Localização */
+		update_maps();
 		main_menu_update_location(); /* Menu inicial */
 		iGuide_update_places(); /* iGuide */
 	}
@@ -129,20 +127,39 @@ function update_map(map_element)
 		location_img.style.top = pixel_coords.y;
 	}
 
+	let my_groups = getMyGroups();
+
 	for (let person_name in people)
-		if (people[person_name].location_name == current_location_name)
+	{
+		let group_index = findGroupIndex(my_groups, person_name);
+		if (person_name == current_person_name ||
+			(group_index != -1 && people[person_name].location_name == current_location_name))
 		{
 			let person_img = document.createElement("img");
 			map_element.appendChild(person_img);
-			person_img.src = "main/main_menu/apps/location/img/position.png";
 			person_img.classList.add("your_position");
 			person_img.classList.add("position_" + people[person_name].id); // Adicionar uma classe com o nome da pessoa
 			let pixel_coords = map_to_pixel_coords(map_element, person_img, people[person_name].position);
 			person_img.style.left = pixel_coords.x;
 			person_img.style.top = pixel_coords.y;
+
 			if (person_name == current_person_name)
+			{
 				person_img.style.width = person_img.style.height = "5mm";
+				person_img.src = "main/main_menu/apps/location/img/position.png";
+			}
+			else
+				person_img.src = MAP_PERSON_ICONS[group_index];
 		}
+	}
+}
+
+function update_maps()
+{
+	let map_elements = document.getElementsByClassName("map");
+
+	for (let i = 0; i < map_elements.length; i ++)
+		update_map(map_elements[i]);
 }
 
 function map_to_pixel_coords(map_element, element, map_coords)

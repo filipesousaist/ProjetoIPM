@@ -9,8 +9,8 @@ function init_ppi()
 	let ppi = localStorage.getItem("ppi");
 
 	if (ppi == undefined)
-		localStorage.setItem("ppi", -1);
-	else if (ppi != -1)
+		localStorage.setItem("ppi", "");
+	else if (ppi != "")
 	{
 		document.getElementById("ppi_input").value = ppi;
 		document.getElementById("iGo").style.zoom = ppi / (96 * window.devicePixelRatio);

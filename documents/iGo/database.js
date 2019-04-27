@@ -446,7 +446,7 @@ const PAYMENT =
 const MAP_PERSON_ICONS =
 [
 	"main/main_menu/apps/location/img/position_purple.png",
-	"main/main_menu/apps/location/img/position_yellow.png",
+	"main/main_menu/apps/location/img/position_brown.png",
 	"main/main_menu/apps/location/img/position_red.png",
 	"main/main_menu/apps/location/img/position_blue.png",
 	"main/main_menu/apps/location/img/position_orange.png",
