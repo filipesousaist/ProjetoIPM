@@ -352,28 +352,28 @@
 								<li class="iGroup_list_item iGroup_add_button" onclick='change_screen("iGroup_group_addMember")'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/member.png">
 									<img class="iGroup_list_item_plus" src="apps/iGroup/img/plusgreen.png">
-									Adicionar Membro
+									<div class="igroup_list_name" >Adicionar Membro</div>
 								</li>
 								<li class="iGroup_list_item iGroup_show_button" onclick='showMembersList()'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/member.png">
-									Ver Membros
+									<div class="igroup_list_name" >Ver Membros</div>
 								</li>
 								<li class="iGroup_list_item iGroup_add_button" onclick='change_screen("iGroup_group_addEvent")'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/event.png">
 									<img class="iGroup_list_item_plus" src="apps/iGroup/img/plusgreen.png">
-									Adicionar Evento
+									<div class="igroup_list_name" >Adicionar Evento</div>
 								</li>
 								<li class="iGroup_list_item iGroup_show_button" onclick='showEventsList()'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/event.png">
-									Ver Eventos
+									<div class="igroup_list_name" >Ver Eventos</div>
 								</li>
 								<li class="iGroup_list_item iGroup_show_button" onclick='showInbox();'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/messageicon.png">
-									Ver notificações
+									<div class="igroup_list_name" >Ver notificações</div>
 								</li>
 								<li class="iGroup_list_item iGroup_remove_button" onclick='exitGroup();'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/exit.png">
-									Sair do grupo
+									<div class="igroup_list_name" >Sair do grupo</div>
 								</li>
 							</ul>
 						</div>
@@ -426,6 +426,7 @@
 							</div>
 						</div>
 						<div class="screen_body">
+							<div class="iGroup_title_container" id="igroup_title_members_name"></div>						
 							<ul class="iGroup_list" id="iGroup_group_memberList">
 							</ul>
 						</div>
@@ -441,6 +442,7 @@
 							</div>
 						</div>
 						<div class="screen_body">
+							<div class="iGroup_title_container" id="igroup_title_event_name"></div>
 							<ul class="iGroup_list" id="iGroup_group_eventsList">
 							</ul>
 						</div>
@@ -456,6 +458,8 @@
 							</div>
 						</div>
 						<div class="screen_body">
+							<div class="iGroup_title_container" id="igroup_title_not_name"></div>
+							<div id="iGroup_not_empty" style="display:hidden;" >Não existem notificações neste momento.</div>
 							<ul class="iGroup_list" id="iGroup_group_inboxList">
 							</ul>
 						</div>
@@ -472,6 +476,8 @@
 							</div>
 						</div>
 						<div class="screen_body">
+							<!-- ui -->
+							
 							<div id="notificationNameInfo"></div>
 							<div id="notificationTextInfo"></div>
 						</div>

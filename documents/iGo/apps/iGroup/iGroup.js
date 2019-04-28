@@ -174,6 +174,9 @@ function showGroupScreen(groupName){
 			break;
 		}
 	}
+	
+	document.getElementById("igroup_title_group_name").innerHTML = "Grupo " + groupName + " - Menu";
+	
 	change_screen('iGroup_group_main');
 }
 
@@ -195,6 +198,7 @@ function showEventsList()
 	for (let i = 0; i < eventsList.length; i++)
 		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
 		"</div><div class='iGroup_date' style='right:-5.5mm'>" + convertoDate(eventsList[i].date) + "</div></li>";
+	
 	change_screen('iGroup_group_main_eventsList');
 }
 
@@ -208,6 +212,7 @@ function showInbox()
 		"</div><div class='iGroup_date'>" + inbox[i].day + "/" + inbox[i].month + "/" + inbox[i].year +
 		"</div></li>";
 	}
+		
 	change_screen('iGroup_group_inbox');
 }
 
@@ -248,4 +253,33 @@ SCREENS["iGroup_create"].on_exit = function()
 	document.getElementById("iGroup_name_value").value = "";
 	document.getElementById("iGroup_location_value").value = "";
 	document.getElementById("iGroup_date_value").value = "";
+}
+
+SCREENS["iGroup_group_inbox"].on_exit = function()
+{
+	document.getElementById("iGroup_not_empty").style.display = "hidden";
+}
+
+
+/**************/
+/**************/
+/** ON_LOAD ***/
+/**************/
+/**************/
+
+SCREENS["iGroup_group_inbox"].on_load = function()
+{
+	document.getElementById("igroup_title_not_name").innerHTML = "Grupo " + current_group.name + " - Notificações";
+	
+	if(current_group["inbox"].length == 0) document.getElementById("iGroup_not_empty").style.display = "block";
+}
+
+SCREENS['iGroup_group_main_eventsList'].on_load = function()
+{
+	document.getElementById("igroup_title_event_name").innerHTML = "Grupo " + current_group.name + " - Eventos";
+}
+
+SCREENS['iGroup_group_main_memberList'].on_load = function()
+{
+	document.getElementById("igroup_title_members_name").innerHTML = "Grupo " + current_group.name + " - Membros";
 }

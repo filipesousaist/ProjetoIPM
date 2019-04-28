@@ -96,7 +96,8 @@
 
 .iGroup_list
 {
-  top: 6mm;
+  position: relative;
+  top: 2mm;
   left: -0.2mm;
   width: 5cm;
   margin-top: 1.5mm;
@@ -123,21 +124,22 @@
 
 .iGroup_list_item_icon
 {
-	position: relative;
-	height: 0.5cm;
-	width: 0.5cm;
-	padding-right: 1mm;
-	display: block;
+	position: absolute;
+    height: 0.5cm;
+    width: 0.5cm;
+    padding-right: 1mm;
+    display: block;
 }
 
 .iGroup_list_item_plus
 {
-	position: relative;
-	height: 0.25cm;
-	width: 0.25cm;
-	bottom: -1mm;
-	left: -3mm;
-	z-index: 1;
+	position: absolute;
+    height: 0.25cm;
+    width: 0.25cm;
+    bottom: 2mm;
+    left: 6mm;
+    border: 0.15mm solid black;
+    border-radius: 50%;
 }
 
 .iGroup_date
@@ -259,4 +261,18 @@
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 6pt;
     color: #4b3d3d;
+}
+
+.igroup_list_name{
+	position: relative;
+    left: 0.8cm;
+    font-size: 9pt;
+}
+
+#iGroup_not_empty{
+	text-align: center;
+    font-size: 9pt;
+    top: 8mm;
+    position: relative;
+    opacity: 0.5;
 }
