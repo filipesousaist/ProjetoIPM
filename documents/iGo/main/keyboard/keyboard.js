@@ -8,7 +8,7 @@ var upper_on = false;
 var current_input_id;
 
 function write_mode(id)
-{
+{	
 	current_input_id = id;
 	document.getElementById("keyboard").style.display = "block";
 	document.getElementById("back_button").onclick = exit_write_mode;

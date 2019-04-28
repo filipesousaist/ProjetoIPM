@@ -14,9 +14,13 @@ function addMember(member)
 	{
 		current_group["members"].push(member);
 		if (member.name != current_person_name)
+			var eventDate = new Date();
 			current_group["inbox"].push({
-				title: member.name + "foi adicionado.",
-				date: (new Date()).toDateString()
+				title: member.name + " foi adicionado.",
+				day: eventDate.getDate(),
+				month: eventDate.getMonth(),
+				year: eventDate.getFullYear(),
+				new: 1,
 				});
 		change_screen('iGroup_group_main');
 
@@ -49,10 +53,14 @@ function addEvent()
 	};
 	var eventsList = current_group["events"];
 	eventsList.push(new_event);
+	var eventDate = new Date();
 	var notification =
 	{
 		title: "Evento " + new_event.name + " adicionado.",
-		date: (new Date()).toDateString()
+		day: eventDate.getDate(),
+		month: eventDate.getMonth(),
+		year: eventDate.getFullYear(),
+		new: 1,
 	};
 	current_group["inbox"].push(notification);
 	event_name.value = "";
@@ -91,10 +99,27 @@ function addGroup()
 	name_error.style.visibility = (group_name.value == "" ? "visible" : "hidden");
 	location_error.style.visibility = (group_location.value == "" ? "visible" : "hidden");
 	date_error.style.visibility = (group_date.value == "" ? "visible" : "hidden");
-	group_name.value = "";
-	group_date.value = "";
-	group_location.value = "";
+	group_name.value = (name_error.style.visibility == "visible" ? "" : group_name.value);
+	group_date.value = (date_error.style.visibility == "visible" ? "" : group_date.value);
+	group_location.value = (location_error.style.visibility == "visible" ? "" : group_location.value);
 }
+
+function exitGroup()
+{
+	for(let i = 0; i < iGroup_groups.length; i++){
+		if(iGroup_groups[i].name = current_group.name){
+			iGroup_groups[i].members = removeObjectArray(current_group.members, people[current_person_name]);
+		}
+	} 
+	showGroupList();
+}
+
+function removeObjectArray(list, value){
+	return list.filter(function(element){
+		return element.name != value.name;
+	});
+}
+
 
 function showGroupList()
 {
@@ -105,8 +130,8 @@ function showGroupList()
 	let myGroups = getMyGroups();
 	if (myGroups.length == 0)
 	{
-		list.innerHTML = "<h1>Não tens nenhum grupo.</h1>";
-		list.innerHTML += "<div class='iGroup_mainButton' id='iGroup_createGroup'" +
+		list.innerHTML = "<h1>Não está em nenhum grupo.</h1>";
+		list.innerHTML += "<div class='iGroup_mainButton' id='iGroup_createGroup' style='top:0.7cm;'" +
 			"onclick='change_screen(\"iGroup_create\")'>" +
 			"<img class='iGroup_main_icon' src='apps/iGroup/img/plus.png'>" +
 			"<div class='iGroup_main_text'>Criar Grupo</div></div>";
@@ -178,8 +203,29 @@ function showInbox()
 	var list = document.getElementById("iGroup_group_inboxList");
 	list.innerHTML = "";
 	var inbox = current_group["inbox"];
-	for (let i = inbox.length - 1; i >= 0; i --)
-		list.innerHTML += "<li class='iGroup_list_item'>"+ inbox[i].title +
-			" - " + inbox[i].date + "</li>";
+	for (let i = inbox.length - 1; i >= 0; i --){
+		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title + 
+		"</div><div class='iGroup_date'>" + inbox[i].day + "/" + inbox[i].month + "/" + inbox[i].year + 
+		"</div></li>";
+	}
 	change_screen('iGroup_group_inbox');
 }
+
+
+/**************/
+/**************/
+/** ON_EXIT ***/
+/**************/
+/**************/
+
+SCREENS["iGroup_create"].on_exit = function()
+{
+	document.getElementById("Name_error_message").style.visibility = "hidden";
+	document.getElementById("Location_error_message").style.visibility = "hidden";
+	document.getElementById("Date_error_message").style.visibility = "hidden";
+	
+	document.getElementById("iGroup_name_value").value = "";
+	document.getElementById("iGroup_location_value").value = "";
+	document.getElementById("iGroup_date_value").value = "";
+}
+
