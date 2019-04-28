@@ -65,7 +65,8 @@ const SCREENS =
 
 const POPUPS =
 {
-	"error_window": {id: "error_window"}
+	"error_window": {id: "error_window"},
+	"keyboard": {id: "keyboard"}
 }
 
 const DEFAULT =
