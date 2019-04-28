@@ -20,25 +20,25 @@
 .iGroup_screen h2
 {
 	font-size: 7pt;
-    padding-left: 5.5mm;
-    margin-top: -8mm;
-    top: 11.6mm;
-    position: relative;
-    padding-top: 5mm;
-    font-family: Tahoma, Geneva, sans-serif;
-    color: #000000;
-    font-weight: lighter;
+  padding-left: 5.5mm;
+  margin-top: -8mm;
+  top: 11.6mm;
+  position: relative;
+  padding-top: 5mm;
+  font-family: Tahoma, Geneva, sans-serif;
+  color: #000000;
+  font-weight: lighter;
 }
 
 .iGroup_screen input
 {
 	margin-left: 0.5mm;
-    border-radius: 2mm;
-    border: 0.2mm solid grey;
-    width: 4cm;
-    margin-left: 5mm;
-    top: 6mm;
-    position: relative;
+  border-radius: 2mm;
+  border: 0.2mm solid grey;
+  width: 4cm;
+  margin-left: 5mm;
+  top: 6mm;
+  position: relative;
 }
 
 .iGroup_screen button
@@ -133,8 +133,8 @@
 .iGroup_list_item_plus
 {
 	position: relative;
-	height: 0.25cm;
-	width: 0.25cm;
+	height: 0.3cm;
+	width: 0.3cm;
 	bottom: -1mm;
 	left: -3mm;
 	z-index: 1;
@@ -145,6 +145,21 @@
 	font-size: 9px;
 	position: relative;
 	right: -6.5mm;
+}
+
+.iGroup_year_input
+{
+	width: 1cm;
+}
+
+.iGroup_month_input
+{
+	width: 8mm;
+}
+
+.iGroup_day_input
+{
+	width: 6mm;
 }
 
 .iGroup_inbox_title
