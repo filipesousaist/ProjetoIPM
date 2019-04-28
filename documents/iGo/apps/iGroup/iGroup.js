@@ -96,6 +96,23 @@ function addGroup()
 	group_location.value = "";
 }
 
+function exitGroup()
+{
+	for(let i = 0; i < iGroup_groups.length; i++){
+		if(iGroup_groups[i].name = current_group.name){
+			iGroup_groups[i].members = removeObjectArray(current_group.members, people[current_person_name]);
+		}
+	} 
+	showGroupList();
+}
+
+function removeObjectArray(list, value){
+	return list.filter(function(element){
+		return element.name != value.name;
+	});
+}
+
+
 function showGroupList()
 {
 	var list = document.getElementById('iGroup_group_list');
