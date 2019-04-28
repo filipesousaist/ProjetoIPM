@@ -273,7 +273,7 @@
 							</div>
 						</div>
 						<div class="screen_body" id="iGroup_main_body">
-							<div id="iGuide_near_you_container">Não se perca!</div>
+							<div id="iGroup_title_container_princ">Não se perca!</div>
 							<div id="iGuide_near_you_desc">
 								Crie um grupo com os seus companheiros de viagem e esteja sempre conectado aos mesmos.
 							</div>
@@ -298,15 +298,20 @@
 							</div>
 						</div>
 						<div class="screen_body" id="iGroup_create_body">
-							<h2 id="iGroup_create_name" style="top: 5.4mm">Nome do grupo</h2>
+							
+							<div class='iGroup_title_container'>Criar grupo</div>
+							<div id="iGroup_form_desc">
+								Preencha corretamente todos os campos abaixo. No menu de grupo terá a oportunidade de adicionar membros/eventos e ver notificações do grupo.
+							</div>
+							<h2 id="iGroup_create_name">Nome do grupo</h2>
 							<div class="iGroup_error_message" id="Name_error_message">Nome inválido!</div>
 							<input class ="igroup_form" id="iGroup_name_value" type="text" name="Name" onclick="write_mode('iGroup_name_value');">
 
-							<h2 id="iGroup_create_location" style="top: 5.4mm">Destino</h2>
+							<h2 id="iGroup_create_location">Destino</h2>
 							<div class="iGroup_error_message" id="Location_error_message">Localização inválida!</div>
 							<input class ="igroup_form" id="iGroup_location_value" type="text" name="Location" onclick="write_mode('iGroup_location_value');">
 
-							<h2 id="iGroup_create_date" style="top: 5.4mm">Data de Partida</h2>
+							<h2 id="iGroup_create_date">Data de Partida</h2>
 							<div class="iGroup_error_message" id="Date_error_message">Data inválida!</div>
 							<input class ="igroup_form" id="iGroup_date_value" type="date" name="Date" onclick="write_mode('iGroup_date_value');">
 
@@ -324,6 +329,7 @@
 							</div>
 						</div>
 						<div class="screen_body">
+							<div class='iGroup_title_container'>Os meus grupos</div>
 							<ul class="iGroup_list" id="iGroup_group_list"></ul>
 						</div>
 					</div>

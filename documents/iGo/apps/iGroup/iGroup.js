@@ -129,9 +129,10 @@ function showGroupList()
 	// Ver a que grupos o utilizador pertence
 	let myGroups = getMyGroups();
 	if (myGroups.length == 0)
-	{
-		list.innerHTML = "<h1>Não está em nenhum grupo.</h1>";
-		list.innerHTML += "<div class='iGroup_mainButton' id='iGroup_createGroup' style='top:0.7cm;'" +
+	{	
+
+		list.innerHTML += "<h1>Sem grupo(s).</h1>";
+		list.innerHTML += "<div class='iGroup_mainButton' id='iGroup_createGroup' style='top:0.7cm;background-color:limegreen;'" +
 			"onclick='change_screen(\"iGroup_create\")'>" +
 			"<img class='iGroup_main_icon' src='apps/iGroup/img/plus.png'>" +
 			"<div class='iGroup_main_text'>Criar Grupo</div></div>";
