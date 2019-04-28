@@ -201,6 +201,11 @@
     margin-left: 5mm;
 }
 
+#iGroup_member_photo{
+	width: 1cm;
+	height: 1cm;
+}
+
 #Name_error_message{
 	left: 3cm;
 }

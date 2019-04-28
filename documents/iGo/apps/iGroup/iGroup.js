@@ -162,8 +162,18 @@ function showMembersList()
 	list.innerHTML = "";
 	var membersList = current_group.members;
 	for (let i = 0; i < membersList.length; i ++)
-		list.innerHTML += "<li class='iGroup_list_item'>"+ membersList[i].name + "</li>";
+		list.innerHTML += "<li class='iGroup_list_item' onclick='showMemberInfo(\""+ membersList[i].name + "\");'>"+ membersList[i].name + "</li>";
 	change_screen('iGroup_group_main_memberList');
+}
+
+function showMemberInfo(memberName){
+	var photo = document.getElementById("iGroup_member_photo");
+	var name = document.getElementById("iGroup_group_member_name");
+	name.innerHTML = "";
+	console.log(people[memberName]);
+	photo.src = people[memberName].image;
+	name.innerHTML = memberName;
+	change_screen('iGroup_group_member_info');
 }
 
 function showGroupScreen(groupName){

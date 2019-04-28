@@ -41,8 +41,14 @@ const SCREENS =
 	"iGroup_group_main_memberList": {id: "iGroup_group_main_memberList",
 																	 parent_id: "iGroup_group_main"},
 
+	"iGroup_group_member_info": {id: "iGroup_group_member_info",
+															parent_id: "iGroup_group_main_memberList"},
+
 	"iGroup_group_main_eventsList": {id: "iGroup_group_main_eventsList",
 																	 parent_id: "iGroup_group_main"},
+
+	"iGroup_group_event_info": {id: "iGroup_group_event_info",
+															parent_id: "iGroup_group_main_eventsList"},
 
 	"iGroup_group_inbox":           {id: "iGroup_group_inbox",
 																	 parent_id: "iGroup_group_main"},
@@ -60,7 +66,7 @@ const SCREENS =
 																	 parent_id: "payment_methods"},
 
 	"payment_complete":             {id: "payment_complete",
-																	 parent_id: "payment_methods"}
+																	 parent_id: "payment_methods"},
 }
 
 const POPUPS =
@@ -80,7 +86,8 @@ const DEFAULT =
 			name: "Ambrósio Santos",
 			id: "Ambrósio_Santos",
 			location_name: "Paris",
-			position: {x: 300, y: 300}
+			position: {x: 300, y: 300},
+			image : "apps/iGroup/img/Ambrosio.jpg"
 		},
 
 		"Marc Jelkic":
@@ -88,7 +95,8 @@ const DEFAULT =
 			name: "Marc Jelkic",
 			id: "Marc_Jelkic",
 			location_name: "Paris",
-			position: {x: 900, y:700}
+			position: {x: 900, y:700},
+			image : "apps/iGroup/img/MarcJelkic.jpg"
 		},
 
 		"Afonso Vasconcelos":
@@ -96,7 +104,8 @@ const DEFAULT =
 			name: "Afonso Vasconcelos",
 			id: "Afonso_Vasconcelos",
 			location_name: "Lisboa",
-			position: {x: 200, y: 200}
+			position: {x: 200, y: 200},
+			image : "apps/iGroup/img/AfonsoVasconcelos.jpg"
 		},
 
 		"Pedro Moreira":
@@ -104,7 +113,8 @@ const DEFAULT =
 			name: "Pedro Moreira",
 			id: "Pedro_Moreira",
 			location_name: "Lisboa",
-			position: {x: 50, y: 400}
+			position: {x: 50, y: 400},
+			image : "apps/iGroup/img/ist190768.jpg"
 		},
 
 		"Rodrigo Rosa":
@@ -112,7 +122,8 @@ const DEFAULT =
 			name: "Rodrigo Rosa",
 			id: "Rodrigo_Rosa",
 			location_name: "Lisboa",
-			position: {x: 200, y: 200}
+			position: {x: 200, y: 200},
+			image :"apps/iGroup/img/RodrigoRosa.jpg"
 		},
 
 		"Filipe Sousa":
@@ -120,7 +131,8 @@ const DEFAULT =
 			name: "Filipe Sousa",
 			id: "Filipe_Sousa",
 			location_name: "Lisboa",
-			position: {x: 800, y: 50}
+			position: {x: 800, y: 50},
+			image : "apps/iGroup/img/ist190714.jpg"
 		},
 
 		"Miguel Mota":
@@ -128,7 +140,8 @@ const DEFAULT =
 			name: "Miguel Mota",
 			id: "Miguel_Mota",
 			location_name: "Lisboa",
-			position: {x: 650, y: 600}
+			position: {x: 650, y: 600},
+			image : "apps/iGroup/img/ist190964.jpg"
 		},
 
 		"Pedro Leitão":
@@ -136,7 +149,8 @@ const DEFAULT =
 			name: "Pedro Leitão",
 			id: "Pedro_Leitão",
 			location_name: "Paris",
-			position: {x: 500, y: 500}
+			position: {x: 500, y: 500},
+			image : "apps/iGroup/img/PedroLeitão.jpg"
 		},
 
 		"Tomás Gomes":
@@ -193,14 +207,6 @@ const DEFAULT =
 			id: "Diogo_Lobato",
 			location_name: "Lisboa",
 			position: {x: 50, y: 650}
-		},
-
-		"Pedro Bicudo":
-		{
-			name: "Pedro Bicudo",
-			id: "Pedro_Bicudo",
-			location_name: "Paris",
-			position: {x: 500, y: 550}
 		}
 	},
 	"current_person_name": "Ambrósio Santos"
