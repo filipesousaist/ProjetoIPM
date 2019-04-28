@@ -298,22 +298,27 @@
 							</div>
 						</div>
 						<div class="screen_body" id="iGroup_create_body">
-							
+
 							<div class='iGroup_title_container'>Criar grupo</div>
 							<div id="iGroup_form_desc">
 								Preencha corretamente todos os campos abaixo. No menu de grupo terá a oportunidade de adicionar membros/eventos e ver notificações do grupo.
 							</div>
-							<h2 id="iGroup_create_name">Nome do grupo</h2>
+							<h2 id="iGroup_create_name">Nome do grupo:</h2>
 							<div class="iGroup_error_message" id="Name_error_message">Nome inválido!</div>
-							<input class ="igroup_form" id="iGroup_name_value" type="text" name="Name" onclick="write_mode('iGroup_name_value');">
+							<input class ="igroup_form" id="iGroup_name_value" type="text" name="Nome do grupo:" onclick="write_mode('iGroup_name_value');">
 
-							<h2 id="iGroup_create_location">Destino</h2>
+							<h2 id="iGroup_create_location">Destino:</h2>
 							<div class="iGroup_error_message" id="Location_error_message">Localização inválida!</div>
-							<input class ="igroup_form" id="iGroup_location_value" type="text" name="Location" onclick="write_mode('iGroup_location_value');">
+							<input class ="igroup_form" id="iGroup_location_value" type="text" name="Destino:" onclick="write_mode('iGroup_location_value');">
 
-							<h2 id="iGroup_create_date">Data de Partida</h2>
+							<h2 id="iGroup_create_date">Data de Partida:</h2>
 							<div class="iGroup_error_message" id="Date_error_message">Data inválida!</div>
-							<input class ="igroup_form" id="iGroup_date_value" type="date" name="Date" onclick="write_mode('iGroup_date_value');">
+							<input class ="igroup_form" id="iGroup_year_value" type="text" name="Ano:" onclick="write_mode('iGroup_date_value');">
+							/
+							<input class ="igroup_form" id="iGroup_month_value" type="text" name="Mês:" onclick="write_mode('iGroup_date_value');">
+							/
+							<input class ="igroup_form" id="iGroup_month_value" type="text" name="Dia:" onclick="write_mode('iGroup_date_value');">
+
 
 							<button class="iGroup_mainButton" id="iGroup_mainButton_style" onclick="addGroup()">Criar Grupo</button>
 						</div>
@@ -343,11 +348,11 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-						
+
 						<div class="screen_body" id="iGroup_group_main_body">
-							
+
 							<div class="iGroup_title_container" id="igroup_title_group_name"></div>
-							
+
 							<ul class="iGroup_list" id="iGroup_group_main_options_list">
 								<li class="iGroup_list_item iGroup_add_button" onclick='change_screen("iGroup_group_addMember")'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/member.png">
@@ -391,7 +396,7 @@
 						<div class="screen_body" id="iGroup_group_addMember_body">
 							<h2 id="iGroup_add_member_name" style="top: 5mm">Nome do Membro:</h2>
 							<div class="iGroup_error_message" id="Member_error_message">Esse membro não existe.</div>
-							<input id="iGroup_member_name_value" type="text" name="Name">
+							<input id="iGroup_member_name_value" type="text" name="Nome do Membro:">
 							<button onclick="requestMember()">Adicionar Membro</button>
 						</div>
 					</div>
@@ -407,10 +412,10 @@
 						</div>
 						<div class="screen_body" id="iGroup_group_addEvent_body">
 							<h2 id="iGroup_add_event_name">Nome do Evento:</h2>
-							<input id="iGroup_event_name_value" type="text" name="Name">
+							<input id="iGroup_event_name_value" type="text" name="Nome do Evento:">
 							<hr />
 							<h2 id="iGroup_add_event_date">Data do Evento:</h2>
-							<input id="iGroup_event_date_value" type="date" name="Date">
+							<input id="iGroup_event_date_value" type="date" name="Data do Evento:">
 							<hr />
 							<button onclick="addEvent()">Adicionar Evento</button>
 						</div>
@@ -432,6 +437,22 @@
 						</div>
 					</div>
 
+					<div class="screen iGroup_screen" id="iGroup_group_member_info">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="screen_body">
+							<img id="iGroup_member_photo">
+							<div id="iGroup_group_member_name"></div>
+							<button id=iGroup_group_member_location>Ver Localização no Mapa</button>
+						</div>
+					</div>
+
 					<div class="screen iGroup_screen" id="iGroup_group_main_eventsList">
 						<div class="screen_title_container">
 							iGroup
@@ -445,6 +466,22 @@
 							<div class="iGroup_title_container" id="igroup_title_event_name"></div>
 							<ul class="iGroup_list" id="iGroup_group_eventsList">
 							</ul>
+						</div>
+					</div>
+
+					<div class="screen iGroup_screen" id="iGroup_group_event_info">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="screen_body">
+						<div id="iGroup_event_name"></div>
+						<div id="iGroup_event_date"></div>
+						<div id="iGroup_event_description"></div>
 						</div>
 					</div>
 
@@ -535,7 +572,7 @@
 
 					<!-- Teclado -->
 					<div id="keyboard">
-						<div id="keyboard_input_title">abc</div>
+						<div id="keyboard_input_title"></div>
 						<div id="keyboard_input"></div>
 						<div class="keyboard_row" id="keyboard_row_0">
 							<div class="keyboard_button" onclick="do_write('1');">1</div>
