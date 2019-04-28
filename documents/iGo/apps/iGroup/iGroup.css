@@ -103,13 +103,32 @@
 	height: 1cm;
 	left: 2.5mm;
   margin: 1mm 0 1mm 0;
-	padding-left: 2mm;
+	padding-left: 3mm;
   font-family: Verdana, sans-serif;
 	font-size: 10pt;
   display: flex;
   background-color: white;
   align-items: center;
   border-radius: 2mm;
+}
+
+.iGroup_list_item_icon
+{
+	position: relative;
+	height: 0.5cm;
+	width: 0.5cm;
+	padding-right: 1mm;
+	display: block;
+}
+
+.iGroup_list_item_plus
+{
+	position: relative;
+	height: 0.25cm;
+	width: 0.25cm;
+	bottom: -1mm;
+	left: -3mm;
+	z-index: 1;
 }
 
 #iGroup_group_main_body
