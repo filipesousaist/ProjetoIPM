@@ -91,9 +91,9 @@ function addGroup()
 	name_error.style.visibility = (group_name.value == "" ? "visible" : "hidden");
 	location_error.style.visibility = (group_location.value == "" ? "visible" : "hidden");
 	date_error.style.visibility = (group_date.value == "" ? "visible" : "hidden");
-	group_name.value = "";
-	group_date.value = "";
-	group_location.value = "";
+	group_name.value = (name_error.style.visibility == "visible" ? "" : group_name.value);
+	group_date.value = (date_error.style.visibility == "visible" ? "" : group_date.value);
+	group_location.value = (location_error.style.visibility == "visible" ? "" : group_location.value);
 }
 
 function exitGroup()
@@ -122,8 +122,8 @@ function showGroupList()
 	let myGroups = getMyGroups();
 	if (myGroups.length == 0)
 	{
-		list.innerHTML = "<h1>Não tens nenhum grupo.</h1>";
-		list.innerHTML += "<div class='iGroup_mainButton' id='iGroup_createGroup'" +
+		list.innerHTML = "<h1>Não está em nenhum grupo.</h1>";
+		list.innerHTML += "<div class='iGroup_mainButton' id='iGroup_createGroup' style='top:0.7cm;'" +
 			"onclick='change_screen(\"iGroup_create\")'>" +
 			"<img class='iGroup_main_icon' src='apps/iGroup/img/plus.png'>" +
 			"<div class='iGroup_main_text'>Criar Grupo</div></div>";
@@ -200,3 +200,22 @@ function showInbox()
 			" - " + inbox[i].date + "</li>";
 	change_screen('iGroup_group_inbox');
 }
+
+
+/**************/
+/**************/
+/** ON_EXIT ***/
+/**************/
+/**************/
+
+SCREENS["iGroup_create"].on_exit = function()
+{
+	document.getElementById("Name_error_message").style.visibility = "hidden";
+	document.getElementById("Location_error_message").style.visibility = "hidden";
+	document.getElementById("Date_error_message").style.visibility = "hidden";
+	
+	document.getElementById("iGroup_name_value").value = "";
+	document.getElementById("iGroup_location_value").value = "";
+	document.getElementById("iGroup_date_value").value = "";
+}
+

@@ -6,24 +6,36 @@
 
 .iGroup_screen h1
 {
-	font-size: 9pt;
-	padding-left: 5mm;
-	margin-top: 1mm;
-	margin-bottom: 1mm;
+	font-size: 10pt;
+    text-align: center;
+    /* padding-left: 5mm; */
+    margin-top: 1mm;
+    margin-bottom: 1mm;
+    top: 5mm;
+    position: relative;
+	color: #646161;
+	font-family: Tahoma, Geneva, sans-serif;
 }
 
 .iGroup_screen h2
 {
-	font-size: 10pt;
-	padding-left: 5mm;
-	margin-top: 1mm;
-	margin-bottom: 1mm;
+	font-size: 7pt;
+    padding-left: 5.5mm;
+	margin-top: -2mm; 
+    /* margin-bottom: 1mm; */
+	position: relative;
+    top: 5mm;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #181818;
 }
 
 .iGroup_screen input
 {
-	max-width: 3.9cm;
-	margin-left: 5mm;
+    margin-left: 0.5mm;
+    border-radius: 2mm;
+    border: 0.2mm solid grey;
+    width: 4cm;
+    margin-left: 5mm;
 }
 
 .iGroup_screen button
@@ -38,10 +50,13 @@
 
 .iGroup_error_message
 {
-	padding-left: 5mm;
-	visibility: hidden;
-	color: red;
-	font-size: 10px;
+	/* padding-left: 5mm; */
+    visibility: hidden; 
+    color: red;
+    font-size: 7pt;
+    left: 2.6cm;
+    position: relative;
+	font-family: Tahoma, Geneva, sans-serif;
 }
 
 #iGroup_createGroup
@@ -56,13 +71,15 @@
 
 .iGroup_mainButton
 {
-	left: 2.5mm;
-	width: 4.5cm;
-	height: 1.2cm;
-	border-radius: 3mm;
-	position: relative;
-	top: 2mm;
-	text-align: center;
+	    left: 2.5mm;
+    width: 4.45cm;
+    height: 1cm;
+    border-radius: 3mm;
+    position: relative;
+    top: 5mm;
+    text-align: center;
+    margin-bottom: 2mm;
+    border: 0.3mm solid #49474745;
 }
 
 .iGroup_main_icon
@@ -120,4 +137,30 @@
 #iGroup_group_addMember_body
 {
 	overflow-y: scroll;
+}
+
+#iGroup_mainButton_style{
+	    margin-top: -1mm;
+    width: 4.03cm;
+    left: 0;
+    border-radius: 2mm;
+    border: 0.3mm solid #49474745;
+    color: whitesmoke;
+    background-color: limegreen;
+    height: 0.6cm;
+    font-size: 8pt;
+    top: 3mm;
+    margin-left: 5mm;
+}
+
+#Name_error_message{
+	left: 3cm;
+}
+
+#Location_error_message{
+	left: 2.3cm;
+}
+
+#Date_error_message{
+	left: 3cm;
 }

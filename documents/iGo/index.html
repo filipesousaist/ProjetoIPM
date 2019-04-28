@@ -273,11 +273,14 @@
 							</div>
 						</div>
 						<div class="screen_body" id="iGroup_main_body">
+							<div id="iGuide_near_you_container">Não se perca!</div>
+							<div id="iGuide_near_you_desc">
+								Crie um grupo com os seus companheiros de viagem e esteja sempre conectado aos mesmos.
+							</div>
 							<div class="iGroup_mainButton" id="iGroup_createGroup" onclick="change_screen('iGroup_create')">
 								<img class="iGroup_main_icon" src="apps/iGroup/img/plus.png">
 								<div class="iGroup_main_text">Criar Grupo</div>
 							</div>
-							<br/>
 							<div class="iGroup_mainButton" id="iGroup_myGroups" onclick="showGroupList()">
 								<img class="iGroup_main_icon" src="apps/iGroup/img/group.png">
 								<div class="iGroup_main_text">Os meus grupos</div>
@@ -295,19 +298,19 @@
 							</div>
 						</div>
 						<div class="screen_body" id="iGroup_create_body">
-							<h2 id="iGroup_create_name">Nome do grupo:</h2>
-							<div class="iGroup_error_message" id="Name_error_message">Insira um nome válido</div>
-							<input id="iGroup_name_value" type="text" name="Name">
-							<hr />
-							<h2 id="iGroup_create_location">Destino:</h2>
-							<div class="iGroup_error_message" id="Location_error_message">Insira uma localização válida</div>
-							<input id="iGroup_location_value" type="text" name="Location">
-							<hr />
-							<h2 id="iGroup_create_date">Data de Partida:</h2>
-							<div class="iGroup_error_message" id="Date_error_message">Insira uma data válida</div>
-							<input id="iGroup_date_value" type="date" name="Date">
-							<hr />
-							<button onclick="addGroup()">Criar Grupo</button>
+							<h2 id="iGroup_create_name">Nome do grupo</h2>
+							<div class="iGroup_error_message" id="Name_error_message">Nome válido!</div>
+							<input class ="igroup_form" id="iGroup_name_value" type="text" name="Name" onclick="write_mode('iGroup_name_value');">
+						
+							<h2 id="iGroup_create_location">Destino</h2>
+							<div class="iGroup_error_message" id="Location_error_message">Localização inválida!</div>
+							<input class ="igroup_form" id="iGroup_location_value" type="text" name="Location" onclick="write_mode('iGroup_location_value');">
+							
+							<h2 id="iGroup_create_date">Data de Partida</h2>
+							<div class="iGroup_error_message" id="Date_error_message">Data inválida!</div>
+							<input class ="igroup_form" id="iGroup_date_value" type="date" name="Date" onclick="write_mode('iGroup_date_value');">
+						
+							<button class="iGroup_mainButton" id="iGroup_mainButton_style" onclick="addGroup()">Criar Grupo</button>
 						</div>
 					</div>
 
