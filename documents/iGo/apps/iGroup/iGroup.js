@@ -107,10 +107,10 @@ function addGroup()
 function exitGroup()
 {
 	for(let i = 0; i < iGroup_groups.length; i++){
-		if(iGroup_groups[i].name = current_group.name){
+		if(iGroup_groups[i].name == current_group.name){
 			iGroup_groups[i].members = removeObjectArray(current_group.members, people[current_person_name]);
 		}
-	} 
+	}
 	showGroupList();
 }
 
@@ -204,8 +204,8 @@ function showInbox()
 	list.innerHTML = "";
 	var inbox = current_group["inbox"];
 	for (let i = inbox.length - 1; i >= 0; i --){
-		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title + 
-		"</div><div class='iGroup_date'>" + inbox[i].day + "/" + inbox[i].month + "/" + inbox[i].year + 
+		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
+		"</div><div class='iGroup_date'>" + inbox[i].day + "/" + inbox[i].month + "/" + inbox[i].year +
 		"</div></li>";
 	}
 	change_screen('iGroup_group_inbox');
@@ -223,9 +223,8 @@ SCREENS["iGroup_create"].on_exit = function()
 	document.getElementById("Name_error_message").style.visibility = "hidden";
 	document.getElementById("Location_error_message").style.visibility = "hidden";
 	document.getElementById("Date_error_message").style.visibility = "hidden";
-	
+
 	document.getElementById("iGroup_name_value").value = "";
 	document.getElementById("iGroup_location_value").value = "";
 	document.getElementById("iGroup_date_value").value = "";
 }
-
