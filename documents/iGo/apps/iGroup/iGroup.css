@@ -7,12 +7,11 @@
 .iGroup_screen h1
 {
 	font-size: 10pt;
-    text-align: center;
-    /* padding-left: 5mm; */
-    margin-top: 1mm;
-    margin-bottom: 1mm;
-    top: 5mm;
-    position: relative;
+  text-align: center;
+  margin-top: 1mm;
+  margin-bottom: 1mm;
+  top: 5mm;
+  position: relative;
 	color: #646161;
 	font-family: Tahoma, Geneva, sans-serif;
 }
@@ -20,22 +19,21 @@
 .iGroup_screen h2
 {
 	font-size: 7pt;
-    padding-left: 5.5mm;
-	margin-top: -2mm; 
-    /* margin-bottom: 1mm; */
+  padding-left: 5.5mm;
+	margin-top: -2mm;
 	position: relative;
-    top: 2mm;
+  top: 2mm;
 	font-family: Tahoma, Geneva, sans-serif;
 	color: #181818;
 }
 
 .iGroup_screen input
 {
-    margin-left: 0.5mm;
-    border-radius: 2mm;
-    border: 0.2mm solid grey;
-    width: 4cm;
-    margin-left: 5mm;
+  margin-left: 0.5mm;
+  border-radius: 2mm;
+  border: 0.2mm solid grey;
+  width: 4cm;
+  margin-left: 5mm;
 }
 
 .iGroup_screen button
@@ -50,36 +48,25 @@
 
 .iGroup_error_message
 {
-	/* padding-left: 5mm; */
-    visibility: hidden; 
-    color: red;
-    font-size: 7pt;
-    left: 2.6cm;
-    position: relative;
+  visibility: hidden;
+  color: red;
+  font-size: 7pt;
+  left: 2.6cm;
+  position: relative;
 	font-family: Tahoma, Geneva, sans-serif;
-}
-
-#iGroup_createGroup
-{
-	background-color: limegreen;
-}
-
-#iGroup_myGroups
-{
-	background-color: #2954ff;
 }
 
 .iGroup_mainButton
 {
-	    left: 2.5mm;
-    width: 4.45cm;
-    height: 1cm;
-    border-radius: 3mm;
-    position: relative;
-    top: 5mm;
-    text-align: center;
-    margin-bottom: 2mm;
-    border: 0.3mm solid #49474745;
+  left: 2.5mm;
+  width: 4.45cm;
+  height: 1cm;
+  border-radius: 3mm;
+  position: relative;
+  top: 5mm;
+  text-align: center;
+  margin-bottom: 2mm;
+  border: 0.3mm solid #49474745;
 }
 
 .iGroup_main_icon
@@ -119,14 +106,14 @@
  	width: 4.3cm;
 	height: 1cm;
 	left: 2.5mm;
-  	margin: 1mm 0 1mm 0;
+  margin: 1mm 0 1mm 0;
 	padding-left: 3mm;
  	font-family: Verdana, sans-serif;
 	font-size: 10pt;
-  	display: flex;
-  	background-color: white;
-  	align-items: center;
-  	border-radius: 2mm;
+	display: flex;
+	align-items: center;
+	border-radius: 2mm;
+	background-color: white;
 }
 
 .iGroup_list_item_icon
@@ -148,17 +135,34 @@
 	z-index: 1;
 }
 
-.iGroup_date{
+.iGroup_date
+{
 	font-size: 9px;
 	position: relative;
 	right: -6.5mm;
 }
 
-.iGroup_inbox_title{
+.iGroup_inbox_title
+{
 	position: relative;
 	font-size: 10px;
 	left: 0.60cm;
 	width: 53%;
+}
+
+.iGroup_add_button /* Usar na maioria dos botões de adicionar */
+{
+	background-color: limegreen;
+}
+
+.iGroup_remove_button /* Usar na maioria dos botões de remover */
+{
+	background-color: #f93b3b;
+}
+
+.iGroup_show_button /* Usar na maioria dos botões de mostrar */
+{
+	background-color: #2954ff;
 }
 
 #iGroup_group_main_body
@@ -172,17 +176,17 @@
 }
 
 #iGroup_mainButton_style{
-	    margin-top: -1mm;
-    width: 4.03cm;
-    left: 0;
-    border-radius: 2mm;
-    border: 0.3mm solid #49474745;
-    color: whitesmoke;
-    background-color: limegreen;
-    height: 0.6cm;
-    font-size: 8pt;
-    top: 3mm;
-    margin-left: 5mm;
+  margin-top: -1mm;
+  width: 4.03cm;
+  left: 0;
+  border-radius: 2mm;
+  border: 0.3mm solid #49474745;
+  color: whitesmoke;
+  background-color: limegreen;
+  height: 0.6cm;
+  font-size: 8pt;
+  top: 3mm;
+  margin-left: 5mm;
 }
 
 #Name_error_message{
