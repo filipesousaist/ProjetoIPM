@@ -219,8 +219,23 @@
 }
 
 #iGroup_member_photo{
-	width: 1cm;
-	height: 1cm;
+	width: 1.5cm;
+	height: 1.5cm;
+}
+
+#iGroup_group_member_name{
+	left: 1.6cm;
+	position: relative;
+	top: -1.5cm;
+
+}
+
+#iGroup_group_target_location{
+	position: relative;
+}
+
+#iGroup_group_user_location{
+	position: relative;
 }
 
 #Name_error_message{

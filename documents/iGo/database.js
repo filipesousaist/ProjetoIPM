@@ -44,6 +44,9 @@ const SCREENS =
 	"iGroup_group_member_info": {id: "iGroup_group_member_info",
 															parent_id: "iGroup_group_main_memberList"},
 
+	"iGroup_group_member_location": {id: "iGroup_group_member_location",
+															parent_id: "iGroup_group_member_info"},
+
 	"iGroup_group_main_eventsList": {id: "iGroup_group_main_eventsList",
 																	 parent_id: "iGroup_group_main"},
 

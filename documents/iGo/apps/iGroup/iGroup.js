@@ -189,6 +189,15 @@ function showMemberInfo(memberName){
 	change_screen('iGroup_group_member_info');
 }
 
+function showMemberLocation(member){
+	if(member.name != current_person_name){
+		document.getElementById("iGroup_group_target_location").style = "top :" + member.position[y] + "px; right :" + member.position[x] +"px;";
+	}
+	document.getElementById("iGroup_group_target_location").style = "top :" + people[current_person_name].position[y] + "px; right :" + people[current_person_name].position[x] +"px;";
+	change_screen("iGroup_group_member_location");
+}
+
+
 function showGroupScreen(groupName){
 	for (let i = 0; i < iGroup_groups.length; i ++){
 		if (iGroup_groups[i].name == groupName)
@@ -219,10 +228,20 @@ function showEventsList()
 	list.innerHTML = "";
 	var eventsList = current_group["events"];
 	for (let i = 0; i < eventsList.length; i++)
-		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
+		list.innerHTML += "<li class='iGroup_list_item' onclick='showEventInfo(\"" + eventsList[i] + "\");'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
 		"</div><div class='iGroup_date' style='right:-5.5mm'>" + convertoDate(eventsList[i].date) + "</div></li>";
 	
 	change_screen('iGroup_group_main_eventsList');
+}
+
+function showEventInfo(event){
+	var name = document.getElementById("iGroup_event_name");
+	var date = document.getElementById("iGroup_event_date");
+	var description = document.getElementById("iGroup_event_date");
+	name.innerHTML = event.name;
+	date.innerHTML = event.date;
+	description.innerHTML = event.description;
+	change_screen('iGroup_group_event_info');
 }
 
 function showInbox()
