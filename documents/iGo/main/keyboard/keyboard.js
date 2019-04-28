@@ -15,7 +15,10 @@ function write_mode(id)
 
 function update_keyboard()
 {
+	let current_input = document.getElementById(current_input_id);
 
+	document.getElementById("keyboard_input_title").innerHTML = current_input.name;
+	document.getElementById("keyboard_input").innerHTML = current_input.value;
 }
 
 function do_write(w)

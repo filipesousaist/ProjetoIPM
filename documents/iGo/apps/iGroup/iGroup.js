@@ -30,8 +30,8 @@ function addMember(member)
 
 function requestMember()
 {
-	var member_error = document.getElementById("Member_error_message");
-	var member_name = document.getElementById("iGroup_member_name_value");
+	let member_error = document.getElementById("Member_error_message");
+	let member_name = document.getElementById("iGroup_member_name_value");
 	let member = people[member_name.value];
 	if (member != undefined){
 		member_error.style.visibility="hidden";
@@ -44,17 +44,17 @@ function requestMember()
 
 function addEvent()
 {
-	var event_name = document.getElementById("iGroup_event_name_value");
-	var event_date = document.getElementById("iGroup_event_date_value");
-	var new_event =
+	let event_name = document.getElementById("iGroup_event_name_value");
+	let event_date = document.getElementById("iGroup_event_date_value");
+	let new_event =
 	{
 		name: event_name.value,
 		date: new Date(event_date.value),
 	};
-	var eventsList = current_group["events"];
+	let eventsList = current_group["events"];
 	eventsList.push(new_event);
-	var eventDate = new Date();
-	var notification =
+	let eventDate = new Date();
+	let notification =
 	{
 		title: "Evento " + new_event.name + " adicionado.",
 		day: eventDate.getDate(),
@@ -71,20 +71,27 @@ function addEvent()
 
 function addGroup()
 {
-	var group_name = document.getElementById("iGroup_name_value");
-	var group_location = document.getElementById("iGroup_location_value");
-	var group_date = document.getElementById("iGroup_date_value");
-	var name_error = document.getElementById("Name_error_message");
-	var location_error = document.getElementById("Location_error_message");
-	var date_error= document.getElementById("Date_error_message");
-	if ((group_name.value != "") && (group_location.value != "") && (group_date.value != ""))
+	let group_name = document.getElementById("iGroup_name_value");
+	let group_location = document.getElementById("iGroup_location_value");
+	let group_date = document.getElementById("iGroup_date_value");
+	let name_error = document.getElementById("Name_error_message");
+	let location_error = document.getElementById("Location_error_message");
+	let date_error = document.getElementById("Date_error_message");
+
+	let is_valid_group = group_name.value != "";
+
+	for (let i = 0; i < iGroup_groups.length; i ++)
+		if (iGroup_groups[i].name == group_name.value)
+			is_valid_group = false;
+
+	if (is_valid_group && (group_location.value != "") && (group_date.value != ""))
 	{
-		var departure =
+		let departure =
 		{
 			name: "Partida",
 			date: group_date.value
 		};
-		var group =
+		let group =
 		{
 			name: group_name.value,
 			location: group_location.value,
@@ -96,7 +103,7 @@ function addGroup()
 		iGroup_groups.push(group);
 		change_screen("iGroup_main");
 	}
-	name_error.style.visibility = (group_name.value == "" ? "visible" : "hidden");
+	name_error.style.visibility = (!is_valid_group ? "visible" : "hidden");
 	location_error.style.visibility = (group_location.value == "" ? "visible" : "hidden");
 	date_error.style.visibility = (group_date.value == "" ? "visible" : "hidden");
 	group_name.value = (name_error.style.visibility == "visible" ? "" : group_name.value);
@@ -106,18 +113,24 @@ function addGroup()
 
 function exitGroup()
 {
-	for(let i = 0; i < iGroup_groups.length; i++){
-		if(iGroup_groups[i].name == current_group.name){
-			iGroup_groups[i].members = removeObjectArray(current_group.members, people[current_person_name]);
+	for (let i = 0; i < iGroup_groups.length; i++){
+		if (iGroup_groups[i].name == current_group.name)
+		{
+			iGroup_groups[i].members =
+				removeObjectArray(current_group.members, people[current_person_name]);
+			if (current_group.members.length == 0)
+				iGroup_groups = removeObjectArray(iGroup_groups, current_group);
 		}
+
 	}
 	showGroupList();
 }
 
-function removeObjectArray(list, value){
-	return list.filter(function(element){
-		return element.name != value.name;
-	});
+function removeObjectArray(list, value)
+{
+	return list.filter(
+		function(element) {return element.name != value.name;}
+	);
 }
 
 
@@ -129,7 +142,7 @@ function showGroupList()
 	// Ver a que grupos o utilizador pertence
 	let myGroups = getMyGroups();
 	if (myGroups.length == 0)
-	{	
+	{
 
 		list.innerHTML += "<h1>Sem grupo(s).</h1>";
 		list.innerHTML += "<div class='iGroup_mainButton' id='iGroup_createGroup' style='top:0.7cm;background-color:limegreen;'" +
