@@ -108,17 +108,17 @@
 .iGroup_list_item
 {
 	position: relative;
- 	width: 4.3cm;
-	height: 1cm;
-	left: 2.5mm;
-  margin: 1mm 0 1mm 0;
-	padding-left: 3mm;
- 	font-family: Verdana, sans-serif;
-	font-size: 10pt;
-	display: flex;
-	align-items: center;
-	border-radius: 2mm;
-	background-color: white;
+    width: 4cm;
+    height: 1cm;
+    left: 0.35cm;
+    margin: 1mm 0 1mm 0;
+    padding-left: 3mm;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+    display: flex;
+    border: 0.3mm solid #49474745;
+    border-radius: 0.2cm;
+    align-items: center;
 }
 
 .iGroup_list_item_icon
@@ -196,14 +196,20 @@
 
 #Name_error_message{
 	left: 3cm;
+    position: relative;
+    top: 0.65cm;
+    left: 2.8cm;
 }
 
 #Location_error_message{
-	left: 2.3cm;
+	    left: 2.2cm;
+    top: 0.65cm;
 }
 
 #Date_error_message{
-	left: 3cm;
+	    left: 2.95cm;
+    top: 0.65cm;
+}
 }
 
 #iGroup_title_container_princ
