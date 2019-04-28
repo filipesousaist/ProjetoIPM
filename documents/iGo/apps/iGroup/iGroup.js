@@ -49,7 +49,7 @@ function addEvent()
 	var new_event =
 	{
 		name: event_name.value,
-		date: (new Date(event_date.value)).toDateString()
+		date: new Date(event_date.value),
 	};
 	var eventsList = current_group["events"];
 	eventsList.push(new_event);
@@ -107,10 +107,10 @@ function addGroup()
 function exitGroup()
 {
 	for(let i = 0; i < iGroup_groups.length; i++){
-		if(iGroup_groups[i].name = current_group.name){
+		if(iGroup_groups[i].name == current_group.name){
 			iGroup_groups[i].members = removeObjectArray(current_group.members, people[current_person_name]);
 		}
-	} 
+	}
 	showGroupList();
 }
 
@@ -139,8 +139,7 @@ function showGroupList()
 	}
 	else
 		for (let i = 0; i < myGroups.length; i++)
-			list.innerHTML += "<li class='iGroup_list_item' onclick=showGroupScreen(\"" +
-				myGroups[i].name + "\");>" + myGroups[i].name + "</li>";
+			list.innerHTML += "<li class='iGroup_list_item' onclick='showGroupScreen(\""+ myGroups[i].name +"\");'>" + myGroups[i].name + "</li>";
 	change_screen('iGroup_groups');
 }
 
@@ -194,8 +193,8 @@ function showEventsList()
 	list.innerHTML = "";
 	var eventsList = current_group["events"];
 	for (let i = 0; i < eventsList.length; i++)
-		list.innerHTML += "<li class='iGroup_list_item'>" + eventsList[i].name +
-			" - " + eventsList[i].date + "</li>";
+		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
+		"</div><div class='iGroup_date' style='right:-5.5mm'>" + convertoDate(eventsList[i].date) + "</div></li>";
 	change_screen('iGroup_group_main_eventsList');
 }
 
@@ -205,13 +204,34 @@ function showInbox()
 	list.innerHTML = "";
 	var inbox = current_group["inbox"];
 	for (let i = inbox.length - 1; i >= 0; i --){
-		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title + 
-		"</div><div class='iGroup_date'>" + inbox[i].day + "/" + inbox[i].month + "/" + inbox[i].year + 
+		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
+		"</div><div class='iGroup_date'>" + inbox[i].day + "/" + inbox[i].month + "/" + inbox[i].year +
 		"</div></li>";
 	}
 	change_screen('iGroup_group_inbox');
 }
 
+function convertoDate(date){
+	var c = 0;
+	var year = "";
+	var month = "";
+	var day = "";
+	for(var i = 0; i < date.length ;i++){
+		if(c == 0 && date[i] != '-'){
+			year += date[i];
+		}
+		else if(c == 1 && date[i] != '-'){
+			month += date[i];
+		}
+		else if(c == 2){
+			day += date[i];
+		}
+		else if( date[i] == '-'){
+			c++;
+		}
+	}
+	return day + "/" + month + "/" + year;
+}
 
 /**************/
 /**************/
@@ -224,9 +244,8 @@ SCREENS["iGroup_create"].on_exit = function()
 	document.getElementById("Name_error_message").style.visibility = "hidden";
 	document.getElementById("Location_error_message").style.visibility = "hidden";
 	document.getElementById("Date_error_message").style.visibility = "hidden";
-	
+
 	document.getElementById("iGroup_name_value").value = "";
 	document.getElementById("iGroup_location_value").value = "";
 	document.getElementById("iGroup_date_value").value = "";
 }
-

@@ -19,6 +19,26 @@
   align-items: center;
 }
 
+#keyboard_input_title
+{
+	height: 4mm;
+	margin-left: 5mm;
+	font-size: 10pt;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#keyboard_input
+{
+	background-color: white;
+	height: 3.2mm;
+	border-radius: 3mm;
+	border: 0.1mm solid gray;
+	margin: 0.5mm 1.5mm 0.5mm 1mm;
+	font-size: 8pt;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  padding-left: 1mm;
+}
+
 .keyboard_row
 {
 	position: relative;
