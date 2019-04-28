@@ -6,7 +6,7 @@
 
 .iGroup_screen h1
 {
-	font-size: 10pt;
+	font-size: 9pt;
   text-align: center;
   margin-top: 1mm;
   margin-bottom: 1mm;
@@ -14,26 +14,31 @@
   position: relative;
 	color: #646161;
 	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: 100;
 }
 
 .iGroup_screen h2
 {
 	font-size: 7pt;
-  padding-left: 5.5mm;
-	margin-top: -2mm;
-	position: relative;
-  top: 2mm;
-	font-family: Tahoma, Geneva, sans-serif;
-	color: #181818;
+    padding-left: 5.5mm;
+    margin-top: -8mm;
+    top: 11.6mm;
+    position: relative;
+    padding-top: 5mm;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #000000;
+    font-weight: lighter;
 }
 
 .iGroup_screen input
 {
-  margin-left: 0.5mm;
-  border-radius: 2mm;
-  border: 0.2mm solid grey;
-  width: 4cm;
-  margin-left: 5mm;
+	margin-left: 0.5mm;
+    border-radius: 2mm;
+    border: 0.2mm solid grey;
+    width: 4cm;
+    margin-left: 5mm;
+    top: 6mm;
+    position: relative;
 }
 
 .iGroup_screen button
@@ -177,16 +182,16 @@
 
 #iGroup_mainButton_style{
   margin-top: -1mm;
-  width: 4.03cm;
-  left: 0;
-  border-radius: 2mm;
-  border: 0.3mm solid #49474745;
-  color: whitesmoke;
-  background-color: limegreen;
-  height: 0.6cm;
-  font-size: 8pt;
-  top: 3mm;
-  margin-left: 5mm;
+    width: 4.03cm;
+    left: 0;
+    border-radius: 2mm;
+    border: 0.3mm solid #49474745;
+    color: whitesmoke;
+    background-color: limegreen;
+    height: 0.6cm;
+    font-size: 8pt;
+    top: 7mm;
+    margin-left: 5mm;
 }
 
 #Name_error_message{
@@ -199,4 +204,46 @@
 
 #Date_error_message{
 	left: 3cm;
+}
+
+#iGroup_title_container_princ
+{
+	position: relative;
+  width: 4.5cm;
+  height: 4.5mm;
+  top: 1mm;
+  left: -2.3mm;
+  padding-top: 0.5mm;
+  padding-left: 0.5cm;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 10pt;
+	color: #181818;
+}
+
+.iGroup_title_container
+{
+    position: relative;
+    width: 4.5cm;
+    height: 4.5mm;
+    top: 1mm;
+    left: -2.3mm;
+    padding-top: 0.5mm;
+    padding-left: 0.5cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 10pt;
+    color: #181818;
+}
+
+#iGroup_form_desc{
+	top: 1mm;
+    position: relative;
+    text-align: start;
+	    width: 4.5cm;
+    height: 4.5mm;
+    left: -2.3mm;
+    padding-top: 0.5mm;
+    padding-left: 0.5cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 6pt;
+    color: #4b3d3d;
 }
