@@ -14,9 +14,13 @@ function addMember(member)
 	{
 		current_group["members"].push(member);
 		if (member.name != current_person_name)
+			var eventDate = new Date();
 			current_group["inbox"].push({
-				title: member.name + "foi adicionado.",
-				date: (new Date()).toDateString()
+				title: member.name + " foi adicionado.",
+				day: eventDate.getDate(),
+				month: eventDate.getMonth(),
+				year: eventDate.getFullYear(),
+				new: 1,
 				});
 		change_screen('iGroup_group_main');
 
@@ -49,10 +53,14 @@ function addEvent()
 	};
 	var eventsList = current_group["events"];
 	eventsList.push(new_event);
+	var eventDate = new Date();
 	var notification =
 	{
 		title: "Evento " + new_event.name + " adicionado.",
-		date: (new Date()).toDateString()
+		day: eventDate.getDate(),
+		month: eventDate.getMonth(),
+		year: eventDate.getFullYear(),
+		new: 1,
 	};
 	current_group["inbox"].push(notification);
 	event_name.value = "";
@@ -195,9 +203,11 @@ function showInbox()
 	var list = document.getElementById("iGroup_group_inboxList");
 	list.innerHTML = "";
 	var inbox = current_group["inbox"];
-	for (let i = inbox.length - 1; i >= 0; i --)
-		list.innerHTML += "<li class='iGroup_list_item'>"+ inbox[i].title +
-			" - " + inbox[i].date + "</li>";
+	for (let i = inbox.length - 1; i >= 0; i --){
+		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title + 
+		"</div><div class='iGroup_date'>" + inbox[i].day + "/" + inbox[i].month + "/" + inbox[i].year + 
+		"</div></li>";
+	}
 	change_screen('iGroup_group_inbox');
 }
 
