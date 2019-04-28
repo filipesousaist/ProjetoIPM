@@ -273,15 +273,15 @@
 							</div>
 						</div>
 						<div class="screen_body" id="iGroup_main_body">
-							<div id="iGuide_near_you_container">Não se perca!</div>
+							<div id="iGroup_title_container_princ">Não se perca!</div>
 							<div id="iGuide_near_you_desc">
 								Crie um grupo com os seus companheiros de viagem e esteja sempre conectado aos mesmos.
 							</div>
-							<div class="iGroup_mainButton" id="iGroup_createGroup" onclick="change_screen('iGroup_create')">
+							<div class="iGroup_mainButton iGroup_add_button" id="iGroup_createGroup" onclick="change_screen('iGroup_create')">
 								<img class="iGroup_main_icon" src="apps/iGroup/img/plus.png">
 								<div class="iGroup_main_text">Criar Grupo</div>
 							</div>
-							<div class="iGroup_mainButton" id="iGroup_myGroups" onclick="showGroupList()">
+							<div class="iGroup_mainButton iGroup_show_button" id="iGroup_myGroups" onclick="showGroupList()">
 								<img class="iGroup_main_icon" src="apps/iGroup/img/group.png">
 								<div class="iGroup_main_text">Os meus grupos</div>
 							</div>
@@ -298,18 +298,23 @@
 							</div>
 						</div>
 						<div class="screen_body" id="iGroup_create_body">
-							<h2 id="iGroup_create_name" style="top: 5.4mm">Nome do grupo</h2>
+							
+							<div class='iGroup_title_container'>Criar grupo</div>
+							<div id="iGroup_form_desc">
+								Preencha corretamente todos os campos abaixo. No menu de grupo terá a oportunidade de adicionar membros/eventos e ver notificações do grupo.
+							</div>
+							<h2 id="iGroup_create_name">Nome do grupo</h2>
 							<div class="iGroup_error_message" id="Name_error_message">Nome inválido!</div>
 							<input class ="igroup_form" id="iGroup_name_value" type="text" name="Name" onclick="write_mode('iGroup_name_value');">
-						
-							<h2 id="iGroup_create_location" style="top: 5.4mm">Destino</h2>
+
+							<h2 id="iGroup_create_location">Destino</h2>
 							<div class="iGroup_error_message" id="Location_error_message">Localização inválida!</div>
 							<input class ="igroup_form" id="iGroup_location_value" type="text" name="Location" onclick="write_mode('iGroup_location_value');">
-							
-							<h2 id="iGroup_create_date" style="top: 5.4mm">Data de Partida</h2>
+
+							<h2 id="iGroup_create_date">Data de Partida</h2>
 							<div class="iGroup_error_message" id="Date_error_message">Data inválida!</div>
 							<input class ="igroup_form" id="iGroup_date_value" type="date" name="Date" onclick="write_mode('iGroup_date_value');">
-						
+
 							<button class="iGroup_mainButton" id="iGroup_mainButton_style" onclick="addGroup()">Criar Grupo</button>
 						</div>
 					</div>
@@ -324,6 +329,7 @@
 							</div>
 						</div>
 						<div class="screen_body">
+							<div class='iGroup_title_container'>Os meus grupos</div>
 							<ul class="iGroup_list" id="iGroup_group_list"></ul>
 						</div>
 					</div>
@@ -339,31 +345,31 @@
 						</div>
 						<div class="screen_body" id="iGroup_group_main_body">
 							<ul class="iGroup_list" id="iGroup_group_main_options_list">
-								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addMember")'>
-								<img class= "iGroup_list_item_icon" src=apps/iGroup/img/member.png>
-								<img class="iGroup_list_item_plus" src=apps/iGroup/img/plusgreen.png>
-								Adicionar Membro
+								<li class="iGroup_list_item iGroup_add_button" onclick='change_screen("iGroup_group_addMember")'>
+									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/member.png">
+									<img class="iGroup_list_item_plus" src="apps/iGroup/img/plusgreen.png">
+									Adicionar Membro
 								</li>
-								<li class="iGroup_list_item" onclick='showMembersList()'>
-								<img class= "iGroup_list_item_icon" src=apps/iGroup/img/member.png>
-								Ver Membros
+								<li class="iGroup_list_item iGroup_show_button" onclick='showMembersList()'>
+									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/member.png">
+									Ver Membros
 								</li>
-								<li class="iGroup_list_item" onclick='change_screen("iGroup_group_addEvent")'>
-								<img class= "iGroup_list_item_icon" src=apps/iGroup/img/event.png>
-								<img class="iGroup_list_item_plus" src=apps/iGroup/img/plusgreen.png>
-								Adicionar Evento
+								<li class="iGroup_list_item iGroup_add_button" onclick='change_screen("iGroup_group_addEvent")'>
+									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/event.png">
+									<img class="iGroup_list_item_plus" src="apps/iGroup/img/plusgreen.png">
+									Adicionar Evento
 								</li>
-								<li class="iGroup_list_item" onclick='showEventsList()'>
-								<img class= "iGroup_list_item_icon" src=apps/iGroup/img/event.png>
-								Ver Eventos
+								<li class="iGroup_list_item iGroup_show_button" onclick='showEventsList()'>
+									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/event.png">
+									Ver Eventos
 								</li>
-								<li class="iGroup_list_item" onclick='showInbox()'>
-								<img class= "iGroup_list_item_icon" src=apps/iGroup/img/messageicon.png>
-								Ver notificações
+								<li class="iGroup_list_item iGroup_show_button" onclick='showInbox();'>
+									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/messageicon.png">
+									Ver notificações
 								</li>
-								<li class="iGroup_list_item" onclick='exitGroup()'>
-								<img class= "iGroup_list_item_icon" src=apps/iGroup/img/exit.png>
-								Sair do grupo
+								<li class="iGroup_list_item iGroup_remove_button" onclick='exitGroup();'>
+									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/exit.png">
+									Sair do grupo
 								</li>
 							</ul>
 						</div>
@@ -519,6 +525,8 @@
 
 					<!-- Teclado -->
 					<div id="keyboard">
+						<div id="keyboard_input_title">abc</div>
+						<div id="keyboard_input"></div>
 						<div class="keyboard_row" id="keyboard_row_0">
 							<div class="keyboard_button" onclick="do_write('1');">1</div>
 							<div class="keyboard_button" onclick="do_write('2');">2</div>
@@ -577,7 +585,7 @@
 							<div class="keyboard_special_button" id="keyboard_button_point" onclick="do_write('.');">.</div>
 							<div class="keyboard_button" id="keyboard_space" onclick="do_write(' ');"></div>
 							<div class="keyboard_special_button" id="keyboard_button_at" onclick="do_write('@');">@</div>
-							<div class="keyboard_special_button" id="keyboard_done" onclick="exit_write_mode();">
+							<div class="keyboard_special_button" id="keyboard_done" onclick="confirm_input();">
 								<img id="keyboard_done_img" src="main/keyboard/img/done.svg">
 							</div>
 						</div>

@@ -8,17 +8,14 @@ var upper_on = false;
 var current_input_id;
 
 function write_mode(id)
-{	
+{
 	current_input_id = id;
-	document.getElementById("keyboard").style.display = "block";
-	document.getElementById("back_button").onclick = exit_write_mode;
+	display_popup("keyboard");
 }
 
-function exit_write_mode()
+function update_keyboard()
 {
-	upper_on = false; // Desligar o shift
-	document.getElementById("keyboard").style.display = "none";
-	document.getElementById("back_button").onclick = go_back;
+
 }
 
 function do_write(w)
@@ -32,15 +29,36 @@ function do_write(w)
 	else if (! upper_on)
 		w = w.toLowerCase();
 
-	document.getElementById(current_input_id).value += w;
+	document.getElementById("keyboard_input").innerHTML += w;
 }
 
 function do_delete()
 {
-	let input = document.getElementById(current_input_id);
+	let input = document.getElementById("keyboard_input");
 
-	if (input.value.length > 0)
-		input.value = input.value.substring(0, input.value.length - 1);
+	if (input.innerHTML.length > 0)
+		input.innerHTML = input.innerHTML.substring(0, input.innerHTML.length - 1);
+}
+
+function go_to_next_input()
+{
+	let inputs = document.getElementById(current_screen.id).getElementsByTagName("input");
+
+	for (let i = 0; i < inputs.length - 1; i ++)
+		if (inputs[i].id == current_input_id)
+		{
+			current_input_id = inputs[i + 1].id;
+			document.getElementById("keyboard_input").innerHTML = inputs[i + 1].value;
+			return;
+		}
+	hide_popup();
+}
+
+function confirm_input()
+{
+	document.getElementById(current_input_id).value =
+		document.getElementById("keyboard_input").innerHTML;
+	go_to_next_input();
 }
 
 function change_keyboard_case()
@@ -55,4 +73,11 @@ function change_keyboard_case()
 			all_keys[i].innerHTML = all_keys[i].innerHTML.toUpperCase();
 
 	upper_on = ! upper_on;
+}
+
+POPUPS["keyboard"].on_load = update_keyboard;
+
+POPUPS["keyboard"].on_exit = function()
+{
+	upper_on = false; // Desligar o shift
 }
