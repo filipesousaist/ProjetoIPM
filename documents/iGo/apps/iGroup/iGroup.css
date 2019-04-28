@@ -161,6 +161,13 @@
 	width: 53%;
 }
 
+.iGroup_event_name{
+	position: relative;
+	font-size: 10px;
+	left: 0.60cm;
+	width: 53%;
+}
+
 #iGroup_group_main_body
 {
   position: absolute;
