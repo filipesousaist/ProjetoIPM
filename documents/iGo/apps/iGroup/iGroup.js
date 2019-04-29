@@ -16,7 +16,7 @@ function addMember(member)
 		if (member.name != current_person_name)
 			current_group["inbox"].push({
 				title: member.name + " foi adicionado.",
-				date: new Date(),
+				date: convertToDate(new Date()),
 				type: "add_member",
 				new: 1,
 				});
@@ -45,18 +45,20 @@ function requestMember()
 function addEvent()
 {
 	let event_name = document.getElementById("iGroup_event_name_value");
-	let event_date = document.getElementById("iGroup_event_date_value");
+	let event_year = document.getElementById("iGroup_event_year_value");
+	let event_month = document.getElementById("iGroup_event_month_value");
+	let event_day = document.getElementById("iGroup_event_day_value");
 	let new_event =
 	{
 		name: event_name.value,
-		date: new Date(event_date.value)
+		date: convertToDate(new Date(event_year.value, parseInt(event_month.value) - 1, event_day.value))
 	};
 	let eventsList = current_group["events"];
 	eventsList.push(new_event);
 	let notification =
 	{
 		title: "Evento " + new_event.name + " adicionado.",
-		date: new Date(),
+		date: convertToDate(new Date()),
 		type: "add_event",
 		new: 1,
 	};
@@ -89,23 +91,24 @@ function addGroup()
 	if (is_valid_date)
 	{
 		let today_date = new Date();
-		group_date = new Date(group_year.value, group_month.value, group_day.value);
+		group_date = new Date(group_year.value, parseInt(group_month.value) - 1, group_day.value);
 		if (isNaN(group_date) || group_date < today_date)
 			is_valid_date = false;
 	}
 
 	if (is_valid_group && (group_location.value != "") && is_valid_date)
 	{
+		let group_date_str = convertToDate(group_date);
 		let departure =
 		{
 			name: "Partida",
-			date: group_date
+			date: group_date_str
 		};
 		let group =
 		{
 			name: group_name.value,
 			location: group_location.value,
-			date: group_date,
+			date: group_date_str,
 			members: [people[current_person_name]],
 			events: [departure],
 			inbox: []
@@ -123,7 +126,8 @@ function addGroup()
 
 function exitGroup()
 {
-	for (let i = 0; i < iGroup_groups.length; i++){
+	for (let i = 0; i < iGroup_groups.length; i++)
+	{
 		if (iGroup_groups[i].name == current_group.name)
 		{
 			iGroup_groups[i].members =
@@ -238,12 +242,13 @@ function showEventsList()
 	var eventsList = current_group["events"];
 	for (let i = 0; i < eventsList.length; i++)
 		list.innerHTML += "<li class='iGroup_list_item' onclick='showEventInfo(\"" + eventsList[i] + "\");'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
-		"</div><div class='iGroup_date' style='right:-5.5mm'>" + convertToDate(eventsList[i].date) + "</div></li>";
+		"</div><div class='iGroup_date' style='right:-5.5mm'>" + eventsList[i].date + "</div></li>";
 
 	change_screen('iGroup_group_main_eventsList');
 }
 
-function showEventInfo(event){
+function showEventInfo(event)
+{
 	var name = document.getElementById("iGroup_event_name");
 	var date = document.getElementById("iGroup_event_date");
 	var description = document.getElementById("iGroup_event_date");
@@ -261,11 +266,11 @@ function showInbox()
 	for (let i = inbox.length - 1; i >= 0; i --){
 		if(inbox[i].type == "add_event"){
 			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addevent'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
-			"</div><div class='iGroup_date'>" + convertToDate(inbox[i].date) +
+			"</div><div class='iGroup_date'>" + inbox[i].date +
 			"</div></li>";
 		} else if(inbox[i].type == "add_member") {
 			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addmember'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
-			"</div><div class='iGroup_date'>" + convertToDate(inbox[i].date) +
+			"</div><div class='iGroup_date'>" + inbox[i].date +
 			"</div></li>";
 		}
 	}
@@ -293,7 +298,7 @@ function convertToDate(date)
 			c++;
 		}
 	}*/
-	return date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate();
+	return date.getFullYear() + "/" + (parseInt(date.getMonth()) + 1) + "/" + date.getDate();
 }
 
 /**************/
