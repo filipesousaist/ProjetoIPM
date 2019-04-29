@@ -395,10 +395,11 @@
 							</div>
 						</div>
 						<div class="screen_body" id="iGroup_group_addMember_body">
-							<h2 id="iGroup_add_member_name" style="top: 5mm">Nome do Membro:</h2>
-							<div class="iGroup_error_message" id="Member_error_message">Esse membro não existe.</div>
-							<input class="text_input" id="iGroup_member_name_value" type="text" name="Nome do Membro:" onclick="write_mode('iGroup_member_name_value')">
-							<button onclick="requestMember()">Adicionar Membro</button>
+							<div class="iGroup_title_container" id="igroup_title_addmembers_name"></div>
+							<h2 id="iGroup_add_member_name" style="top: 8mm;">Nome do Membro:</h2>
+							<div class="iGroup_error_message" id="Member_error_message" style="visibility: none;top: 11mm;left: 5.5mm;">Esse membro não existe.</div>
+							<input class="text_input" id="iGroup_member_name_value" style="top: 2.5mm;" type="text" name="Nome do Membro:" onclick="write_mode('iGroup_member_name_value')">
+							<button onclick="requestMember()" id="igroup_addmember_submit">Adicionar Membro</button>
 						</div>
 					</div>
 
@@ -412,10 +413,11 @@
 							</div>
 						</div>
 						<div class="screen_body" id="iGroup_group_addEvent_body">
-							<h2 id="iGroup_add_event_name">Nome do Evento:</h2>
-							<input class="text_input" id="iGroup_event_name_value" type="text" name="Nome do Evento:">
+							<div class="iGroup_title_container" id="igroup_title_addevent_name"></div>
+							<h2 id="iGroup_add_event_name" style="top:0.75cm;">Nome do Evento:</h2>
+							<input class="text_input" id="iGroup_event_name_value" style="top:5mm;" type="text" name="Nome do Evento:">
 							<hr />
-							<h2 id="iGroup_add_event_date">Data do Evento:</h2>
+							<h2 id="iGroup_add_event_date" style="top:1.1cm;">Data do Evento:</h2>
 							<div>
 								<input class ="iGroup_year_input number_input" id="iGroup_event_year_value" type="text" name="Ano:" onclick="write_mode('iGroup_event_year_value');">
 								<div class="iGroup_date_sep">/</div>
@@ -423,8 +425,7 @@
 								<div class="iGroup_date_sep">/</div>
 								<input class ="iGroup_day_input number_input" id="iGroup_event_day_value" type="text" name="Dia:" onclick="write_mode('iGroup_event_year_value');">
 							</div>
-							<hr />
-							<button onclick="addEvent()">Adicionar Evento</button>
+							<button onclick="addEvent()" id="igroup_addevent_submit" style="top:1cm;">Adicionar Evento</button>
 						</div>
 					</div>
 
@@ -457,6 +458,21 @@
 							<img id="iGroup_member_photo">
 							<div id="iGroup_group_member_name"></div>
 							<button id=iGroup_group_member_location>Ver Localização no Mapa</button>
+						</div>
+					</div>
+
+					<div class="screen iGroup_screen" id="iGroup_group_member_location">
+						<div class="screen_title_container">
+							iGroup
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="screen_body">
+							<div id="iGroup_group_target_location">T</div>
+							<div id="iGroup_group_user_location">U</div>
 						</div>
 					</div>
 
@@ -503,7 +519,6 @@
 						</div>
 						<div class="screen_body">
 							<div class="iGroup_title_container" id="igroup_title_not_name"></div>
-							<div id="iGroup_not_empty" style="display:hidden;" >Não existem notificações neste momento.</div>
 							<ul class="iGroup_list" id="iGroup_group_inboxList">
 							</ul>
 						</div>

@@ -17,6 +17,7 @@ function addMember(member)
 			current_group["inbox"].push({
 				title: member.name + " foi adicionado.",
 				date: new Date(),
+				type: "add_member",
 				new: 1,
 				});
 		change_screen('iGroup_group_main');
@@ -34,8 +35,10 @@ function requestMember()
 		member_error.style.visibility="hidden";
 		addMember(member);
 	}
-	else
+	else{
 		member_error.style.visibility="visible";
+		document.getElementById("igroup_addmember_submit").style.top = "6mm";
+	}
 	member_name.value = "";
 }
 
@@ -54,6 +57,7 @@ function addEvent()
 	{
 		title: "Evento " + new_event.name + " adicionado.",
 		date: new Date(),
+		type: "add_event",
 		new: 1,
 	};
 	current_group["inbox"].push(notification);
@@ -194,6 +198,15 @@ function showMemberInfo(memberName){
 	change_screen('iGroup_group_member_info');
 }
 
+function showMemberLocation(member){
+	if(member.name != current_person_name){
+		document.getElementById("iGroup_group_target_location").style = "top :" + member.position[y] + "px; right :" + member.position[x] +"px;";
+	}
+	document.getElementById("iGroup_group_target_location").style = "top :" + people[current_person_name].position[y] + "px; right :" + people[current_person_name].position[x] +"px;";
+	change_screen("iGroup_group_member_location");
+}
+
+
 function showGroupScreen(groupName){
 	for (let i = 0; i < iGroup_groups.length; i ++){
 		if (iGroup_groups[i].name == groupName)
@@ -224,10 +237,20 @@ function showEventsList()
 	list.innerHTML = "";
 	var eventsList = current_group["events"];
 	for (let i = 0; i < eventsList.length; i++)
-		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
+		list.innerHTML += "<li class='iGroup_list_item' onclick='showEventInfo(\"" + eventsList[i] + "\");'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
 		"</div><div class='iGroup_date' style='right:-5.5mm'>" + convertToDate(eventsList[i].date) + "</div></li>";
 
 	change_screen('iGroup_group_main_eventsList');
+}
+
+function showEventInfo(event){
+	var name = document.getElementById("iGroup_event_name");
+	var date = document.getElementById("iGroup_event_date");
+	var description = document.getElementById("iGroup_event_date");
+	name.innerHTML = event.name;
+	date.innerHTML = event.date;
+	description.innerHTML = event.description;
+	change_screen('iGroup_group_event_info');
 }
 
 function showInbox()
@@ -236,9 +259,15 @@ function showInbox()
 	list.innerHTML = "";
 	var inbox = current_group["inbox"];
 	for (let i = inbox.length - 1; i >= 0; i --){
-		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
-		"</div><div class='iGroup_date'>" + convertToDate(inbox[i].date) +
-		"</div></li>";
+		if(inbox[i].type == "add_event"){
+			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addevent'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
+			"</div><div class='iGroup_date'>" + convertToDate(inbox[i].date) +
+			"</div></li>";
+		} else if(inbox[i].type == "add_member") {
+			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addmember'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
+			"</div><div class='iGroup_date'>" + convertToDate(inbox[i].date) +
+			"</div></li>";
+		}
 	}
 
 	change_screen('iGroup_group_inbox');
@@ -289,6 +318,11 @@ SCREENS["iGroup_group_inbox"].on_exit = function()
 	document.getElementById("iGroup_not_empty").style.display = "hidden";
 }
 
+SCREENS["iGroup_group_addMember"].on_exit = function()
+{
+	document.getElementById("igroup_addmember_submit").style.top = "3mm";
+	document.getElementById("Member_error_message").style.visibility="hidden";
+}
 
 /**************/
 /**************/
@@ -300,7 +334,10 @@ SCREENS["iGroup_group_inbox"].on_load = function()
 {
 	document.getElementById("igroup_title_not_name").innerHTML = "Grupo " + current_group.name + " - Notificações";
 
-	if(current_group["inbox"].length == 0) document.getElementById("iGroup_not_empty").style.display = "block";
+	if (current_group["inbox"].length == 0)
+		document.getElementById("iGroup_not_empty").style.display = "block";
+	else
+		document.getElementById("iGroup_not_empty").style.display = "none";
 }
 
 SCREENS['iGroup_group_main_eventsList'].on_load = function()
@@ -311,4 +348,14 @@ SCREENS['iGroup_group_main_eventsList'].on_load = function()
 SCREENS['iGroup_group_main_memberList'].on_load = function()
 {
 	document.getElementById("igroup_title_members_name").innerHTML = "Grupo " + current_group.name + " - Membros";
+}
+
+SCREENS["iGroup_group_addMember"].on_load = function()
+{
+	document.getElementById("igroup_title_addmembers_name").innerHTML = "Grupo " + current_group.name + " - Ad. Membro";
+}
+
+SCREENS["iGroup_group_addEvent"].on_load = function()
+{
+	document.getElementById("igroup_title_addevent_name").innerHTML = "Grupo " + current_group.name + " - Ad. Evento";
 }
