@@ -371,9 +371,38 @@
 	background-color: limegreen;
 }
 
+.iGroup_notification_item_remove{
+	background-color: #f93b3b;
+}
+
 .iGroup_date{
 	    font-size: 7pt;
     top: 3mm;
     position: relative;
     left: 4mm;
+}
+
+.igroup_group_img_repr{
+	    position: relative;
+    width: 0.5cm;
+    left: 0mm;
+}
+
+.igroup_grouplist_name{
+	position: relative;
+    font-family: Tahoma, Geneva, sans-serif;
+    top: -2mm;
+    font-size: 10pt;
+    left: 3mm;
+    width: 5cm;
+}
+
+.igroup_grouplist_desc{
+	font-family: Tahoma, Geneva, sans-serif;
+    font-size: 9pt;
+    position: absolute;
+    top: 5mm;
+    left: 11mm;
+    width: 14cm
+}
 }

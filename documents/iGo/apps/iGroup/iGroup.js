@@ -136,6 +136,17 @@ function exitGroup()
 		{
 			iGroup_groups[i].members =
 				removeObjectArray(current_group.members, people[current_person_name]);
+			
+			let notification =
+			{
+				title: current_person_name + " saiu do grupo.", 
+				date: convertToDate(new Date()),
+				type: "remove",
+				new: 1,
+			};
+			
+			current_group["inbox"].push(notification);
+			
 			if (current_group.members.length == 0)
 				iGroup_groups = removeObjectArray(iGroup_groups, current_group);
 		}
@@ -172,8 +183,11 @@ function showGroupList()
 		for (let i = 0; i < myGroups.length; i++)
 		{
 			let icon_img = MAP_PERSON_ICONS[i];
-			list.innerHTML += "<li class='iGroup_list_item' onclick='showGroupScreen(\""+ myGroups[i].name +"\");'>" +
-				"<img src='" + icon_img + "'>" + myGroups[i].name + "</li>";
+			list.innerHTML += "<li class='iGroup_list_item' style='background-color:whitesmoke;border:0.3mm solid #3834348c;' onclick='showGroupScreen(\""+ myGroups[i].name +"\");'>" +
+				"<img src='" + icon_img + "' class='igroup_group_img_repr'>" + 
+				"<div class='igroup_grouplist_name'>Grupo - " + myGroups[i].name + "</div>" + 
+				"<div class='igroup_grouplist_desc'>Núm. membros: " + myGroups[i].members.length + "</div>" + 
+			    "</li>";
 		}
 	change_screen('iGroup_groups');
 }
@@ -197,7 +211,7 @@ function showMembersList()
 	list.innerHTML = "";
 	var membersList = current_group.members;
 	for (let i = 0; i < membersList.length; i ++)
-		list.innerHTML += "<li class='iGroup_list_item' onclick='showMemberInfo(\""+ membersList[i].name + "\");'>"+ membersList[i].name + "</li>";
+		list.innerHTML += "<li class='iGroup_list_item' style='background-color:limegreen;' onclick='showMemberInfo(\""+ membersList[i].name + "\");'>"+ membersList[i].name + "</li>";
 	change_screen('iGroup_group_main_memberList');
 }
 
@@ -285,6 +299,10 @@ function showInbox()
 			"</div></li>";
 		} else if(inbox[i].type == "add_member") {
 			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addmember'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
+			"</div><div class='iGroup_date'>" + inbox[i].date +
+			"</div></li>";
+		} else if(inbox[i].type == "remove") {
+			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_remove'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
 			"</div><div class='iGroup_date'>" + inbox[i].date +
 			"</div></li>";
 		}
