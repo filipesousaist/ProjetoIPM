@@ -64,7 +64,9 @@ function addEvent()
 	};
 	current_group["inbox"].push(notification);
 	event_name.value = "";
-	event_date.value = "";
+	event_year.value = "";
+	event_month.value = "";
+	event_day.value = "";
 	change_screen('iGroup_group_main');
 }
 
