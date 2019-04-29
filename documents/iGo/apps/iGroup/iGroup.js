@@ -315,7 +315,9 @@ SCREENS["iGroup_create"].on_exit = function()
 
 	document.getElementById("iGroup_name_value").value = "";
 	document.getElementById("iGroup_location_value").value = "";
-	document.getElementById("iGroup_date_value").value = "";
+	document.getElementById("iGroup_year_value").value = "";
+	document.getElementById("iGroup_month_value").value = "";
+	document.getElementById("iGroup_day_value").value = "";
 }
 
 SCREENS["iGroup_group_inbox"].on_exit = function()
