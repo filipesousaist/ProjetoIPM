@@ -51,7 +51,8 @@ function addEvent()
 	let new_event =
 	{
 		name: event_name.value,
-		date: convertToDate(new Date(event_year.value, parseInt(event_month.value) - 1, event_day.value))
+		date: convertToDate(new Date(event_year.value, parseInt(event_month.value) - 1, event_day.value)),
+		description: ""
 	};
 	let eventsList = current_group["events"];
 	eventsList.push(new_event);
@@ -64,7 +65,9 @@ function addEvent()
 	};
 	current_group["inbox"].push(notification);
 	event_name.value = "";
-	event_date.value = "";
+	event_year.value = "";
+	event_month.value = "";
+	event_day.value = "";
 	change_screen('iGroup_group_main');
 }
 
@@ -102,7 +105,8 @@ function addGroup()
 		let departure =
 		{
 			name: "Partida",
-			date: group_date_str
+			date: group_date_str,
+			description: "Início da viagem a " + group_location.value + "."
 		};
 		let group =
 		{
@@ -239,22 +243,30 @@ function showEventsList()
 {
 	var list = document.getElementById("iGroup_group_eventsList");
 	list.innerHTML = "";
-	var eventsList = current_group["events"];
+	var eventsList = current_group.events;
 	for (let i = 0; i < eventsList.length; i++)
-		list.innerHTML += "<li class='iGroup_list_item' onclick='showEventInfo(\"" + eventsList[i] + "\");'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
+		list.innerHTML += "<li class='iGroup_list_item' onclick='showEventInfo(\"" + eventsList[i].name + "\");'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
 		"</div><div class='iGroup_date' style='right:-5.5mm'>" + eventsList[i].date + "</div></li>";
 
 	change_screen('iGroup_group_main_eventsList');
 }
 
-function showEventInfo(event)
+function showEventInfo(event_name)
 {
+	var current_event = null;
+	for (let i = 0; i < current_group.events.length; i ++)
+		if (current_group.events[i].name == event_name)
+		{
+			current_event = current_group.events[i];
+			break;
+		}
+
 	var name = document.getElementById("iGroup_event_name");
 	var date = document.getElementById("iGroup_event_date");
-	var description = document.getElementById("iGroup_event_date");
-	name.innerHTML = event.name;
-	date.innerHTML = event.date;
-	description.innerHTML = event.description;
+	var description = document.getElementById("iGroup_event_description");
+	name.innerHTML = current_event.name;
+	date.innerHTML = current_event.date;
+	description.innerHTML = current_event.description;
 	change_screen('iGroup_group_event_info');
 }
 
