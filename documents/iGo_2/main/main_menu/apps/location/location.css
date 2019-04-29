@@ -1,0 +1,40 @@
+/****************/
+/****************/
+/*** LOCATION ***/
+/****************/
+/****************/
+
+#location_screen_body
+{
+  overflow-x: scroll;
+}
+
+.map
+{
+  position: relative;
+  display: inline-block;
+  width: 8cm;
+	height: 6cm;
+  background-color: lightgray;
+}
+
+.map_place_img, .your_position
+{
+	z-index: 0;
+  display: block;
+  position: absolute;
+}
+
+.map_place_img
+{
+  z-index: 0;
+  width: 5mm;
+  height: 5mm;
+}
+
+.your_position
+{
+  z-index: 1;
+  width: 4mm;
+  height: 4mm;
+}

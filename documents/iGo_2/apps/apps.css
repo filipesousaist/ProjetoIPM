@@ -1,0 +1,51 @@
+/************/
+/************/
+/*** APPS ***/
+/************/
+/************/
+
+.app_container
+{
+	position: absolute;
+	width: calc(100% / 3);
+	top: 5mm;
+	height: 3.5cm;
+	border: 0.2mm solid black;
+	background-color: lightgrey;
+	transform: translate(-0.1mm, 0);
+}
+
+#iGuide_container
+{
+	border-bottom-left-radius: 3mm;
+}
+
+#iWay_container
+{
+	left: calc(100% / 3);
+}
+
+#iGroup_container
+{
+	left: calc(200% / 3);
+	border-bottom-right-radius: 3mm;
+}
+
+.app_icon
+{
+	position: absolute;
+	width: 12mm;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.app_name
+{
+	position: absolute;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 12pt;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

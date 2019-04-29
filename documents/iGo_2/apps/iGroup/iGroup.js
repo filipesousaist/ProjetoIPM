@@ -153,7 +153,6 @@ function exitGroup()
 		}
 
 	}
-	update_maps();
 	showGroupList();
 	change_screen("iGroup_groups");
 }
