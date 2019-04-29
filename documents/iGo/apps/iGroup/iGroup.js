@@ -186,7 +186,7 @@ function showGroupList()
 			list.innerHTML += "<li class='iGroup_list_item' style='background-color:whitesmoke;border:0.3mm solid #3834348c;' onclick='showGroupScreen(\""+ myGroups[i].name +"\");'>" +
 				"<img src='" + icon_img + "' class='igroup_group_img_repr'>" + 
 				"<div class='igroup_grouplist_name'>Grupo - " + myGroups[i].name + "</div>" + 
-				"<div class='igroup_grouplist_desc'>Número membros: " + myGroups[i].members.length + "</div>" + 
+				"<div class='igroup_grouplist_desc'>Nº membros: " + myGroups[i].members.length + "</div>" + 
 			    "</li>";
 		}
 	change_screen('iGroup_groups');
