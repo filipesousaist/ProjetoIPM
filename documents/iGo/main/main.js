@@ -9,7 +9,7 @@ var power;
 // Ecrãs
 var current_screen;
 var new_screen;
-var going_back = false;
+var screens_stack = [];
 // Popups
 var popup_ids = [];
 // Relógio
@@ -57,18 +57,10 @@ function reload()
 
 function init_screens()
 {
-	document.getElementById("off").style.display = "block";
-
-	for (let s in SCREENS)
-	{
-		if (SCREENS[s].on_init != undefined)
-			SCREENS[s].on_init();
-		if (SCREENS[s].parent_id == "auto")
-			SCREENS[s].current_parent_id = null;
-	}
-
 	// Inicializar ecrã atual
 	current_screen = new_screen = SCREENS["off"];
+	screens_stack.push(current_screen);
+	document.getElementById("off").style.display = "block";
 	current_screen.on_load();
 
 	// Inicializar relógio
@@ -183,16 +175,17 @@ function turn_off_on()
 
 function turn_on()
 {
+	power = true;
 	document.getElementById("screen_logo_container").style.animation = "fade_in_out 1.5s";
 	setTimeout(function(){change_screen("main_menu");}, 1600);
-	power = true;
+
 }
 
 function turn_off()
 {
+	power = false;
 	document.getElementById("screen_logo_container").style.animation = "";
 	change_screen("off");
-	power = false;
 }
 
 function replace_element(old_id, new_id)
@@ -208,29 +201,43 @@ function change_screen(new_screen_id)
 {
 	if (power && new_screen_id != current_screen.id)
 	{
-		new_screen = SCREENS[new_screen_id];
+		if (screens_stack.includes(new_screen_id)) // O ecrã está na stack, andar para trás até chegar a ele
+			while (current_screen.id != new_screen_id)
+				replace_screen_back();
 
-		if (going_back)
-		{
-			global_on_exit();
-			if (current_screen.on_exit != undefined)
-				current_screen.on_exit();
-		}
-
-		replace_element(current_screen.id, new_screen_id);
-
-		if (! going_back)
-		{
-			if (new_screen.on_load != undefined)
-				new_screen.on_load();
-			global_on_load();
-		}
-
-		if (new_screen.parent_id == "auto" && new_screen.current_parent_id == null)
-			new_screen.current_parent_id = current_screen.id;
-
-		current_screen = new_screen;
+		else // O ecrã não está na stack
+			replace_screen_front(new_screen_id);
 	}
+}
+
+function replace_screen_front(new_screen_id)
+{
+	current_screen = screens_stack[screens_stack.length - 1];
+	new_screen = SCREENS[new_screen_id];
+
+	global_on_load();
+	if (new_screen.on_load != undefined)
+		new_screen.on_load();
+
+	replace_element(current_screen.id, new_screen.id);
+
+	current_screen = new_screen;
+	screens_stack.push(current_screen);
+}
+
+function replace_screen_back()
+{
+	current_screen = screens_stack[screens_stack.length - 1];
+	new_screen = screens_stack[screens_stack.length - 2];
+
+	global_on_exit();
+	if (current_screen.on_exit != undefined)
+		current_screen.on_exit();
+
+	replace_element(current_screen.id, new_screen.id);
+
+	current_screen = new_screen;
+	screens_stack.pop();
 }
 
 function display_popup(popup_id)
@@ -252,31 +259,11 @@ function go_back()
 {
 	if (power)
 	{
-		going_back = true;
-
 		if (popup_ids.length > 0) // Dá prioridade a fechar popups
 			hide_popup();
-		else // Se não houver popups, vai para o ecrã anterior
-		{
-			if (current_screen.parent_id == "auto")
-			{
-				let current_parent_id = current_screen.current_parent_id;
-				current_screen.current_parent_id = null;
-				change_screen(current_parent_id);
-			}
-			else if (current_screen.parent_id != undefined)
-				change_screen(current_screen.parent_id);
-		}
-
-		going_back = false;
+		else if (screens_stack.length > 1) // Se não houver popups, vai para o ecrã anterior
+			replace_screen_back();
 	}
-}
-
-function home()
-{
-	if (power)
-		while (current_screen.id != "main_menu")
-			go_back();
 }
 
 function fadein(id, seconds)

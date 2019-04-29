@@ -2,74 +2,49 @@ const SCREENS =
 {
 	"off":                          {id: "off"},
 
-	"main_menu":                    {id: "main_menu",
-																	 parent_id: "main_menu"},
+	"main_menu":                    {id: "main_menu"},
 
-	"apps":                         {id: "apps",
-																	 parent_id: "main_menu"},
+	"apps":                         {id: "apps"},
 
-	"location":                     {id: "location",
-																	 parent_id: "main_menu"},
+	"location":                     {id: "location"},
 
-	"options":                      {id: "options",
-																	 parent_id: "main_menu"},
+	"options":                      {id: "options"},
 
-	"iGuide_main":                  {id: "iGuide_main",
-																	 parent_id: "apps"},
+	"iGuide_main":                  {id: "iGuide_main"},
 
-	"iWay_main":                    {id: "iWay_main",
-																	 parent_id: "apps"},
+	"iWay_main":                    {id: "iWay_main"},
 
-	"iGroup_main":                  {id: "iGroup_main",
-																	 parent_id: "apps"},
+	"iGroup_main":                  {id: "iGroup_main"},
 
-	"iGroup_create":								{id: "iGroup_create",
-																	 parent_id: "iGroup_main"},
+	"iGroup_create":								{id: "iGroup_create"},
 
-	"iGroup_groups":								{id: "iGroup_groups",
-																	 parent_id: "iGroup_main"},
+	"iGroup_groups":								{id: "iGroup_groups"},
 
-	"iGroup_group_main":            {id: "iGroup_group_main",
-																	 parent_id: "iGroup_groups"},
+	"iGroup_group_main":            {id: "iGroup_group_main"},
 
-	"iGroup_group_addMember":       {id: "iGroup_group_addMember",
-																	 parent_id: "iGroup_group_main"},
+	"iGroup_group_addMember":       {id: "iGroup_group_addMember"},
 
-	"iGroup_group_addEvent":        {id: "iGroup_group_addEvent",
-																	 parent_id: "iGroup_group_main"},
+	"iGroup_group_addEvent":        {id: "iGroup_group_addEvent"},
 
-	"iGroup_group_main_memberList": {id: "iGroup_group_main_memberList",
-																	 parent_id: "iGroup_group_main"},
+	"iGroup_group_main_memberList": {id: "iGroup_group_main_memberList"},
 
-	"iGroup_group_member_info": {id: "iGroup_group_member_info",
-															parent_id: "iGroup_group_main_memberList"},
+	"iGroup_group_member_info": 		{id: "iGroup_group_member_info"},
 
-	"iGroup_group_member_location": {id: "iGroup_group_member_location",
-															parent_id: "iGroup_group_member_info"},
+	"iGroup_group_main_eventsList": {id: "iGroup_group_main_eventsList"},
 
-	"iGroup_group_main_eventsList": {id: "iGroup_group_main_eventsList",
-																	 parent_id: "iGroup_group_main"},
+	"iGroup_group_event_info": 			{id: "iGroup_group_event_info"},
 
-	"iGroup_group_event_info": {id: "iGroup_group_event_info",
-															parent_id: "iGroup_group_main_eventsList"},
+	"iGroup_group_inbox":           {id: "iGroup_group_inbox"},
 
-	"iGroup_group_inbox":           {id: "iGroup_group_inbox",
-																	 parent_id: "iGroup_group_main"},
+	"iGuide_info":                  {id: "iGuide_info"},
 
-	"iGuide_info":                  {id: "iGuide_info",
-																	 parent_id: "iGuide_main"},
+  "iGuide_event_info":            {id: "iGuide_event_info"},
 
-  "iGuide_event_info":            {id: "iGuide_event_info",
-																	 parent_id: "iGuide_info"},
+	"payment_methods":              {id: "payment_methods"},
 
-	"payment_methods":              {id: "payment_methods",
-																	 parent_id: "auto"},
+	"add_payment":                  {id: "add_payment"},
 
-	"add_payment":                  {id: "add_payment",
-																	 parent_id: "payment_methods"},
-
-	"payment_complete":             {id: "payment_complete",
-																	 parent_id: "payment_methods"},
+	"payment_complete":             {id: "payment_complete"},
 }
 
 const POPUPS =

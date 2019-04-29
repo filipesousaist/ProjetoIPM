@@ -162,38 +162,37 @@
 
 .iGroup_month_input
 {
-	    width: 8mm !important;
-    margin-left: 0 !important;
-    top: 3.5mm !important;
-    left: -6mm;
+	width: 8mm !important;
+  margin-left: 0 !important;
+  top: 3.5mm !important;
+  left: -6mm;
 }
 
 .iGroup_day_input
 {
 	width: 1.3cm !important;
-    margin-left: 0 !important;
-    top: 3.5mm !important;
-    left: -6mm;
+  margin-left: 0 !important;
+  top: 3.5mm !important;
+  left: -6mm;
 }
 
 .iGroup_date_sep
 {
 	top: 3.5mm;
-    display: inline !important;
-    width: 1mm;
-    position: relative;
-    font-weight: bold;
-    font-size: 8pt;
-    left: -6mm;
+  display: inline !important;
+  width: 1mm;
+  position: relative;
+  font-weight: bold;
+  font-size: 8pt;
+  left: -6mm;
 }
 
 
 .iGroup_inbox_title
 {
-	    position: relative;
-    font-size: 10px;
-    /* left: 0.60cm; */
-    width: 53%;
+  position: relative;
+  font-size: 10px;
+  width: 53%;
 }
 
 .iGroup_event_name{
@@ -228,18 +227,19 @@
 	overflow-y: scroll;
 }
 
-#iGroup_mainButton_style{
+#iGroup_mainButton_style
+{
   margin-top: -1mm;
-    width: 4.03cm;
-    left: 0;
-    border-radius: 2mm;
-    border: 0.3mm solid #49474745;
-    color: whitesmoke;
-    background-color: limegreen;
-    height: 0.6cm;
-    font-size: 8pt;
-    top: 8mm;
-    margin-left: 5mm;
+  width: 4.03cm;
+  left: 0;
+  border-radius: 2mm;
+  border: 0.3mm solid #49474745;
+  color: whitesmoke;
+  background-color: limegreen;
+  height: 0.6cm;
+  font-size: 8pt;
+  top: 8mm;
+  margin-left: 5mm;
 }
 
 #iGroup_member_photo{
