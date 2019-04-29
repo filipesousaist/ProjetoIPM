@@ -170,7 +170,11 @@ function showGroupList()
 	}
 	else
 		for (let i = 0; i < myGroups.length; i++)
-			list.innerHTML += "<li class='iGroup_list_item' onclick='showGroupScreen(\""+ myGroups[i].name +"\");'>" + myGroups[i].name + "</li>";
+		{
+			let icon_img = MAP_PERSON_ICONS[i];
+			list.innerHTML += "<li class='iGroup_list_item' onclick='showGroupScreen(\""+ myGroups[i].name +"\");'>" +
+				"<img src='" + icon_img + "'>" + myGroups[i].name + "</li>";
+		}
 	change_screen('iGroup_groups');
 }
 
@@ -231,8 +235,7 @@ function showGroupScreen(groupName){
 
 function findGroupIndex(groups, user_name)
 {
-	let i = 0;
-	for (; i < groups.length; i ++)
+	for (let i = 0; i < groups.length; i ++)
 		for (let j = 0; j < groups[i].members.length; j ++)
 			if (groups[i].members[j].name == user_name)
 				return i;
