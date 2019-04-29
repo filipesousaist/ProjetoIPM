@@ -370,3 +370,10 @@
 .iGroup_notification_item_addmember, .iGroup_notification_item_addevent{
 	background-color: limegreen;
 }
+
+.iGroup_date{
+	    font-size: 7pt;
+    top: 3mm;
+    position: relative;
+    left: 4mm;
+}

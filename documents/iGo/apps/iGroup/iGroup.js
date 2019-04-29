@@ -104,7 +104,7 @@ function addGroup()
 		let group_date_str = convertToDate(group_date);
 		let departure =
 		{
-			name: "Partida",
+			name: "Inicio da viagem",
 			date: group_date_str,
 			description: "Início da viagem a " + group_location.value + "."
 		};
@@ -245,7 +245,7 @@ function showEventsList()
 	list.innerHTML = "";
 	var eventsList = current_group.events;
 	for (let i = 0; i < eventsList.length; i++)
-		list.innerHTML += "<li class='iGroup_list_item' onclick='showEventInfo(\"" + eventsList[i].name + "\");'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
+		list.innerHTML += "<li class='iGroup_list_item' style='background-color:limegreen;' onclick='showEventInfo(\"" + eventsList[i].name + "\");'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
 		"</div><div class='iGroup_date' style='right:-5.5mm'>" + eventsList[i].date + "</div></li>";
 
 	change_screen('iGroup_group_main_eventsList');
