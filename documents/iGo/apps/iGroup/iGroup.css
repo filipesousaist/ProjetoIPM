@@ -35,10 +35,11 @@
 	margin-left: 0.5mm;
   border-radius: 2mm;
   border: 0.2mm solid grey;
-  width: 4cm;
+  width: 3.95cm;
   margin-left: 5mm;
   top: 6mm;
   position: relative;
+	padding-left: 0.5mm;
 }
 
 .iGroup_screen button
@@ -109,60 +110,74 @@
 .iGroup_list_item
 {
 	position: relative;
-    width: 4cm;
-    height: 1cm;
-    left: 0.35cm;
-    margin: 1mm 0 1mm 0;
-    padding-left: 3mm;
-    font-family: Verdana, sans-serif;
-    font-size: 10pt;
-    display: flex;
-    border: 0.3mm solid #49474745;
-    border-radius: 0.2cm;
-    align-items: center;
+  width: 4cm;
+  height: 1cm;
+  left: 0.35cm;
+  margin: 1mm 0 1mm 0;
+  padding-left: 3mm;
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  display: flex;
+  border: 0.3mm solid #49474745;
+  border-radius: 0.2cm;
+  align-items: center;
 }
 
 .iGroup_list_item_icon
 {
 	position: absolute;
-    height: 0.5cm;
-    width: 0.5cm;
-    padding-right: 1mm;
-    display: block;
+  height: 0.5cm;
+  width: 0.5cm;
+  padding-right: 1mm;
+  display: block;
 }
 
 .iGroup_list_item_plus
 {
 	position: absolute;
-    height: 0.25cm;
-    width: 0.25cm;
-    bottom: 2mm;
-    left: 6mm;
-    border: 0.15mm solid black;
-    border-radius: 50%;
+  height: 0.25cm;
+  width: 0.25cm;
+  bottom: 2mm;
+  left: 6mm;
+  border: 0.15mm solid black;
+  border-radius: 50%;
 }
 
-.iGroup_date
+.iGroup_date_container
 {
-	font-size: 9px;
 	position: relative;
-	right: -6.5mm;
+	top: 6mm;
+}
+
+.iGroup_year_input, .iGroup_month_input, .iGroup_day_input
+{
+	top: 0 !important;
 }
 
 .iGroup_year_input
 {
-	width: 1cm;
+	width: 1cm !important;
 }
 
 .iGroup_month_input
 {
-	width: 8mm;
+	width: 8mm !important;
+	margin-left: 0 !important;
 }
 
 .iGroup_day_input
 {
-	width: 6mm;
+	width: 6mm !important;
+	margin-left: 0 !important;
 }
+
+.iGroup_date_sep
+{
+	top: 0;
+	display: inline !important;
+	width: 1mm;
+}
+
 
 .iGroup_inbox_title
 {
@@ -269,18 +284,19 @@
     color: #181818;
 }
 
-#iGroup_form_desc{
+#iGroup_form_desc
+{
 	top: 1mm;
-    position: relative;
-    text-align: start;
-	    width: 4.5cm;
-    height: 4.5mm;
-    left: -2.3mm;
-    padding-top: 0.5mm;
-    padding-left: 0.5cm;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 6pt;
-    color: #4b3d3d;
+  position: relative;
+  text-align: start;
+  width: 4.5cm;
+  height: 4.5mm;
+  left: -2.3mm;
+  padding-top: 0.5mm;
+  padding-left: 0.5cm;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 6pt;
+  color: #4b3d3d;
 }
 
 .igroup_list_name{

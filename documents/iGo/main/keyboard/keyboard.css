@@ -44,7 +44,12 @@
 	position: relative;
 }
 
-.keyboard_button, .keyboard_special_button
+#number_keyboard, #full_keyboard
+{
+	display: none;
+}
+
+.keyboard_button, .keyboard_special_button, .number_keyboard_button
 {
 	z-index: 2;
   position: relative;
@@ -92,6 +97,20 @@
 	border: none;
 	background: gray;
 	color: white;
+}
+
+.number_keyboard_button
+{
+	background: white;
+	width: 6mm;
+	height: 6mm;
+	font-size: 12pt;
+}
+
+#number_keyboard_row_0, #number_keyboard_row_1
+{
+	left: 4mm;
+	margin: 1mm 0 1mm 0;
 }
 
 #keyboard_shift
@@ -145,4 +164,38 @@
   width: 3mm;
   top: 0.1mm;
   left: 1mm;
+}
+
+/* Number keyboard */
+
+#number_keyboard_delete
+{
+	position: absolute;
+	width: 6mm;
+	height: 4mm;
+	left: 4cm;
+	top: 10mm;
+	align-items: center;
+}
+
+#number_keyboard_done
+{
+	position: absolute;
+	width: 6mm;
+  height: 7mm;
+  left: 4cm;
+  top: 15mm;
+	align-items: center;
+}
+
+#number_keyboard_done_img
+{
+	width: 5mm;
+	margin-top: 1mm;
+}
+
+#number_keyboard_delete_img
+{
+	width: 4mm;
+	margin-top: -0.25mm;
 }

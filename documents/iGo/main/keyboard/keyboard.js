@@ -6,8 +6,9 @@
 
 var upper_on = false;
 var current_input_id;
+var current_keyboard_id;
 
-function write_mode(id)
+function write_mode(id, type)
 {
 	current_input_id = id;
 	display_popup("keyboard");
@@ -19,6 +20,21 @@ function update_keyboard()
 
 	document.getElementById("keyboard_input_title").innerHTML = current_input.name;
 	document.getElementById("keyboard_input").innerHTML = current_input.value;
+
+	change_keyboard_type();
+}
+
+function change_keyboard_type()
+{
+	if (current_keyboard_id != null)
+		document.getElementById(current_keyboard_id).style.display = "none";
+
+	let current_input = document.getElementById(current_input_id);
+	if (current_input.classList.contains("text_input"))
+		current_keyboard_id = "full_keyboard";
+	else if (current_input.classList.contains("number_input"))
+		current_keyboard_id = "number_keyboard";
+	document.getElementById(current_keyboard_id).style.display = "block";
 }
 
 function do_write(w)
@@ -51,7 +67,8 @@ function go_to_next_input()
 		if (inputs[i].id == current_input_id)
 		{
 			current_input_id = inputs[i + 1].id;
-			document.getElementById("keyboard_input").innerHTML = inputs[i + 1].value;
+
+			update_keyboard();
 			return;
 		}
 	hide_popup();

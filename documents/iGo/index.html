@@ -305,20 +305,21 @@
 							</div>
 							<h2 id="iGroup_create_name">Nome do grupo:</h2>
 							<div class="iGroup_error_message" id="Name_error_message">Nome inválido!</div>
-							<input class ="igroup_form" id="iGroup_name_value" type="text" name="Nome do grupo:" onclick="write_mode('iGroup_name_value');">
+							<input class ="text_input" id="iGroup_name_value" type="text" name="Nome do grupo:" onclick="write_mode('iGroup_name_value');">
 
 							<h2 id="iGroup_create_location">Destino:</h2>
 							<div class="iGroup_error_message" id="Location_error_message">Localização inválida!</div>
-							<input class ="igroup_form" id="iGroup_location_value" type="text" name="Destino:" onclick="write_mode('iGroup_location_value');">
+							<input class ="text_input" id="iGroup_location_value" type="text" name="Destino:" onclick="write_mode('iGroup_location_value');">
 
 							<h2 id="iGroup_create_date">Data de Partida:</h2>
 							<div class="iGroup_error_message" id="Date_error_message">Data inválida!</div>
-							<input class ="igroup_form" id="iGroup_year_value" type="text" name="Ano:" onclick="write_mode('iGroup_date_value');">
-							/
-							<input class ="igroup_form" id="iGroup_month_value" type="text" name="Mês:" onclick="write_mode('iGroup_date_value');">
-							/
-							<input class ="igroup_form" id="iGroup_month_value" type="text" name="Dia:" onclick="write_mode('iGroup_date_value');">
-
+							<div class="iGroup_date_container">
+								<input class ="iGroup_year_input number_input" id="iGroup_year_value" type="text" name="Ano:" onclick="write_mode('iGroup_year_value');">
+								<div class="iGroup_date_sep">/</div>
+								<input class ="iGroup_month_input number_input" id="iGroup_month_value" type="text" name="Mês:" onclick="write_mode('iGroup_year_value');">
+								<div class="iGroup_date_sep">/</div>
+								<input class ="iGroup_day_input number_input" id="iGroup_day_value" type="text" name="Dia:" onclick="write_mode('iGroup_year_value');">
+							</div>
 
 							<button class="iGroup_mainButton" id="iGroup_mainButton_style" onclick="addGroup()">Criar Grupo</button>
 						</div>
@@ -396,7 +397,7 @@
 						<div class="screen_body" id="iGroup_group_addMember_body">
 							<h2 id="iGroup_add_member_name" style="top: 5mm">Nome do Membro:</h2>
 							<div class="iGroup_error_message" id="Member_error_message">Esse membro não existe.</div>
-							<input id="iGroup_member_name_value" type="text" name="Nome do Membro:">
+							<input class="text_input" id="iGroup_member_name_value" type="text" name="Nome do Membro:" onclick="write_mode('iGroup_member_name_value')">
 							<button onclick="requestMember()">Adicionar Membro</button>
 						</div>
 					</div>
@@ -412,10 +413,16 @@
 						</div>
 						<div class="screen_body" id="iGroup_group_addEvent_body">
 							<h2 id="iGroup_add_event_name">Nome do Evento:</h2>
-							<input id="iGroup_event_name_value" type="text" name="Nome do Evento:">
+							<input class="text_input" id="iGroup_event_name_value" type="text" name="Nome do Evento:">
 							<hr />
 							<h2 id="iGroup_add_event_date">Data do Evento:</h2>
-							<input id="iGroup_event_date_value" type="date" name="Data do Evento:">
+							<div>
+								<input class ="iGroup_year_input number_input" id="iGroup_event_year_value" type="text" name="Ano:" onclick="write_mode('iGroup_event_year_value');">
+								<div class="iGroup_date_sep">/</div>
+								<input class ="iGroup_month_input number_input" id="iGroup_event_month_value" type="text" name="Mês:" onclick="write_mode('iGroup_event_year_value');">
+								<div class="iGroup_date_sep">/</div>
+								<input class ="iGroup_day_input number_input" id="iGroup_event_day_value" type="text" name="Dia:" onclick="write_mode('iGroup_event_year_value');">
+							</div>
 							<hr />
 							<button onclick="addEvent()">Adicionar Evento</button>
 						</div>
@@ -431,7 +438,7 @@
 							</div>
 						</div>
 						<div class="screen_body">
-							<div class="iGroup_title_container" id="igroup_title_members_name"></div>						
+							<div class="iGroup_title_container" id="igroup_title_members_name"></div>
 							<ul class="iGroup_list" id="iGroup_group_memberList">
 							</ul>
 						</div>
@@ -514,7 +521,7 @@
 						</div>
 						<div class="screen_body">
 							<!-- ui -->
-							
+
 							<div id="notificationNameInfo"></div>
 							<div id="notificationTextInfo"></div>
 						</div>
@@ -574,68 +581,93 @@
 					<div id="keyboard">
 						<div id="keyboard_input_title"></div>
 						<div id="keyboard_input"></div>
-						<div class="keyboard_row" id="keyboard_row_0">
-							<div class="keyboard_button" onclick="do_write('1');">1</div>
-							<div class="keyboard_button" onclick="do_write('2');">2</div>
-							<div class="keyboard_button" onclick="do_write('3');">3</div>
-							<div class="keyboard_button" onclick="do_write('4');">4</div>
-							<div class="keyboard_button" onclick="do_write('5');">5</div>
-							<div class="keyboard_button" onclick="do_write('6');">6</div>
-							<div class="keyboard_button" onclick="do_write('7');">7</div>
-							<div class="keyboard_button" onclick="do_write('8');">8</div>
-							<div class="keyboard_button" onclick="do_write('9');">9</div>
-							<div class="keyboard_button" onclick="do_write('0');">0</div>
-						</div>
+						<div id="full_keyboard">
+							<div class="keyboard_row" id="keyboard_row_0">
+								<div class="keyboard_button" onclick="do_write('1');">1</div>
+								<div class="keyboard_button" onclick="do_write('2');">2</div>
+								<div class="keyboard_button" onclick="do_write('3');">3</div>
+								<div class="keyboard_button" onclick="do_write('4');">4</div>
+								<div class="keyboard_button" onclick="do_write('5');">5</div>
+								<div class="keyboard_button" onclick="do_write('6');">6</div>
+								<div class="keyboard_button" onclick="do_write('7');">7</div>
+								<div class="keyboard_button" onclick="do_write('8');">8</div>
+								<div class="keyboard_button" onclick="do_write('9');">9</div>
+								<div class="keyboard_button" onclick="do_write('0');">0</div>
+							</div>
 
-						<div class="keyboard_row" id="keyboard_row_1">
-							<div class="keyboard_button" onclick="do_write('Q');">q</div>
-							<div class="keyboard_button" onclick="do_write('W');">w</div>
-							<div class="keyboard_button" onclick="do_write('E');">e</div>
-							<div class="keyboard_button" onclick="do_write('R');">r</div>
-							<div class="keyboard_button" onclick="do_write('T');">t</div>
-							<div class="keyboard_button" onclick="do_write('Y');">y</div>
-							<div class="keyboard_button" onclick="do_write('U');">u</div>
-							<div class="keyboard_button" onclick="do_write('I');">i</div>
-							<div class="keyboard_button" onclick="do_write('O');">o</div>
-							<div class="keyboard_button" onclick="do_write('P');">p</div>
-						</div>
+							<div class="keyboard_row" id="keyboard_row_1">
+								<div class="keyboard_button" onclick="do_write('Q');">q</div>
+								<div class="keyboard_button" onclick="do_write('W');">w</div>
+								<div class="keyboard_button" onclick="do_write('E');">e</div>
+								<div class="keyboard_button" onclick="do_write('R');">r</div>
+								<div class="keyboard_button" onclick="do_write('T');">t</div>
+								<div class="keyboard_button" onclick="do_write('Y');">y</div>
+								<div class="keyboard_button" onclick="do_write('U');">u</div>
+								<div class="keyboard_button" onclick="do_write('I');">i</div>
+								<div class="keyboard_button" onclick="do_write('O');">o</div>
+								<div class="keyboard_button" onclick="do_write('P');">p</div>
+							</div>
 
-						<div class="keyboard_row" id="keyboard_row_2">
-							<div class="keyboard_button" onclick="do_write('A');">a</div>
-							<div class="keyboard_button" onclick="do_write('S');">s</div>
-							<div class="keyboard_button" onclick="do_write('D');">d</div>
-							<div class="keyboard_button" onclick="do_write('F');">f</div>
-							<div class="keyboard_button" onclick="do_write('G');">g</div>
-							<div class="keyboard_button" onclick="do_write('H');">h</div>
-							<div class="keyboard_button" onclick="do_write('J');">j</div>
-							<div class="keyboard_button" onclick="do_write('K');">k</div>
-							<div class="keyboard_button" onclick="do_write('L');">l</div>
-						</div>
+							<div class="keyboard_row" id="keyboard_row_2">
+								<div class="keyboard_button" onclick="do_write('A');">a</div>
+								<div class="keyboard_button" onclick="do_write('S');">s</div>
+								<div class="keyboard_button" onclick="do_write('D');">d</div>
+								<div class="keyboard_button" onclick="do_write('F');">f</div>
+								<div class="keyboard_button" onclick="do_write('G');">g</div>
+								<div class="keyboard_button" onclick="do_write('H');">h</div>
+								<div class="keyboard_button" onclick="do_write('J');">j</div>
+								<div class="keyboard_button" onclick="do_write('K');">k</div>
+								<div class="keyboard_button" onclick="do_write('L');">l</div>
+							</div>
 
-						<div class="keyboard_row" id="keyboard_row_3">
-							<button class="keyboard_special_button" id="keyboard_shift" onclick="change_keyboard_case();">
-								<img id="keyboard_shift_img" src="main/keyboard/img/shift.svg">
-							</button>
-							<div class="keyboard_button" onclick="do_write('Z');">z</div>
-							<div class="keyboard_button" onclick="do_write('X');">x</div>
-							<div class="keyboard_button" onclick="do_write('C');">c</div>
-							<div class="keyboard_button" onclick="do_write('V');">v</div>
-							<div class="keyboard_button" onclick="do_write('B');">b</div>
-							<div class="keyboard_button" onclick="do_write('N');">n</div>
-							<div class="keyboard_button" onclick="do_write('M');">m</div>
-							<button class="keyboard_special_button" id="keyboard_delete" onclick="do_delete();">
-								<img id="keyboard_delete_img" src="main/keyboard/img/delete.svg">
-							</button>
-						</div>
+							<div class="keyboard_row" id="keyboard_row_3">
+								<button class="keyboard_special_button" id="keyboard_shift" onclick="change_keyboard_case();">
+									<img id="keyboard_shift_img" src="main/keyboard/img/shift.svg">
+								</button>
+								<div class="keyboard_button" onclick="do_write('Z');">z</div>
+								<div class="keyboard_button" onclick="do_write('X');">x</div>
+								<div class="keyboard_button" onclick="do_write('C');">c</div>
+								<div class="keyboard_button" onclick="do_write('V');">v</div>
+								<div class="keyboard_button" onclick="do_write('B');">b</div>
+								<div class="keyboard_button" onclick="do_write('N');">n</div>
+								<div class="keyboard_button" onclick="do_write('M');">m</div>
+								<button class="keyboard_special_button" id="keyboard_delete" onclick="do_delete();">
+									<img id="keyboard_delete_img" src="main/keyboard/img/delete.svg">
+								</button>
+							</div>
 
-						<div class="keyboard_row" id="keyboard_row_4">
-							<div class="keyboard_special_button" id="keyboard_button_point" onclick="do_write('.');">.</div>
-							<div class="keyboard_button" id="keyboard_space" onclick="do_write(' ');"></div>
-							<div class="keyboard_special_button" id="keyboard_button_at" onclick="do_write('@');">@</div>
-							<div class="keyboard_special_button" id="keyboard_done" onclick="confirm_input();">
-								<img id="keyboard_done_img" src="main/keyboard/img/done.svg">
+							<div class="keyboard_row" id="keyboard_row_4">
+								<div class="keyboard_special_button" id="keyboard_button_point" onclick="do_write('.');">.</div>
+								<div class="keyboard_button" id="keyboard_space" onclick="do_write(' ');"></div>
+								<div class="keyboard_special_button" id="keyboard_button_at" onclick="do_write('@');">@</div>
+								<div class="keyboard_special_button" id="keyboard_done" onclick="confirm_input();">
+									<img id="keyboard_done_img" src="main/keyboard/img/done.svg">
+								</div>
 							</div>
 						</div>
+						<div id="number_keyboard">
+							<div class="keyboard_row" id="number_keyboard_row_0">
+								<div class="number_keyboard_button" onclick="do_write('1');">1</div>
+								<div class="number_keyboard_button" onclick="do_write('2');">2</div>
+								<div class="number_keyboard_button" onclick="do_write('3');">3</div>
+								<div class="number_keyboard_button" onclick="do_write('4');">4</div>
+								<div class="number_keyboard_button" onclick="do_write('5');">5</div>
+							</div>
+							<div class="keyboard_row" id="number_keyboard_row_1">
+								<div class="number_keyboard_button" onclick="do_write('6');">6</div>
+								<div class="number_keyboard_button" onclick="do_write('7');">7</div>
+								<div class="number_keyboard_button" onclick="do_write('8');">8</div>
+								<div class="number_keyboard_button" onclick="do_write('9');">9</div>
+								<div class="number_keyboard_button" onclick="do_write('0');">0</div>
+							</div>
+							<div class="keyboard_special_button" id="number_keyboard_delete" onclick="do_delete();">
+								<img id="number_keyboard_delete_img" src="main/keyboard/img/delete.svg">
+							</div>
+							<div class="keyboard_special_button" id="number_keyboard_done" onclick="confirm_input();">
+								<img id="number_keyboard_done_img" src="main/keyboard/img/done.svg">
+							</div>
+						</div>
+
 					</div>
 
 					<!-- Janela de erro -->

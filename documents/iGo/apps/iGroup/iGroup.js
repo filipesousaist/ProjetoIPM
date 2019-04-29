@@ -14,12 +14,9 @@ function addMember(member)
 	{
 		current_group["members"].push(member);
 		if (member.name != current_person_name)
-			var eventDate = new Date();
 			current_group["inbox"].push({
 				title: member.name + " foi adicionado.",
-				day: eventDate.getDate(),
-				month: eventDate.getMonth(),
-				year: eventDate.getFullYear(),
+				date: new Date(),
 				new: 1,
 				});
 		change_screen('iGroup_group_main');
@@ -49,17 +46,14 @@ function addEvent()
 	let new_event =
 	{
 		name: event_name.value,
-		date: new Date(event_date.value),
+		date: new Date(event_date.value)
 	};
 	let eventsList = current_group["events"];
 	eventsList.push(new_event);
-	let eventDate = new Date();
 	let notification =
 	{
 		title: "Evento " + new_event.name + " adicionado.",
-		day: eventDate.getDate(),
-		month: eventDate.getMonth(),
-		year: eventDate.getFullYear(),
+		date: new Date(),
 		new: 1,
 	};
 	current_group["inbox"].push(notification);
@@ -73,29 +67,41 @@ function addGroup()
 {
 	let group_name = document.getElementById("iGroup_name_value");
 	let group_location = document.getElementById("iGroup_location_value");
-	let group_date = document.getElementById("iGroup_date_value");
+	let group_year = document.getElementById("iGroup_year_value");
+	let group_month = document.getElementById("iGroup_month_value");
+	let group_day = document.getElementById("iGroup_day_value");
 	let name_error = document.getElementById("Name_error_message");
 	let location_error = document.getElementById("Location_error_message");
 	let date_error = document.getElementById("Date_error_message");
 
 	let is_valid_group = group_name.value != "";
+	if (is_valid_group)
+		for (let i = 0; i < iGroup_groups.length; i ++)
+			if (iGroup_groups[i].name == group_name.value)
+				is_valid_group = false;
 
-	for (let i = 0; i < iGroup_groups.length; i ++)
-		if (iGroup_groups[i].name == group_name.value)
-			is_valid_group = false;
+	let is_valid_date = group_year.value != "" && group_month.value != "" && group_day.value != "";
+	let group_date;
+	if (is_valid_date)
+	{
+		let today_date = new Date();
+		group_date = new Date(group_year.value, group_month.value, group_day.value);
+		if (isNaN(group_date) || group_date < today_date)
+			is_valid_date = false;
+	}
 
-	if (is_valid_group && (group_location.value != "") && (group_date.value != ""))
+	if (is_valid_group && (group_location.value != "") && is_valid_date)
 	{
 		let departure =
 		{
 			name: "Partida",
-			date: group_date.value
+			date: group_date
 		};
 		let group =
 		{
 			name: group_name.value,
 			location: group_location.value,
-			date: group_date.value,
+			date: group_date,
 			members: [people[current_person_name]],
 			events: [departure],
 			inbox: []
@@ -105,10 +111,10 @@ function addGroup()
 	}
 	name_error.style.visibility = (!is_valid_group ? "visible" : "hidden");
 	location_error.style.visibility = (group_location.value == "" ? "visible" : "hidden");
-	date_error.style.visibility = (group_date.value == "" ? "visible" : "hidden");
-	group_name.value = (name_error.style.visibility == "visible" ? "" : group_name.value);
+	date_error.style.visibility = (!is_valid_date ? "visible" : "hidden");
+	/*group_name.value = (name_error.style.visibility == "visible" ? "" : group_name.value);
 	group_date.value = (date_error.style.visibility == "visible" ? "" : group_date.value);
-	group_location.value = (location_error.style.visibility == "visible" ? "" : group_location.value);
+	group_location.value = (location_error.style.visibility == "visible" ? "" : group_location.value);*/
 }
 
 function exitGroup()
@@ -183,7 +189,6 @@ function showMemberInfo(memberName){
 	var photo = document.getElementById("iGroup_member_photo");
 	var name = document.getElementById("iGroup_group_member_name");
 	name.innerHTML = "";
-	console.log(people[memberName]);
 	photo.src = people[memberName].image;
 	name.innerHTML = memberName;
 	change_screen('iGroup_group_member_info');
@@ -197,9 +202,9 @@ function showGroupScreen(groupName){
 			break;
 		}
 	}
-	
+
 	document.getElementById("igroup_title_group_name").innerHTML = "Grupo " + groupName + " - Menu";
-	
+
 	change_screen('iGroup_group_main');
 }
 
@@ -220,8 +225,8 @@ function showEventsList()
 	var eventsList = current_group["events"];
 	for (let i = 0; i < eventsList.length; i++)
 		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
-		"</div><div class='iGroup_date' style='right:-5.5mm'>" + convertoDate(eventsList[i].date) + "</div></li>";
-	
+		"</div><div class='iGroup_date' style='right:-5.5mm'>" + convertToDate(eventsList[i].date) + "</div></li>";
+
 	change_screen('iGroup_group_main_eventsList');
 }
 
@@ -232,15 +237,16 @@ function showInbox()
 	var inbox = current_group["inbox"];
 	for (let i = inbox.length - 1; i >= 0; i --){
 		list.innerHTML += "<li class='iGroup_list_item'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
-		"</div><div class='iGroup_date'>" + inbox[i].day + "/" + inbox[i].month + "/" + inbox[i].year +
+		"</div><div class='iGroup_date'>" + convertToDate(inbox[i].date) +
 		"</div></li>";
 	}
-		
+
 	change_screen('iGroup_group_inbox');
 }
 
-function convertoDate(date){
-	var c = 0;
+function convertToDate(date)
+{
+	/*var c = 0;
 	var year = "";
 	var month = "";
 	var day = "";
@@ -257,8 +263,8 @@ function convertoDate(date){
 		else if( date[i] == '-'){
 			c++;
 		}
-	}
-	return day + "/" + month + "/" + year;
+	}*/
+	return date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate();
 }
 
 /**************/
@@ -293,7 +299,7 @@ SCREENS["iGroup_group_inbox"].on_exit = function()
 SCREENS["iGroup_group_inbox"].on_load = function()
 {
 	document.getElementById("igroup_title_not_name").innerHTML = "Grupo " + current_group.name + " - Notificações";
-	
+
 	if(current_group["inbox"].length == 0) document.getElementById("iGroup_not_empty").style.display = "block";
 }
 
