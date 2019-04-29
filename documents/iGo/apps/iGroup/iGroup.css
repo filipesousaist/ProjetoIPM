@@ -144,9 +144,11 @@
 
 .iGroup_date
 {
-	font-size: 9px;
-	position: relative;
-	right: -6.5mm;
+	font-size: 6pt;
+    position: relative;
+    /* right: -6.5mm; */
+    left: 6.5mm;
+    top: 3mm;
 }
 
 .iGroup_year_input
@@ -166,10 +168,10 @@
 
 .iGroup_inbox_title
 {
-	position: relative;
-	font-size: 10px;
-	left: 0.60cm;
-	width: 53%;
+	    position: relative;
+    font-size: 10px;
+    /* left: 0.60cm; */
+    width: 53%;
 }
 
 .iGroup_event_name{
@@ -295,4 +297,38 @@
     top: 8mm;
     position: relative;
     opacity: 0.5;
+}
+
+#igroup_addmember_submit{
+	margin-top: -1mm;
+    width: 4.03cm;
+    left: 0;
+    border-radius: 2mm;
+    border: 0.3mm solid #49474745;
+    color: whitesmoke;
+    background-color: limegreen;
+    height: 0.6cm;
+    font-size: 8pt;
+    top: 3mm;
+    margin-left: 5mm;
+	position: relative;
+}
+
+#igroup_addevent_submit{
+	margin-top: -1mm;
+    width: 4.03cm;
+    left: 0;
+    border-radius: 2mm;
+    border: 0.3mm solid #49474745;
+    color: whitesmoke;
+    background-color: limegreen;
+    height: 0.6cm;
+    font-size: 8pt;
+    top: 3mm;
+    margin-left: 5mm;
+	position: relative;
+}
+
+.iGroup_notification_item_addmember, .iGroup_notification_item_addevent{
+	background-color: limegreen;	
 }
