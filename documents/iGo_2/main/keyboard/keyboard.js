@@ -67,7 +67,6 @@ function go_to_next_input()
 		if (inputs[i].id == current_input_id)
 		{
 			current_input_id = inputs[i + 1].id;
-
 			update_keyboard();
 			return;
 		}

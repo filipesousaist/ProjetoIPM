@@ -153,6 +153,7 @@ function exitGroup()
 		}
 
 	}
+	update_maps();
 	showGroupList();
 	change_screen("iGroup_groups");
 }
@@ -225,26 +226,16 @@ function showMemberInfo(memberName){
 	change_screen('iGroup_group_member_info');
 }
 
-function showMemberLocation(member){
-	if(member.name != current_person_name){
-		document.getElementById("iGroup_group_target_location").style = "top :" + member.position[y] + "px; right :" + member.position[x] +"px;";
-	}
-	document.getElementById("iGroup_group_target_location").style = "top :" + people[current_person_name].position[y] + "px; right :" + people[current_person_name].position[x] +"px;";
-	change_screen("iGroup_group_member_location");
-}
-
-
-function showGroupScreen(groupName){
-	for (let i = 0; i < iGroup_groups.length; i ++){
+function showGroupScreen(groupName)
+{
+	for (let i = 0; i < iGroup_groups.length; i ++)
 		if (iGroup_groups[i].name == groupName)
 		{
 			current_group = iGroup_groups[i];
 			break;
 		}
-	}
 
 	document.getElementById("igroup_title_group_name").innerHTML = groupName + " - Menu";
-
 	change_screen('iGroup_group_main');
 }
 
