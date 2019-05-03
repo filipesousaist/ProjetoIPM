@@ -202,17 +202,17 @@
 	width: 53%;
 }
 
-.iGroup_add_button /* Usar na maioria dos botões de adicionar */
+.iGroup_add_button /* Usar na maioria dos bot&otilde;es de adicionar */
 {
 	background-color: limegreen;
 }
 
-.iGroup_remove_button /* Usar na maioria dos botões de remover */
+.iGroup_remove_button /* Usar na maioria dos bot&otilde;es de remover */
 {
 	background-color: #f93b3b;
 }
 
-.iGroup_show_button /* Usar na maioria dos botões de mostrar */
+.iGroup_show_button /* Usar na maioria dos bot&otilde;es de mostrar */
 {
 	background-color: #2954ff;
 }

@@ -26,7 +26,7 @@ function iGuide_info_change_tab(new_tab_id)
 	if (new_tab_id != null)
 		iGuide_info_new_tab = IGUIDE_INFO_TABS[new_tab_id];
 
-	// Mudar o botão selecionado
+	// Mudar o bot&atilde;o selecionado
 	if (iGuide_info_current_tab != null)
 	{
 		iGuide_info_tabs_global_on_exit();
@@ -53,7 +53,7 @@ function iGuide_info_show_event(event_name)
 }
 
 /////////////////////
-// Funções on_load //
+// Fun&ccedil;&otilde;es on_load //
 /////////////////////
 
 function iGuide_info_tabs_global_on_load()
@@ -66,7 +66,7 @@ function iGuide_info_tabs_global_on_load()
 
 SCREENS["iGuide_info"].on_load = function()
 {
-	// Mostrar ícone e nome do local
+	// Mostrar &iacute;cone e nome do local
 	document.getElementById("iGuide_info_place_icon").src =
 		"main/main_menu/apps/location/img/place_icons/" + iGuide_current_place.type + ".png";
 	document.getElementById("iGuide_info_place_name").innerHTML =
@@ -89,7 +89,7 @@ SCREENS["iGuide_event_info"].on_load = function()
 	document.getElementById("iGuide_event_title").innerHTML = iGuide_info_event_name;
 
 	let pay_button = document.getElementById("iGuide_event_pay_button");
-	if (current_event.price != "Grátis")
+	if (current_event.price != "Gr&aacute;tis")
 	{
 		pay_button.disabled = false;
 		pay_button.innerHTML = "Comprar Bilhete";
@@ -149,7 +149,7 @@ IGUIDE_INFO_TABS["iGuide_info_gallery"].on_load = function()
 
 
 /////////////////////
-// Funções on_exit //
+// Fun&ccedil;&otilde;es on_exit //
 /////////////////////
 
 SCREENS["iGuide_event_info"].on_exit = function()

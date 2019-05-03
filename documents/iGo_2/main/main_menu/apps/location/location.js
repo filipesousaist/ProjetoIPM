@@ -16,17 +16,17 @@ var position_interval = null;
 
 function init_locations()
 {
-	// Adicionar localizações à lista
+	// Adicionar localiza&ccedil;&otilde;es &agrave; lista
 	let locations_element = document.getElementById("map_locations");
 	locations_element.innerHTML = "";
 	for (let l in LOCATIONS)
 		locations_element.innerHTML += "<option value='" + l + "'>" + l + "</option>";
 
-	// Atualizar localização no mapa da sidebar e na app Localização
+	// Atualizar localiza&ccedil;&atilde;o no mapa da sidebar e na app Localiza&ccedil;&atilde;o
 	document.getElementById("location_name_text").innerHTML =
 		locations_element.value = people[current_person_name].location_name;
 
-	// Inicializar mapas e posições
+	// Inicializar mapas e posi&ccedil;&otilde;es
 	current_speed = SPEED_FAST;
 	move_directions = {up: false, left: false, down: false, right: false};
 

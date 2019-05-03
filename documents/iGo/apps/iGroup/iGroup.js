@@ -107,7 +107,7 @@ function addGroup()
 		{
 			name: "Inicio da viagem",
 			date: group_date_str,
-			description: "Início da viagem a " + group_location.value + "."
+			description: "In&iacute;cio da viagem a " + group_location.value + "."
 		};
 		let group =
 		{
@@ -364,7 +364,7 @@ SCREENS["iGroup_group_addMember"].on_exit = function()
 
 SCREENS["iGroup_group_inbox"].on_load = function()
 {
-	document.getElementById("igroup_title_not_name").innerHTML = current_group.name + " - Notificações";
+	document.getElementById("igroup_title_not_name").innerHTML = current_group.name + " - Notifica&ccedil;&otilde;es";
 
 	if (current_group["inbox"].length == 0)
 		document.getElementById("iGroup_not_empty").style.display = "block";

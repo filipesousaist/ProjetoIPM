@@ -32,7 +32,7 @@ function add_payment(type)
 		let payment_list_element_c = document.getElementById("payment_list");
 		payment_list_element_c.innerHTML +=
 			"<li class='payment_box_c' id='"+ saved_payment_methods +"'>" +
-				"<div class='payment_type'>Cartão de Crédito</div>" +
+				"<div class='payment_type'>Cart&atilde;o de Cr&eacute;dito</div>" +
 				"<div class='hidden_card'>" + "XXXX-XXXX-XXXX-" + card4dig + "</div>" +
 				"<img class='p_info_img' src='main/payments/img/visa.png' onclick='complete_payment();'>" +
 				"<img id='delete_b' src='main/payments/img/delete.png' onclick='delete_pm(\""+ saved_payment_methods +"\");'>" +
@@ -118,7 +118,7 @@ function complete_payment()
 
 
 /////////////////////
-// Funções on_exit //
+// Fun&ccedil;&otilde;es on_exit //
 /////////////////////
 
 SCREENS["add_payment"].on_exit = function()

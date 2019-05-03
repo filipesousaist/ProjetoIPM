@@ -2,46 +2,47 @@
 
 <html>
 	<head>
+		<meta charset="utf-8" />
 		<!-- Geral -->
 		<script src="../../util/util.js"></script>
-		<script src="database.js"></script>
+		<script src="database.js" charset="utf-8"></script>
 		<!-- Sidebars -->
 		<link rel="stylesheet" href="sidebars/sidebars.css" />
-		<script src="sidebars/ppi.js"></script>
-		<script src="sidebars/save.js"></script>
-		<script src="sidebars/user.js"></script>
+		<script src="sidebars/ppi.js" charset="utf-8"></script>
+		<script src="sidebars/save.js" charset="utf-8"></script>
+		<script src="sidebars/user.js" charset="utf-8"></script>
 		<!-- Menu Inicial -->
 		<link rel="stylesheet" href="main/main_menu/main_menu.css" />
-		<script src="main/main_menu/main_menu.js"></script>
-		<!-- Aplicações do Menu Inicial -->
+		<script src="main/main_menu/main_menu.js" charset="utf-8"></script>
+		<!-- Aplica&ccedil;&otilde;es do Menu Inicial -->
 		<link rel="stylesheet" href="main/main_menu/apps/location/location.css" />
-		<script src="main/main_menu/apps/location/location.js"></script>
-		<!-- Menu das Aplicações -->
+		<script src="main/main_menu/apps/location/location.js" charset="utf-8"></script>
+		<!-- Menu das Aplica&ccedil;&otilde;es -->
 		<link rel="stylesheet" href="apps/apps.css" />
 		<!-- iGuide -->
 		<link rel="stylesheet" href="apps/iGuide/iGuide.css" />
-		<script src="apps/iGuide/iGuide.js"></script>
+		<script src="apps/iGuide/iGuide.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="apps/iGuide/iGuide_info.css" />
-		<script src="apps/iGuide/iGuide_info.js"></script>
+		<script src="apps/iGuide/iGuide_info.js" charset="utf-8"></script>
 		<!-- iGroup -->
 		<link rel="stylesheet" href="apps/iGroup/iGroup.css" />
-		<script src="apps/iGroup/iGroup.js"></script>
+		<script src="apps/iGroup/iGroup.js" charset="utf-8"></script>
 		<!-- Pagamentos -->
 		<link rel="stylesheet" href="main/payments/payments.css" />
-		<script src="main/payments/payments.js"></script>
+		<script src="main/payments/payments.js" charset="utf-8"></script>
 		<!-- Teclado -->
 		<link rel="stylesheet" href="main/keyboard/keyboard.css" />
-		<script src="main/keyboard/keyboard.js"></script>
+		<script src="main/keyboard/keyboard.js" charset="utf-8"></script>
 		<!-- Main -->
 		<link rel="stylesheet" href="main/main.css" />
-		<script src="main/main.js"></script>
+		<script src="main/main.js" charset="utf-8"></script>
 	</head>
 
 	<body onload="init();" ondragstart="return false;">
 		<div class="sidebar" id="left_sidebar">
 			<div id="ppi_container">
-				<h3>Definições:</h3>
-				<label id="ppi_label" for="ppi_input">Píxeis por polegada</label>
+				<h3>Defini&ccedil;&otilde;es:</h3>
+				<label id="ppi_label" for="ppi_input">P&iacute;xeis por polegada</label>
 				<input id="ppi_input" type="number" min="0" max="300" placeholder="Inserir ppi">
 				<br>
 				<button id="ppi_button_resize" onclick="resize_screen();">Ajustar tamanho</button>
@@ -64,10 +65,10 @@
 
 				<div class="screen_container" id="screen_container_base">
 
-					<!-- Ecrã desligado -->
+					<!-- Ecr&atilde; desligado -->
 					<div class="screen" id="off"></div>
 
-					<!-- Logótipo -->
+					<!-- Log&oacute;tipo -->
 					<div id="screen_logo_container" align="center" ><br>iGo &trade;</div>
 
 					<!-- Menu inicial -->
@@ -98,7 +99,7 @@
 
 					</div>
 
-					<!-- Ecrã das aplicações -->
+					<!-- Ecr&atilde; das aplica&ccedil;&otilde;es -->
 					<div class="screen" id="apps">
 						<div class="screen_title_container">
 							Apps
@@ -125,7 +126,7 @@
 						</div>
 					</div>
 
-					<!-- Ecrã da localização -->
+					<!-- Ecr&atilde; da localiza&ccedil;&atilde;o -->
 					<div class="screen" id="location">
 						<div class="screen_title_container">
 							<div id="location_name_text"></div>
@@ -141,10 +142,10 @@
 						</div>
 					</div>
 
-					<!-- Ecrã das opções -->
+					<!-- Ecr&atilde; das op&ccedil;&otilde;es -->
 					<div class="screen" id="options"></div>
 
-					<!-- Ecrã principal do iGuide -->
+					<!-- Ecr&atilde; principal do iGuide -->
 					<div class="screen" id="iGuide_main">
 						<div class="screen_title_container">
 							iGuide
@@ -157,8 +158,8 @@
 						<div class="screen_body" id="iGuide_body">
 							<div id="iGuide_near_you_container">Perto de si...</div>
 							<div id="iGuide_near_you_desc">
-								Veja todos os pontos de interesse próximos de si ou então use filtros baseando-se
-								nas suas preferências.
+								Veja todos os pontos de interesse pr&oacute;ximos de si ou ent&atilde;o use filtros baseando-se
+								nas suas prefer&ecirc;ncias.
 							</div>
 							<ul id="iGuide_places_filter">
 								<li id="filter_park">
@@ -178,7 +179,7 @@
 						</div>
 					</div>
 
-					<!-- Ecrã do iGuide com informações sobre um local -->
+					<!-- Ecr&atilde; do iGuide com informa&ccedil;&otilde;es sobre um local -->
 					<div class="screen" id="iGuide_info">
 						<div class="screen_title_container">
 							iGuide
@@ -191,12 +192,12 @@
 
 						<div class="screen_body">
 							<div class="iGuide_info_header">
-								<button class="iGuide_info_tab_button iGuide_info_description_button" onclick="iGuide_info_change_tab('iGuide_info_description');">Descrição</button>
+								<button class="iGuide_info_tab_button iGuide_info_description_button" onclick="iGuide_info_change_tab('iGuide_info_description');">Descri&ccedil;&atilde;o</button>
 								<button class="iGuide_info_tab_button iGuide_info_events_button" onclick="iGuide_info_change_tab('iGuide_info_events');">Eventos</button>
 								<button class="iGuide_info_tab_button iGuide_info_gallery_button" onclick="iGuide_info_change_tab('iGuide_info_gallery');">Galeria</button>
 							</div>
 							<div id="iGuide_info_top">
-								<img id="iGuide_info_place_icon"/> <!-- "src" da img varia consoante o ecrã -->
+								<img id="iGuide_info_place_icon"/> <!-- "src" da img varia consoante o ecr&atilde; -->
 								<div id="iGuide_info_place_name"></div>
 							</div>
 
@@ -204,7 +205,7 @@
 
 							<div class="iGuide_info_container" id="iGuide_info_events">
 								<!-- Lista de eventos -->
-								<div id="iGuide_info_no_events">Não há eventos a decorrer...</div>
+								<div id="iGuide_info_no_events">N&atilde;o h&aacute; eventos a decorrer...</div>
 								<ul id="iGuide_info_events_list"></ul>
 							</div>
 
@@ -226,7 +227,7 @@
 						</div>
 						<div class="screen_body">
 							<div class="iGuide_info_header">
-								<button class="iGuide_info_tab_button iGuide_info_description_button" onclick="iGuide_info_change_tab('iGuide_info_description');">Descrição</button>
+								<button class="iGuide_info_tab_button iGuide_info_description_button" onclick="iGuide_info_change_tab('iGuide_info_description');">Descri&ccedil;&atilde;o</button>
 								<button class="iGuide_info_tab_button iGuide_info_events_button" onclick="iGuide_info_change_tab('iGuide_info_events');" disabled>Eventos</button>
 								<button class="iGuide_info_tab_button iGuide_info_gallery_button" onclick="iGuide_info_change_tab('iGuide_info_gallery');">Galeria</button>
 							</div>
@@ -247,7 +248,7 @@
 
 
 
-					<!-- Ecrã principal do iWay -->
+					<!-- Ecr&atilde; principal do iWay -->
 					<div class="screen" id="iWay_main">
 						<div class="screen_title_container">
 							iWay
@@ -258,11 +259,11 @@
 							</div>
 						</div>
 						<div class="screen_body">
-							<!-- TODO: Conteúdos do ecrã do iWay -->
+							<!-- TODO: Conte&uacute;dos do ecr&atilde; do iWay -->
 						</div>
 					</div>
 
-					<!-- Ecrã principal do iGroup -->
+					<!-- Ecr&atilde; principal do iGroup -->
 					<div class="screen" id="iGroup_main">
 						<div class="screen_title_container">
 							iGroup
@@ -273,7 +274,7 @@
 							</div>
 						</div>
 						<div class="screen_body" id="iGroup_main_body">
-							<div class="iGroup_title_container">Não se perca!</div>
+							<div class="iGroup_title_container">N&atilde;o se perca!</div>
 							<div id="iGuide_near_you_desc">
 								Crie um grupo com os seus companheiros de viagem e esteja sempre conectado aos mesmos.
 							</div>
@@ -301,22 +302,22 @@
 
 							<div class='iGroup_title_container'>Criar grupo</div>
 							<div id="iGroup_form_desc">
-								Preencha corretamente todos os campos abaixo. No menu de grupo terá a oportunidade de adicionar membros/eventos e ver notificações do grupo.
+								Preencha corretamente todos os campos abaixo. No menu de grupo ter&aacute; a oportunidade de adicionar membros/eventos e ver notifica&ccedil;&otilde;es do grupo.
 							</div>
 							<h2 id="iGroup_create_name">Nome do grupo:</h2>
-							<div class="iGroup_error_message" id="Name_error_message">Nome inválido!</div>
+							<div class="iGroup_error_message" id="Name_error_message">Nome inv&aacute;lido!</div>
 							<input class ="text_input" id="iGroup_name_value" type="text" name="Nome do grupo:" onclick="write_mode('iGroup_name_value');">
 
 							<h2 id="iGroup_create_location">Destino:</h2>
-							<div class="iGroup_error_message" id="Location_error_message">Localização inválida!</div>
+							<div class="iGroup_error_message" id="Location_error_message">Localiza&ccedil;&atilde;o inv&aacute;lida!</div>
 							<input class ="text_input" id="iGroup_location_value" type="text" name="Destino:" onclick="write_mode('iGroup_location_value');">
 
 							<h2 id="iGroup_create_date">Data de Partida:</h2>
-							<div class="iGroup_error_message" id="Date_error_message">Data inválida!</div>
+							<div class="iGroup_error_message" id="Date_error_message">Data inv&aacute;lida!</div>
 							<div class="iGroup_date_container">
 								<input class ="iGroup_year_input number_input" id="iGroup_year_value" type="text" name="Ano:" onclick="write_mode('iGroup_year_value');">
 								<div class="iGroup_date_sep">/</div>
-								<input class ="iGroup_month_input number_input" id="iGroup_month_value" type="text" name="Mês:" onclick="write_mode('iGroup_year_value');">
+								<input class ="iGroup_month_input number_input" id="iGroup_month_value" type="text" name="M&ecirc;s:" onclick="write_mode('iGroup_year_value');">
 								<div class="iGroup_date_sep">/</div>
 								<input class ="iGroup_day_input number_input" id="iGroup_day_value" type="text" name="Dia:" onclick="write_mode('iGroup_year_value');">
 							</div>
@@ -375,7 +376,7 @@
 								</li>
 								<li class="iGroup_list_item iGroup_show_button" onclick='showInbox();'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/messageicon.png">
-									<div class="igroup_list_name" >Ver notificações</div>
+									<div class="igroup_list_name" >Ver notifica&ccedil;&otilde;es</div>
 								</li>
 								<li class="iGroup_list_item iGroup_remove_button" onclick='exitGroup();'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/exit.png">
@@ -397,7 +398,7 @@
 						<div class="screen_body" id="iGroup_group_addMember_body">
 							<div class="iGroup_title_container" id="igroup_title_addmembers_name"></div>
 							<h2 id="iGroup_add_member_name" style="top: 8mm;">Nome do Membro:</h2>
-							<div class="iGroup_error_message" id="Member_error_message" style="visibility: none;top: 11mm;left: 5.5mm;">Esse membro não existe.</div>
+							<div class="iGroup_error_message" id="Member_error_message" style="visibility: none;top: 11mm;left: 5.5mm;">Esse membro n&atilde;o existe.</div>
 							<input class="text_input" id="iGroup_member_name_value" style="top: 2.5mm;" type="text" name="Nome do Membro:" onclick="write_mode('iGroup_member_name_value')">
 							<button onclick="requestMember()" id="igroup_addmember_submit">Adicionar Membro</button>
 						</div>
@@ -421,7 +422,7 @@
 							<div style="left: 6mm;top: 4.7mm;position: relative;">
 								<input class ="iGroup_year_input number_input" id="iGroup_event_year_value" type="text" name="Ano:" onclick="write_mode('iGroup_event_year_value');">
 								<div class="iGroup_date_sep" style="left: -7mm;">/</div>
-								<input class ="iGroup_month_input number_input" id="iGroup_event_month_value" style="left: -8mm;" type="text" name="Mês:" onclick="write_mode('iGroup_event_year_value');">
+								<input class ="iGroup_month_input number_input" id="iGroup_event_month_value" style="left: -8mm;" type="text" name="M&ecirc;s:" onclick="write_mode('iGroup_event_year_value');">
 								<div class="iGroup_date_sep" style="left: -8mm;">/</div>
 								<input class ="iGroup_day_input number_input" id="iGroup_event_day_value"  style="left: -8mm;" type="text" name="Dia:" onclick="write_mode('iGroup_event_year_value');">
 							</div>
@@ -457,7 +458,7 @@
 						<div class="screen_body">
 							<img id="iGroup_member_photo">
 							<div id="iGroup_group_member_name"></div>
-							<button id=iGroup_group_member_location onclick="change_screen('location');">Ver Localização no Mapa</button>
+							<button id=iGroup_group_member_location onclick="change_screen('location');">Ver Localiza&ccedil;&atilde;o no Mapa</button>
 						</div>
 					</div>
 
@@ -519,7 +520,7 @@
 						</div>
 						<div class="screen_body">
 							<div class="iGroup_title_container" id="igroup_title_not_name"></div>
-							<div id="iGroup_not_empty" style="display: none;">Não existem notificações neste momento.</div>
+							<div id="iGroup_not_empty" style="display: none;">N&atilde;o existem notifica&ccedil;&otilde;es neste momento.</div>
 							<ul class="iGroup_list" id="iGroup_group_inboxList">
 							</ul>
 						</div>
@@ -543,20 +544,20 @@
 						</div>
 					</div>
 
-					<!-- Ecrã de métodos de pagamento -->
+					<!-- Ecr&atilde; de m&eacute;todos de pagamento -->
 					<div class="screen" id="payment_methods">
-						<div id="payment_title">Métodos de Pagamento</div>
-						<div id="payment_descr">Selecione abaixo o seu método de pagamento de preferência...</div>
+						<div id="payment_title">M&eacute;todos de Pagamento</div>
+						<div id="payment_descr">Selecione abaixo o seu m&eacute;todo de pagamento de prefer&ecirc;ncia...</div>
 						<img id="add_pm" src="main/payments/img/plus.svg" onclick="change_screen('add_payment');">
 						<img id="delete_pm" src="main/payments/img/delete.svg" onclick="show_delete_option();">
-						<div id="empty_pm">Não existem métodos de pagamento guardados.</div>
+						<div id="empty_pm">N&atilde;o existem m&eacute;todos de pagamento guardados.</div>
 						<ul id="payment_list"></ul>
 					</div>
 
-					<!--Adicionar método de pagamento -->
+					<!--Adicionar m&eacute;todo de pagamento -->
 					<div class="screen" id="add_payment">
-						<div id="payment_title">Adicionar Método de Pagamento</div>
-						<div id="payment_descr">Escolha abaixo o método de pagamento que deseja adicionar.</div>
+						<div id="payment_title">Adicionar M&eacute;todo de Pagamento</div>
+						<div id="payment_descr">Escolha abaixo o m&eacute;todo de pagamento que deseja adicionar.</div>
 						<ul id="add_payment_list">
 							<li id="add_payment_list_paypal" onclick="payment_form('add_payment_list_paypal');">
 								<div id="add_payment_list_title">Paypal</div>
@@ -569,9 +570,9 @@
 								</div>
 							</li>
 							<li id="add_payment_list_card" onclick="payment_form('add_payment_list_card');">
-								<div id="add_payment_list_title" onclick="">Cartão Débito/Crédito</div>
+								<div id="add_payment_list_title" onclick="">Cart&atilde;o D&eacute;bito/Cr&eacute;dito</div>
 								<div id="add_payment_form_card">
-									<div id="card_number_title">Núm. cartão</div>
+									<div id="card_number_title">N&uacute;m. cart&atilde;o</div>
 									<input id="card_number" type="text" name="cardno"  onclick="write_mode('card_number');">
 									<div id="card_date_title">Data</div>
 									<input id="card_date" type="text" name="cardate"  onclick="write_mode('card_date');">
@@ -583,14 +584,14 @@
 						</ul>
 					</div>
 
-					<!-- Confirmação pagamento -->
+					<!-- Confirma&ccedil;&atilde;o pagamento -->
 					<div class="screen" id="payment_complete">
 						<div id="payment_title">Processando Pagamento</div>
-						<div id="payment_descr">Esta etapa poderá demorar alguns segundos....</div>
+						<div id="payment_descr">Esta etapa poder&aacute; demorar alguns segundos....</div>
 						<div id="payment_before">
 							<img id="loading" src="main/payments/img/ajax-loader.gif">
 						</div>
-						<div id="payment_after">Pagamento Concluído!</div>
+						<div id="payment_after">Pagamento Conclu&iacute;do!</div>
 					</div>
 
 					<!-- Teclado -->
@@ -688,7 +689,7 @@
 
 					<!-- Janela de erro -->
 					<div id="error_window">
-						<div id="error_msg"><br>Serviço temporariamente<br> indisponível.<br> <br></div>
+						<div id="error_msg"><br>Servi&ccedil;o temporariamente<br> indispon&iacute;vel.<br> <br></div>
 						<button class="error_button" onclick="go_back();">Voltar</button>
 					</div>
 				</div>

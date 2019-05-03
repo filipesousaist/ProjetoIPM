@@ -24,7 +24,7 @@ function iGuide_update_places()
 {
 	let places = LOCATIONS[people[current_person_name].location_name].places;
 
-	// Calcular todas as distâncias, ângulos e orientações
+	// Calcular todas as dist&acirc;ncias, &acirc;ngulos e orienta&ccedil;&otilde;es
 	let distances = {};
 	let angles = {};
 	let orientations = {};
@@ -35,7 +35,7 @@ function iGuide_update_places()
 		orientations[place_name] = get_orientation(angles[place_name]);
 	}
 
-	// Ordenar lugares por distância
+	// Ordenar lugares por dist&acirc;ncia
 	let sorted_places = [];
 	for (let place_name in places)
 	{
@@ -74,7 +74,7 @@ function iGuide_update_places()
 				"' onclick='iGuide_info_load(\""+ place.name +"\");'></div>";
 
 			let stars = "<div class='rating_stars'>" +
-				"<span>★</span>".repeat(place.rating) + "</div>";
+				"<span>&#9733;</span>".repeat(place.rating) + "</div>";
 
 			let repr_img = "<img class='iGuide_list_repr_img' src='" + place.wallpaper + "'>";
 

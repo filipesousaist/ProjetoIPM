@@ -6,25 +6,25 @@
 
 // Ligado/desligado
 var power;
-// Ecrãs
+// Ecr&atilde;s
 var current_screen;
 var new_screen;
 var screens_stack = [];
 // Popups
 var popup_ids = [];
-// Relógio
+// Rel&oacute;gio
 var clock = {blink: false, interval: null};
 const CLOCK_UPDATE_INTERVAL = 1000; // Milisegundos
 
 ////////////////////
-// Inicializações //
+// Inicializa&ccedil;&otilde;es //
 ////////////////////
 
 function init()
 {
-	load(); // Obter valores de algumas variáveis globais
+	load(); // Obter valores de algumas vari&aacute;veis globais
 
-	// Inicializar uma série de coisas
+	// Inicializar uma s&eacute;rie de coisas
 	init_auto_save();
 	init_ppi();
 	init_locations();
@@ -57,13 +57,13 @@ function reload()
 
 function init_screens()
 {
-	// Inicializar ecrã atual
+	// Inicializar ecr&atilde; atual
 	current_screen = new_screen = SCREENS["off"];
 	screens_stack.push(current_screen);
 	document.getElementById("off").style.display = "block";
 	current_screen.on_load();
 
-	// Inicializar relógio
+	// Inicializar rel&oacute;gio
 	clock.interval = setInterval(update_clock, CLOCK_UPDATE_INTERVAL);
 }
 
@@ -162,7 +162,7 @@ function handle_key_down(e)
 
 
 //////////////////
-// Ecrãs do iGo //
+// Ecr&atilde;s do iGo //
 //////////////////
 
 function turn_off_on()
@@ -201,11 +201,11 @@ function change_screen(new_screen_id)
 {
 	if (power && new_screen_id != current_screen.id)
 	{
-		if (screens_stack.includes(new_screen_id)) // O ecrã está na stack, andar para trás até chegar a ele
+		if (screens_stack.includes(new_screen_id)) // O ecr&atilde; est&aacute; na stack, andar para tr&aacute;s at&eacute; chegar a ele
 			while (current_screen.id != new_screen_id)
 				replace_screen_back();
 
-		else // O ecrã não está na stack
+		else // O ecr&atilde; n&atilde;o est&aacute; na stack
 			replace_screen_front(new_screen_id);
 	}
 }
@@ -259,9 +259,9 @@ function go_back()
 {
 	if (power)
 	{
-		if (popup_ids.length > 0) // Dá prioridade a fechar popups
+		if (popup_ids.length > 0) // D&aacute; prioridade a fechar popups
 			hide_popup();
-		else if (screens_stack.length > 1) // Se não houver popups, vai para o ecrã anterior
+		else if (screens_stack.length > 1) // Se n&atilde;o houver popups, vai para o ecr&atilde; anterior
 			replace_screen_back();
 	}
 }
@@ -304,7 +304,7 @@ function update_clock()
 
 
 /////////////////////
-// Funções on_load //
+// Fun&ccedil;&otilde;es on_load //
 /////////////////////
 
 function global_on_load()
@@ -323,7 +323,7 @@ POPUPS["error_window"].on_load = function()
 };
 
 /////////////////////
-// Funções on_exit //
+// Fun&ccedil;&otilde;es on_exit //
 /////////////////////
 
 function global_on_exit()

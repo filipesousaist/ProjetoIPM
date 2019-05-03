@@ -39,9 +39,9 @@ function change_keyboard_type()
 
 function do_write(w)
 {
-	// Nota: w vem sempre em maiúscula
+	// Nota: w vem sempre em mai&uacute;scula
 
-	// Se o shift está ligado e foi premida uma letra, mudar para minúsculas
+	// Se o shift est&aacute; ligado e foi premida uma letra, mudar para min&uacute;sculas
 	if (upper_on && /^[A-Z]/.test(w))
 		change_keyboard_case();
 

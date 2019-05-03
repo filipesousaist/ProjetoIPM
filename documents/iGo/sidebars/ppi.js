@@ -37,7 +37,7 @@ function resize_screen()
 
 function reset_screen_size()
 {
-	localStorage.setItem("ppi", -1); // Valor inválido
+	localStorage.setItem("ppi", -1); // Valor inv&aacute;lido
 	document.getElementById("ppi_input").value = "";
 	document.getElementById("iGo").style.zoom = 1;
 }
