@@ -4,6 +4,11 @@
 /****************/
 /****************/
 
+#location_name_text
+{
+  margin-top: 0.4mm;
+}
+
 #location_screen_body
 {
   overflow-x: scroll;

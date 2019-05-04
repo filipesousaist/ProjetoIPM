@@ -117,7 +117,8 @@ function change_location()
 	let new_location_name = document.getElementById("map_locations").value;
 	if (new_location_name != people[current_person_name].location_name)
 	{
-		people[current_person_name].location_name = new_location_name;
+		document.getElementById("location_name_text").innerHTML =
+			people[current_person_name].location_name = new_location_name;
 		update_maps();
 		main_menu_update_location(); /* Menu inicial */
 		iGuide_update_places(); /* iGuide */
