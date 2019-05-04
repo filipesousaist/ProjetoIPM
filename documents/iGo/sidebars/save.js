@@ -10,7 +10,7 @@ var auto_save; /* SAVE */
 var save_interval;
 
 
-// Fun&ccedil;&otilde;es principais
+// Funções principais
 
 function save()
 {
@@ -64,7 +64,7 @@ function update_auto_save_button()
 }
 
 
-// Fun&ccedil;&otilde;es auxiliares
+// Funções auxiliares
 
 function save_var(var_name, value)
 {

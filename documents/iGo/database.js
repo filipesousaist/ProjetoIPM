@@ -59,10 +59,10 @@ const DEFAULT =
 	"iGroup_groups": [],
 	"people":
 	{
-		"Ambr&oacute;sio Santos":
+		"Ambrósio Santos":
 		{
-			name: "Ambr&oacute;sio Santos",
-			id: "Ambr&oacute;sio_Santos",
+			name: "Ambrósio Santos",
+			id: "Ambrósio_Santos",
 			location_name: "Paris",
 			position: {x: 300, y: 300},
 			image : "apps/iGroup/img/Ambrosio.jpg"
@@ -122,27 +122,27 @@ const DEFAULT =
 			image : "apps/iGroup/img/ist190964.jpg"
 		},
 
-		"Pedro Leit&atilde;o":
+		"Pedro Leitão":
 		{
-			name: "Pedro Leit&atilde;o",
-			id: "Pedro_Leit&atilde;o",
+			name: "Pedro Leitão",
+			id: "Pedro_Leitão",
 			location_name: "Paris",
 			position: {x: 500, y: 500},
-			image : "apps/iGroup/img/PedroLeit&atilde;o.jpg"
+			image : "apps/iGroup/img/PedroLeitão.jpg"
 		},
 
-		"Tom&aacute;s Gomes":
+		"Tomás Gomes":
 		{
-			name: "Tom&aacute;s Gomes",
-			id: "Tom&aacute;s_Gomes",
+			name: "Tomás Gomes",
+			id: "Tomás_Gomes",
 			location_name: "Londres",
 			position: {x: 100, y: 400}
 		},
 
-		"Andr&eacute; Silva":
+		"André Silva":
 		{
-			name: "Andr&eacute; Silva",
-			id: "Andr&eacute;_Silva",
+			name: "André Silva",
+			id: "André_Silva",
 			location_name: "Londres",
 			position: {x: 150, y: 100}
 		},
@@ -163,10 +163,10 @@ const DEFAULT =
 			position: {x: 850, y: 700}
 		},
 
-		"Jo&atilde;o Lopes":
+		"João Lopes":
 		{
-			name: "Jo&atilde;o Lopes",
-			id: "Jo&atilde;o_Lopes",
+			name: "João Lopes",
+			id: "João_Lopes",
 			location_name: "Lisboa",
 			position: {x: 300, y: 500}
 		},
@@ -187,7 +187,7 @@ const DEFAULT =
 			position: {x: 50, y: 650}
 		}
 	},
-	"current_person_name": "Ambr&oacute;sio Santos"
+	"current_person_name": "Ambrósio Santos"
 }
 
 const EVENTS =
@@ -195,30 +195,30 @@ const EVENTS =
 	"Ver estrelas no parque":
 	{
 		name: "Ver estrelas no parque",
-		time: "Ter&ccedil;a, 6 Jul 2016 &agrave;s 19:00",
+		time: "Terça, 6 Jul 2016 às 19:00",
 		loc: "Parque Eduardo VII",
-		description: "Ver estrelas no parque &eacute; uma expriencia m&aacute;gica. Mas ver estrelas com os outros ainda mais &eacute;.",
+		description: "Ver estrelas no parque é uma expriencia mágica. Mas ver estrelas com os outros ainda mais é.",
 		price: "€5.75",
 		wallpaper: "apps/iGuide/img/events_bg/estrelas.jpg",
 		image: "apps/iGuide/img/events_img/estrelas.jpg"
 	},
-	"Conv&iacute;vio da igreja":
+	"Convívio da igreja":
 	{
-		name: "Conv&iacute;vio da igreja",
-		time: "Quarta, 7 Jul 2016 &agrave;s 15:00",
+		name: "Convívio da igreja",
+		time: "Quarta, 7 Jul 2016 às 15:00",
 		loc: "Parque Eduardo VII",
-		description: "Venha partilhar as suas ideias com outros membros da igreja Cat&oacute;lica",
-		price: "Gr&aacute;tis",
-		wallpaper: "apps/iGuide/img/events_bg/conv&iacute;vio.jpg",
-		image: "apps/iGuide/img/events_img/conv&iacute;vio.jpg"
+		description: "Venha partilhar as suas ideias com outros membros da igreja Católica",
+		price: "Grátis",
+		wallpaper: "apps/iGuide/img/events_bg/convivio.jpg",
+		image: "apps/iGuide/img/events_img/convivio.jpg"
 	},
 	"Feira do livro":
 	{
 		name: "Feira do livro",
-		time: "Sexta, 9 Jul 2016 &agrave;s 9:00",
+		time: "Sexta, 9 Jul 2016 às 9:00",
 		loc: "Parque Eduardo VII",
 		description: "Feira anual com uma grande variedade de livros para descobrir",
-		price: "Gr&aacute;tis",
+		price: "Grátis",
 		wallpaper: "apps/iGuide/img/events_bg/livros.jpg",
 		image: "apps/iGuide/img/events_img/livros.jpg"
 	}
@@ -233,21 +233,21 @@ const LOCATIONS =
 			"Parque Eduardo VII":
 			{
 				name: "Parque Eduardo VII",
-				description: "O Parque Eduardo VII de Inglaterra &eacute; o maior parque do centro de Lisboa, sendo comummente conhecido apenas por Parque Eduardo VII.",
+				description: "O Parque Eduardo VII de Inglaterra é o maior parque do centro de Lisboa, sendo comummente conhecido apenas por Parque Eduardo VII.",
 				bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/parqueduardo.png'>",
 				type: "park",
 				position: {x: 600, y: 420},
 				gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pevii_3.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pevii_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pevii_1.jpg'>"],
-				events: ["Ver estrelas no parque", "Conv&iacute;vio da igreja", "Feira do livro"],
+				events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
 				wallpaper: "apps/iGuide/img/place_bg/pevii_green.png"
 			},
 
 			"Shopping Amoreiras":
 			{
 				name: "Shopping Amoreiras",
-				description: "Inaugurado a 27 de Setembro de 1985 e inserido num complexo de escrit&oacute;rios e habita&ccedil;&otilde;es, com uma arquitectura ousada para a &eacute;poca.",
+				description: "Inaugurado a 27 de Setembro de 1985 e inserido num complexo de escritórios e habitações, com uma arquitectura ousada para a época.",
 				bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/amoreiras.jpg'>",
 				type: "shop",
 				position: {x: 150, y: 160},
@@ -260,7 +260,7 @@ const LOCATIONS =
 			"Instituto Gulbenkian":
 			{
 				name: "Instituto Gulbenkian",
-				description: "O Instituto Gulbenkian de Ci&ecirc;ncia (IGC) MHSE &eacute; um centro internacional dedicado &agrave; investiga&ccedil;&atilde;o biol&oacute;gica e biom&eacute;dica e &agrave; forma&ccedil;&atilde;o p&oacute;s-graduada, localizado em Oeiras, Portugal.",
+				description: "O Instituto Gulbenkian de Ci&ecirc;ncia (IGC) MHSE é um centro internacional dedicado à investigação biológica e biomédica e à formação pós-graduada, localizado em Oeiras, Portugal.",
 				bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/instituto.jpg'>",
 				type: "museum",
 				position: {x: 40, y: 400},
@@ -270,10 +270,10 @@ const LOCATIONS =
 				wallpaper: "apps/iGuide/img/place_bg/ig_orange.png"
 			},
 
-			"Padr&atilde;o dos Descobrimentos":
+			"Padrão dos Descobrimentos":
 			{
-				name: "Padr&atilde;o dos Descobrimentos",
-				description: "Em posi&ccedil;&atilde;o destacada na margem direita do rio Tejo, o monumento original, em materiais perec&iacute;veis, foi erguido em 1940 por ocasi&atilde;o da Exposi&ccedil;&atilde;o do Mundo Portugu&ecirc;s para homenagear as figuras hist&oacute;ricas envolvidas nos Descobrimentos portugueses.",
+				name: "Padrão dos Descobrimentos",
+				description: "Em posição destacada na margem direita do rio Tejo, o monumento original, em materiais perecíveis, foi erguido em 1940 por ocasião da Exposição do Mundo Portugu&ecirc;s para homenagear as figuras históricas envolvidas nos Descobrimentos portugueses.",
 				bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/padrao.jpg'>",
 				type: "monument",
 				position: {x: 50, y: 60},
@@ -283,10 +283,10 @@ const LOCATIONS =
 				wallpaper: "apps/iGuide/img/place_bg/pdd_red.png"
 			},
 
-			"Torre de Bel&eacute;m":
+			"Torre de Belém":
 			{
-				name: "Torre de Bel&eacute;m",
-				description: "Um dos ex libris da cidade, o monumento &eacute; um &iacute;cone da arquitetura do reinado de D. Manuel I, numa s&iacute;ntese entre a torre de menagem de tradi&ccedil;&atilde;o medieval e o baluarte moderno, onde se dispunham pe&ccedil;as de artilharia.",
+				name: "Torre de Belém",
+				description: "Um dos ex libris da cidade, o monumento é um ícone da arquitetura do reinado de D. Manuel I, numa síntese entre a torre de menagem de tradição medieval e o baluarte moderno, onde se dispunham peças de artilharia.",
 				bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/torre.jpg'>",
 				type: "monument",
 				position: {x: 590, y: 100},
@@ -306,7 +306,7 @@ const LOCATIONS =
 			"Big Ben":
 			{
 				name: "Big Ben",
-				description: "Apesar do termo tamb&eacute;m ser usado para se referir &agrave; torre do rel&oacute;gio onde o sino est&aacute; localizado, a estrutura &eacute; oficialmente conhecida como a Elizabeth Tower, rebatizada para comemorar o Jubileu de Diamante da Rainha Isabel II do Reino Unido.",
+				description: "Apesar do termo também ser usado para se referir à torre do relógio onde o sino está localizado, a estrutura é oficialmente conhecida como a Elizabeth Tower, rebatizada para comemorar o Jubileu de Diamante da Rainha Isabel II do Reino Unido.",
 				bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/bigben.jpg'>",
 				type: "monument",
 				position: {x: 500, y: 160},
@@ -316,10 +316,10 @@ const LOCATIONS =
 				wallpaper: "apps/iGuide/img/place_bg/bb.jpg"
 			},
 
-			"Pal&aacute;cio de Buckingham":
+			"Palácio de Buckingham":
 			{
-				name: "Pal&aacute;cio de Buckingham",
-				description: "O Pal&aacute;cio de Buckingham &eacute; a resid&ecirc;ncia oficial e principal local de trabalho do Monarca do Reino Unido em Londres. Localizado na Cidade de Westminster, o pal&aacute;cio &eacute; frequentemente o centro de ocasi&otilde;es de estado e hospitalidade real.",
+				name: "Palácio de Buckingham",
+				description: "O Palácio de Buckingham é a resid&ecirc;ncia oficial e principal local de trabalho do Monarca do Reino Unido em Londres. Localizado na Cidade de Westminster, o palácio é frequentemente o centro de ocasiões de estado e hospitalidade real.",
 				type: "monument",
 				gallery: ["FNAC", "WORTEN", "BERTRAND"],
 				position: {x: 950, y: 330}
@@ -335,7 +335,7 @@ const LOCATIONS =
 			"Torre Eiffel":
 			{
 				name: "Torre Eiffel",
-				description: "Possui 324 metros de altura e fica cerca de 15 cent&iacute;metros mais alta no ver&atilde;o, devido &agrave; dilata&ccedil;&atilde;o t&eacute;rmica do ferro. Foi a estrutura mais alta do mundo desde a sua conclus&atilde;o at&eacute; 1930, quando perdeu o posto para o Chrysler Building, em Nova Iorque, Estados Unidos.",
+				description: "Possui 324 metros de altura e fica cerca de 15 centímetros mais alta no verão, devido à dilatação térmica do ferro. Foi a estrutura mais alta do mundo desde a sua conclusão até 1930, quando perdeu o posto para o Chrysler Building, em Nova Iorque, Estados Unidos.",
 				type: "monument",
 				bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/eiffel.jpg'>",
 				gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/eif_3.jpg'>",
@@ -348,7 +348,7 @@ const LOCATIONS =
 			"Arco do Triunfo":
 			{
 				name: "Arco do Triunfo",
-				description: "O Arco do Triunfo (franc&ecirc;s: Arc de Triomphe) &eacute; um monumento localizado na cidade de Paris, constru&iacute;do em comemora&ccedil;&atilde;o &agrave;s vit&oacute;rias militares do Napole&atilde;o Bonaparte, o qual ordenou a sua constru&ccedil;&atilde;o em 1806. Inaugurado em 1836, a monumental obra det&eacute;m, gravados, os nomes de 128 batalhas e 558 generais.",
+				description: "O Arco do Triunfo (franc&ecirc;s: Arc de Triomphe) é um monumento localizado na cidade de Paris, construído em comemoração às vitórias militares do Napoleão Bonaparte, o qual ordenou a sua construção em 1806. Inaugurado em 1836, a monumental obra detém, gravados, os nomes de 128 batalhas e 558 generais.",
 				type: "monument",
 				bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/triunfo.jpg'>",
 				gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/arc_3.jpg'>",
@@ -361,7 +361,7 @@ const LOCATIONS =
 			"Louvre":
 			{
 				name: "Louvre",
-				description: "O Museu do Louvre (em franc&ecirc;s: Mus&eacute;e du Louvre), &eacute; o maior museu de arte do mundo e um monumento hist&oacute;rico em Paris, Fran&ccedil;a. Um marco central da cidade, est&aacute; localizado na margem direita do rio Sena, no 1.º arrondissement. Aproximadamente 38.000 objetos, da pr&eacute;-hist&oacute;ria ao s&eacute;culo XXI, s&atilde;o exibidos em uma &aacute;rea de 72.735 metros quadrados.",
+				description: "O Museu do Louvre (em franc&ecirc;s: Musée du Louvre), é o maior museu de arte do mundo e um monumento histórico em Paris, França. Um marco central da cidade, está localizado na margem direita do rio Sena, no 1.º arrondissement. Aproximadamente 38.000 objetos, da pré-história ao século XXI, são exibidos em uma área de 72.735 metros quadrados.",
 				type: "museum",
 				bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/louvre.jpg'>",
 				gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/lv_3.jpeg'>",
@@ -411,7 +411,7 @@ const IGUIDE_INFO_TABS =
 	"iGuide_info_description":
 	{
 		id: "iGuide_info_description",
-		name: "Descri&ccedil;&atilde;o"
+		name: "Descrição"
 	},
 
 	"iGuide_info_events":
@@ -438,7 +438,7 @@ const PAYMENT =
 
 	"CreditCard":
 	{
-		title: "Cart&atilde;o de Cr&eacute;dito",
+		title: "Cartão de Crédito",
 		img_visa: "img/visa.png",
 		img_mc: "img/mastercard.png"
 	}

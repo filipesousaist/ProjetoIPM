@@ -26,7 +26,7 @@ function iGuide_info_change_tab(new_tab_id)
 	if (new_tab_id != null)
 		iGuide_info_new_tab = IGUIDE_INFO_TABS[new_tab_id];
 
-	// Mudar o bot&atilde;o selecionado
+	// Mudar o botão selecionado
 	if (iGuide_info_current_tab != null)
 	{
 		iGuide_info_tabs_global_on_exit();
@@ -53,7 +53,7 @@ function iGuide_info_show_event(event_name)
 }
 
 /////////////////////
-// Fun&ccedil;&otilde;es on_load //
+// Funções on_load //
 /////////////////////
 
 function iGuide_info_tabs_global_on_load()
@@ -66,7 +66,7 @@ function iGuide_info_tabs_global_on_load()
 
 SCREENS["iGuide_info"].on_load = function()
 {
-	// Mostrar &iacute;cone e nome do local
+	// Mostrar ícone e nome do local
 	document.getElementById("iGuide_info_place_icon").src =
 		"main/main_menu/apps/location/img/place_icons/" + iGuide_current_place.type + ".png";
 	document.getElementById("iGuide_info_place_name").innerHTML =
@@ -89,7 +89,7 @@ SCREENS["iGuide_event_info"].on_load = function()
 	document.getElementById("iGuide_event_title").innerHTML = iGuide_info_event_name;
 
 	let pay_button = document.getElementById("iGuide_event_pay_button");
-	if (current_event.price != "Gr&aacute;tis")
+	if (current_event.price != "Grátis")
 	{
 		pay_button.disabled = false;
 		pay_button.innerHTML = "Comprar Bilhete";
@@ -128,7 +128,7 @@ IGUIDE_INFO_TABS["iGuide_info_events"].on_load = function()
 			let repr_img = "<img class='iGuide_list_repr_img' src='" +
 				EVENTS[events[i]].wallpaper + "'>";
 			let event_name = "<div class='iGuide_event_list_text iGuide_list_text'>" +
-				events[i] + "</div>";
+				EVENTS[events[i]].name + "</div>";
 			let info_img = "<img class='iGuide_event_info_icon' src='apps/iGuide/img/infoicon.png'" +
 				"onclick='iGuide_info_show_event(\""+ events[i] +"\");'>";
 
@@ -149,7 +149,7 @@ IGUIDE_INFO_TABS["iGuide_info_gallery"].on_load = function()
 
 
 /////////////////////
-// Fun&ccedil;&otilde;es on_exit //
+// Funções on_exit //
 /////////////////////
 
 SCREENS["iGuide_event_info"].on_exit = function()
@@ -159,8 +159,10 @@ SCREENS["iGuide_event_info"].on_exit = function()
 
 function iGuide_info_tabs_global_on_exit()
 {
-	document.getElementById("iGuide_info").getElementsByClassName(
-		iGuide_info_current_tab.id + "_button").disabled = false;
+	let current_button_element =
+		document.getElementById("iGuide_info").getElementsByClassName(
+			iGuide_info_current_tab.id + "_button")[0];
+	current_button_element.disabled = false;
 }
 
 IGUIDE_INFO_TABS["iGuide_info_events"].on_exit = function()

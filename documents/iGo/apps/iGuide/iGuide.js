@@ -24,7 +24,7 @@ function iGuide_update_places()
 {
 	let places = LOCATIONS[people[current_person_name].location_name].places;
 
-	// Calcular todas as dist&acirc;ncias, &acirc;ngulos e orienta&ccedil;&otilde;es
+	// Calcular todas as distâncias, ângulos e orientações
 	let distances = {};
 	let angles = {};
 	let orientations = {};
@@ -35,7 +35,7 @@ function iGuide_update_places()
 		orientations[place_name] = get_orientation(angles[place_name]);
 	}
 
-	// Ordenar lugares por dist&acirc;ncia
+	// Ordenar lugares por distância
 	let sorted_places = [];
 	for (let place_name in places)
 	{
