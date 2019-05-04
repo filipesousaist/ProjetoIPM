@@ -9,11 +9,17 @@ const POSITION_UPDATE_INTERVAL = 50; // Milisegundos
 const SPEED_FAST = 15;
 const SPEED_SLOW = 5;
 
+const ZOOM_FACTOR = 1.2;
+const MIN_ZOOM_TIMES = -2;
+const MAX_ZOOM_TIMES = 4;
+
+
 var current_speed;
 var move_directions;
 var position_interval = null;
 var maps = {"sidebar_map": {location_name: null},
 						"location_map": {location_name: null}}
+var zoom_times = 0;
 
 function init_locations()
 {
@@ -32,6 +38,7 @@ function init_locations()
 	move_directions = {up: false, left: false, down: false, right: false};
 
 	update_maps();
+	document.getElementById("location_map").style.zoom = 1;
 
 	update_position();
 	position_interval = setInterval(update_position, POSITION_UPDATE_INTERVAL);
@@ -71,15 +78,15 @@ function update_position()
 
 	if (moved)
 	{
-		if (current_person.position.x > POS_MAX.x)
-			current_person.position.x = POS_MAX.x;
-		else if (current_person.position.x < 0)
-			current_person.position.x = 0;
+		if (current_person.position.x > POS_MAX.x - 25)
+			current_person.position.x = POS_MAX.x - 25;
+		else if (current_person.position.x < 25)
+			current_person.position.x = 25;
 
-		if (current_person.position.y > POS_MAX.y)
-			current_person.position.y = POS_MAX.y;
-		else if (current_person.position.y < 0)
-			current_person.position.y = 0;
+		if (current_person.position.y > POS_MAX.y - 25)
+			current_person.position.y = POS_MAX.y - 25;
+		else if (current_person.position.y < 25)
+			current_person.position.y = 25;
 
 		// Atualizar todos os mapas
 		for (let map_id in maps)
@@ -204,8 +211,30 @@ function center_location_map(person_name, element_position)
 	let screen_width = parseFloat(screen_style.getPropertyValue("width"));
 	let screen_height = parseFloat(screen_style.getPropertyValue("height"));
 
-	screen_element.scrollLeft = parseFloat(element_coords.x) - screen_width / 2 + element_width / 2;
-	screen_element.scrollTop = parseFloat(element_coords.y) - screen_height / 2 + element_height / 2;
+	let zoom = parseFloat(document.getElementById("location_map").style.zoom);
+
+	screen_element.scrollLeft = parseFloat(element_coords.x) * zoom - screen_width / 2 + element_width / 2;
+	screen_element.scrollTop = parseFloat(element_coords.y) * zoom - screen_height / 2 + element_height / 2;
+}
+
+function zoom_location_map(mode)
+{
+	if (mode == "in")
+	{
+		if (zoom_times >= MAX_ZOOM_TIMES)
+			return;
+		document.getElementById("location_map").style.zoom *= ZOOM_FACTOR;
+		zoom_times ++;
+	}
+	else // mode == "out"
+	{
+		if (zoom_times <= MIN_ZOOM_TIMES)
+			return;
+		document.getElementById("location_map").style.zoom /= ZOOM_FACTOR;
+		zoom_times --;
+	}
+	if (screens_stack.length >= 2 && screens_stack[screens_stack.length - 2].id == "main_menu")
+		center_location_map(current_person_name, people[current_person_name].position);
 }
 
 SCREENS["location"].on_load = function()

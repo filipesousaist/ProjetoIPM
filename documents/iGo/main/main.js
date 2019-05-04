@@ -121,6 +121,14 @@ function handle_key_up(e)
 	case "Shift":
 		map_move_fast();
 		break;
+
+	case "+":
+		zoom_location_map("in");
+		break;
+
+	case "-":
+		zoom_location_map("out");
+		break;
 	}
 }
 
