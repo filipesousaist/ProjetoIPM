@@ -14,14 +14,16 @@ function addMember(member)
 	{
 		current_group["members"].push(member);
 		if (member.name != current_person_name)
-			current_group["inbox"].push({
-				title: member.name + " foi adicionado.",
-				date: convertToDate(new Date()),
-				type: "add_member",
-				new: 1,
-				});
+		{
+			current_group["inbox"].push(create_notification(
+				member.name + " foi adicionado.",
+				convertToDate(new Date()),
+				"add_member"));
+			main_menu_update_notifications();
+		}
 		showGroupList();
 		change_screen('iGroup_group_main');
+
 
 		update_maps();
 	}
@@ -57,14 +59,14 @@ function addEvent()
 	};
 	let eventsList = current_group["events"];
 	eventsList.push(new_event);
-	let notification =
-	{
-		title: "Evento " + new_event.name + " adicionado.",
-		date: convertToDate(new Date()),
-		type: "add_event",
-		new: 1,
-	};
+
+	let notification = create_notification(
+		"Evento " + new_event.name + " adicionado.",
+		convertToDate(new Date()),
+		"add_event");
 	current_group["inbox"].push(notification);
+	main_menu_update_notifications();
+
 	event_name.value = "";
 	event_year.value = "";
 	event_month.value = "";
@@ -135,15 +137,12 @@ function exitGroup()
 			iGroup_groups[i].members =
 				removeObjectArray(current_group.members, people[current_person_name]);
 
-			let notification =
-			{
-				title: current_person_name + " saiu do grupo.",
-				date: convertToDate(new Date()),
-				type: "remove",
-				new: 1,
-			};
-
+			let notification = create_notification(
+				current_person_name + " saiu do grupo.",
+				convertToDate(new Date()),
+				"remove");
 			current_group["inbox"].push(notification);
+			main_menu_update_notifications();
 
 			if (current_group.members.length == 0)
 				iGroup_groups = removeObjectArray(iGroup_groups, current_group);
@@ -152,6 +151,7 @@ function exitGroup()
 	}
 	update_maps();
 	showGroupList();
+	main_menu_update_notifications();
 	change_screen("iGroup_groups");
 }
 
@@ -250,10 +250,17 @@ function showGroupScreen(groupName)
 function findGroupIndex(groups, user_name)
 {
 	for (let i = 0; i < groups.length; i ++)
-		for (let j = 0; j < groups[i].members.length; j ++)
-			if (groups[i].members[j].name == user_name)
-				return i;
+		if (iGroup_is_in_group(groups[i], user_name))
+			return i;
 	return -1;
+}
+
+function iGroup_is_in_group(group, user_name)
+{
+	for (let i = 0; i < group.members.length; i ++)
+		if (group.members[i].name == user_name)
+			return true;
+	return false;
 }
 
 function showEventsList()
@@ -292,23 +299,54 @@ function showInbox()
 	var list = document.getElementById("iGroup_group_inboxList");
 	list.innerHTML = "";
 	var inbox = current_group["inbox"];
-	for (let i = inbox.length - 1; i >= 0; i --){
-		if(inbox[i].type == "add_event"){
-			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addevent'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
-			"</div><div class='iGroup_date'>" + inbox[i].date +
-			"</div></li>";
-		} else if(inbox[i].type == "add_member") {
-			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addmember'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
-			"</div><div class='iGroup_date'>" + inbox[i].date +
-			"</div></li>";
-		} else if(inbox[i].type == "remove") {
-			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_remove'>" + "<div class='iGroup_inbox_title'>" + inbox[i].title +
-			"</div><div class='iGroup_date'>" + inbox[i].date +
-			"</div></li>";
+	for (let i = inbox.length - 1; i >= 0; i --)
+	{
+		if (inbox[i].type == "add_event")
+			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addevent'>";
+		else if (inbox[i].type == "add_member")
+			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addmember'>";
+		else if (inbox[i].type == "remove")
+			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_remove'>";
+		
+		list.innerHTML += "<div class='iGroup_inbox_title'>" + inbox[i].title +
+		"</div><div class='iGroup_date'>" + inbox[i].date + "</div></li>";
+
+		inbox[i].new_for = removeObjectArray(inbox[i].new_for, people[current_person_name]);
+	}
+
+	main_menu_update_notifications();
+
+	change_screen('iGroup_group_inbox');
+}
+
+function create_notification(title, date, type)
+{
+	let notification = {title: title, date: date, type: type, new_for: []}
+	for (let i = 0; i < current_group.members.length; i ++)
+		notification.new_for.push(current_group.members[i]);
+
+	return notification;
+}
+
+function iGroup_count_new_notifications()
+{
+	let count = 0;
+	for (let i = 0; i < iGroup_groups.length; i ++)
+	{
+		if (iGroup_is_in_group(iGroup_groups[i], current_person_name))
+		{
+			let inbox = iGroup_groups[i]["inbox"];
+			for (let j = 0; j < inbox.length; j ++)
+				for (let k = 0; k < inbox[j].new_for.length; k ++)
+					if (inbox[j].new_for[k].name == current_person_name)
+					{
+						count ++;
+						break;
+					}
 		}
 	}
 
-	change_screen('iGroup_group_inbox');
+	return count;
 }
 
 function convertToDate(date)
@@ -360,6 +398,10 @@ SCREENS["iGroup_group_inbox"].on_load = function()
 		document.getElementById("iGroup_not_empty").style.display = "block";
 	else
 		document.getElementById("iGroup_not_empty").style.display = "none";
+
+	let inbox = current_group["inbox"];
+	for (let i = 0; i < inbox.length; i ++)
+		arrayRemove(inbox[i].new_for, "current_person_name");
 }
 
 SCREENS['iGroup_group_main_eventsList'].on_load = function()

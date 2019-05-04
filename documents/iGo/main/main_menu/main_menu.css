@@ -90,6 +90,21 @@
 	top: 31.5mm;
 }
 
+#main_menu_notification_icon
+{
+	position: absolute;
+  top: 5.5mm;
+  width: 4mm;
+  height: 3.5mm;
+  background-color: lightgray;
+  border: 0.1mm solid black;
+  border-radius: 3mm;
+  font-size: 6.5pt;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 0.5mm;
+}
+
 /* Center container */
 
 #main_menu_center_container
