@@ -19,7 +19,7 @@ function addMember(member)
 				member.name + " foi adicionado.",
 				convertToDate(new Date()),
 				"add_member"));
-			main_menu_update_notifications();
+			iGroup_update_notifications();
 		}
 		showGroupList();
 		change_screen('iGroup_group_main');
@@ -65,7 +65,7 @@ function addEvent()
 		convertToDate(new Date()),
 		"add_event");
 	current_group["inbox"].push(notification);
-	main_menu_update_notifications();
+	iGroup_update_notifications();
 
 	event_name.value = "";
 	event_year.value = "";
@@ -142,7 +142,7 @@ function exitGroup()
 				convertToDate(new Date()),
 				"remove");
 			current_group["inbox"].push(notification);
-			main_menu_update_notifications();
+			iGroup_update_notifications();
 
 			if (current_group.members.length == 0)
 				iGroup_groups = removeObjectArray(iGroup_groups, current_group);
@@ -151,7 +151,7 @@ function exitGroup()
 	}
 	update_maps();
 	showGroupList();
-	main_menu_update_notifications();
+	iGroup_update_notifications();
 	change_screen("iGroup_groups");
 }
 
@@ -317,7 +317,7 @@ function showInbox()
 		inbox[i].new_for = removeObjectArray(inbox[i].new_for, people[current_person_name]);
 	}
 
-	main_menu_update_notifications();
+	iGroup_update_notifications();
 
 	change_screen('iGroup_group_inbox');
 }
@@ -350,6 +350,12 @@ function iGroup_count_new_notifications()
 	}
 
 	return count;
+}
+
+function iGroup_update_notifications()
+{
+	main_menu_update_notifications();
+	apps_menu_update_notifications();
 }
 
 function convertToDate(date)
