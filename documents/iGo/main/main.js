@@ -175,17 +175,17 @@ function turn_off_on()
 
 function turn_on()
 {
-	power = true;
 	document.getElementById("screen_logo_container").style.animation = "fade_in_out 1.5s";
 	setTimeout(function(){change_screen("main_menu");}, 1600);
+	power = true;
 
 }
 
 function turn_off()
 {
-	power = false;
 	document.getElementById("screen_logo_container").style.animation = "";
 	change_screen("off");
+	power = false;
 }
 
 function replace_element(old_id, new_id)
@@ -261,7 +261,7 @@ function go_back()
 	{
 		if (popup_ids.length > 0) // Dá prioridade a fechar popups
 			hide_popup();
-		else if (screens_stack.length > 1) // Se não houver popups, vai para o ecrã anterior
+		else if (screens_stack.length > 2) // Se não houver popups, vai para o ecrã anterior
 			replace_screen_back();
 	}
 }

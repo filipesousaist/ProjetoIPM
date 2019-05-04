@@ -301,15 +301,18 @@ function showInbox()
 	var inbox = current_group["inbox"];
 	for (let i = inbox.length - 1; i >= 0; i --)
 	{
+		let new_item;
 		if (inbox[i].type == "add_event")
-			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addevent'>";
+			new_item = "<li class='iGroup_list_item iGroup_notification_item_addevent'>";
 		else if (inbox[i].type == "add_member")
-			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_addmember'>";
+			new_item = "<li class='iGroup_list_item iGroup_notification_item_addmember'>";
 		else if (inbox[i].type == "remove")
-			list.innerHTML += "<li class='iGroup_list_item iGroup_notification_item_remove'>";
-		
-		list.innerHTML += "<div class='iGroup_inbox_title'>" + inbox[i].title +
+			new_item = "<li class='iGroup_list_item iGroup_notification_item_remove'>";
+
+		new_item += "<div class='iGroup_inbox_title'>" + inbox[i].title +
 		"</div><div class='iGroup_date'>" + inbox[i].date + "</div></li>";
+
+		list.innerHTML += new_item;
 
 		inbox[i].new_for = removeObjectArray(inbox[i].new_for, people[current_person_name]);
 	}
