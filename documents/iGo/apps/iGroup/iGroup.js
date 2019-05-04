@@ -124,9 +124,6 @@ function addGroup()
 	name_error.style.visibility = (!is_valid_group ? "visible" : "hidden");
 	location_error.style.visibility = (group_location.value == "" ? "visible" : "hidden");
 	date_error.style.visibility = (!is_valid_date ? "visible" : "hidden");
-	/*group_name.value = (name_error.style.visibility == "visible" ? "" : group_name.value);
-	group_date.value = (date_error.style.visibility == "visible" ? "" : group_date.value);
-	group_location.value = (location_error.style.visibility == "visible" ? "" : group_location.value);*/
 }
 
 function exitGroup()
@@ -220,10 +217,21 @@ function showMembersList()
 function showMemberInfo(memberName){
 	var photo = document.getElementById("iGroup_member_photo");
 	var name = document.getElementById("iGroup_group_member_name");
-	name.innerHTML = "";
 	photo.src = people[memberName].image;
 	name.innerHTML = memberName;
 	change_screen('iGroup_group_member_info');
+}
+
+function iGroup_see_member_location()
+{
+	let member_name = document.getElementById("iGroup_group_member_name").innerHTML;
+	maps["location_map"].location_name = people[member_name].location_name;
+
+	update_map("location_map");
+
+	change_screen("location");
+
+	center_location_map(member_name, people[member_name].position);
 }
 
 function showGroupScreen(groupName)
@@ -305,24 +313,6 @@ function showInbox()
 
 function convertToDate(date)
 {
-	/*var c = 0;
-	var year = "";
-	var month = "";
-	var day = "";
-	for(var i = 0; i < date.length ;i++){
-		if(c == 0 && date[i] != '-'){
-			year += date[i];
-		}
-		else if(c == 1 && date[i] != '-'){
-			month += date[i];
-		}
-		else if(c == 2){
-			day += date[i];
-		}
-		else if( date[i] == '-'){
-			c++;
-		}
-	}*/
 	return date.getFullYear() + "/" + (parseInt(date.getMonth()) + 1) + "/" + date.getDate();
 }
 

@@ -12,7 +12,8 @@ const SPEED_SLOW = 5;
 var current_speed;
 var move_directions;
 var position_interval = null;
-
+var maps = {"sidebar_map": {location_name: null},
+						"location_map": {location_name: null}}
 
 function init_locations()
 {
@@ -81,16 +82,26 @@ function update_position()
 			current_person.position.y = 0;
 
 		// Atualizar todos os mapas
-		let map_elements = document.getElementsByClassName("map");
-		for (let i = 0; i < map_elements.length; i ++)
+		for (let map_id in maps)
 		{
-			let position_element = map_elements[i].getElementsByClassName("position_" + current_person.id)[0];
-			let pixel_coords = map_to_pixel_coords(map_elements[i], position_element, current_person.position);
-			position_element.style.left = pixel_coords.x;
-			position_element.style.top = pixel_coords.y;
+			let map_element = document.getElementById(map_id);
+			let position_element = map_element.getElementsByClassName("position_" + current_person.id)[0];
+			if (position_element)
+			{
+				let pixel_coords = map_to_pixel_coords(map_element, position_element, current_person.position);
+				position_element.style.left = pixel_coords.x;
+				position_element.style.top = pixel_coords.y;
+			}
 		}
 
 		iGuide_update_places();
+
+		if (current_screen.id == "location" &&
+			maps["location_map"].location_name == current_person.location_name)
+		{
+			let person_position = people[current_person_name].position;
+			center_location_map(current_person_name, person_position);
+		}
 	}
 }
 
@@ -99,22 +110,21 @@ function change_location()
 	let new_location_name = document.getElementById("map_locations").value;
 	if (new_location_name != people[current_person_name].location_name)
 	{
-		document.getElementById("location_name_text").innerHTML =
-			people[current_person_name].location_name = new_location_name;
+		people[current_person_name].location_name = new_location_name;
 		update_maps();
 		main_menu_update_location(); /* Menu inicial */
 		iGuide_update_places(); /* iGuide */
 	}
 }
 
-function update_map(map_element)
+function update_map(map_id)
 {
+	let map_element = document.getElementById(map_id);
 	let children = map_element.children;
 	for (let i = children.length - 1; i >= 0; i --)
 		map_element.removeChild(children[i]);
 
-	let current_location_name = people[current_person_name].location_name;
-	let places = LOCATIONS[current_location_name].places;
+	let places = LOCATIONS[maps[map_id].location_name].places;
 	for (let place in places)
 	{
 		let location_img = document.createElement("img");
@@ -132,8 +142,8 @@ function update_map(map_element)
 	for (let person_name in people)
 	{
 		let group_index = findGroupIndex(my_groups, person_name);
-		if (person_name == current_person_name ||
-			(group_index != -1 && people[person_name].location_name == current_location_name))
+		if ((person_name == current_person_name || group_index != -1) &&
+			people[person_name].location_name == maps[map_id].location_name)
 		{
 			let person_img = document.createElement("img");
 			map_element.appendChild(person_img);
@@ -156,10 +166,11 @@ function update_map(map_element)
 
 function update_maps()
 {
-	let map_elements = document.getElementsByClassName("map");
-
-	for (let i = 0; i < map_elements.length; i ++)
-		update_map(map_elements[i]);
+	for (let map_id in maps)
+	{
+		maps[map_id].location_name = people[current_person_name].location_name;
+		update_map(map_id);
+	}
 }
 
 function map_to_pixel_coords(map_element, element, map_coords)
@@ -175,4 +186,40 @@ function map_to_pixel_coords(map_element, element, map_coords)
 	let pixel_x = (map_coords.x / POS_MAX.x) * map_width - element_width / 2 + "px";
 	let pixel_y = (map_coords.y / POS_MAX.y) * map_height - element_height / 2 + "px";
 	return {x: pixel_x, y: pixel_y};
+}
+
+function center_location_map(person_name, element_position)
+{
+
+	let person_img = document.getElementsByClassName("position_" + people[person_name].id)[0];
+	let map_element = document.getElementById("location_map");
+	let element_coords = map_to_pixel_coords(map_element, person_img, element_position);
+
+	let element_style = window.getComputedStyle(person_img);
+	let element_width = parseFloat(element_style.getPropertyValue("width"));
+	let element_height = parseFloat(element_style.getPropertyValue("height"));
+
+	let screen_element = document.getElementById("location_screen_body");
+	let screen_style = window.getComputedStyle(screen_element);
+	let screen_width = parseFloat(screen_style.getPropertyValue("width"));
+	let screen_height = parseFloat(screen_style.getPropertyValue("height"));
+
+	screen_element.scrollLeft = parseFloat(element_coords.x) - screen_width / 2 + element_width / 2;
+	screen_element.scrollTop = parseFloat(element_coords.y) - screen_height / 2 + element_height / 2;
+}
+
+SCREENS["location"].on_load = function()
+{
+	document.getElementById("location_name_text").innerHTML =
+		maps["location_map"].location_name;
+	if (current_screen.id != "iGroup_group_member_info")
+	{
+		let person_position = people[current_person_name].position;
+		center_location_map(current_person_name, person_position);
+	}
+}
+
+SCREENS["location"].on_exit = function()
+{
+	maps["location_map"].location = people[current_person_name].location_name;
 }

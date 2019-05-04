@@ -215,11 +215,11 @@ function replace_screen_front(new_screen_id)
 	current_screen = screens_stack[screens_stack.length - 1];
 	new_screen = SCREENS[new_screen_id];
 
+	replace_element(current_screen.id, new_screen.id);
+
 	global_on_load();
 	if (new_screen.on_load != undefined)
 		new_screen.on_load();
-
-	replace_element(current_screen.id, new_screen.id);
 
 	current_screen = new_screen;
 	screens_stack.push(current_screen);
