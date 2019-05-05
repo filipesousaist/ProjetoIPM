@@ -143,6 +143,7 @@ function update_map(map_id)
 		let pixel_coords = map_to_pixel_coords(map_element, location_img, places[place].position);
 		location_img.style.left = pixel_coords.x;
 		location_img.style.top = pixel_coords.y;
+		location_img.style.zoom = 1;
 	}
 
 	let my_groups = getMyGroups();
@@ -160,6 +161,7 @@ function update_map(map_id)
 			let pixel_coords = map_to_pixel_coords(map_element, person_img, people[person_name].position);
 			person_img.style.left = pixel_coords.x;
 			person_img.style.top = pixel_coords.y;
+			person_img.style.zoom = 1;
 
 			if (person_name == current_person_name)
 			{
@@ -198,7 +200,6 @@ function map_to_pixel_coords(map_element, element, map_coords)
 
 function center_location_map(person_name, element_position)
 {
-
 	let person_img = document.getElementsByClassName("position_" + people[person_name].id)[0];
 	let map_element = document.getElementById("location_map");
 	let element_coords = map_to_pixel_coords(map_element, person_img, element_position);
@@ -220,20 +221,22 @@ function center_location_map(person_name, element_position)
 
 function zoom_location_map(mode)
 {
+	let location_map = document.getElementById("location_map");
 	if (mode == "in")
 	{
 		if (zoom_times >= MAX_ZOOM_TIMES)
 			return;
-		document.getElementById("location_map").style.zoom *= ZOOM_FACTOR;
+		location_map.style.zoom *= ZOOM_FACTOR;
 		zoom_times ++;
 	}
 	else // mode == "out"
 	{
 		if (zoom_times <= MIN_ZOOM_TIMES)
 			return;
-		document.getElementById("location_map").style.zoom /= ZOOM_FACTOR;
+		location_map.style.zoom /= ZOOM_FACTOR;
 		zoom_times --;
 	}
+
 	if (screens_stack.length >= 2 && screens_stack[screens_stack.length - 2].id == "main_menu")
 		center_location_map(current_person_name, people[current_person_name].position);
 }

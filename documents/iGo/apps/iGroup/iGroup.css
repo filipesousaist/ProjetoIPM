@@ -147,17 +147,15 @@
 {
 	font-size: 6pt;
   position: relative;
-  /* right: -6.5mm; */
   left: 6.5mm;
   top: 3mm;
 }
 
-
 .iGroup_year_input
 {
 	width: 1cm !important;
-    left: -6mm;
-    top: 3.5mm !important;
+  left: -6mm;
+  top: 3.5mm !important;
 }
 
 .iGroup_month_input
@@ -187,7 +185,6 @@
   left: -6mm;
 }
 
-
 .iGroup_inbox_title
 {
   position: relative;
@@ -195,14 +192,15 @@
   width: 53%;
 }
 
-.iGroup_event_name{
+.iGroup_event_name
+{
 	position: relative;
 	font-size: 10px;
 	left: 0.60cm;
 	width: 53%;
 }
 
-.iGroup_add_button /* Usar na maioria dos bot&otilde;es de adicionar */
+.iGroup_add_button  /* Usar na maioria dos bot&otilde;es de adicionar */
 {
 	background-color: limegreen;
 }
@@ -234,50 +232,84 @@
   left: 0;
   border-radius: 2mm;
   border: 0.3mm solid #49474745;
-  color: whitesmoke;
+  color: black;
   background-color: limegreen;
   height: 0.6cm;
   font-size: 8pt;
+	font-weight: bold;
   top: 8mm;
   margin-left: 5mm;
 }
 
-#iGroup_member_photo{
-	width: 1.5cm;
-	height: 1.5cm;
-}
-
-#iGroup_group_member_name{
-	left: 1.6cm;
+#iGroup_member_photo
+{
 	position: relative;
-	top: -1.5cm;
-
+  left: 3mm;
+  top: 2mm;
+  width: 1.5cm;
+  height: 1.5cm;
+  border-radius: 3mm;
+  border: 0.2mm solid #333333;
 }
 
-#iGroup_group_target_location{
+#iGroup_group_member_name
+{
+	position: relative;
+  display: table;
+  width: 2cm;
+  height: 2cm;
+  left: 34mm;
+  top: -16.5mm;
+	transform: translateX(-50%);
+}
+
+#iGroup_group_member_name_p
+{
+	display: table-cell;
+	text-align: center;
+	width: 100%;
+	vertical-align: middle;
+	font-size: 14pt;
+}
+
+#iGroup_group_member_location
+{
+	position: relative;
+	left: 1.5mm;
+  top: -1.4cm;
+	margin-left: 5mm;
+	margin-top: -1mm;
+  border-radius: 2mm;
+  border: 0.3mm solid #49474745;
+  color: whitesmoke;
+  background-color: #2954ff;
+  height: 0.6cm;
+  font-size: 8pt;
+}
+
+#iGroup_group_user_location, #iGroup_group_target_location
+{
 	position: relative;
 }
 
-#iGroup_group_user_location{
-	position: relative;
-}
-
-#Name_error_message{
+#Name_error_message
+{
 	left: 3cm;
-    position: relative;
-    top: 0.65cm;
-    left: 2.8cm;
+  position: relative;
+  top: 0.65cm;
+  left: 2.8cm;
 }
 
-#Location_error_message{
-	    left: 2.2cm;
-    top: 0.65cm;
+#Location_error_message
+{
+  left: 2.2cm;
+  top: 0.65cm;
 }
 
-#Date_error_message{
-	    left: 2.95cm;
-    top: 0.65cm;
-}
+#Date_error_message
+{
+  left: 2.95cm;
+  top: 0.65cm;
 }
 
 #iGroup_title_container_princ
@@ -296,16 +328,16 @@
 
 .iGroup_title_container
 {
-    position: relative;
-    width: 4.5cm;
-    height: 4.5mm;
-    top: 1mm;
-    left: -2.3mm;
-    padding-top: 0.5mm;
-    padding-left: 0.5cm;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 10pt;
-    color: #181818;
+  position: relative;
+  width: 4.5cm;
+  height: 4.5mm;
+  top: 1mm;
+  left: -2.3mm;
+  padding-top: 0.5mm;
+  padding-left: 0.5cm;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 10pt;
+  color: #181818;
 }
 
 #iGroup_form_desc
@@ -323,10 +355,11 @@
   color: #4b3d3d;
 }
 
-.igroup_list_name{
+.igroup_list_name
+{
 	position: relative;
-    left: 0.8cm;
-    font-size: 9pt;
+  left: 0.8cm;
+  font-size: 9pt;
 }
 
 #iGroup_not_empty{
@@ -337,16 +370,18 @@
     opacity: 0.5;
 }
 
-#igroup_addmember_submit, #igroup_addevent_submit{
+#igroup_addmember_submit, #igroup_addevent_submit
+{
 	margin-top: -1mm;
   width: 4.03cm;
   left: 0;
   border-radius: 2mm;
   border: 0.3mm solid #49474745;
-  color: whitesmoke;
+  color: black;
   background-color: limegreen;
   height: 0.6cm;
   font-size: 8pt;
+	font-weight: bold;
   top: 3mm;
   margin-left: 5mm;
 	position: relative;
@@ -360,34 +395,37 @@
 	background-color: #f93b3b;
 }
 
-.iGroup_date{
-	    font-size: 7pt;
-    top: 3mm;
-    position: relative;
-    left: 4mm;
+.iGroup_date
+{
+	font-size: 7pt;
+  top: 3mm;
+  position: relative;
+  left: 4mm;
 }
 
-.igroup_group_img_repr{
-	    position: relative;
-    width: 0.5cm;
-    left: 0mm;
-}
-
-.igroup_grouplist_name{
+.igroup_group_img_repr
+{
 	position: relative;
-    font-family: Tahoma, Geneva, sans-serif;
-    top: -2mm;
-    font-size: 10pt;
-    left: 3mm;
-    width: 5cm;
+  width: 0.5cm;
+  left: 0mm;
 }
 
-.igroup_grouplist_desc{
-	font-family: Tahoma, Geneva, sans-serif;
-    font-size: 7pt;
-    position: absolute;
-    top: 5mm;
-    left: 11mm;
-    width: 14cm
+.igroup_grouplist_name
+{
+	position: relative;
+  font-family: Tahoma, Geneva, sans-serif;
+  top: -2mm;
+  font-size: 10pt;
+  left: 3mm;
+  width: 5cm;
 }
+
+.igroup_grouplist_desc
+{
+	font-family: Tahoma, Geneva, sans-serif;
+  font-size: 7pt;
+  position: absolute;
+  top: 5mm;
+  left: 11mm;
+  width: 14cm
 }

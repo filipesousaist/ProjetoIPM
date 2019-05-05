@@ -216,7 +216,7 @@ function showMembersList()
 
 function showMemberInfo(memberName){
 	var photo = document.getElementById("iGroup_member_photo");
-	var name = document.getElementById("iGroup_group_member_name");
+	var name = document.getElementById("iGroup_group_member_name_p");
 	photo.src = people[memberName].image;
 	name.innerHTML = memberName;
 	change_screen('iGroup_group_member_info');
@@ -224,7 +224,7 @@ function showMemberInfo(memberName){
 
 function iGroup_see_member_location()
 {
-	let member_name = document.getElementById("iGroup_group_member_name").innerHTML;
+	let member_name = document.getElementById("iGroup_group_member_name_p").innerHTML;
 	maps["location_map"].location_name = people[member_name].location_name;
 
 	update_map("location_map");

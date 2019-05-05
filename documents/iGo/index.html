@@ -332,9 +332,9 @@
 							<div class="iGroup_date_container">
 								<input class ="iGroup_year_input number_input" id="iGroup_year_value" type="text" name="Ano:" onclick="write_mode('iGroup_year_value');">
 								<div class="iGroup_date_sep">/</div>
-								<input class ="iGroup_month_input number_input" id="iGroup_month_value" type="text" name="M&ecirc;s:" onclick="write_mode('iGroup_year_value');">
+								<input class ="iGroup_month_input number_input" id="iGroup_month_value" type="text" name="M&ecirc;s:" onclick="write_mode('iGroup_month_value');">
 								<div class="iGroup_date_sep">/</div>
-								<input class ="iGroup_day_input number_input" id="iGroup_day_value" type="text" name="Dia:" onclick="write_mode('iGroup_year_value');">
+								<input class ="iGroup_day_input number_input" id="iGroup_day_value" type="text" name="Dia:" onclick="write_mode('iGroup_day_value');">
 							</div>
 
 							<button class="iGroup_mainButton" id="iGroup_mainButton_style" onclick="addGroup()">Criar Grupo</button>
@@ -472,7 +472,7 @@
 						</div>
 						<div class="screen_body">
 							<img id="iGroup_member_photo">
-							<div id="iGroup_group_member_name"></div>
+							<div id="iGroup_group_member_name"><p id="iGroup_group_member_name_p"></p></div>
 							<button id=iGroup_group_member_location onclick="iGroup_see_member_location();">Ver Localiza&ccedil;&atilde;o no Mapa</button>
 						</div>
 					</div>
