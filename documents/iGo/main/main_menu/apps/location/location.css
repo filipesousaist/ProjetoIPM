@@ -20,7 +20,9 @@
   display: inline-block;
   width: 8cm;
 	height: 6cm;
-  background-color: lightgray;
+  background-image: url(img/lisbon.png);
+  background-size: cover;
+  background-color: lightgrey;
 }
 
 .map_place_img, .your_position
