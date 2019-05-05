@@ -53,6 +53,32 @@ const POPUPS =
 	"keyboard": {id: "keyboard"}
 }
 
+const FORMS_NEXT_ID =
+{
+	"paypal_email": "paypal_pw",
+	"paypal_pw": null,
+
+	"card_number": "card_date",
+	"card_date": "card_cvv",
+	"card_cvv": null,
+
+	"iWay_starting_point": "iWay_destination",
+	"iWay_destination": null,
+
+	"iGroup_name_value": "iGroup_location_value",
+	"iGroup_location_value": "iGroup_year_value",
+	"iGroup_year_value": "iGroup_month_value",
+	"iGroup_month_value": "iGroup_day_value",
+	"iGroup_day_value": null,
+
+	"iGroup_member_name_value": null,
+
+	"iGroup_event_name_value": "iGroup_event_year_value",
+	"iGroup_event_year_value": "iGroup_event_month_value",
+	"iGroup_event_month_value": "iGroup_event_day_value",
+	"iGroup_event_day_value": null
+}
+
 const DEFAULT =
 {
 	"auto_save": true,

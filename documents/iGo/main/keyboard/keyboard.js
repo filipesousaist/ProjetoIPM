@@ -8,7 +8,7 @@ var upper_on = false;
 var current_input_id;
 var current_keyboard_id;
 
-function write_mode(id, type)
+function write_mode(id)
 {
 	current_input_id = id;
 	display_popup("keyboard");
@@ -61,7 +61,7 @@ function do_delete()
 
 function go_to_next_input()
 {
-	let inputs = document.getElementById(current_screen.id).getElementsByTagName("input");
+	/*let inputs = document.getElementById(current_screen.id).getElementsByTagName("input");
 
 	for (let i = 0; i < inputs.length - 1; i ++)
 		if (inputs[i].id == current_input_id)
@@ -70,7 +70,14 @@ function go_to_next_input()
 			update_keyboard();
 			return;
 		}
-	hide_popup();
+	hide_popup();*/
+
+	current_input_id = FORMS_NEXT_ID[current_input_id];
+
+	if (current_input_id != null)
+		update_keyboard();
+	else
+		hide_popup();
 }
 
 function confirm_input()

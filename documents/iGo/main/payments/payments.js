@@ -141,6 +141,4 @@ SCREENS["add_payment"].on_exit = function()
 	document.getElementById("card_number").value = "";
 	document.getElementById("card_date").value = "";
 	document.getElementById("card_cvv").value = "";
-
-	exit_write_mode(); // TODO: Arranjar forma melhor de fazer isto!
 };

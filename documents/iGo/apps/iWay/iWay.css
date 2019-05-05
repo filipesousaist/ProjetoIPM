@@ -1,0 +1,71 @@
+/************/
+/************/
+/*** IWAY ***/
+/************/
+/************/
+
+.iWay_screen h1
+{
+	font-size: 9pt;
+  text-align: center;
+  margin-top: 1mm;
+  margin-bottom: 1mm;
+  top: 5mm;
+  position: relative;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: 100;
+}
+
+.iWay_screen input
+{
+	margin-left: 0.5mm;
+  border-radius: 2mm;
+  border: 0.2mm solid grey;
+  width: 3.95cm;
+  margin-left: 5mm;
+  top: 6mm;
+  position: relative;
+	padding-left: 0.5mm;
+}
+
+.iWay_confirm_button
+{
+  margin-top: -1mm;
+  width: 4.03cm;
+  left: 0;
+  border-radius: 2mm;
+  border: 0.3mm solid #49474745;
+  color: whitesmoke;
+  background-color: limegreen;
+  height: 0.6cm;
+  font-size: 8pt;
+  top: 3mm;
+  margin-left: 5mm;
+	position: relative;
+}
+
+#iWay_starting_point_title
+{
+  left: -1cm;
+  top: 2mm;
+}
+
+#iWay_starting_point
+{
+  width: 2.2cm;
+  top: 2mm;
+  left: -1.6mm;
+}
+
+#iWay_destination_title
+{
+  left: 1cm;
+  top: 2mm;
+}
+
+#iWay_destination
+{
+  width: 2.2cm;
+  top: 2mm;
+  left: 18.5mm;
+}
