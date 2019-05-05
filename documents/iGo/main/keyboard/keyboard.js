@@ -8,7 +8,7 @@ var upper_on = false;
 var current_input_id;
 var current_keyboard_id;
 
-function write_mode(id, type)
+function write_mode(id)
 {
 	current_input_id = id;
 	display_popup("keyboard");

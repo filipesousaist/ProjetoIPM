@@ -62,6 +62,9 @@ const FORMS_NEXT_ID =
 	"card_date": "card_cvv",
 	"card_cvv": null,
 
+	"iWay_starting_point": "iWay_destination",
+	"iWay_destination": null,
+
 	"iGroup_name_value": "iGroup_location_value",
 	"iGroup_location_value": "iGroup_year_value",
 	"iGroup_year_value": "iGroup_month_value",

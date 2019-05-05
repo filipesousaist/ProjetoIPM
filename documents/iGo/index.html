@@ -25,6 +25,9 @@
 		<script src="apps/iGuide/iGuide.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="apps/iGuide/iGuide_info.css" />
 		<script src="apps/iGuide/iGuide_info.js" charset="utf-8"></script>
+		<!-- iWay -->
+		<link rel="stylesheet" href="apps/iWay/iWay.css" />
+		<script src="apps/iWay/iWay.js" charset="utf-8"></script>
 		<!-- iGroup -->
 		<link rel="stylesheet" href="apps/iGroup/iGroup.css" />
 		<script src="apps/iGroup/iGroup.js" charset="utf-8"></script>
@@ -119,7 +122,7 @@
 							<p class="app_name">iGuide</p>
 						</div>
 
-						<div class="app_container" id="iWay_container" align="center">
+						<div class="app_container" id="iWay_container" onclick="change_screen('iWay_main');" align="center">
 							<img class="app_icon" src="apps/img/way.png">
 							<p class="app_name">iWay</p>
 						</div>
@@ -251,10 +254,8 @@
 						</div>
 					</div>
 
-
-
 					<!-- Ecr&atilde; principal do iWay -->
-					<div class="screen" id="iWay_main">
+					<div class="screen iWay_screen" id="iWay_main">
 						<div class="screen_title_container">
 							iWay
 							<div class="clock">
@@ -264,7 +265,13 @@
 							</div>
 						</div>
 						<div class="screen_body">
-							<!-- TODO: Conte&uacute;dos do ecr&atilde; do iWay -->
+							<h1 id="iWay_starting_point_title">Local de partida:</h1>
+							<input class="text_input" id="iWay_starting_point" type="text" name="Local de partida:" onclick="write_mode('iWay_starting_point');"/>
+							<br />
+							<h1 id="iWay_destination_title">Destino:</h1>
+							<input class="text_input" id="iWay_destination" type="text" name="Destino:" onclick="write_mode('iWay_destination');"/>
+							<br />
+							<button class="iWay_confirm_button" id="iWay_search_button" onclick="change_screen('location');">Procurar!</button>
 						</div>
 					</div>
 
@@ -311,11 +318,11 @@
 							</div>
 							<h2 id="iGroup_create_name">Nome do grupo:</h2>
 							<div class="iGroup_error_message" id="Name_error_message">Nome inv&aacute;lido!</div>
-							<input class ="text_input" id="iGroup_name_value" type="text" name="Nome do grupo:" onclick="write_mode('iGroup_name_value');">
+							<input class="text_input" id="iGroup_name_value" type="text" name="Nome do grupo:" onclick="write_mode('iGroup_name_value');">
 
 							<h2 id="iGroup_create_location">Destino:</h2>
 							<div class="iGroup_error_message" id="Location_error_message">Localiza&ccedil;&atilde;o inv&aacute;lida!</div>
-							<input class ="text_input" id="iGroup_location_value" type="text" name="Destino:" onclick="write_mode('iGroup_location_value');">
+							<input class="text_input" id="iGroup_location_value" type="text" name="Destino:" onclick="write_mode('iGroup_location_value');">
 
 							<h2 id="iGroup_create_date">Data de Partida:</h2>
 							<div class="iGroup_error_message" id="Date_error_message">Data inv&aacute;lida!</div>
