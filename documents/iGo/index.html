@@ -371,29 +371,41 @@
 							<div class="iGroup_title_container" id="igroup_title_group_name"></div>
 
 							<ul class="iGroup_list" id="iGroup_group_main_options_list">
-								<li class="iGroup_list_item iGroup_add_button" onclick='change_screen("iGroup_group_addMember")'>
+								<li class="iGroup_group_list_item iGroup_list_item_div">
+									<div class="iGroup_list_div_name " >Membros</div>
+								</li>
+								<li class="iGroup_group_list_item" onclick='change_screen("iGroup_group_addMember")'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/member.png">
 									<img class="iGroup_list_item_plus" src="apps/iGroup/img/plusgreen.png">
 									<div class="igroup_list_name" >Adicionar Membro</div>
 								</li>
-								<li class="iGroup_list_item iGroup_show_button" onclick='showMembersList()'>
+								<li class="iGroup_group_list_item" onclick='showMembersList()' style='border:none;'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/member.png">
 									<div class="igroup_list_name" >Ver Membros</div>
 								</li>
-								<li class="iGroup_list_item iGroup_add_button" onclick='change_screen("iGroup_group_addEvent")'>
+								<li class="iGroup_group_list_item iGroup_list_item_div">
+									<div class="iGroup_list_div_name" >Eventos</div>
+								</li>
+								<li class="iGroup_group_list_item" onclick='change_screen("iGroup_group_addEvent")'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/event.png">
 									<img class="iGroup_list_item_plus" src="apps/iGroup/img/plusgreen.png">
 									<div class="igroup_list_name" >Adicionar Evento</div>
 								</li>
-								<li class="iGroup_list_item iGroup_show_button" onclick='showEventsList()'>
+								<li class="iGroup_group_list_item" onclick='showEventsList()' style='border:none;'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/event.png">
 									<div class="igroup_list_name" >Ver Eventos</div>
 								</li>
-								<li class="iGroup_list_item iGroup_show_button" onclick='showInbox();'>
+								<li class="iGroup_group_list_item iGroup_list_item_div">
+									<div class="iGroup_list_div_name" >Notifica&ccedil;&otilde;es</div>
+								</li>
+								<li class="iGroup_group_list_item" onclick='showInbox();' style='border:none;'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/messageicon.png">
 									<div class="igroup_list_name" >Ver notifica&ccedil;&otilde;es</div>
 								</li>
-								<li class="iGroup_list_item iGroup_remove_button" onclick='exitGroup();'>
+								<li class="iGroup_group_list_item iGroup_list_item_div">
+									<div class="iGroup_list_div_name" >Mais</div>
+								</li>
+								<li class="iGroup_group_list_item" onclick='exitGroup();' style='border:none;'>
 									<img class= "iGroup_list_item_icon" src="apps/iGroup/img/exit.png">
 									<div class="igroup_list_name" >Sair do grupo</div>
 								</li>
@@ -471,8 +483,10 @@
 							</div>
 						</div>
 						<div class="screen_body">
-							<img id="iGroup_member_photo">
-							<div id="iGroup_group_member_name"><p id="iGroup_group_member_name_p"></p></div>
+							<div class="profile_div">
+								<img id="iGroup_member_photo">
+								<div id="iGroup_group_member_name"><p id="iGroup_group_member_name_p"></p></div>
+							</div>
 							<button id=iGroup_group_member_location onclick="iGroup_see_member_location();">Ver Localiza&ccedil;&atilde;o no Mapa</button>
 						</div>
 					</div>
@@ -518,9 +532,11 @@
 							</div>
 						</div>
 						<div class="screen_body">
-						<div id="iGroup_event_name"></div>
-						<div id="iGroup_event_date"></div>
-						<div id="iGroup_event_description"></div>
+							<div class="igroup_event_main">
+								<div id="iGroup_event_name"></div>
+								<div id="iGroup_event_date"></div>
+								<div id="iGroup_event_description"></div>
+							</div>
 						</div>
 					</div>
 

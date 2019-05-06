@@ -116,6 +116,7 @@ function addGroup()
 			name: group_name.value,
 			location: group_location.value,
 			date: group_date_str,
+			owner: current_person_name,
 			members: [people[current_person_name]],
 			events: [departure],
 			inbox: []
@@ -146,11 +147,13 @@ function exitGroup()
 
 			if (current_group.members.length == 0)
 				iGroup_groups = removeObjectArray(iGroup_groups, current_group);
+			else current_group.owner = current_group.members[0].name;
 		}
 
 	}
 	update_maps();
 	showGroupList();
+	showMembersList();
 	iGroup_update_notifications();
 	change_screen("iGroup_groups");
 }
@@ -209,8 +212,14 @@ function showMembersList()
 	var list = document.getElementById("iGroup_group_memberList");
 	list.innerHTML = "";
 	var membersList = current_group.members;
-	for (let i = 0; i < membersList.length; i ++)
-		list.innerHTML += "<li class='iGroup_list_item' style='background-color:limegreen;' onclick='showMemberInfo(\""+ membersList[i].name + "\");'>"+ membersList[i].name + "</li>";
+
+	for (let i = 0; i < membersList.length; i ++){
+		list.innerHTML += "<li class='iGroup_list_item igroup_list_item_simple' id='igroup_person_div' style='background-color:limegreen;' onclick='showMemberInfo(\""+ membersList[i].name + "\");'>"+ membersList[i].name + 
+						  "<img class='igroup_person_photo' src='" + people[membersList[i].name].image + "'>";
+		
+		if(membersList[i].name == current_group.owner) document.getElementById("igroup_person_div").innerHTML += "<img class='igroup_owner_img' src='apps/iGroup/img/crown.svg'>";
+		list.innerHTML+= "</li>";
+	}
 	change_screen('iGroup_group_main_memberList');
 }
 
@@ -269,7 +278,7 @@ function showEventsList()
 	list.innerHTML = "";
 	var eventsList = current_group.events;
 	for (let i = 0; i < eventsList.length; i++)
-		list.innerHTML += "<li class='iGroup_list_item' style='background-color:limegreen;' onclick='showEventInfo(\"" + eventsList[i].name + "\");'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
+		list.innerHTML += "<li class='iGroup_list_item igroup_list_item_simple' style='background-color:limegreen;' onclick='showEventInfo(\"" + eventsList[i].name + "\");'>" + "<div class='iGroup_event_name'>" + eventsList[i].name +
 		"</div><div class='iGroup_date' style='right:-5.5mm'>" + eventsList[i].date + "</div></li>";
 
 	change_screen('iGroup_group_main_eventsList');
@@ -303,11 +312,11 @@ function showInbox()
 	{
 		let new_item;
 		if (inbox[i].type == "add_event")
-			new_item = "<li class='iGroup_list_item iGroup_notification_item_addevent'>";
+			new_item = "<li class='iGroup_list_item iGroup_notification_item_addevent igroup_list_item_simple'>";
 		else if (inbox[i].type == "add_member")
-			new_item = "<li class='iGroup_list_item iGroup_notification_item_addmember'>";
+			new_item = "<li class='iGroup_list_item iGroup_notification_item_addmember igroup_list_item_simple'>";
 		else if (inbox[i].type == "remove")
-			new_item = "<li class='iGroup_list_item iGroup_notification_item_remove'>";
+			new_item = "<li class='iGroup_list_item iGroup_notification_item_remove igroup_list_item_simple'>";
 
 		new_item += "<div class='iGroup_inbox_title'>" + inbox[i].title +
 		"</div><div class='iGroup_date'>" + inbox[i].date + "</div></li>";
