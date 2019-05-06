@@ -518,3 +518,24 @@
     left: 2.1mm;
     top: 9mm;
 }
+
+#iGroup_event_date{
+	    font-size: 10pt;
+    position: relative;
+    left: 2mm;
+    top: 1.5mm;
+}
+
+#iGroup_event_description{
+	position: relative;
+    font-size: 10pt;
+    left: 2mm;
+    top: 2.5mm;
+}
+
+#iGroup_event_author{
+	position: relative;
+    font-size: 10pt;
+    left: 2mm;
+    top: 1.5mm;
+}

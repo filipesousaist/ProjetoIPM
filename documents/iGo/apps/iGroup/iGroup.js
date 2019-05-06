@@ -55,6 +55,7 @@ function addEvent()
 	{
 		name: event_name.value,
 		date: convertToDate(new Date(event_year.value, parseInt(event_month.value) - 1, event_day.value)),
+		author: current_person_name,
 		description: ""
 	};
 	let eventsList = current_group["events"];
@@ -109,6 +110,7 @@ function addGroup()
 		{
 			name: "Inicio da viagem",
 			date: group_date_str,
+			author: current_person_name,
 			description: "Início da viagem a " + group_location.value + "."
 		};
 		let group =
@@ -297,9 +299,11 @@ function showEventInfo(event_name)
 	var name = document.getElementById("iGroup_event_name");
 	var date = document.getElementById("iGroup_event_date");
 	var description = document.getElementById("iGroup_event_description");
+	var author = document.getElementById("iGroup_event_author");
 	name.innerHTML = current_event.name;
 	date.innerHTML = "Data: " + current_event.date;
-	description.innerHTML = "Descr.: " + current_event.description;
+	author.innerHTML = "Autor: " + current_event.author;
+	description.innerHTML = current_event.description;
 	change_screen('iGroup_group_event_info');
 }
 
