@@ -216,7 +216,7 @@
 
 .iGroup_add_button  /* Usar na maioria dos bot&otilde;es de adicionar */
 {
-	background-color: limegreen;
+	background-color: #52e655db;
 }
 
 .iGroup_remove_button /* Usar na maioria dos bot&otilde;es de remover */
@@ -226,7 +226,7 @@
 
 .iGroup_show_button /* Usar na maioria dos bot&otilde;es de mostrar */
 {
-	background-color: #2954ff;
+	background-color: #798ee4;
 }
 
 #iGroup_group_main_body
@@ -247,7 +247,7 @@
   border-radius: 2mm;
   border: 0.3mm solid #49474745;
   color: black;
-  background-color: limegreen;
+  background-color: #52e655db;
   height: 0.6cm;
   font-size: 8pt;
 	font-weight: bold;
@@ -395,7 +395,7 @@
   border-radius: 2mm;
   border: 0.3mm solid #49474745;
   color: black;
-  background-color: limegreen;
+  background-color: #52e655db;
   height: 0.6cm;
   font-size: 8pt;
 	font-weight: bold;
