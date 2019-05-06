@@ -214,9 +214,9 @@ function showMembersList()
 	var membersList = current_group.members;
 
 	for (let i = 0; i < membersList.length; i ++){
-		list.innerHTML += "<li class='iGroup_list_item igroup_list_item_simple' id='igroup_person_div' style='background-color:limegreen;' onclick='showMemberInfo(\""+ membersList[i].name + "\");'>"+ membersList[i].name + 
+		list.innerHTML += "<li class='iGroup_list_item igroup_list_item_simple' id='igroup_person_div' style='background-color:limegreen;' onclick='showMemberInfo(\""+ membersList[i].name + "\");'>"+ membersList[i].name +
 						  "<img class='igroup_person_photo' src='" + people[membersList[i].name].image + "'>";
-		
+
 		if(membersList[i].name == current_group.owner) document.getElementById("igroup_person_div").innerHTML += "<img class='igroup_owner_img' src='apps/iGroup/img/crown.svg'>";
 		list.innerHTML+= "</li>";
 	}
@@ -361,10 +361,25 @@ function iGroup_count_new_notifications()
 	return count;
 }
 
+function iGroup_main_update_notifications()
+{
+	let num_notifications = iGroup_count_new_notifications();
+
+	let notifications_element = document.getElementById("iGroup_main_notification_icon");
+	if (num_notifications > 0)
+	{
+		notifications_element.style.display = "block";
+		notifications_element.innerHTML = num_notifications;
+	}
+	else
+		notifications_element.style.display = "none";
+}
+
 function iGroup_update_notifications()
 {
 	main_menu_update_notifications();
 	apps_menu_update_notifications();
+	iGroup_main_update_notifications();
 }
 
 function convertToDate(date)
@@ -407,6 +422,8 @@ SCREENS["iGroup_group_addMember"].on_exit = function()
 /** ON_LOAD ***/
 /**************/
 /**************/
+
+SCREENS["iGroup_main"].on_load = iGroup_update_notifications;
 
 SCREENS["iGroup_group_inbox"].on_load = function()
 {
