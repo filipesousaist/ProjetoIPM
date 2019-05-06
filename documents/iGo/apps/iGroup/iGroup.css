@@ -193,11 +193,25 @@
 }
 
 .iGroup_event_name
-{
+{	
+
 	position: relative;
 	font-size: 10px;
 	left: 0.60cm;
 	width: 53%;
+}
+
+.igroup_event_name_p{
+	   border: 0.5mm solid #9e9e9e;
+    border-top-left-radius: 0.2cm;
+    border-top-right-radius: 0.2cm;
+    top: -0.5mm;
+    position: relative;
+    left: -0.5mm;
+    width: 4.5cm;
+    text-align: center;
+    font-size: 10pt;
+    background-color: #c9c8c8;
 }
 
 .iGroup_add_button  /* Usar na maioria dos bot&otilde;es de adicionar */
@@ -492,4 +506,15 @@
     left: 0.45cm;
     position: relative;
     top: 2mm;
+}
+
+.igroup_event_main{
+	width: 4.5cm;
+    height: 2.5cm;
+    background-color: whitesmoke;
+    border-radius: 0.2cm;
+    border: 0.5mm solid #9e9e9e;
+    position: absolute;
+    left: 2.1mm;
+    top: 9mm;
 }

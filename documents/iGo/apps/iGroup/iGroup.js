@@ -298,8 +298,8 @@ function showEventInfo(event_name)
 	var date = document.getElementById("iGroup_event_date");
 	var description = document.getElementById("iGroup_event_description");
 	name.innerHTML = current_event.name;
-	date.innerHTML = current_event.date;
-	description.innerHTML = current_event.description;
+	date.innerHTML = "Data: " + current_event.date;
+	description.innerHTML = "Descr.: " + current_event.description;
 	change_screen('iGroup_group_event_info');
 }
 
