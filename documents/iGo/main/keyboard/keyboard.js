@@ -61,17 +61,6 @@ function do_delete()
 
 function go_to_next_input()
 {
-	/*let inputs = document.getElementById(current_screen.id).getElementsByTagName("input");
-
-	for (let i = 0; i < inputs.length - 1; i ++)
-		if (inputs[i].id == current_input_id)
-		{
-			current_input_id = inputs[i + 1].id;
-			update_keyboard();
-			return;
-		}
-	hide_popup();*/
-
 	current_input_id = FORMS_NEXT_ID[current_input_id];
 
 	if (current_input_id != null)
