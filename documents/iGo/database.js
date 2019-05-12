@@ -15,7 +15,7 @@ const SCREENS =
 	"iWay_main":                    {id: "iWay_main"},
 
 	"iWay_path_info_main":          {id: "iWay_path_info_main"},
-	
+
 	"iWay_path_steps":               {id: "iWay_path_steps"},
 
 	"iGroup_main":                  {id: "iGroup_main"},
@@ -284,7 +284,8 @@ const LOCATIONS =
 				gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/sa_3.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/sa_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/sa_1.jpg'>"],
-				wallpaper: "apps/iGuide/img/place_bg/asc_blue.png"
+				wallpaper: "apps/iGuide/img/place_bg/asc_blue.png",
+				map_point_id: 31
 			},
 
 			"Instituto Gulbenkian":
@@ -294,7 +295,7 @@ const LOCATIONS =
 				bg: "<img class='place_img_bg' src='apps/iGuide/img/place_img/instituto.jpg'>",
 				type: "museum",
 				position: {x: 620, y: 230},
-			 gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/ig_3.jpg'>",
+			  gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/ig_3.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/ig_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/ig_1.jpg'>"],
 				wallpaper: "apps/iGuide/img/place_bg/ig_orange.png"
@@ -310,7 +311,8 @@ const LOCATIONS =
 				gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pd_3.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pd_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pd_1.jpg'>"],
-				wallpaper: "apps/iGuide/img/place_bg/pdd_red.png"
+				wallpaper: "apps/iGuide/img/place_bg/pdd_red.png",
+				map_point_id: 24
 			},
 
 			"Torre de Belém":
@@ -323,7 +325,8 @@ const LOCATIONS =
 				gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/tb_3.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/tb_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/tb_1.jpg'>"],
-				wallpaper: "apps/iGuide/img/place_bg/tdb_red.png"
+				wallpaper: "apps/iGuide/img/place_bg/tdb_red.png",
+				map_point_id: 21
 			}
 		},
 		temperature: 22
@@ -485,50 +488,86 @@ const MAP_PERSON_ICONS =
 
 const MAP_POINTS =
 [
-	{x:200, y:25, adj:[0]},
-	{x:175, y:70, adj:[0, 1]},
-	{x:167, y:85, adj:[1, 2]},
-	{x:120, y:125, adj:[3]},
-	{x:192, y:143, adj:[2, 3, 4]},
-	{x:20, y:170, adj:[5]},
-	{x:207, y:170, adj:[4, 6]},
-	{x:55, y:180, adj:[5, 7]},
-	{x:215, y:193, adj:[6, 8, 9]},
-	{x:130, y:200, adj:[7, 8]},
-	{x:215, y:210, adj:[9, 10]},
-	{x:170, y:310, adj:[10, 11, 12]},
-	{x:140, y:360, adj:[11, 13]},
-	{x:180, y:360, adj:[12, 14]},
-	{x:163, y:383, adj:[13, 14, 15]},
-	{x:178, y:413, adj:[15, 16]},
-	{x:178, y:423, adj:[16, 17]},
-	{x:140, y:485, adj:[17, 18]},
-	{x:110, y:592, adj:[18, 19]},
-	{x:33, y:642, adj:[19, 20]},
-	{x:13, y:642, adj:[20]}, // Estação de Algés
+	{x:200, y:25, adj:[0]},             // 0
+	{x:175, y:70, adj:[0, 1]},          // 1
+	{x:167, y:85, adj:[1, 2]},          // 2
+	{x:120, y:125, adj:[3]},            // 3
+	{x:192, y:143, adj:[2, 3, 4]},      // 4
+	{x:20, y:170, adj:[5]},             // 5
+	{x:207, y:170, adj:[4, 6]},         // 6
+	{x:55, y:180, adj:[5, 7]},          // 7
+	{x:215, y:193, adj:[6, 8, 9]},      // 8
+	{x:130, y:200, adj:[7, 8]},         // 9
+	{x:215, y:210, adj:[9, 10]},        // 10
+	{x:170, y:310, adj:[10, 11, 12]},   // 11
+	{x:140, y:360, adj:[11, 13]},       // 12
+	{x:180, y:360, adj:[12, 14]},       // 13
+	{x:163, y:383, adj:[13, 14, 15]},   // 14
+	{x:178, y:413, adj:[15, 16, 39]},   // 15
+	{x:178, y:423, adj:[16, 17]},       // 16
+	{x:140, y:485, adj:[17, 18]},       // 17
+	{x:110, y:592, adj:[18, 19]},       // 18
+	{x:33, y:642, adj:[19, 20, 21]},    // 19
+	{x:13, y:642, adj:[20, 22]},        // 20 Estação de Algés
+	{x:110, y:695, adj:[21, 24]},       // 21 Torre de Belém
+	{x:130, y:690, adj:[22, 23]},       // 22
+	{x:272, y:666, adj:[23, 25, 26]},   // 23 Estação B
+	{x:210, y:675, adj:[24, 25]},       // 24 Padrão dos Descobrimentos
+	{x:375, y:645, adj:[26, 27]},       // 25
+	{x:466, y:598, adj:[27, 28]},       // 26 Estação C
+	{x:474, y:543, adj:[28, 29, 33]},   // 27 Estação D
+	{x:490, y:510, adj:[29, 30]},       // 28
+	{x:514, y:486, adj:[30, 31]},       // 29
+	{x:505, y:415, adj:[31, 32]},       // 30
+	{x:550, y:400, adj:[32, 36]},       // 31 Shopping Amoreiras
+	{x:454, y:486, adj:[33, 34]},       // 32
+	{x:464, y:376, adj:[34, 35]},       // 33
+	{x:518, y:280, adj:[35]},           // 34 Estação E
+	{x:580, y:361, adj:[36, 37]},       // 35
+	{x:490, y:390, adj:[37, 38]},       // 36
+	{x:330, y:355, adj:[38, 39]}        // 37
 ]
 
 const MAP_EDGES =
 [
-	{src: 0, dst: 1, type:"walk"},
-	{src: 1, dst: 2, type:"walk"},
-	{src: 2, dst: 4, type:"walk"},
-	{src: 3, dst: 4, type:"walk"},
-	{src: 4, dst: 6, type:"walk"},
-	{src: 5, dst: 7, type:"walk"},
-	{src: 6, dst: 8, type:"walk"},
-	{src: 7, dst: 9, type:"train"},
-	{src: 8, dst: 9, type:"walk"},
-	{src: 8, dst: 10, type:"walk"},
-	{src: 10, dst: 11, type:"walk"},
-	{src: 11, dst: 12, type:"walk"},
-	{src: 11, dst: 13, type:"walk"},
-	{src: 12, dst: 14, type:"walk"},
-	{src: 13, dst: 14, type:"walk"},
-	{src: 14, dst: 15, type:"walk"},
-	{src: 15, dst: 16, type:"walk"},
-	{src: 16, dst: 17, type:"walk"},
-	{src: 17, dst: 18, type:"walk"},
-	{src: 18, dst: 19, type:"walk"},
-	{src: 19, dst: 20, type:"walk"}
+	{src: 0, dst: 1, type:"walk"},      // 0
+	{src: 1, dst: 2, type:"walk"},      // 1
+	{src: 2, dst: 4, type:"walk"},      // 2
+	{src: 3, dst: 4, type:"walk"},      // 3
+	{src: 4, dst: 6, type:"walk"},      // 4
+	{src: 5, dst: 7, type:"walk"},      // 5
+	{src: 6, dst: 8, type:"walk"},      // 6
+	{src: 7, dst: 9, type:"walk"},      // 7
+	{src: 8, dst: 9, type:"walk"},      // 8
+	{src: 8, dst: 10, type:"walk"},     // 9
+	{src: 10, dst: 11, type:"walk"},    // 10
+	{src: 11, dst: 12, type:"walk"},    // 11
+	{src: 11, dst: 13, type:"walk"},    // 12
+	{src: 12, dst: 14, type:"walk"},    // 13
+	{src: 13, dst: 14, type:"walk"},    // 14
+	{src: 14, dst: 15, type:"walk"},    // 15
+	{src: 15, dst: 16, type:"walk"},    // 16
+	{src: 16, dst: 17, type:"walk"},    // 17
+	{src: 17, dst: 18, type:"walk"},    // 18
+	{src: 18, dst: 19, type:"walk"},    // 19
+	{src: 19, dst: 20, type:"walk"},    // 20
+	{src: 19, dst: 21, type:"walk"},    // 21
+	{src: 20, dst: 22, type:"train"},   // 22
+	{src: 22, dst: 23, type:"train"},   // 23
+	{src: 21, dst: 24, type:"walk"},    // 24
+	{src: 23, dst: 24, type:"walk"},    // 25
+	{src: 23, dst: 25, type:"train"},   // 26
+	{src: 25, dst: 26, type:"train"},   // 27
+	{src: 26, dst: 27, type:"train"},   // 28
+	{src: 27, dst: 28, type:"walk"},    // 29
+	{src: 28, dst: 29, type:"walk"},    // 30
+	{src: 29, dst: 30, type:"walk"},    // 31
+	{src: 30, dst: 31, type:"walk"},    // 32
+	{src: 27, dst: 32, type:"train"},   // 33
+	{src: 32, dst: 33, type:"train"},   // 34
+	{src: 33, dst: 34, type:"train"},   // 35
+	{src: 31, dst: 35, type:"walk"},    // 36
+	{src: 35, dst: 36, type:"walk"},    // 37
+	{src: 36, dst: 37, type:"walk"},    // 38
+	{src: 15, dst: 37, type:"walk"},    // 39
 ]

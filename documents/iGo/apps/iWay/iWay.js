@@ -48,7 +48,9 @@ function displayEdge(edge)
 	let src = MAP_POINTS[edge.src];
 	let dst = MAP_POINTS[edge.dst];
 
-	drawLine(src.x, src.y, dst.x, dst.y);
+	let color = edge.type == "walk" ? "#000000" : "#4444FF";
+
+	drawLine(src.x, src.y, dst.x, dst.y, color);
 }
 
 function clearCanvas()
@@ -78,12 +80,13 @@ function drawPoint(x, y){
   document.getElementById("map_canvas").getContext("2d").fillRect(Math.round(coords.x), Math.round(coords.y), 2, 2);
 }
 
-function drawLine(startX, startY, endX, endY)
+function drawLine(startX, startY, endX, endY, color)
 {
   let start_coords = map_to_canvas_coords({x: startX, y: startY});
   let end_coords = map_to_canvas_coords({x: endX, y: endY});
 
   let context = document.getElementById("map_canvas").getContext("2d");
+	context.strokeStyle = color;
 	context.beginPath();
   context.moveTo(Math.round(start_coords.x) + 0.5, Math.round(start_coords.y) + 0.5);
   context.lineTo(Math.round(end_coords.x) + 0.5, Math.round(end_coords.y) + 0.5);
@@ -93,9 +96,9 @@ function drawLine(startX, startY, endX, endY)
 function drawGrid()
 {
   for (let x = 50; x < POS_MAX.x; x += 50)
-    drawLine(x, 0, x, POS_MAX.y);
+    drawLine(x, 0, x, POS_MAX.y, "#000000");
   for (let y = 50; y < POS_MAX.y; y += 50)
-    drawLine(0, y, POS_MAX.x, y);
+    drawLine(0, y, POS_MAX.x, y, "#000000");
 }
 
 function map_to_canvas_coords(map_coords)
