@@ -69,3 +69,13 @@
   top: 2mm;
   left: 18.5mm;
 }
+
+#map_canvas
+{
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	display: none;
+	pointer-events: none;
+	z-index: 1;
+}

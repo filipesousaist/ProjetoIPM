@@ -130,7 +130,8 @@ function update_map(map_id)
 	let map_element = document.getElementById(map_id);
 	let children = map_element.children;
 	for (let i = children.length - 1; i >= 0; i --)
-		map_element.removeChild(children[i]);
+		if (children[i].id != "map_canvas")
+			map_element.removeChild(children[i]);
 
 	let places = LOCATIONS[maps[map_id].location_name].places;
 	for (let place in places)
