@@ -10,16 +10,34 @@ function intializeGraph(){
 /************/
 /************/
 
+function displayNetwork() {
 
+	drawAllPoints();
+  drawAllEdges();
+}
 
-function displayPath(){
+function displayPath(path){
   change_screen("location");
 
-  let canvas = document.getElementById("map_canvas");
-  canvas.style.display = "block";
+  document.getElementById("map_canvas").style.display = "block";
+	clearCanvas();
 
-  drawAllPoints();
-  drawAllEdges();
+	for (let i = 0; i < path.length; i ++)
+		displayEdge(path[i]);
+}
+
+function displayEdge(edge)
+{
+	let src = MAP_POINTS[edge.src];
+	let dst = MAP_POINTS[edge.dst];
+
+	drawLine(src.x, src.y, dst.x, dst.y);
+}
+
+function clearCanvas()
+{
+	let canvas = document.getElementById("map_canvas");
+	canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
 }
 
 function drawAllPoints()
@@ -57,6 +75,8 @@ function drawLine(startX, startY, endX, endY)
   context.lineTo(Math.round(end_coords.x) + 0.5, Math.round(end_coords.y) + 0.5);
   context.stroke();
 }
+
+
 
 function drawGrid()
 {
