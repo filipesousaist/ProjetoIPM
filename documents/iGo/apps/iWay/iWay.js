@@ -173,6 +173,14 @@ function showSteps(path){
 	}
 }
 
+var num_train_tickets = 0;
+
+function buyTicket(){
+	num_train_tickets++;
+	document.getElementById("train_tickets_num").innerHTML = num_train_tickets;
+	change_screen('payment_methods');
+}
+
 function showstepwalk(min){
 
 	document.getElementById("iWay_path_info_hd").src = "apps/iWay/walk.png";
