@@ -161,4 +161,3 @@ function showSteps(path){
 		
 		list.innerHTML += item;
 	}
-}
