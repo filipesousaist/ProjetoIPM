@@ -17,8 +17,6 @@ function displayNetwork() {
 }
 
 function displayPath(path) {
-  change_screen("location");
-
   document.getElementById("map_canvas").style.display = "block";
 	clearCanvas();
 
@@ -49,14 +47,12 @@ function drawAllPoints()
   }
 }
 
-function drawAllEdges()
+function displayAllEdges()
 {
   for (let i = 0; i < MAP_EDGES.length; i ++)
-  {
-    let src = MAP_POINTS[MAP_EDGES[i].src];
-    let dst = MAP_POINTS[MAP_EDGES[i].dst];
     drawLine(src.x, src.y, dst.x, dst.y);
   }
+    displayEdge(MAP_EDGES[i]);
 }
 
 
@@ -71,12 +67,11 @@ function drawLine(startX, startY, endX, endY)
   let end_coords = map_to_canvas_coords({x: endX, y: endY});
 
   let context = document.getElementById("map_canvas").getContext("2d");
+	context.beginPath();
   context.moveTo(Math.round(start_coords.x) + 0.5, Math.round(start_coords.y) + 0.5);
   context.lineTo(Math.round(end_coords.x) + 0.5, Math.round(end_coords.y) + 0.5);
   context.stroke();
 }
-
-
 
 function drawGrid()
 {
@@ -96,19 +91,18 @@ function map_to_canvas_coords(map_coords)
   return {x: newX, y: newY};
 }
 
-
-
-/********************/
+/********************************/
 /* LISTA DETALHADA DOS CAMINHOS */
-/**********************/
+/********************************/
 
 function showSteps(path){
 	
+
 	let i = 0;
 	let aux = 0;
 	let steps = [];
 	for(i = 0; i < path.length; i++){
-		
+
 		if(path[i]["type"] == "walk"){
 			if(steps[aux] == undefined)
 				steps[aux] = [];
@@ -123,25 +117,25 @@ function showSteps(path){
 				if(path[i+1]["type"] != "train") aux++;
 		}
 	}
-	
+
 	let list = document.getElementById("iWay_steps_list");
-	
+
 	for( i = 0; i < steps.length; i ++){
-		
+
 		let minutes = 0;
-			
+
 		let item = "<li class='iWay_steps_list_item'>";
 		item+= steps[i][0]["type"] == "walk" ? "Caminhada<br>" : "Viagem de Comboio<br>";
-			
+
 		for( aux = 0; aux < steps[i].length; aux++){
-			
+
 			if(steps[i][aux]["type"] == "walk"){
-				
+
 				let source = MAP_POINTS[steps[i][aux]["src"]];
 				let destination = MAP_POINTS[steps[i][aux]["dst"]];
 				let min = distance(source["x"],source["y"],destination["x"],destination["y"]);
 				minutes += Math.round(min / 1.5);
-				
+
 			} else if(steps[i][aux]["type"] == "train"){
 				let source = MAP_POINTS[steps[i][aux]["src"]];
 				let destination = MAP_POINTS[steps[i][aux]["dst"]];
@@ -149,15 +143,16 @@ function showSteps(path){
 				minutes += Math.round(min / 23);
 			}
 		}
-		
+
 		item += "Tempo estimado: " + minutes + "min";
 		item += "<img class='iWay_list_item_img' src='";
 		item += steps[i][0]["type"] == "walk" ?  "apps/iWay/walk_icon.png'>" : "apps/iWay/train_icon.png'>";
-		
+
 		if(i != steps.length -1)
-			item += "<li class='iWay_list_item_direction'> <img class='iWay_list_item_direction_arrow' src='apps/iWay/arrow.png'> </li>"
-		
+			item += "<li class='iWay_list_item_direction'> <img class='iWay_list_item_direction_arrow' src='apps/iWay/arrow.png'> </li>";
+
 		item += "</li>";
-		
+
 		list.innerHTML += item;
 	}
+}
