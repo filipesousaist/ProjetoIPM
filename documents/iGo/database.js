@@ -13,7 +13,7 @@ const SCREENS =
 	"iGuide_main":                  {id: "iGuide_main"},
 
 	"iWay_main":                    {id: "iWay_main"},
-	
+
 	"iWay_path_info_main":          {id: "iWay_path_info_main"},
 	
 	"iWay_path_steps":               {id: "iWay_path_steps"},
@@ -499,7 +499,13 @@ const MAP_POINTS =
 	{x:170, y:310, adj:[10, 11, 12]},
 	{x:140, y:360, adj:[11, 13]},
 	{x:180, y:360, adj:[12, 14]},
-	{x:163, y:383, adj:[13, 14]}
+	{x:163, y:383, adj:[13, 14, 15]},
+	{x:178, y:413, adj:[15, 16]},
+	{x:178, y:423, adj:[16, 17]},
+	{x:140, y:485, adj:[17, 18]},
+	{x:110, y:592, adj:[18, 19]},
+	{x:33, y:642, adj:[19, 20]},
+	{x:13, y:642, adj:[20]}, // Estação de Algés
 ]
 
 const MAP_EDGES =
@@ -518,5 +524,11 @@ const MAP_EDGES =
 	{src: 11, dst: 12, type:"walk"},
 	{src: 11, dst: 13, type:"walk"},
 	{src: 12, dst: 14, type:"walk"},
-	{src: 13, dst: 14, type:"walk"}
+	{src: 13, dst: 14, type:"walk"},
+	{src: 14, dst: 15, type:"walk"},
+	{src: 15, dst: 16, type:"walk"},
+	{src: 16, dst: 17, type:"walk"},
+	{src: 17, dst: 18, type:"walk"},
+	{src: 18, dst: 19, type:"walk"},
+	{src: 19, dst: 20, type:"walk"}
 ]
