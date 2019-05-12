@@ -251,9 +251,16 @@ SCREENS["location"].on_load = function()
 		let person_position = people[current_person_name].position;
 		center_location_map(current_person_name, person_position);
 	}
+	if (current_screen.id == "iWay_main")
+	{
+		document.getElementById("map_canvas").style.display = "block";
+		displayNetwork();
+	}
 }
 
 SCREENS["location"].on_exit = function()
 {
 	maps["location_map"].location = people[current_person_name].location_name;
+	if (new_screen.id == "iWay_main")
+		document.getElementById("map_canvas").style.display = "none";
 }
