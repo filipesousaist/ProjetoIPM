@@ -15,6 +15,8 @@ const SCREENS =
 	"iWay_main":                    {id: "iWay_main"},
 	
 	"iWay_path_info_main":          {id: "iWay_path_info_main"},
+	
+	"iWay_path_steps":               {id: "iWay_path_steps"},
 
 	"iGroup_main":                  {id: "iGroup_main"},
 
@@ -509,7 +511,7 @@ const MAP_EDGES =
 	{src: 4, dst: 6, type:"walk"},
 	{src: 5, dst: 7, type:"walk"},
 	{src: 6, dst: 8, type:"walk"},
-	{src: 7, dst: 9, type:"walk"},
+	{src: 7, dst: 9, type:"train"},
 	{src: 8, dst: 9, type:"walk"},
 	{src: 8, dst: 10, type:"walk"},
 	{src: 10, dst: 11, type:"walk"},
