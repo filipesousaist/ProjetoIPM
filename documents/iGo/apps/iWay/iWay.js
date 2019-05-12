@@ -92,7 +92,9 @@ class PriorityQueue {
 
 function intializeGraph(){
 	var mapGraph = new Graph();
-	for(let i = 0; i < MAP_POINTS.length; )
+	for(let i = 0; i < MAP_POINTS.length; i++){
+		
+	}
 }
 /************/
 /************/
@@ -102,22 +104,19 @@ function intializeGraph(){
 
 
 
-function displayPath()
-{
+function displayPath(){
   change_screen("location");
 
   let canvas = document.getElementById("map_canvas");
   canvas.style.display = "block";
 
-  for (let i = 0; i < MAP_POINTS.length; i ++)
-  {
+  for (let i = 0; i < MAP_POINTS.length; i ++){
     let point = MAP_POINTS[i];
     drawPoint(point.x, point.y);
   }
 }
 
-function drawPoint(x, y)
-{
+function drawPoint(x, y){
   let coords = map_to_canvas_coords({x: x, y: y});
   document.getElementById("map_canvas").getContext("2d").fillRect(coords.x, coords.y, 2, 2);
 }
