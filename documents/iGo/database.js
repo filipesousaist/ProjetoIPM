@@ -478,3 +478,10 @@ const MAP_PERSON_ICONS =
 	"main/main_menu/apps/location/img/position_blue.png",
 	"main/main_menu/apps/location/img/position_orange.png",
 ]
+
+const MAP_POINTS =
+[
+	{x: 150, y: 40},
+	{x: 223, y: 453},
+	{x: 342, y: 703}
+]

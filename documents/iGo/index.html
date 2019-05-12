@@ -149,6 +149,7 @@
 						</div>
 						<div class="screen_body" id="location_screen_body">
 							<div class="map" id="location_map">
+								<canvas id="map_canvas"></canvas>
 							</div>
 						</div>
 					</div>
@@ -274,7 +275,7 @@
 							<h1 id="iWay_destination_title">Destino:</h1>
 							<input class="text_input" id="iWay_destination" type="text" name="Destino:" onclick="write_mode('iWay_destination');"/>
 							<br />
-							<button class="iWay_confirm_button" id="iWay_search_button" onclick="change_screen('location');">Procurar!</button>
+							<button class="iWay_confirm_button" id="iWay_search_button" onclick="displayPath();">Procurar!</button>
 						</div>
 					</div>
 
