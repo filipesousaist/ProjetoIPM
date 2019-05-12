@@ -282,23 +282,46 @@
 					
 					<!-- Ecra de informacao de caminho do iWay -->
 					<div class="screen" id="iWay_path_info_main">
-						<img id="iWay_path_info_hd" src ="apps/iWay/train.png">
-						<div id="iWay_path_info_container">
-							<img id="iWay_path_info_container_icon" src="apps/iWay/train_icon.png">
-							<div id="iWay_path_info_container_title">Comboio - 10 min.</div>
-							<div id="iWay_path_info_container_descr">
-								<div id="train_station">Estação: Lisboa - Oriente</div>
-								<div id="train_title">Comboio: CP-Regional 123</div>
-								<div id="train_source">Partida: xxxx</div>
-								<div id="train_dest">Chegada: xxxx</div>
-								<div id="train_price">Preço: €4.99</div>
-								<div id="train_tickets_num">5</div>
-								<img id="train_ticket_icon" src="apps/iWay/ticket.svg">
-								<button id="train_buy_ticket">Comprar Bilhete</button>
+						<div class="screen_title_container" style="position: fixed; z-index:3;">
+							iWay
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
 							</div>
 						</div>
+							<img id="iWay_path_info_hd" src ="apps/iWay/train.png">
+							<div id="iWay_path_info_container">
+								<img id="iWay_path_info_container_icon" src="apps/iWay/train_icon.png">
+								<div id="iWay_path_info_container_title">Comboio - 10 min.</div>
+								<div id="iWay_path_info_container_descr">
+									<div id="train_station">Estação: Lisboa - Oriente</div>
+									<div id="train_title">Comboio: CP-Regional 123</div>
+									<div id="train_source">Partida: xxxx</div>
+									<div id="train_dest">Chegada: xxxx</div>
+									<div id="train_price">Preço: €4.99</div>
+									<div id="train_tickets_num">5</div>
+									<img id="train_ticket_icon" src="apps/iWay/ticket.svg">
+									<button id="train_buy_ticket">Comprar Bilhete</button>
+								</div>
+							</div>
+						
 					</div>
-
+					
+					<!-- Ecra de etapas do caminho do iWay -->
+					<div class="screen" id="iWay_path_steps" style="overflow:scroll;">
+						<div class="screen_title_container" style="position: fixed; z-index:3;">
+							iWay
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div id="iWay_path_title">Visão Global</div>
+						<ul id="iWay_steps_list"></ul>
+					</div>
+					
 					<!-- Ecr&atilde; principal do iGroup -->
 					<div class="screen" id="iGroup_main">
 						<div class="screen_title_container">
