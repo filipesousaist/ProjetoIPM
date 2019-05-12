@@ -3,8 +3,9 @@
 /*** IWAY ***/
 /************/
 /************/
+var mapGraph;
 function intializeGraph(){
-	var mapGraph = new Graph();
+	mapGraph = new Graph();
 	for(let i = 0; i < MAP_POINTS.length; i++){
 		mapGraph.addNode(i);
 	}
