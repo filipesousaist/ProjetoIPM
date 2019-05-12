@@ -16,7 +16,7 @@ function displayNetwork() {
   drawAllEdges();
 }
 
-function displayPath(path){
+function displayPath(path) {
   change_screen("location");
 
   document.getElementById("map_canvas").style.display = "block";
@@ -162,21 +162,3 @@ function showSteps(path){
 		list.innerHTML += item;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
