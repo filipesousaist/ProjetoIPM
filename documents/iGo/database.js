@@ -480,3 +480,20 @@ const MAP_PERSON_ICONS =
 	"main/main_menu/apps/location/img/position_blue.png",
 	"main/main_menu/apps/location/img/position_orange.png",
 ]
+
+const MAP_POINTS =
+[
+	{x:200, y:25, adj:[0]},
+	{x:175, y:70, adj:[0]},
+	{x:167, y:85},
+	{x:120, y:123},
+	{x:192, y:140},
+	{x:20, y:170},
+	{x:207, y:170},
+	{x:215, y:193}
+]
+
+const MAP_EDGES =
+[
+	{src: 0, dst: 1}
+]

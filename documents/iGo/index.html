@@ -28,6 +28,7 @@
 		<!-- iWay -->
 		<link rel="stylesheet" href="apps/iWay/iWay.css" />
 		<script src="apps/iWay/iWay.js" charset="utf-8"></script>
+		<script src="apps/iWay/graph.js" charset="utf-8"></script>
 		<!-- iGroup -->
 		<link rel="stylesheet" href="apps/iGroup/iGroup.css" />
 		<script src="apps/iGroup/iGroup.js" charset="utf-8"></script>
@@ -149,6 +150,7 @@
 						</div>
 						<div class="screen_body" id="location_screen_body">
 							<div class="map" id="location_map">
+								<canvas id="map_canvas"></canvas>
 							</div>
 						</div>
 					</div>
@@ -274,7 +276,7 @@
 							<h1 id="iWay_destination_title">Destino:</h1>
 							<input class="text_input" id="iWay_destination" type="text" name="Destino:" onclick="write_mode('iWay_destination');"/>
 							<br />
-							<button class="iWay_confirm_button" id="iWay_search_button" onclick="change_screen('location');">Procurar!</button>
+							<button class="iWay_confirm_button" id="iWay_search_button" onclick="displayPath();">Procurar!</button>
 						</div>
 					</div>
 					
@@ -319,6 +321,7 @@
 							<div class="iGroup_mainButton iGroup_show_button" id="iGroup_myGroups" onclick="showGroupList(); change_screen('iGroup_groups');">
 								<img class="iGroup_main_icon" src="apps/iGroup/img/group.png">
 								<div class="iGroup_main_text">Os meus grupos</div>
+								<div id="iGroup_main_notification_icon"></div>
 							</div>
 						</div>
 					</div>

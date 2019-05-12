@@ -193,7 +193,7 @@
 }
 
 .iGroup_event_name
-{	
+{
 
 	position: relative;
 	font-size: 10px;
@@ -223,6 +223,7 @@
 {
 	background-color: #f93b3b;
 }
+
 
 .iGroup_show_button /* Usar na maioria dos bot&otilde;es de mostrar */
 {
@@ -490,11 +491,9 @@
 
 .igroup_owner_img{
 	position: absolute;
-    height: 0.5cm;
-    /* border-radius: 50%; */
-    /* border: 0.4mm solid #7a888c; */
-    left: 34mm;
-    top: 4.8mm;
+  height: 0.5cm;
+  left: 34mm;
+  top: 4.8mm;
 }
 
 .profile_div{
@@ -519,23 +518,43 @@
     top: 9mm;
 }
 
-#iGroup_event_date{
-	    font-size: 10pt;
-    position: relative;
-    left: 2mm;
-    top: 1.5mm;
+
+#iGroup_main_notification_icon
+{
+	position: absolute;
+	left: 1.5mm;
+	top: 5mm;
+	width: 4mm;
+	height: 3.5mm;
+	background-color: white;
+	border: 0.1mm solid black;
+	border-radius: 3mm;
+	font-size: 6.5pt;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 0.5mm;
 }
 
-#iGroup_event_description{
+#iGroup_event_date
+{
+	font-size: 10pt;
 	position: relative;
-    font-size: 10pt;
-    left: 2mm;
-    top: 2.5mm;
+  left: 2mm;
+  top: 1.5mm;
 }
 
-#iGroup_event_author{
+#iGroup_event_description
+{
 	position: relative;
-    font-size: 10pt;
-    left: 2mm;
-    top: 1.5mm;
+  font-size: 10pt;
+  left: 2mm;
+  top: 2.5mm;
+}
+
+#iGroup_event_author
+{
+	position: relative;
+  font-size: 10pt;
+  left: 2mm;
+  top: 1.5mm;
 }
