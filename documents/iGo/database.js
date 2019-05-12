@@ -482,16 +482,37 @@ const MAP_PERSON_ICONS =
 const MAP_POINTS =
 [
 	{x:200, y:25, adj:[0]},
-	{x:175, y:70, adj:[0]},
-	{x:167, y:85},
-	{x:120, y:123},
-	{x:192, y:140},
-	{x:20, y:170},
-	{x:207, y:170},
-	{x:215, y:193}
+	{x:175, y:70, adj:[0, 1]},
+	{x:167, y:85, adj:[1, 2]},
+	{x:120, y:125, adj:[3]},
+	{x:192, y:143, adj:[2, 3, 4]},
+	{x:20, y:170, adj:[5]},
+	{x:207, y:170, adj:[4, 6]},
+	{x:55, y:180, adj:[5, 7]},
+	{x:215, y:193, adj:[6, 8, 9]},
+	{x:130, y:200, adj:[7, 8]},
+	{x:215, y:210, adj:[9, 10]},
+	{x:170, y:310, adj:[10, 11, 12]},
+	{x:140, y:360, adj:[11, 13]},
+	{x:180, y:360, adj:[12, 14]},
+	{x:163, y:383, adj:[13, 14]}
 ]
 
 const MAP_EDGES =
 [
-	{src: 0, dst: 1}
+	{src: 0, dst: 1, type:"walk"},
+	{src: 1, dst: 2, type:"walk"},
+	{src: 2, dst: 4, type:"walk"},
+	{src: 3, dst: 4, type:"walk"},
+	{src: 4, dst: 6, type:"walk"},
+	{src: 5, dst: 7, type:"walk"},
+	{src: 6, dst: 8, type:"walk"},
+	{src: 7, dst: 9, type:"walk"},
+	{src: 8, dst: 9, type:"walk"},
+	{src: 8, dst: 10, type:"walk"},
+	{src: 10, dst: 11, type:"walk"},
+	{src: 11, dst: 12, type:"walk"},
+	{src: 11, dst: 13, type:"walk"},
+	{src: 12, dst: 14, type:"walk"},
+	{src: 13, dst: 14, type:"walk"}
 ]
