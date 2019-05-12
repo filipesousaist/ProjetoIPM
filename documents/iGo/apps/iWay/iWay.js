@@ -19,37 +19,37 @@ class Graph {
   let backtrace = {};
   let pq = new PriorityQueue();
   times[startNode] = 0;
-  this.nodes.forEach(node => {
-    if (node !== startNode) {
-      times[node] = Infinity
-    }
-  });
+  for(let i = 0; i < this.nodes; i++){
+  	if(node[i] !== startNode){
+  		times[node] = Infinity;
+  	}
+  }
   pq.enqueue([startNode, 0]);
   while (!pq.isEmpty()){
     let shortestStep = pq.dequeue();
     let currentNode = shortestStep[0];
     //for each(neighbor =>) faz com o que variavel de iteração se chama neighbor
-    for(let i = 0; i < this.adjacencyList[currentNode]; i++){
-    	let time = times[currentNode] + adjacencyList[currentNode][i].weight;
+    for(let i = 0; i < this.adjacencyList[currentNode].length; i++){
+    	let neighbor = adjacencyList[currentNode][i];
+    	let time = times[currentNode] + neighbor.weight;
+    	if(time < times[neighbor.node]){
+    		times[neighbor.node] = time;
+    		backtrace[neighbor.node] = currentNode;
+    		pq.enqueue([neighbor.node], time);
+    	}
     }
-    this.adjacencyList[currentNode].forEach(neighbor => {
-      	let time = times[currentNode] + neighbor.weight;
-      	if (time < times[neighbor.node]) {
-        	times[neighbor.node] = time;
-        	backtrace[neighbor.node] = currentNode;
-        	pq.enqueue([neighbor.node, time]);
-      	}
-    });
-  }
+  	let path = [endNode];
+  	let lastStep = endNode;
+ 	while(lastStep !== startNode){
+    	path.unshift(backtrace[lastStep])
+    	lastStep = backtrace[lastStep]
+  	}
 
-  let path = [endNode];
-  let lastStep = endNode;
-  while(lastStep !== startNode){
-    path.unshift(backtrace[lastStep])
-    lastStep = backtrace[lastStep]
-  }
-  return Path is ${path} and time is ${times[endNode]}
+  	var answer = {path, times[endNode]};
+  	return answer;
 }
+
+
 
 class PriorityQueue {
   constructor() {
@@ -91,13 +91,15 @@ class PriorityQueue {
 }
 
 function intializeGraph(){
-
+	var mapGraph = new Graph();
+	for(let i = 0; i < MAP_POINTS.length; )
 }
 /************/
 /************/
 /*** IWAY ***/
 /************/
 /************/
+
 
 
 function displayPath()
