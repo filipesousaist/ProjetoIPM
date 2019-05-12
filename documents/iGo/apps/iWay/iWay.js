@@ -143,9 +143,6 @@ function showSteps(path){
 
 		let minutes = 0;
 
-		let item = "<li class='iWay_steps_list_item'>";
-		item+= steps[i][0]["type"] == "walk" ? "Caminhada<br>" : "Viagem de Comboio<br>";
-
 		for( aux = 0; aux < steps[i].length; aux++){
 
 			if(steps[i][aux]["type"] == "walk"){
@@ -163,6 +160,9 @@ function showSteps(path){
 			}
 		}
 
+		let item = "<li class='iWay_steps_list_item' ";
+		item+= steps[i][0]["type"] == "walk" ? "onclick ='showstepwalk(" + minutes + ");'>Caminhada<br>" : "onclick ='showsteptrain(" + minutes + ");'>Viagem de Comboio<br>";
+
 		item += "Tempo estimado: " + minutes + "min";
 		item += "<img class='iWay_list_item_img' src='";
 		item += steps[i][0]["type"] == "walk" ?  "apps/iWay/walk_icon.png'>" : "apps/iWay/train_icon.png'>";
@@ -174,4 +174,58 @@ function showSteps(path){
 
 		list.innerHTML += item;
 	}
+}
+
+var num_train_tickets = 0;
+
+function buyTicket(){
+	num_train_tickets++;
+	document.getElementById("train_tickets_num").innerHTML = num_train_tickets;
+	change_screen('payment_methods');
+}
+
+function showstepwalk(min){
+
+	document.getElementById("iWay_path_info_hd").src = "apps/iWay/walk.png";
+
+	document.getElementById("iWay_path_info_walk_container_icon").src = "apps/iWay/walk_icon.png";
+	document.getElementById("iWay_path_info_walk_container_title").innerHTML = "Caminhada - " + min + " min.";
+
+	document.getElementById("iWay_path_info_container").style.display = "none";
+	document.getElementById("iWay_path_info_walk_container_descr").style.display = "block";
+
+	document.getElementById("iWay_path_info_train_container_descr").style.display = "none";
+
+	change_screen("iWay_path_info_main");
+}
+
+function showsteptrain(min){
+
+	document.getElementById("iWay_path_info_hd").src = "apps/iWay/train.png";
+
+	document.getElementById("iWay_path_info_container_icon").src = "apps/iWay/train_icon.png";
+	document.getElementById("iWay_path_info_container_title").innerHTML = "Comboio - " + min + " min.";
+
+	document.getElementById("iWay_path_info_container").style.display = "block";
+	document.getElementById("iWay_path_info_walk_container_descr").style.display = "none";
+
+	document.getElementById("iWay_path_info_train_container_descr").style.display = "block";
+
+	change_screen("iWay_path_info_main");
+
+}
+
+SCREENS["iWay_path_info_main"].on_exit = function() {
+
+	document.getElementById("iWay_path_info_walk_container_icon").src = "";
+	document.getElementById("iWay_path_info_walk_container_title").innerHTML = "";
+
+	document.getElementById("iWay_path_info_container_icon").src = "";
+	document.getElementById("iWay_path_info_container_title").innerHTML = "";
+
+	document.getElementById("iWay_path_info_container").style.display = "none";
+	document.getElementById("iWay_path_info_walk_container_descr").style.display = "none";
+
+	document.getElementById("iWay_path_info_train_container_descr").style.display = "none";
+
 }

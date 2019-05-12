@@ -76,7 +76,7 @@
     top: 5.6mm;
 }
 
-#iWay_path_info_container{
+#iWay_path_info_train_container_descr{
 	width: 4.5cm;
     background-color: white;
     position: absolute;
@@ -86,6 +86,7 @@
     border: 0.5mm solid grey;
     border-radius: 1mm;
 	margin-bottom: 4mm;
+	z-index:1;
 }
 
 #iWay_path_info_main{
@@ -93,18 +94,20 @@
 }
 
 #iWay_path_info_container_icon{
-	position: absolute;
+	    position: absolute;
     width: 0.6cm;
-    left: 0.25cm;
-    top: 2mm;
+    left: 0.47cm;
+    top: 20mm;
+    z-index: 2;
 }
 
 #iWay_path_info_container_title{
-	    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 10pt;
+	font-family: Tahoma, Geneva, sans-serif;
+    font-size: 9pt;
     position: absolute;
-    left: 1.1cm;
-    top: 3mm;
+    left: 1.3cm;
+    top: 21mm;
+    z-index: 3;
 }
 
 #train_title{
@@ -251,3 +254,33 @@
     width: 0.6cm;
     left: 1.9cm;
 }
+
+#iWay_path_info_walk_container_descr{
+	width: 4.5cm;
+    background-color: white;
+    position: absolute;
+    height: 2.8cm;
+    left: 0.2cm;
+    top: 1.8cm;
+    border: 0.5mm solid grey;
+    border-radius: 1mm;
+	margin-bottom: 4mm;
+}
+
+#iWay_path_info_walk_container_icon{
+	    position: absolute;
+    width: 0.6cm;
+    left: 0.3cm;
+    top: 2mm;
+    z-index: 2;
+}
+
+#iWay_path_info_walk_container_title{
+	font-family: Tahoma, Geneva, sans-serif;
+    font-size: 9pt;
+    position: absolute;
+    left: 1.1cm;
+    top: 3mm;
+    z-index: 3;
+}
+

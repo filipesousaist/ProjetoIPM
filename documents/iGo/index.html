@@ -290,20 +290,32 @@
 								<div class="clock_minutes"></div>
 							</div>
 						</div>
-							<img id="iWay_path_info_hd" src ="apps/iWay/train.png">
+						
+							<img id="iWay_path_info_hd">
+							
 							<div id="iWay_path_info_container">
-								<img id="iWay_path_info_container_icon" src="apps/iWay/train_icon.png">
-								<div id="iWay_path_info_container_title">Comboio - 10 min.</div>
-								<div id="iWay_path_info_container_descr">
+							
+								<img id="iWay_path_info_container_icon">
+								<div id="iWay_path_info_container_title"></div>
+								
+								<div id="iWay_path_info_train_container_descr">
 									<div id="train_station">Estação: Lisboa - Oriente</div>
 									<div id="train_title">Comboio: CP-Regional 123</div>
 									<div id="train_source">Partida: xxxx</div>
 									<div id="train_dest">Chegada: xxxx</div>
 									<div id="train_price">Preço: €4.99</div>
-									<div id="train_tickets_num">5</div>
+									<div id="train_tickets_num">0</div>
 									<img id="train_ticket_icon" src="apps/iWay/ticket.svg">
-									<button id="train_buy_ticket">Comprar Bilhete</button>
+									<button id="train_buy_ticket" onclick='buyTicket();'>Comprar Bilhete</button>
 								</div>
+
+							</div>
+						
+							<div id="iWay_path_info_walk_container_descr">
+								
+								<img id="iWay_path_info_walk_container_icon">
+								<div id="iWay_path_info_walk_container_title"></div>
+								
 							</div>
 
 					</div>
@@ -663,7 +675,7 @@
 
 					<!-- Confirma&ccedil;&atilde;o pagamento -->
 					<div class="screen" id="payment_complete">
-						<div id="payment_title">Processando Pagamento</div>
+						<div id="payment_title">Processando...</div>
 						<div id="payment_descr">Esta etapa poder&aacute; demorar alguns segundos....</div>
 						<div id="payment_before">
 							<img id="loading" src="main/payments/img/ajax-loader.gif">
