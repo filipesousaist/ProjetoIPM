@@ -30,6 +30,7 @@ function init()
 	init_locations();
 	init_user();
 	init_ratings();
+	init_graph();
 	init_screens();
 
 	turn_on();

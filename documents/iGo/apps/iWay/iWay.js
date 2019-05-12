@@ -3,8 +3,11 @@
 /*** IWAY ***/
 /************/
 /************/
-function intializeGraph(){
-	var mapGraph = new Graph();
+
+var mapGraph;
+
+function init_graph(){
+	mapGraph = new Graph();
 	for(let i = 0; i < MAP_POINTS.length; i++){
 		mapGraph.addNode(i);
 	}
@@ -21,9 +24,16 @@ function intializeGraph(){
 		mapGraph.addEdge(MAP_EDGES[j].src, MAP_EDGES[j].dst, weight);
 	}
 }
+
 function displayNetwork() {
 	drawAllPoints();
   displayAllEdges();
+}
+
+function displayShortestPath(src, dst)
+{
+	let result = mapGraph.findPath(src, dst);
+	displayPath(result[0]);
 }
 
 function displayPath(path) {
