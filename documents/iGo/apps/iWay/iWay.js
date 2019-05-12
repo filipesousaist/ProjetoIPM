@@ -11,13 +11,11 @@ function intializeGraph(){
 /************/
 
 function displayNetwork() {
-
 	drawAllPoints();
-  drawAllEdges();
+  displayAllEdges();
 }
 
 function displayPath(path) {
-  document.getElementById("map_canvas").style.display = "block";
 	clearCanvas();
 
 	for (let i = 0; i < path.length; i ++)
@@ -50,8 +48,6 @@ function drawAllPoints()
 function displayAllEdges()
 {
   for (let i = 0; i < MAP_EDGES.length; i ++)
-    drawLine(src.x, src.y, dst.x, dst.y);
-  }
     displayEdge(MAP_EDGES[i]);
 }
 
@@ -96,7 +92,6 @@ function map_to_canvas_coords(map_coords)
 /********************************/
 
 function showSteps(path){
-	
 
 	let i = 0;
 	let aux = 0;
