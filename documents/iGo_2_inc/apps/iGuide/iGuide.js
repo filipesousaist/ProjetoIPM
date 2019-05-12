@@ -89,7 +89,7 @@ function get_distance(place_name)
 	let place_pos = LOCATIONS[current_location_name].places[place_name].position;
 	let x_diff = place_pos.x - current_position.x;
 	let y_diff = place_pos.y - current_position.y;
-	return Math.sqrt(Math.pow(x_diff, 2) + Math.pow(y_diff, 2));
+	return distance(place_pos.x, place_pos.y, current_position.x, current_position.y);
 }
 
 function get_angle(place_name)
