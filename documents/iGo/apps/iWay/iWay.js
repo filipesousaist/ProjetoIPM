@@ -1,16 +1,27 @@
-function intializeGraph(){
-	var mapGraph = new Graph();
-	for(let i = 0; i < MAP_POINTS.length; i++){
-
-	}
-}
 /************/
 /************/
 /*** IWAY ***/
 /************/
 /************/
 
-
+function intializeGraph(){
+	var mapGraph = new Graph();
+	for(let i = 0; i < MAP_POINTS.length; i++){
+		mapGraph.addNode(i);
+	}
+	for(let j = 0; j < MAP_EDGES.length;j++){
+		let typemultiplier = 1;
+		if(MAP_EDGES[j].type == "walk"){
+			typemultiplier = 2;
+		}
+		let src = MAP_EDGES[j].src;
+		let dst = MAP_EDGES[j].dst;
+		let srcVertex = MAP_POINTS[src];
+		let dstVertex = MAP_POINTS[dst];
+		let weight = distance(srcVertex.x , srcVertex.y, dstVertex.x , dstVertex.y) * typemultiplier;
+		mapGraph.addEdge(MAP_EDGES[j].src, MAP_EDGES[j].dst, weight);
+	}
+}
 
 function displayPath(){
   change_screen("location");
