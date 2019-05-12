@@ -13,6 +13,8 @@ const SCREENS =
 	"iGuide_main":                  {id: "iGuide_main"},
 
 	"iWay_main":                    {id: "iWay_main"},
+	
+	"iWay_path_info_main":          {id: "iWay_path_info_main"},
 
 	"iGroup_main":                  {id: "iGroup_main"},
 
