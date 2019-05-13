@@ -243,3 +243,8 @@ SCREENS["iWay_path_info_main"].on_exit = function() {
 	document.getElementById("iWay_path_info_train_container_descr").style.display = "none";
 
 }
+
+SCREENS["iWay_path_steps"].on_exit = function() {
+	document.getElementById("iWay_steps_list").innerHTML = "";
+}
+
