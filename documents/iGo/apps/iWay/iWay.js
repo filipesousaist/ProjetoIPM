@@ -129,25 +129,25 @@ function map_to_canvas_coords(map_coords)
 /* LISTA DETALHADA DOS CAMINHOS */
 /********************************/
 
-function showSteps(path){
+function showSteps(){
 
 	let i = 0;
 	let aux = 0;
 	let steps = [];
-	for(i = 0; i < path.length; i++){
+	for(i = 0; i < shortestPath.length; i++){
 
-		if(path[i]["type"] == "walk"){
+		if(shortestPath[i]["type"] == "walk"){
 			if(steps[aux] == undefined)
 				steps[aux] = [];
-			steps[aux].push(path[i]);
-			if( i != path.length-1)
-				if(path[i+1]["type"] != "walk") aux++;
-		} else if(path[i]["type"] == "train") {
+			steps[aux].push(shortestPath[i]);
+			if( i != shortestPath.length-1)
+				if(shortestPath[i+1]["type"] != "walk") aux++;
+		} else if(shortestPath[i]["type"] == "train") {
 			if(steps[aux] == undefined)
 				steps[aux] = [];
-			steps[aux].push(path[i]);
-			if( i != path.length-1)
-				if(path[i+1]["type"] != "train") aux++;
+			steps[aux].push(shortestPath[i]);
+			if( i != shortestPath.length-1)
+				if(shortestPath[i+1]["type"] != "train") aux++;
 		}
 	}
 
