@@ -176,7 +176,7 @@ function showSteps(){
 		}
 
 		let item = "<li class='iWay_steps_list_item' ";
-		item+= steps[i][0]["type"] == "walk" ? "onclick ='showstepwalk(" + minutes + ");'>Caminhada<br>" : "onclick ='showsteptrain(" + minutes + ");'>Viagem de Comboio<br>";
+		item+= steps[i][0]["type"] == "walk" ? ">Caminhada<br>" : "onclick ='showsteptrain(" + minutes + ");'>Viagem de Comboio<br>";
 
 		item += "Tempo estimado: " + minutes + "min";
 		item += "<img class='iWay_list_item_img' src='";
@@ -243,8 +243,4 @@ SCREENS["iWay_path_info_main"].on_exit = function() {
 
 	document.getElementById("iWay_path_info_train_container_descr").style.display = "none";
 
-}
-
-SCREENS["iWay_path_steps"].on_exit = function() {
-	document.getElementById("iWay_steps_list").innerHTML = "";
 }

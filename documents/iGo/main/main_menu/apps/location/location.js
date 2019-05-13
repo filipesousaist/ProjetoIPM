@@ -251,13 +251,19 @@ SCREENS["location"].on_load = function()
 		let person_position = people[current_person_name].position;
 		center_location_map(current_person_name, person_position);
 	}
-	if (current_screen.id == "iWay_main")
+	if (current_screen.id == "iWay_main"){
 		document.getElementById("map_canvas").style.display = "block";
+		document.getElementById("iway_path_global").style.display = "block";
+	}
 }
 
 SCREENS["location"].on_exit = function()
-{
+{	
+	document.getElementById("iWay_steps_list").innerHTML = "";
+	alert("oi");
 	maps["location_map"].location = people[current_person_name].location_name;
-	if (new_screen.id == "iWay_main")
+	if (new_screen.id == "iWay_main"){
 		document.getElementById("map_canvas").style.display = "none";
+		document.getElementById("iway_path_global").style.display = "none";
+	}
 }
