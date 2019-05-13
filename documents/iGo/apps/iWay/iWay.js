@@ -5,6 +5,7 @@
 /************/
 
 var mapGraph;
+var shortestPath;
 
 function init_graph(){
 	mapGraph = new Graph();
@@ -45,7 +46,8 @@ function searchPath()
 function displayShortestPath(src, dst)
 {
 	let result = mapGraph.findPath(src, dst);
-	displayPath(result[0]);
+	shortestPath = result[0];
+	displayPath(shortestPath);
 }
 
 function displayPath(path) {
