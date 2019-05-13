@@ -30,6 +30,18 @@ function displayNetwork() {
   displayAllEdges();
 }
 
+function searchPath()
+{
+	let start = document.getElementById("iWay_starting_point").value;
+	let end = document.getElementById("iWay_destination").value;
+
+	let startPoint = LOCATIONS['Lisboa'].places[start].map_point_id;
+	let endPoint = LOCATIONS['Lisboa'].places[end].map_point_id;
+
+	change_screen("location");
+	displayShortestPath(startPoint, endPoint);
+}
+
 function displayShortestPath(src, dst)
 {
 	let result = mapGraph.findPath(src, dst);

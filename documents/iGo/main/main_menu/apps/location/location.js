@@ -252,10 +252,7 @@ SCREENS["location"].on_load = function()
 		center_location_map(current_person_name, person_position);
 	}
 	if (current_screen.id == "iWay_main")
-	{
 		document.getElementById("map_canvas").style.display = "block";
-		displayNetwork();
-	}
 }
 
 SCREENS["location"].on_exit = function()
