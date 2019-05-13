@@ -48,6 +48,7 @@ function displayShortestPath(src, dst)
 	let result = mapGraph.findPath(src, dst);
 	shortestPath = result[0];
 	displayPath(shortestPath);
+	showSteps();
 }
 
 function displayPath(path) {
@@ -164,7 +165,7 @@ function showSteps(){
 				let source = MAP_POINTS[steps[i][aux]["src"]];
 				let destination = MAP_POINTS[steps[i][aux]["dst"]];
 				let min = distance(source["x"],source["y"],destination["x"],destination["y"]);
-				minutes += Math.round(min / 1.5);
+				minutes += Math.round(min / 4);
 
 			} else if(steps[i][aux]["type"] == "train"){
 				let source = MAP_POINTS[steps[i][aux]["src"]];
