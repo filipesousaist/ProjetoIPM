@@ -46,6 +46,7 @@ function displayShortestPath(src, dst)
 {
 	let result = mapGraph.findPath(src, dst);
 	displayPath(result[0]);
+	showSteps(result[0]);
 }
 
 function displayPath(path) {
