@@ -258,9 +258,8 @@ SCREENS["location"].on_load = function()
 }
 
 SCREENS["location"].on_exit = function()
-{	
+{
 	document.getElementById("iWay_steps_list").innerHTML = "";
-	alert("oi");
 	maps["location_map"].location = people[current_person_name].location_name;
 	if (new_screen.id == "iWay_main"){
 		document.getElementById("map_canvas").style.display = "none";

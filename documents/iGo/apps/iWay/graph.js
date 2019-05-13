@@ -52,20 +52,13 @@ class Graph {
     lastStep = backtrace[lastStep]
   }
   var edgePath = [];
-  for(let k = 1; k < path.length; k++){
-    for(let l = 0; l < MAP_EDGES.length; l++){
-      console.log(path[k]);
-      console.log(path[k-1]);
-      console.log(MAP_EDGES[l]);
+  for(let k = 1; k < path.length; k++)
+    for(let l = 0; l < MAP_EDGES.length; l++)
       if((MAP_EDGES[l].src == path[k-1] && MAP_EDGES[l].dst == path[k]) || (MAP_EDGES[l].dst == path[k-1] && MAP_EDGES[l].src == path[k])){
         edgePath.push(MAP_EDGES[l]);
-        console.log(edgePath);
         break;
       }
-    }
-  }
-  var answer = [edgePath, times[endNode]];
-  return answer;
+  return [edgePath, times[endNode]];
   }
 };
 

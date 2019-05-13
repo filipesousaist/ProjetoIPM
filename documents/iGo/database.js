@@ -271,7 +271,8 @@ const LOCATIONS =
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pevii_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pevii_1.jpg'>"],
 				events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
-				wallpaper: "apps/iGuide/img/place_bg/pevii_green.png"
+				wallpaper: "apps/iGuide/img/place_bg/pevii_green.png",
+				map_point_id: 38
 			},
 
 			"Shopping Amoreiras":
@@ -298,7 +299,8 @@ const LOCATIONS =
 			  gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/ig_3.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/ig_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/ig_1.jpg'>"],
-				wallpaper: "apps/iGuide/img/place_bg/ig_orange.png"
+				wallpaper: "apps/iGuide/img/place_bg/ig_orange.png",
+				map_point_id: 40
 			},
 
 			"Padrão dos Descobrimentos":
@@ -314,7 +316,7 @@ const LOCATIONS =
 				wallpaper: "apps/iGuide/img/place_bg/pdd_red.png",
 				map_point_id: 24
 			},
-
+			
 			"Torre de Belém":
 			{
 				name: "Torre de Belém",
@@ -519,13 +521,16 @@ const MAP_POINTS =
 	{x:490, y:510, adj:[29, 30]},       // 28
 	{x:514, y:486, adj:[30, 31]},       // 29
 	{x:505, y:415, adj:[31, 32]},       // 30
-	{x:550, y:400, adj:[32, 36]},       // 31 Shopping Amoreiras
+	{x:550, y:400, adj:[32, 36, 40]},   // 31 Shopping Amoreiras
 	{x:454, y:486, adj:[33, 34]},       // 32
 	{x:464, y:376, adj:[34, 35]},       // 33
 	{x:518, y:280, adj:[35]},           // 34 Estação E
 	{x:580, y:361, adj:[36, 37]},       // 35
 	{x:490, y:390, adj:[37, 38]},       // 36
-	{x:330, y:355, adj:[38, 39]}        // 37
+	{x:330, y:355, adj:[38, 39]},       // 37
+	{x:625, y:350, adj:[40, 41]},       // 38 Parque Eduardo VII
+	{x:580, y:323, adj:[41, 42]},       // 39
+	{x:632, y:258, adj:[42]}            // 40 Instituto Gulbenkian
 ]
 
 const MAP_EDGES =
@@ -570,4 +575,7 @@ const MAP_EDGES =
 	{src: 35, dst: 36, type:"walk"},    // 37
 	{src: 36, dst: 37, type:"walk"},    // 38
 	{src: 15, dst: 37, type:"walk"},    // 39
+	{src: 31, dst: 38, type:"walk"},    // 40
+	{src: 38, dst: 39, type:"walk"},    // 41
+	{src: 39, dst: 40, type:"walk"},    // 42
 ]

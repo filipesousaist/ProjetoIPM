@@ -15,7 +15,7 @@ function init_graph(){
 	for(let j = 0; j < MAP_EDGES.length;j++){
 		let typemultiplier = 1;
 		if(MAP_EDGES[j].type == "walk"){
-			typemultiplier = 2;
+			typemultiplier = 20;
 		}
 		let src = MAP_EDGES[j].src;
 		let dst = MAP_EDGES[j].dst;
@@ -242,5 +242,4 @@ SCREENS["iWay_path_info_main"].on_exit = function() {
 	document.getElementById("iWay_path_info_walk_container_descr").style.display = "none";
 
 	document.getElementById("iWay_path_info_train_container_descr").style.display = "none";
-
 }
