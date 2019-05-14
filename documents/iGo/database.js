@@ -93,7 +93,7 @@ const DEFAULT =
 		{
 			name: "Ambrósio Santos",
 			id: "Ambrósio_Santos",
-			location_name: "Paris",
+			location_name: "Lisboa",
 			position: {x: 300, y: 300},
 			image : "apps/iGroup/img/Ambrosio.jpg"
 		},
@@ -316,7 +316,7 @@ const LOCATIONS =
 				wallpaper: "apps/iGuide/img/place_bg/pdd_red.png",
 				map_point_id: 24
 			},
-			
+
 			"Torre de Belém":
 			{
 				name: "Torre de Belém",
@@ -524,12 +524,12 @@ const MAP_POINTS =
 	{x:550, y:400, adj:[32, 36, 40]},   // 31 Shopping Amoreiras
 	{x:454, y:486, adj:[33, 34]},       // 32
 	{x:464, y:376, adj:[34, 35]},       // 33
-	{x:518, y:280, adj:[35]},           // 34 Estação E
+	{x:518, y:280, adj:[35, 43]},       // 34 Estação E
 	{x:580, y:361, adj:[36, 37]},       // 35
 	{x:490, y:390, adj:[37, 38]},       // 36
 	{x:330, y:355, adj:[38, 39]},       // 37
 	{x:625, y:350, adj:[40, 41]},       // 38 Parque Eduardo VII
-	{x:580, y:323, adj:[41, 42]},       // 39
+	{x:580, y:323, adj:[41, 42, 43]},   // 39
 	{x:632, y:258, adj:[42]}            // 40 Instituto Gulbenkian
 ]
 
@@ -578,4 +578,5 @@ const MAP_EDGES =
 	{src: 31, dst: 38, type:"walk"},    // 40
 	{src: 38, dst: 39, type:"walk"},    // 41
 	{src: 39, dst: 40, type:"walk"},    // 42
+	{src: 34, dst: 39, type:"walk"},    // 43
 ]
