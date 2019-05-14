@@ -14,9 +14,8 @@ function init_graph(){
 	}
 	for(let j = 0; j < MAP_EDGES.length;j++){
 		let typemultiplier = 1;
-		if(MAP_EDGES[j].type == "walk"){
+		if (MAP_EDGES[j].type == "walk")
 			typemultiplier = 20;
-		}
 		let src = MAP_EDGES[j].src;
 		let dst = MAP_EDGES[j].dst;
 		let srcVertex = MAP_POINTS[src];
@@ -102,10 +101,12 @@ function drawLine(startX, startY, endX, endY, color)
 
   let context = document.getElementById("map_canvas").getContext("2d");
 	context.strokeStyle = color;
+	context.lineWidth = "0.05mm";
 	context.beginPath();
-  context.moveTo(Math.round(start_coords.x) + 0.5, Math.round(start_coords.y) + 0.5);
-  context.lineTo(Math.round(end_coords.x) + 0.5, Math.round(end_coords.y) + 0.5);
+  context.moveTo(Math.round(start_coords.x), Math.round(start_coords.y));
+  context.lineTo(Math.round(end_coords.x), Math.round(end_coords.y));
   context.stroke();
+	context.stroke();
 }
 
 function drawGrid()

@@ -104,7 +104,9 @@ function update_position()
 		iGuide_update_places();
 
 		if (current_screen.id == "location" &&
-			maps["location_map"].location_name == current_person.location_name)
+			maps["location_map"].location_name == current_person.location_name &&
+			screens_stack.length >= 2 &&
+			screens_stack[screens_stack.length - 2].id != "iGroup_group_member_info")
 		{
 			let person_position = people[current_person_name].position;
 			center_location_map(current_person_name, person_position);
@@ -238,7 +240,7 @@ function zoom_location_map(mode)
 		zoom_times --;
 	}
 
-	if (screens_stack.length >= 2 && screens_stack[screens_stack.length - 2].id == "main_menu")
+	if (screens_stack.length >= 2 && screens_stack[screens_stack.length - 2].id != "iGroup_group_member_info")
 		center_location_map(current_person_name, people[current_person_name].position);
 }
 
