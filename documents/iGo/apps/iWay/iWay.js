@@ -32,14 +32,19 @@ function displayNetwork() {
 
 function searchPath()
 {
-	let start = document.getElementById("iWay_starting_point").value;
-	let end = document.getElementById("iWay_destination").value;
+	let start = parsePlaceName(document.getElementById("iWay_starting_point").value);
+	let dest = parsePlaceName(document.getElementById("iWay_destination").value);
 
-	let startPoint = LOCATIONS['Lisboa'].places[start].map_point_id;
-	let endPoint = LOCATIONS['Lisboa'].places[end].map_point_id;
+	let isValidStart = MAP_PLACES.hasOwnProperty(start);
+	let isValidDest = MAP_PLACES.hasOwnProperty(dest);
 
-	change_screen("location");
-	displayShortestPath(startPoint, endPoint);
+	// TODO: Mensagens de erro
+
+	if (isValidStart && isValidDest)
+	{
+		change_screen("location");
+		displayShortestPath(MAP_PLACES[start], MAP_PLACES[dest]);
+	}
 }
 
 function displayShortestPath(src, dst)
@@ -190,6 +195,34 @@ function showSteps(){
 
 		list.innerHTML += item;
 	}
+}
+
+function parsePlaceName(name)
+{
+	name = name.toUpperCase();
+	let newName = "";
+	for (let i = 0; i < name.length; i ++)
+	{
+		let c = name.charAt(i);
+		switch (c)
+		{
+		case "Á": case "À": case "Â": case "Ã":
+			newName += "A";	break;
+		case "É": case "Ê":
+			newName += "E"; break;
+		case "Í":
+			newName += "I"; break;
+		case "Ó": case "Ô": case "Õ":
+			newName += "O"; break;
+		case "Ú":
+			newName += "U"; break;
+		case "Ç":
+			newName += "C"; break;
+		default:
+			newName += c;
+		}
+	}
+	return newName;
 }
 
 var num_train_tickets = 0;

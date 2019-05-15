@@ -271,8 +271,7 @@ const LOCATIONS =
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pevii_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pevii_1.jpg'>"],
 				events: ["Ver estrelas no parque", "Convívio da igreja", "Feira do livro"],
-				wallpaper: "apps/iGuide/img/place_bg/pevii_green.png",
-				map_point_id: 38
+				wallpaper: "apps/iGuide/img/place_bg/pevii_green.png"
 			},
 
 			"Shopping Amoreiras":
@@ -285,8 +284,7 @@ const LOCATIONS =
 				gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/sa_3.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/sa_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/sa_1.jpg'>"],
-				wallpaper: "apps/iGuide/img/place_bg/asc_blue.png",
-				map_point_id: 31
+				wallpaper: "apps/iGuide/img/place_bg/asc_blue.png"
 			},
 
 			"Instituto Gulbenkian":
@@ -299,8 +297,7 @@ const LOCATIONS =
 			  gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/ig_3.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/ig_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/ig_1.jpg'>"],
-				wallpaper: "apps/iGuide/img/place_bg/ig_orange.png",
-				map_point_id: 40
+				wallpaper: "apps/iGuide/img/place_bg/ig_orange.png"
 			},
 
 			"Padrão dos Descobrimentos":
@@ -313,8 +310,7 @@ const LOCATIONS =
 				gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pd_3.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pd_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/pd_1.jpg'>"],
-				wallpaper: "apps/iGuide/img/place_bg/pdd_red.png",
-				map_point_id: 24
+				wallpaper: "apps/iGuide/img/place_bg/pdd_red.png"
 			},
 
 			"Torre de Belém":
@@ -327,8 +323,7 @@ const LOCATIONS =
 				gallery: ["<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/tb_3.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/tb_2.jpg'>",
 					 "<img class='place_img_bg' id='iguide_gallery_img' src='apps/iGuide/img/place_img/tb_1.jpg'>"],
-				wallpaper: "apps/iGuide/img/place_bg/tdb_red.png",
-				map_point_id: 21
+				wallpaper: "apps/iGuide/img/place_bg/tdb_red.png"
 			}
 		},
 		temperature: 22
@@ -488,6 +483,20 @@ const MAP_PERSON_ICONS =
 	"main/main_menu/apps/location/img/position_orange.png",
 ]
 
+const MAP_PLACES =
+{
+	"ESTACAO DE ALGES": 20,
+	"TORRE DE BELEM": 21,
+	"ESTACAO DE BELEM": 23,
+	"PADRAO DOS DESCOBRIMENTOS": 24,
+	"ESTACAO C": 26,
+	"ESTACAO D": 27,
+	"SHOPPING AMOREIRAS": 31,
+	"ESTACAO E": 34,
+	"PARQUE EDUARDO VII": 38,
+	"INSTITUTO GULBENKIAN": 40
+};
+
 const MAP_POINTS =
 [
 	{x:200, y:25, adj:[0]},             // 0
@@ -506,14 +515,14 @@ const MAP_POINTS =
 	{x:180, y:360, adj:[12, 14]},       // 13
 	{x:163, y:383, adj:[13, 14, 15]},   // 14
 	{x:178, y:413, adj:[15, 16, 39]},   // 15
-	{x:178, y:423, adj:[16, 17]},       // 16
+	{x:178, y:423, adj:[16, 17, 44]},   // 16
 	{x:140, y:485, adj:[17, 18]},       // 17
 	{x:110, y:592, adj:[18, 19]},       // 18
 	{x:33, y:642, adj:[19, 20, 21]},    // 19
 	{x:13, y:642, adj:[20, 22]},        // 20 Estação de Algés
 	{x:110, y:695, adj:[21, 24]},       // 21 Torre de Belém
 	{x:130, y:690, adj:[22, 23]},       // 22
-	{x:272, y:666, adj:[23, 25, 26]},   // 23 Estação B
+	{x:272, y:666, adj:[23, 25, 26]},   // 23 Estação de Belém
 	{x:210, y:675, adj:[24, 25]},       // 24 Padrão dos Descobrimentos
 	{x:375, y:645, adj:[26, 27]},       // 25
 	{x:466, y:598, adj:[27, 28]},       // 26 Estação C
@@ -530,7 +539,10 @@ const MAP_POINTS =
 	{x:330, y:355, adj:[38, 39]},       // 37
 	{x:625, y:350, adj:[40, 41]},       // 38 Parque Eduardo VII
 	{x:580, y:323, adj:[41, 42, 43]},   // 39
-	{x:632, y:258, adj:[42]}            // 40 Instituto Gulbenkian
+	{x:632, y:258, adj:[42]},           // 40 Instituto Gulbenkian
+	{x:230, y:487, adj:[44, 45]},       // 41
+	{x:246, y:480, adj:[45, 46]},       // 42
+	{x:243, y:468, adj:[46]},           // 43
 ]
 
 const MAP_EDGES =
@@ -579,4 +591,7 @@ const MAP_EDGES =
 	{src: 38, dst: 39, type:"walk"},    // 41
 	{src: 39, dst: 40, type:"walk"},    // 42
 	{src: 34, dst: 39, type:"walk"},    // 43
+	{src: 16, dst: 41, type:"walk"},    // 44
+	{src: 41, dst: 42, type:"walk"},    // 45
+	{src: 42, dst: 43, type:"walk"},    // 46
 ]
