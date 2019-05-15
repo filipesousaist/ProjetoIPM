@@ -63,6 +63,19 @@
   top: 2mm;
 }
 
+.iWay_error
+{
+  position: relative;
+  left: 3mm;
+  font-size: 8pt;
+  top: 1mm;
+  color: red;
+}
+
+#iWay_destination_error{
+  left: 21mm;
+}
+
 #iWay_destination
 {
   width: 2.2cm;

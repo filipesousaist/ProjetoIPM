@@ -34,14 +34,23 @@ function searchPath()
 {
 	let start = parsePlaceName(document.getElementById("iWay_starting_point").value);
 	let dest = parsePlaceName(document.getElementById("iWay_destination").value);
+	let starterror = document.getElementById("iWay_starting_point_error");
+	let desterror = document.getElementById("iWay_destination_error");
 
 	let isValidStart = MAP_PLACES.hasOwnProperty(start);
+	if(!isValidStart){
+		starterror.innerHTML = "O local de partida não é valido";
+	}
 	let isValidDest = MAP_PLACES.hasOwnProperty(dest);
+	if(!isValidDest){
+		desterror.innerHTML = "O destino não é valido";
+	}
 
 	// TODO: Mensagens de erro
 
-	if (isValidStart && isValidDest)
-	{
+	if (isValidStart && isValidDest){
+		starterror.innerHTML = "";
+		desterror.innerHTML = "";
 		change_screen("location");
 		displayShortestPath(MAP_PLACES[start], MAP_PLACES[dest]);
 	}
