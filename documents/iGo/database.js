@@ -499,51 +499,52 @@ const MAP_PLACES =
 
 const MAP_POINTS =
 [
-	{x:200, y:25, adj:[0]},             // 0
-	{x:175, y:70, adj:[0, 1]},          // 1
-	{x:167, y:85, adj:[1, 2]},          // 2
-	{x:120, y:125, adj:[3]},            // 3
-	{x:192, y:143, adj:[2, 3, 4]},      // 4
-	{x:20, y:170, adj:[5]},             // 5
-	{x:207, y:170, adj:[4, 6]},         // 6
-	{x:55, y:180, adj:[5, 7]},          // 7
-	{x:215, y:193, adj:[6, 8, 9]},      // 8
-	{x:130, y:200, adj:[7, 8]},         // 9
-	{x:215, y:210, adj:[9, 10]},        // 10
-	{x:170, y:310, adj:[10, 11, 12]},   // 11
-	{x:140, y:360, adj:[11, 13]},       // 12
-	{x:180, y:360, adj:[12, 14]},       // 13
-	{x:163, y:383, adj:[13, 14, 15]},   // 14
-	{x:178, y:413, adj:[15, 16, 39]},   // 15
-	{x:178, y:423, adj:[16, 17, 44]},   // 16
-	{x:140, y:485, adj:[17, 18]},       // 17
-	{x:110, y:592, adj:[18, 19]},       // 18
-	{x:33, y:642, adj:[19, 20, 21]},    // 19
-	{x:13, y:642, adj:[20, 22]},        // 20 Estação de Algés
-	{x:110, y:695, adj:[21, 24]},       // 21 Torre de Belém
-	{x:130, y:690, adj:[22, 23]},       // 22
-	{x:272, y:666, adj:[23, 25, 26]},   // 23 Estação de Belém
-	{x:210, y:675, adj:[24, 25]},       // 24 Padrão dos Descobrimentos
-	{x:375, y:645, adj:[26, 27]},       // 25
-	{x:466, y:598, adj:[27, 28]},       // 26 Estação C
-	{x:474, y:543, adj:[28, 29, 33]},   // 27 Estação D
-	{x:490, y:510, adj:[29, 30]},       // 28
-	{x:514, y:486, adj:[30, 31]},       // 29
-	{x:505, y:415, adj:[31, 32]},       // 30
-	{x:550, y:400, adj:[32, 36, 40]},   // 31 Shopping Amoreiras
-	{x:454, y:486, adj:[33, 34]},       // 32
-	{x:464, y:376, adj:[34, 35]},       // 33
-	{x:518, y:280, adj:[35, 43]},       // 34 Estação E
-	{x:580, y:361, adj:[36, 37]},       // 35
-	{x:490, y:390, adj:[37, 38]},       // 36
-	{x:330, y:355, adj:[38, 39]},       // 37
-	{x:625, y:350, adj:[40, 41]},       // 38 Parque Eduardo VII
-	{x:580, y:323, adj:[41, 42, 43]},   // 39
-	{x:632, y:258, adj:[42]},           // 40 Instituto Gulbenkian
-	{x:230, y:487, adj:[44, 45]},       // 41
-	{x:246, y:480, adj:[45, 46]},       // 42
-	{x:243, y:468, adj:[46]},           // 43
-]
+	{x:200, y:25, adj:[0], accessible: true},             // 0
+	{x:175, y:70, adj:[0, 1], accessible: true},          // 1
+	{x:167, y:85, adj:[1, 2], accessible: true},          // 2
+	{x:120, y:125, adj:[3], accessible: true},            // 3
+	{x:192, y:143, adj:[2, 3, 4], accessible: true},      // 4
+	{x:20, y:170, adj:[5], accessible: true},             // 5
+	{x:207, y:170, adj:[4, 6], accessible: true},         // 6
+	{x:55, y:180, adj:[5, 7], accessible: true},          // 7
+	{x:215, y:193, adj:[6, 8, 9], accessible: true},      // 8
+	{x:130, y:200, adj:[7, 8], accessible: true},         // 9
+	{x:215, y:210, adj:[9, 10], accessible: true},        // 10
+	{x:170, y:310, adj:[10, 11, 12], accessible: true},   // 11
+	{x:140, y:360, adj:[11, 13], accessible: true},       // 12
+	{x:180, y:360, adj:[12, 14], accessible: true},       // 13
+	{x:163, y:383, adj:[13, 14, 15], accessible: true},   // 14
+	{x:178, y:413, adj:[15, 16, 39], accessible: true},   // 15
+	{x:178, y:423, adj:[16, 17, 44], accessible: true},   // 16
+	{x:140, y:485, adj:[17, 18], accessible: true},       // 17
+	{x:110, y:592, adj:[18, 19], accessible: true},       // 18
+	{x:33, y:642, adj:[19, 20, 21], accessible: true},    // 19
+	{x:13, y:642, adj:[20, 22], accessible: true},        // 20 Estação de Algés
+	{x:110, y:695, adj:[21, 24], accessible: true},       // 21 Torre de Belém
+	{x:130, y:690, adj:[22, 23], accessible: false},      // 22
+	{x:272, y:666, adj:[23, 25, 26], accessible: true},   // 23 Estação de Belém
+	{x:210, y:675, adj:[24, 25], accessible: true},       // 24 Padrão dos Descobrimentos
+	{x:375, y:645, adj:[26, 27], accessible: false},      // 25
+	{x:466, y:598, adj:[27, 28], accessible: true},       // 26 Estação C
+	{x:474, y:543, adj:[28, 29, 33], accessible: true},   // 27 Estação D
+	{x:490, y:510, adj:[29, 30], accessible: true},       // 28
+	{x:514, y:486, adj:[30, 31], accessible: true},       // 29
+	{x:505, y:415, adj:[31, 32], accessible: true},       // 30
+	{x:550, y:400, adj:[32, 36, 40], accessible: true},   // 31 Shopping Amoreiras
+	{x:454, y:486, adj:[33, 34], accessible: false},      // 32
+	{x:464, y:376, adj:[34, 35], accessible: false},      // 33
+	{x:518, y:280, adj:[35, 43], accessible: true},       // 34 Estação E
+	{x:580, y:361, adj:[36, 37], accessible: true},       // 35
+	{x:490, y:390, adj:[37, 38], accessible: true},       // 36
+	{x:330, y:355, adj:[38, 39], accessible: true},       // 37
+	{x:625, y:350, adj:[40, 41], accessible: true},       // 38 Parque Eduardo VII
+	{x:580, y:323, adj:[41, 42, 43], accessible: true},   // 39
+	{x:632, y:258, adj:[42], accessible: true},           // 40 Instituto Gulbenkian
+	{x:195, y:452, adj:[44, 45], accessible: true},       // 41
+	{x:230, y:487, adj:[45, 46], accessible: true},       // 42
+	{x:246, y:480, adj:[46, 47], accessible: true},       // 43
+	{x:243, y:468, adj:[47], accessible: true},           // 44
+];
 
 const MAP_EDGES =
 [
@@ -594,4 +595,5 @@ const MAP_EDGES =
 	{src: 16, dst: 41, type:"walk"},    // 44
 	{src: 41, dst: 42, type:"walk"},    // 45
 	{src: 42, dst: 43, type:"walk"},    // 46
-]
+	{src: 43, dst: 44, type:"walk"},    // 46
+];
