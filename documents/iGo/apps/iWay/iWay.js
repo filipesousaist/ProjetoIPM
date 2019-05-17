@@ -43,9 +43,15 @@ function searchPath()
 	if(! isValidStart){
 		starterror.innerHTML = "O local de partida não é valido";
 	}
+	else{
+		starterror.innerHTML ="";
+	}
 	let isValidDest = MAP_PLACES.hasOwnProperty(dest);
 	if(! isValidDest){
 		desterror.innerHTML = "O destino não é valido";
+	}
+	else{
+		desterror.innerHTML = "";
 	}
 
 	if (isValidStart && isValidDest)
