@@ -36,32 +36,76 @@ function searchPath()
 	let dest = parsePlaceName(document.getElementById("iWay_destination").value);
 	let starterror = document.getElementById("iWay_starting_point_error");
 	let desterror = document.getElementById("iWay_destination_error");
+	starterror.innerHTML = "";
+	desterror.innerHTML = "";
 
-	let isValidStart = MAP_PLACES.hasOwnProperty(start);
-	if(!isValidStart){
+	let isValidStart = MAP_PLACES.hasOwnProperty(start) || start == "LOCAL ATUAL";
+	if(! isValidStart){
 		starterror.innerHTML = "O local de partida não é valido";
 	}
 	let isValidDest = MAP_PLACES.hasOwnProperty(dest);
-	if(!isValidDest){
+	if(! isValidDest){
 		desterror.innerHTML = "O destino não é valido";
 	}
 
-	// TODO: Mensagens de erro
-
-	if (isValidStart && isValidDest){
+	if (isValidStart && isValidDest)
+	{
 		starterror.innerHTML = "";
 		desterror.innerHTML = "";
 		change_screen("location");
-		displayShortestPath(MAP_PLACES[start], MAP_PLACES[dest]);
+
+		if (start == "LOCAL ATUAL")
+			displayShortestPath(getNearestPointIndex(), MAP_PLACES[dest], true);
+		else
+			displayShortestPath(MAP_PLACES[start], MAP_PLACES[dest], false);
 	}
 }
 
-function displayShortestPath(src, dst)
+function displayShortestPath(src, dst, useCurrentPosition)
 {
-	let result = mapGraph.findPath(src, dst);
-	shortestPath = result[0];
+	shortestPath = mapGraph.findPath(src, dst)[0];
+
+	if (useCurrentPosition)
+	{
+		// Adicionar um ponto no local atual e uma aresta
+		// entre o local atual e o ponto mais próximo
+		let position = people[current_person_name].position;
+		MAP_POINTS.push({x: position.x, y: position.y});
+
+		let newEdge = {src: MAP_POINTS.length - 1, dst: src, type: "walk"}
+
+		shortestPath.unshift(newEdge);
+	}
+
 	displayPath(shortestPath);
 	showSteps();
+
+	if (useCurrentPosition)
+		MAP_POINTS.pop();
+}
+
+function getNearestPointIndex()
+{
+	let position = people[current_person_name].position;
+
+	let minD = Infinity;
+	let minI = -1;
+	for (let i = 0; i < MAP_POINTS.length; i ++)
+	{
+		let point = MAP_POINTS[i];
+		if (point.accessible)
+		{
+			let dist = distance(point.x, point.y, position.x, position.y);
+
+			if (dist < minD)
+			{
+				minD = dist;
+				minI = i;
+			}
+		}
+	}
+
+	return minI;
 }
 
 function displayPath(path) {
@@ -119,8 +163,7 @@ function drawLine(startX, startY, endX, endY, color)
 	context.beginPath();
   context.moveTo(Math.round(start_coords.x), Math.round(start_coords.y));
   context.lineTo(Math.round(end_coords.x), Math.round(end_coords.y));
-  context.stroke();
-	context.stroke();
+  context.stroke(); context.stroke();
 }
 
 function drawGrid()
@@ -139,6 +182,34 @@ function map_to_canvas_coords(map_coords)
   let newY = map_coords.y * canvas.height / POS_MAX.y;
 
   return {x: newX, y: newY};
+}
+
+function parsePlaceName(name)
+{
+	name = name.toUpperCase();
+	let newName = "";
+	for (let i = 0; i < name.length; i ++)
+	{
+		let c = name.charAt(i);
+		switch (c)
+		{
+		case "Á": case "À": case "Â": case "Ã":
+			newName += "A";	break;
+		case "É": case "Ê":
+			newName += "E"; break;
+		case "Í":
+			newName += "I"; break;
+		case "Ó": case "Ô": case "Õ":
+			newName += "O"; break;
+		case "Ú":
+			newName += "U"; break;
+		case "Ç":
+			newName += "C"; break;
+		default:
+			newName += c;
+		}
+	}
+	return newName;
 }
 
 /********************************/
@@ -169,25 +240,19 @@ function showSteps(){
 
 	let list = document.getElementById("iWay_steps_list");
 
-	for( i = 0; i < steps.length; i ++){
+	for (i = 0; i < steps.length; i ++) {
 
 		let minutes = 0;
 
-		for( aux = 0; aux < steps[i].length; aux++){
+		for (aux = 0; aux < steps[i].length; aux++) {
+			let source = MAP_POINTS[steps[i][aux]["src"]];
+			let destination = MAP_POINTS[steps[i][aux]["dst"]];
+			let min = distance(source["x"],source["y"],destination["x"],destination["y"]);
 
-			if(steps[i][aux]["type"] == "walk"){
-
-				let source = MAP_POINTS[steps[i][aux]["src"]];
-				let destination = MAP_POINTS[steps[i][aux]["dst"]];
-				let min = distance(source["x"],source["y"],destination["x"],destination["y"]);
+			if (steps[i][aux]["type"] == "walk")
 				minutes += Math.round(min / 4);
-
-			} else if(steps[i][aux]["type"] == "train"){
-				let source = MAP_POINTS[steps[i][aux]["src"]];
-				let destination = MAP_POINTS[steps[i][aux]["dst"]];
-				let min = distance(source["x"],source["y"],destination["x"],destination["y"]);
+			else if (steps[i][aux]["type"] == "train")
 				minutes += Math.round(min / 23);
-			}
 		}
 
 		let item = "<li class='iWay_steps_list_item' ";
@@ -204,34 +269,6 @@ function showSteps(){
 
 		list.innerHTML += item;
 	}
-}
-
-function parsePlaceName(name)
-{
-	name = name.toUpperCase();
-	let newName = "";
-	for (let i = 0; i < name.length; i ++)
-	{
-		let c = name.charAt(i);
-		switch (c)
-		{
-		case "Á": case "À": case "Â": case "Ã":
-			newName += "A";	break;
-		case "É": case "Ê":
-			newName += "E"; break;
-		case "Í":
-			newName += "I"; break;
-		case "Ó": case "Ô": case "Õ":
-			newName += "O"; break;
-		case "Ú":
-			newName += "U"; break;
-		case "Ç":
-			newName += "C"; break;
-		default:
-			newName += c;
-		}
-	}
-	return newName;
 }
 
 var num_train_tickets = 0;
