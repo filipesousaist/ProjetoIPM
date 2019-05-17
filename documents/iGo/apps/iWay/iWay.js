@@ -258,7 +258,7 @@ function showSteps(){
 				ac_minutes += Math.round(min / 4);
 			}
 
-			} else if(steps[i][aux]["type"] == "train"){
+		    else if(steps[i][aux]["type"] == "train"){
 
 				let source = MAP_POINTS[steps[i][aux]["src"]];
 				let destination = MAP_POINTS[steps[i][aux]["dst"]];
