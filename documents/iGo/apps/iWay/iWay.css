@@ -144,24 +144,23 @@
     top: 1.6cm;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
-    left: 2cm;
+    left: 2.3cm;
 }
 
 #train_price{
 	position: absolute;
-    left: 0.75cm;
+    left: 0.35cm;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
     top: 2.1cm;
 }
 
 #train_tickets_num{
-	    position: absolute;
+	position: absolute;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
-    left: 2.9cm;
+    left: 2cm;
     top: 2.1cm;
-    font-weight: bold;
 }
 
 #train_ticket_icon{

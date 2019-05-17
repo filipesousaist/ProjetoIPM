@@ -546,6 +546,15 @@ const MAP_POINTS =
 	{x:243, y:468, adj:[47], accessible: true},           // 44
 ];
 
+const STATIONS = 
+{
+	20: "Estação de Algés",
+	23: "Estação de Belém",
+	26: "Estação C",
+	27: "Estação D",
+	34: "Estação E",
+}
+
 const MAP_EDGES =
 [
 	{src: 0, dst: 1, type:"walk"},      // 0

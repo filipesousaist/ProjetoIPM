@@ -7,6 +7,8 @@
 var mapGraph;
 var shortestPath;
 
+var trains_tickets = [];
+
 function init_graph(){
 	mapGraph = new Graph();
 	for(let i = 0; i < MAP_POINTS.length; i++){
@@ -156,6 +158,7 @@ function showSteps(){
 	let i = 0;
 	let aux = 0;
 	let steps = [];
+	let ac_minutes = 0;
 	for(i = 0; i < shortestPath.length; i++){
 
 		if(shortestPath[i]["type"] == "walk"){
@@ -178,7 +181,8 @@ function showSteps(){
 	for( i = 0; i < steps.length; i ++){
 
 		let minutes = 0;
-
+		let ac_station = 0;
+		
 		for( aux = 0; aux < steps[i].length; aux++){
 
 			if(steps[i][aux]["type"] == "walk"){
@@ -187,17 +191,25 @@ function showSteps(){
 				let destination = MAP_POINTS[steps[i][aux]["dst"]];
 				let min = distance(source["x"],source["y"],destination["x"],destination["y"]);
 				minutes += Math.round(min / 4);
+				ac_minutes += Math.round(min / 4);
 
 			} else if(steps[i][aux]["type"] == "train"){
+				
 				let source = MAP_POINTS[steps[i][aux]["src"]];
 				let destination = MAP_POINTS[steps[i][aux]["dst"]];
 				let min = distance(source["x"],source["y"],destination["x"],destination["y"]);
+				
+				if((aux == 0) && (source["accessible"] == true))
+					ac_station = steps[i][aux]["src"];
+				
 				minutes += Math.round(min / 23);
+				ac_minutes += Math.round(min / 23);
 			}
 		}
-
+		
+		let init_train_time = ac_minutes - minutes + 20;
 		let item = "<li class='iWay_steps_list_item' ";
-		item+= steps[i][0]["type"] == "walk" ? ">Caminhada<br>" : "onclick ='showsteptrain(" + minutes + ");'>Viagem de Comboio<br>";
+		item+= steps[i][0]["type"] == "walk" ? ">Caminhada<br>" : "onclick ='showsteptrain(" + ac_station + "," + init_train_time + "," + minutes + ");'>Viagem de Comboio<br>";
 
 		item += "Tempo estimado: " + minutes + "min";
 		item += "<img class='iWay_list_item_img' src='";
@@ -240,40 +252,107 @@ function parsePlaceName(name)
 	return newName;
 }
 
-var num_train_tickets = 0;
-
-function buyTicket(){
-	num_train_tickets++;
-	document.getElementById("train_tickets_num").innerHTML = num_train_tickets;
+function buyTicket(min){
+	trains_tickets[min]["tickets"]++;
+	document.getElementById("train_tickets_num").innerHTML = "Possui " + trains_tickets[min]["tickets"] + " bilhete(s).";
 	change_screen('payment_methods');
 }
 
-function showstepwalk(min){
 
-	document.getElementById("iWay_path_info_hd").src = "apps/iWay/walk.png";
-
-	document.getElementById("iWay_path_info_walk_container_icon").src = "apps/iWay/walk_icon.png";
-	document.getElementById("iWay_path_info_walk_container_title").innerHTML = "Caminhada - " + min + " min.";
-
-	document.getElementById("iWay_path_info_container").style.display = "none";
-	document.getElementById("iWay_path_info_walk_container_descr").style.display = "block";
-
-	document.getElementById("iWay_path_info_train_container_descr").style.display = "none";
-
-	change_screen("iWay_path_info_main");
-}
-
-function showsteptrain(min){
-
+function showsteptrain(station,init_time,min){
+	
+	let d = new Date();
+	
 	document.getElementById("iWay_path_info_hd").src = "apps/iWay/train.png";
 
 	document.getElementById("iWay_path_info_container_icon").src = "apps/iWay/train_icon.png";
 	document.getElementById("iWay_path_info_container_title").innerHTML = "Comboio - " + min + " min.";
-
+	
+	if((trains_tickets[min] == undefined)){
+		
+		trains_tickets[min] = {
+					preco: min*0.15,
+					tickets: 0,
+					time: d.getTime(),
+					partida: "",
+					chegada: "",
+					trainNo: Math.floor((200*Math.random())%200)};
+		
+		let hours = d.getHours();
+		let minutes = d.getMinutes();
+		
+		
+		document.getElementById("train_price").innerHTML = "Preço: €" + trains_tickets[min]["preco"];
+		
+		
+		hours += Math.floor(init_time / 60);
+		minutes +=  init_time > 60 ? Math.floor(init_time % 60) : init_time;
+		
+		if(minutes >= 60){
+			hours += Math.floor(( minutes - (minutes % 60) ) / 60); 
+			minutes = minutes % 60;
+		}
+		
+		trains_tickets[min]["partida"] = "Partida: " + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2);
+		document.getElementById("train_source").innerHTML = trains_tickets[min]["partida"];
+		
+		hours += Math.floor(min / 60);
+		minutes +=  min > 60 ? Math.floor(min % 60) : min;
+		
+		if(minutes >= 60){
+			hours += Math.floor(( minutes - (minutes % 60) ) / 60); 
+			minutes = minutes % 60;
+		}
+		
+		trains_tickets[min]["chegada"] = "Chegada: " + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2);
+		
+		document.getElementById("train_dest").innerHTML = trains_tickets[min]["chegada"];
+	
+	} else {
+		
+		if( (trains_tickets[min]["time"] - d.getTime()) >= (20*60000) ){
+			
+			let hours = d.getHours();
+			let minutes = d.getMinutes();
+			
+			hours += Math.floor(init_time / 60);
+			minutes +=  init_time > 60 ? Math.floor(init_time % 60) : init_time;
+		
+			if(minutes >= 60){
+				hours += Math.floor(( minutes - (minutes % 60) ) / 60); 
+				minutes = minutes % 60;
+			}
+		
+			trains_tickets[min]["partida"] = "Partida: " + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2);
+			
+			hours += Math.floor(min / 60);
+			minutes +=  min > 60 ? Math.floor(min % 60) : min;
+		
+			if(minutes >= 60){
+				hours += Math.floor(( minutes - (minutes % 60) ) / 60); 
+				minutes = minutes % 60;
+			}
+			
+			trains_tickets[min]["chegada"] = "Chegada: " + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2);
+			
+		}
+		
+		document.getElementById("train_source").innerHTML = trains_tickets[min]["partida"];
+		document.getElementById("train_dest").innerHTML = trains_tickets[min]["chegada"];
+		document.getElementById("train_price").innerHTML = "Preço: €" + trains_tickets[min]["preco"];
+	}
+	
+	document.getElementById("train_title").innerHTML = "Comboio: CP-Regional " + trains_tickets[min]["trainNo"]; 
+	
+	document.getElementById("train_station").innerHTML = "Estação: " + STATIONS[station];
+	
+	document.getElementById("train_tickets_num").innerHTML = "Possui " + trains_tickets[min]["tickets"] + " bilhete(s).";
+	
 	document.getElementById("iWay_path_info_container").style.display = "block";
-	document.getElementById("iWay_path_info_walk_container_descr").style.display = "none";
 
 	document.getElementById("iWay_path_info_train_container_descr").style.display = "block";
+	
+	document.getElementById("train_buy_ticket").onclick = function(){ buyTicket(min); };
 
 	change_screen("iWay_path_info_main");
 
@@ -281,14 +360,10 @@ function showsteptrain(min){
 
 SCREENS["iWay_path_info_main"].on_exit = function() {
 
-	document.getElementById("iWay_path_info_walk_container_icon").src = "";
-	document.getElementById("iWay_path_info_walk_container_title").innerHTML = "";
-
 	document.getElementById("iWay_path_info_container_icon").src = "";
 	document.getElementById("iWay_path_info_container_title").innerHTML = "";
 
 	document.getElementById("iWay_path_info_container").style.display = "none";
-	document.getElementById("iWay_path_info_walk_container_descr").style.display = "none";
 
 	document.getElementById("iWay_path_info_train_container_descr").style.display = "none";
 }
