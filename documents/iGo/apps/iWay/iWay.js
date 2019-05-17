@@ -36,23 +36,17 @@ function searchPath()
 	let dest = parsePlaceName(document.getElementById("iWay_destination").value);
 	let starterror = document.getElementById("iWay_starting_point_error");
 	let desterror = document.getElementById("iWay_destination_error");
-	starterror.innerHTML = "";
-	desterror.innerHTML = "";
 
 	let isValidStart = MAP_PLACES.hasOwnProperty(start) || start == "LOCAL ATUAL";
-	if(! isValidStart){
+	if(! isValidStart)
 		starterror.innerHTML = "O local de partida não é valido";
-	}
-	else{
+	else
 		starterror.innerHTML ="";
-	}
 	let isValidDest = MAP_PLACES.hasOwnProperty(dest);
-	if(! isValidDest){
+	if (! isValidDest)
 		desterror.innerHTML = "O destino não é valido";
-	}
-	else{
+	else
 		desterror.innerHTML = "";
-	}
 
 	if (isValidStart && isValidDest)
 	{
