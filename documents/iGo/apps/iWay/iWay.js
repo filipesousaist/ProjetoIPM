@@ -409,7 +409,7 @@ function showsteptrain(station,init_time,min){
 
 	document.getElementById("train_title").innerHTML = "Comboio: CP-Regional " + trains_tickets[min]["trainNo"];
 
-	document.getElementById("train_station").innerHTML = "Estação: " + STATIONS[station];
+	document.getElementById("train_station").innerHTML = "Estação: " + station + " " + STATIONS[station];
 
 	document.getElementById("train_tickets_num").innerHTML = "Possui " + trains_tickets[min]["tickets"] + " bilhete(s).";
 

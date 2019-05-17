@@ -532,7 +532,7 @@ const MAP_POINTS =
 	{x:505, y:415, adj:[31, 32], accessible: true},       // 30
 	{x:550, y:400, adj:[32, 36, 40], accessible: true},   // 31 Shopping Amoreiras
 	{x:454, y:486, adj:[33, 34], accessible: false},      // 32
-	{x:464, y:376, adj:[34, 35], accessible: false},      // 33
+	{x:464, y:376, adj:[34, 35], accessible: true},      // 33 Estação F
 	{x:518, y:280, adj:[35, 43], accessible: true},       // 34 Estação E
 	{x:580, y:361, adj:[36, 37], accessible: true},       // 35
 	{x:490, y:390, adj:[37, 38], accessible: true},       // 36
@@ -553,6 +553,7 @@ const STATIONS =
 	26: "Estação C",
 	27: "Estação D",
 	34: "Estação E",
+	33: "Estação F"
 }
 
 const MAP_EDGES =
