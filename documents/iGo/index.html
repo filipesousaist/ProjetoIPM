@@ -631,52 +631,82 @@
 
 					<!-- Ecr&atilde; de m&eacute;todos de pagamento -->
 					<div class="screen" id="payment_methods">
-						<div id="payment_title">M&eacute;todos de Pagamento</div>
-						<div id="payment_descr">Selecione abaixo o seu m&eacute;todo de pagamento de prefer&ecirc;ncia...</div>
-						<img id="add_pm" src="main/payments/img/plus.svg" onclick="change_screen('add_payment');">
-						<img id="delete_pm" src="main/payments/img/delete.svg" onclick="show_delete_option();">
-						<div id="empty_pm">N&atilde;o existem m&eacute;todos de pagamento guardados.</div>
-						<ul id="payment_list"></ul>
+						<div class="screen_title_container">
+							Pagamentos
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="screen_body">
+							<div id="payment_title">M&eacute;todos de Pagamento</div>
+							<div id="payment_descr">Selecione abaixo o seu m&eacute;todo de pagamento de prefer&ecirc;ncia...</div>
+							<img id="add_pm" src="main/payments/img/plus.svg" onclick="change_screen('add_payment');">
+							<img id="delete_pm" src="main/payments/img/delete.svg" onclick="show_delete_option();">
+							<div id="empty_pm">N&atilde;o existem m&eacute;todos de pagamento guardados.</div>
+							<ul id="payment_list"></ul>
+						</div>
 					</div>
 
 					<!--Adicionar m&eacute;todo de pagamento -->
 					<div class="screen" id="add_payment">
-						<div id="payment_title">Adicionar M&eacute;todo Pag.</div>
-						<div id="payment_descr">Escolha abaixo o m&eacute;todo de pagamento que deseja adicionar.</div>
-						<ul id="add_payment_list">
-							<li id="add_payment_list_paypal" onclick="payment_form('add_payment_list_paypal');">
-								<div id="add_payment_list_title">Paypal</div>
-								<div id="add_payment_form_paypal">
-									<div id="paypal_email_title">Email</div>
-									<input class="text_input" id="paypal_email" type="text" name="Email" onclick="write_mode('paypal_email');">
-									<div id="paypal_pw_title">Password</div>
-									<input class="text_input" id="paypal_pw" type="password" name="Password"  onclick="write_mode('paypal_pw');">
-									<div id="add_confirm_paypal" onclick="add_payment('paypal'); go_back();">Adicionar</div>
-								</div>
-							</li>
-							<li id="add_payment_list_card" onclick="payment_form('add_payment_list_card');">
-								<div id="add_payment_list_title" onclick="">Cart&atilde;o D&eacute;bito/Cr&eacute;dito</div>
-								<div id="add_payment_form_card">
-									<div id="card_number_title">N&uacute;m. cart&atilde;o</div>
-									<input class="number_input" id="card_number" type="text" name="Número Cartão"  onclick="write_mode('card_number');">
-									<div id="card_date_title">Data</div>
-									<input class="text_input" id="card_date" type="text" name="Data"  onclick="write_mode('card_date');">
-									<div id="card_cvv_title">CVV</div>
-									<input class="number_input" id="card_cvv" type="text" name="CVV"  onclick="write_mode('card_cvv');">
-									<div id="add_confirm_card" onclick="add_payment('card'); go_back();">Adicionar</div>
-								</div>
-							</li>
-						</ul>
+						<div class="screen_title_container">
+							Pagamentos
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
+						</div>
+						<div class="screen_body">
+							<div id="payment_title">Adicionar M&eacute;todo Pag.</div>
+							<div id="payment_descr">Escolha abaixo o m&eacute;todo de pagamento que deseja adicionar.</div>
+							<ul id="add_payment_list">
+								<li id="add_payment_list_paypal" onclick="payment_form('add_payment_list_paypal');">
+									<div id="add_payment_list_title">Paypal</div>
+									<div id="add_payment_form_paypal">
+										<div id="paypal_email_title">Email</div>
+										<input class="text_input" id="paypal_email" type="text" name="Email" onclick="write_mode('paypal_email');">
+										<div id="paypal_pw_title">Password</div>
+										<input class="text_input" id="paypal_pw" type="password" name="Password"  onclick="write_mode('paypal_pw');">
+										<div id="add_confirm_paypal" onclick="add_payment('paypal'); go_back();">Adicionar</div>
+									</div>
+								</li>
+								<li id="add_payment_list_card" onclick="payment_form('add_payment_list_card');">
+									<div id="add_payment_list_title" onclick="">Cart&atilde;o D&eacute;bito/Cr&eacute;dito</div>
+									<div id="add_payment_form_card">
+										<div id="card_number_title">N&uacute;m. cart&atilde;o</div>
+										<input class="number_input" id="card_number" type="text" name="Número Cartão"  onclick="write_mode('card_number');">
+										<div id="card_date_title">Data</div>
+										<input class="text_input" id="card_date" type="text" name="Data"  onclick="write_mode('card_date');">
+										<div id="card_cvv_title">CVV</div>
+										<input class="number_input" id="card_cvv" type="text" name="CVV"  onclick="write_mode('card_cvv');">
+										<div id="add_confirm_card" onclick="add_payment('card'); go_back();">Adicionar</div>
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
 
 					<!-- Confirma&ccedil;&atilde;o pagamento -->
 					<div class="screen" id="payment_complete">
-						<div id="payment_title">Processando...</div>
-						<div id="payment_descr">Esta etapa poder&aacute; demorar alguns segundos....</div>
-						<div id="payment_before">
-							<img id="loading" src="main/payments/img/ajax-loader.gif">
+						<div class="screen_title_container">
+							Pagamentos
+							<div class="clock">
+								<div class="clock_hours"></div>
+								<div class="clock_sep"></div>
+								<div class="clock_minutes"></div>
+							</div>
 						</div>
-						<div id="payment_after">Pagamento Conclu&iacute;do!</div>
+						<div class="screen_body">
+							<div id="payment_title">Processando...</div>
+							<div id="payment_descr">Esta etapa poder&aacute; demorar alguns segundos....</div>
+							<div id="payment_before">
+								<img id="loading" src="main/payments/img/ajax-loader.gif">
+							</div>
+							<div id="payment_after">Pagamento Conclu&iacute;do!</div>
+						</div>
 					</div>
 
 					<!-- Teclado -->

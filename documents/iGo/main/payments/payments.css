@@ -15,7 +15,7 @@
 	position: relative;
     width: 4.5cm;
     height: 4.5mm;
-    top: 3mm;
+    top: 1mm;
     left: -2.3mm;
     padding-top: 0.5mm;
     padding-left: 0.5cm;
@@ -27,7 +27,7 @@
 #payment_descr
 {
 	position: relative;
-    top: 4mm;
+    top: 2mm;
     padding-left: 2mm;
     padding-right: 2mm;
     color: #4b3d3d;
@@ -41,7 +41,7 @@
 	position: relative;
     color: #655e5e;
     opacity: 0.7;
-    top: 9mm;
+    top: 7mm;
     text-align: center;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 9pt;
@@ -51,7 +51,7 @@
 #add_pm
 {
     position: relative;
-    top: 7mm;
+    top: 5mm;
     left: 40%;
     transform: translate(-50%, 0);
     width: 0.5cm;
@@ -65,7 +65,7 @@
 #delete_pm
 {
 	position: relative;
-    top: 7mm;
+    top: 5mm;
     left: 48%;
     transform: translate(-50%, 0);
     width: 0.5cm;
@@ -79,7 +79,7 @@
 {
 	position: relative;
 	padding-left: 0;
-	top: 4mm;
+	top: 2mm;
 	list-style: none;
 }
 
@@ -291,10 +291,10 @@
 #payment_after
 {
 	position: relative;
-  top: 6mm;
+  top: 3mm;
   left: 4.5mm;
 	font-family: Tahoma, Geneva, sans-serif;
-	color: white;
+	color: #434242;
 	opacity: 0;
 }
 
