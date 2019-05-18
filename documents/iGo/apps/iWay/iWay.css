@@ -297,12 +297,21 @@
 }
 
 #iway_path_global{
-	  position: absolute;
-    top: 5.5mm;
-    left: 0;
-    width: 0.6cm;
-    height: 0.5cm;
-    background-color: #52e655db;
+	    position: absolute;
+    top: 1.25cm;
+    left: -0.15cm;
+    height: 0.7cm;
+    width: 0.9cm;
+    background-color: #52e655;
     border: 0.3mm solid #49474745;
     font-weight: bold;
+    border-radius: 1mm;
+    z-index: 3;
+}
+
+#iway_path_global_img{
+	    width: 0.5cm;
+    height: 0.5cm;
+    position: relative;
+    left: 1mm;
 }
