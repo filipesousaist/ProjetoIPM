@@ -18,15 +18,31 @@
 
 .iWay_screen input
 {
-	margin-left: 0.5mm;
-  border-radius: 2mm;
-  border: 0.2mm solid grey;
-  width: 3.95cm;
-  margin-left: 5mm;
-  top: 6mm;
-  position: relative;
-	padding-left: 0.5mm;
+	    margin-left: 0.5mm;
+    border: 0.2mm solid grey;
+    width: 3.95cm;
+    margin-left: 5mm;
+    top: 6mm;
+    position: relative;
+    padding-left: 0.5mm;
 }
+
+#iway_screen_src{
+	    position: relative;
+    width: 0.7cm;
+    height: 0.6cm;
+    top: 0.55cm;
+    left: 6.8mm;
+}
+
+#iway_screen_dst{
+	    position: relative;
+    width: 0.5cm;
+    height: 0.4cm;
+    top: 0.55cm;
+    left: 7.6mm;
+}
+
 
 .iWay_confirm_button
 {
@@ -39,9 +55,10 @@
   background-color: limegreen;
   height: 0.6cm;
   font-size: 8pt;
-  top: 3mm;
+  top: 6mm;
   margin-left: 5mm;
 	position: relative;
+	margin-bottom: 2mm;
 }
 
 #iWay_starting_point_title
@@ -52,9 +69,11 @@
 
 #iWay_starting_point
 {
-  width: 2.2cm;
-  top: 2mm;
-  left: -1.6mm;
+    width: 3cm;
+    top: 4mm;
+    left: 1mm;
+    position: relative;
+    border-top-right-radius: 2mm;
 }
 
 #iWay_destination_title
@@ -78,9 +97,10 @@
 
 #iWay_destination
 {
-  width: 2.2cm;
-  top: 2mm;
-  left: 18.5mm;
+        width: 3cm;
+    top: 5mm;
+    left: 3mm;
+    border-bottom-right-radius: 2mm;
 }
 
 #iWay_path_info_hd{
@@ -315,4 +335,9 @@
     height: 0.5cm;
     position: relative;
     left: 1mm;
+}
+
+
+input.placeholderred::-webkit-input-placeholder {
+   color: red;
 }
