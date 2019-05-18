@@ -536,14 +536,17 @@ const MAP_POINTS =
 	{x:518, y:280, adj:[35, 43], accessible: true},       // 34 Estação E
 	{x:580, y:361, adj:[36, 37], accessible: true},       // 35
 	{x:490, y:390, adj:[37, 38], accessible: true},       // 36
-	{x:330, y:355, adj:[38, 39], accessible: true},       // 37
+	{x:330, y:355, adj:[38, 51], accessible: true},       // 37
 	{x:625, y:350, adj:[40, 41], accessible: true},       // 38 Parque Eduardo VII
 	{x:580, y:323, adj:[41, 42, 43], accessible: true},   // 39
 	{x:632, y:258, adj:[42], accessible: true},           // 40 Instituto Gulbenkian
 	{x:195, y:452, adj:[44, 45], accessible: true},       // 41
 	{x:230, y:487, adj:[45, 46], accessible: true},       // 42
 	{x:246, y:480, adj:[46, 47], accessible: true},       // 43
-	{x:243, y:468, adj:[47], accessible: true},           // 44
+	{x:243, y:468, adj:[47, 48], accessible: true},       // 44
+	{x:282, y:382, adj:[48, 49], accessible: true},       // 45
+	{x:302, y:375, adj:[49, 50], accessible: true},       // 46
+	{x:302, y:360, adj:[39, 51], accessible: true},       // 47
 ];
 
 const STATIONS =
@@ -552,7 +555,7 @@ const STATIONS =
 	23: "Estação de Belém",
 	26: "Estação C",
 	27: "Estação D",
-	34: "Estação E",
+	34: "Estação E"
 }
 
 const MAP_EDGES =
@@ -596,7 +599,7 @@ const MAP_EDGES =
 	{src: 31, dst: 35, type:"walk"},    // 36
 	{src: 35, dst: 36, type:"walk"},    // 37
 	{src: 36, dst: 37, type:"walk"},    // 38
-	{src: 15, dst: 37, type:"walk"},    // 39
+	{src: 15, dst: 47, type:"walk"},    // 39
 	{src: 31, dst: 38, type:"walk"},    // 40
 	{src: 38, dst: 39, type:"walk"},    // 41
 	{src: 39, dst: 40, type:"walk"},    // 42
@@ -604,5 +607,9 @@ const MAP_EDGES =
 	{src: 16, dst: 41, type:"walk"},    // 44
 	{src: 41, dst: 42, type:"walk"},    // 45
 	{src: 42, dst: 43, type:"walk"},    // 46
-	{src: 43, dst: 44, type:"walk"},    // 46
+	{src: 43, dst: 44, type:"walk"},    // 47
+	{src: 44, dst: 45, type:"walk"},    // 48
+	{src: 45, dst: 46, type:"walk"},    // 49
+	{src: 46, dst: 47, type:"walk"},    // 50
+	{src: 37, dst: 47, type:"walk"},    // 51
 ];

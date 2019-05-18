@@ -66,11 +66,6 @@
   font-weight: bold;
 }
 
-#keyboard_row_2
-{
-	left: 2.5mm;
-}
-
 #keyboard_row_3
 {
 	left: 0.5mm;
@@ -78,7 +73,7 @@
 
 #keyboard_row_4
 {
-	left: 3.5mm;
+	left: 2mm;
 }
 
 #keyboard_row_4 .keyboard_button, #keyboard_row_4 .keyboard_special_button
@@ -125,7 +120,7 @@
 	top: 1.2mm;
 }
 
-#keyboard_button_point
+#keyboard_button_point, #keyboard_button_at, #keyboard_button_acute, #keyboard_button_tilde
 {
   width: 3.8mm;
 	top: -0.4mm;
@@ -133,14 +128,8 @@
 
 #keyboard_space
 {
-	width: 2.5cm;
+	width: 1.8cm;
 	top: 0.3mm;
-}
-
-#keyboard_button_at
-{
-	width: 3.8mm;
-	top: -0.4mm;
 }
 
 #keyboard_done
