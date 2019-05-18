@@ -264,8 +264,12 @@ function showSteps(){
 				let destination = MAP_POINTS[steps[i][aux]["dst"]];
 				let min = distance(source["x"],source["y"],destination["x"],destination["y"]);
 
-				if((aux == 0) && source["accessible"])
-					ac_station = steps[i][aux]["src"];
+				if(aux == 0){
+					if(source["accessible"])
+						ac_station = steps[i][aux]["src"];
+					else if(destination["accessible"])
+						ac_station = steps[i][aux]["dst"];
+				}
 
 				minutes += Math.round(min / 23);
 				ac_minutes += Math.round(min / 23);

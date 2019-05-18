@@ -553,7 +553,6 @@ const STATIONS =
 	26: "Estação C",
 	27: "Estação D",
 	34: "Estação E",
-	33: "Estação F"
 }
 
 const MAP_EDGES =
