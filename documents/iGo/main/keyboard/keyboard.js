@@ -4,9 +4,35 @@
 /****************/
 /****************/
 
+const CHAR_TABLE =
+{
+	"acute":
+	{
+		"A": "Á",
+		"E": "É",
+		"I": "Í",
+		"O": "Ó",
+		"U": "Ú",
+		"a": "á",
+		"e": "é",
+		"i": "í",
+		"o": "ó",
+		"u": "ú"
+	},
+
+	"tilde":
+	{
+		"A": "Ã",
+		"O": "Õ",
+		"a": "ã",
+		"o": "õ"
+	}
+}
+
 var upper_on = false;
 var current_input_id;
 var current_keyboard_id;
+var next_symbol = null;
 
 function write_mode(id)
 {
@@ -48,7 +74,21 @@ function do_write(w)
 	else if (! upper_on)
 		w = w.toLowerCase();
 
+	if (next_symbol != null) // Adicionar ~ ou ´
+	{
+		let table = CHAR_TABLE[next_symbol];
+		if (table.hasOwnProperty(w))
+			w = table[w];
+	}
+
 	document.getElementById("keyboard_input").innerHTML += w;
+
+	write_next(null);
+}
+
+function write_next(symbol)
+{
+	next_symbol = symbol;
 }
 
 function do_delete()
@@ -61,6 +101,7 @@ function do_delete()
 
 function go_to_next_input()
 {
+	write_next(null);
 	current_input_id = FORMS_NEXT_ID[current_input_id];
 
 	if (current_input_id != null)

@@ -64,6 +64,7 @@
 	font-size: 8pt;
 	font-family: courier, sans-serif;
   font-weight: bold;
+	outline: none;
 }
 
 #keyboard_row_3
