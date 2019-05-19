@@ -485,17 +485,19 @@ const MAP_PERSON_ICONS =
 
 const MAP_PLACES =
 {
-	"ESTACAO DE ALGES": 20,
+	"ALGES": 20,
 	"TORRE DE BELEM": 21,
-	"ESTACAO DE BELEM": 23,
+	"BELEM": 23,
 	"PADRAO DOS DESCOBRIMENTOS": 24,
-	"ESTACAO DE ALCANTARA MAR": 26,
-	"ESTACAO DE ALCANTARA TERRA": 27,
+	"ALCANTARA MAR": 26,
+	"ALCANTARA TERRA": 27,
 	"SHOPPING AMOREIRAS": 31,
-	"ESTACAO DE CAMPOLIDE": 34,
+	"CAMPOLIDE": 34,
 	"PARQUE EDUARDO VII": 38,
 	"INSTITUTO GULBENKIAN": 40,
-	"ESTACAO DE SANTOS": 50
+	"SANTOS": 50,
+	"ROSSIO": 56,
+	"SANTA APOLONIA": 58
 };
 
 const MAP_POINTS =
@@ -520,21 +522,21 @@ const MAP_POINTS =
 	{x:145, y:490, adj:[17, 18], accessible: true}, // 17
 	{x:115, y:597, adj:[18, 19], accessible: true}, // 18
 	{x:38, y:647, adj:[19, 20, 21], accessible: true}, // 19
-	{x:18, y:647, adj:[20, 22], accessible: true}, // 20 Estação de Algés
+	{x:18, y:647, adj:[20, 22], accessible: true}, // 20 Algés (estação)
 	{x:115, y:700, adj:[21, 24], accessible: true}, // 21 Torre de Belém
 	{x:135, y:695, adj:[22, 23], accessible: false}, // 22
-	{x:277, y:671, adj:[23, 25, 26], accessible: true}, // 23 Estação de Belém
+	{x:277, y:671, adj:[23, 25, 26], accessible: true}, // 23 Belém (estação)
 	{x:215, y:680, adj:[24, 25], accessible: true}, // 24 Padrão dos Descobrimentos
 	{x:380, y:650, adj:[26, 27], accessible: false}, // 25
-	{x:471, y:603, adj:[27, 28, 52], accessible: true}, // 26 Estação de Alcântara Mar
-	{x:479, y:548, adj:[29, 33, 55], accessible: true}, // 27 Estação de Alcântara Terra
+	{x:471, y:603, adj:[27, 28, 52], accessible: true}, // 26 Alcântara Mar (estação)
+	{x:479, y:548, adj:[29, 33, 55], accessible: true}, // 27 Alcântara Terra (estação)
 	{x:495, y:515, adj:[29, 30], accessible: true}, // 28
 	{x:519, y:491, adj:[30, 31], accessible: true}, // 29
 	{x:510, y:420, adj:[31, 32], accessible: true}, // 30
 	{x:555, y:405, adj:[32, 36], accessible: true}, // 31 Shopping Amoreiras
 	{x:459, y:491, adj:[33, 34], accessible: false}, // 32
 	{x:469, y:381, adj:[34, 35], accessible: false}, // 33
-	{x:523, y:285, adj:[35, 43], accessible: true}, // 34 Estação de Campolide
+	{x:523, y:285, adj:[35, 43], accessible: true}, // 34 Campolide (estação)
 	{x:585, y:366, adj:[36, 37, 40], accessible: true}, // 35
 	{x:495, y:395, adj:[37, 38], accessible: true}, // 36
 	{x:350, y:355, adj:[38, 51], accessible: true}, // 37
@@ -550,18 +552,28 @@ const MAP_POINTS =
 	{x:307, y:365, adj:[39, 51], accessible: true}, // 47
 	{x:495, y:590, adj:[52, 53], accessible: false}, // 48
 	{x:567, y:588, adj:[53, 54], accessible: false}, // 49
-	{x:624, y:560, adj:[54], accessible: true}, // 50 Estação de Santos
+	{x:624, y:560, adj:[54, 56], accessible: true}, // 50 Santos (estação)
 	{x:462, y:592, adj:[28, 55], accessible: true}, // 51
+	{x:714, y:563, adj:[56, 57], accessible: true}, // 52 Cais do Sodré (estação)
+	{x:736, y:553, adj:[57, 58], accessible: true}, // 53
+	{x:793, y:534, adj:[58, 59], accessible: true}, // 54
+	{x:779, y:480, adj:[59, 60], accessible: true}, // 55
+	{x:781, y:465, adj:[60, 61], accessible: true}, // 56 Rossio (estação)
+	{x:830, y:534, adj:[61, 62], accessible: false}, // 57
+	{x:894, y:478, adj:[62], accessible: true}, // 58 Santa Apolónia (estação)
 ]
 
 const STATIONS =
 {
-	20: "Estação de Algés",
-	23: "Estação de Belém",
-	26: "Estação de Alcântara Mar",
-	27: "Estação de Alcântara Terra",
-	34: "Estação de Campolide",
-	50: "Estação de Santos"
+	20: "Algés",
+	23: "Belém",
+	26: "Alcântara Mar",
+	27: "Alcântara Terra",
+	34: "Campolide",
+	50: "Santos",
+	52: "Cais do Sodré",
+	56: "Rossio",
+	58: "Santa Apolónia"
 }
 
 const MAP_EDGES =
@@ -594,7 +606,7 @@ const MAP_EDGES =
 	{src: 23, dst: 24, type:"walk"},    // 25
 	{src: 23, dst: 25, type:"train"},   // 26
 	{src: 25, dst: 26, type:"train"},   // 27
-	{src: 26, dst: 51, type:"walk"},   // 28
+	{src: 26, dst: 51, type:"walk"},    // 28
 	{src: 27, dst: 28, type:"walk"},    // 29
 	{src: 28, dst: 29, type:"walk"},    // 30
 	{src: 29, dst: 30, type:"walk"},    // 31
@@ -622,4 +634,11 @@ const MAP_EDGES =
 	{src: 48, dst: 49, type:"train"},   // 53
 	{src: 49, dst: 50, type:"train"},   // 54
 	{src: 51, dst: 27, type:"walk"},    // 55
+	{src: 50, dst: 52, type:"train"},   // 56
+	{src: 52, dst: 53, type:"walk"},    // 57
+	{src: 53, dst: 54, type:"walk"},    // 58
+	{src: 54, dst: 55, type:"walk"},    // 59
+	{src: 55, dst: 56, type:"walk"},    // 60
+	{src: 56, dst: 57, type:"train"},   // 61
+	{src: 57, dst: 58, type:"train"},   // 62
 ];

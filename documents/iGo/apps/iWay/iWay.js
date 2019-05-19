@@ -349,13 +349,15 @@ function showsteptrain(station,init_time,min){
 
 	if((trains_tickets[min] == undefined)){
 
-		trains_tickets[min] = {
-					preco: min*0.15,
-					tickets: 0,
-					time: d.getTime(),
-					partida: "",
-					chegada: "",
-					trainNo: Math.floor((200*Math.random())%200)};
+		trains_tickets[min] =
+		{
+			preco: min*0.15,
+			tickets: 0,
+			time: d.getTime(),
+			partida: "",
+			chegada: "",
+			trainNo: Math.floor((200*Math.random())%200)
+		};
 
 		let hours = d.getHours();
 		let minutes = d.getMinutes();
