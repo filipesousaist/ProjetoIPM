@@ -34,11 +34,9 @@ class Graph {
       //Neighbor é o node atual da lista de adjacencias
     	let neighbor = this.adjacencyList[currentNode][i];
       currentEdge = {currentNode, neighbor};
-      console.log(currentEdge);
       //Time é igual ao tempo atual
     	let time = times[currentNode] + neighbor.weight;
     	if(time < times[neighbor.node]){
-        console.log(neighbor);
     		times[neighbor.node] = time;
     		backtrace[neighbor.node] = currentNode;
     		pq.enqueue([neighbor.node], time);

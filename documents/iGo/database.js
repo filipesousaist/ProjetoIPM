@@ -485,6 +485,8 @@ const MAP_PERSON_ICONS =
 
 const MAP_PLACES =
 {
+	"DAMAIA": 3,
+	"BURACA": 6,
 	"ALGES": 20,
 	"TORRE DE BELEM": 21,
 	"BELEM": 23,
@@ -503,18 +505,21 @@ const MAP_PLACES =
 	"ROMA AREEIRO": 65,
 	"CHELAS": 69,
 	"SETE RIOS": 71,
-	"BENFICA": 78
+	"BENFICA": 78,
+	"AMADORA": 80,
+	"SANTA CRUZ DAMAIA": 81,
+	"REBOLEIRA": 82
 };
 
 const MAP_POINTS =
 [
-	{x:205, y:30, adj:[0], accessible: true}, // 0
-	{x:180, y:75, adj:[0, 1], accessible: true}, // 1
+	{x:200, y:30, adj:[0], accessible: true}, // 0
+	{x:175, y:75, adj:[1, 88], accessible: true}, // 1
 	{x:172, y:90, adj:[1, 2], accessible: true}, // 2
-	{x:125, y:130, adj:[3], accessible: true}, // 3
+	{x:170, y:132, adj:[3, 90, 91], accessible: true}, // 3 Damaia (estação)
 	{x:197, y:148, adj:[2, 3, 4], accessible: true}, // 4
 	{x:25, y:175, adj:[5], accessible: true}, // 5
-	{x:212, y:175, adj:[4, 6], accessible: true}, // 6
+	{x:212, y:175, adj:[4, 6], accessible: true}, // 6 Buraca
 	{x:60, y:185, adj:[5, 7], accessible: true}, // 7
 	{x:220, y:198, adj:[6, 8, 9, 87], accessible: true}, // 8
 	{x:135, y:205, adj:[7, 8], accessible: true}, // 9
@@ -586,11 +591,17 @@ const MAP_POINTS =
 	{x:505, y:232, adj:[81, 82, 84], accessible: false}, // 75
 	{x:487, y:215, adj:[83, 84, 85], accessible: false}, // 76
 	{x:372, y:155, adj:[85, 86], accessible: false}, // 77
-	{x:256, y:159, adj:[86, 87], accessible: true}, // 78 Benfica (estação)
+	{x:256, y:159, adj:[86, 87, 90], accessible: true}, // 78 Benfica (estação)
+	{x:180, y:62, adj:[0, 88, 89], accessible: true}, // 79
+	{x:38, y:13, adj:[89, 94], accessible: true}, // 80 Amadora
+	{x:152, y:135, adj:[91, 92], acessible: true}, // 81 Santa Cruz Damaia (estação)
+	{x:66, y:86, adj:[92, 93], acessible: true}, // 82 Reboleira (estação)
+	{x:40, y:50, adj:[93, 94], acessible: true}, // 83
 ]
 
 const STATIONS =
 {
+	3: "Damaia",
 	20: "Algés",
 	23: "Belém",
 	26: "Alcântara Mar",
@@ -604,12 +615,14 @@ const STATIONS =
 	64: "Entrecampos",
 	65: "Roma Areeiro",
 	71: "Sete Rios",
-	78: "Benfica"
+	78: "Benfica",
+	81: "Santa Cruz Damaia",
+	82: "Reboleira"
 }
 
 const MAP_EDGES =
 [
-	{src: 0, dst: 1, type:"walk"},      // 0
+	{src: 0, dst: 79, type:"walk"},     // 0
 	{src: 1, dst: 2, type:"walk"},      // 1
 	{src: 2, dst: 4, type:"walk"},      // 2
 	{src: 3, dst: 4, type:"walk"},      // 3
@@ -696,5 +709,12 @@ const MAP_EDGES =
 	{src: 75, dst: 76, type:"train"},   // 84
 	{src: 76, dst: 77, type:"train"},   // 85
 	{src: 77, dst: 78, type:"train"},   // 86
-	{src: 8, dst: 78, type:"walk"},    // 87
+	{src: 8, dst: 78, type:"walk"},     // 87
+	{src: 1, dst: 79, type:"walk"},     // 88
+	{src: 79, dst: 80, type:"walk"},    // 89
+	{src: 3, dst: 78, type:"train"},    // 90
+	{src: 3, dst: 81, type:"walk"},     // 91
+	{src: 81, dst: 82, type:"train"},   // 92
+	{src: 82, dst: 83, type:"walk"},    // 93
+	{src: 80, dst: 83, type:"walk"},    // 94
 ];
