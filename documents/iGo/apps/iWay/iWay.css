@@ -113,7 +113,7 @@
 	width: 4.5cm;
     background-color: white;
     position: absolute;
-    height: 2.8cm;
+    height: 3.9cm;
     left: 0.2cm;
     top: 1.8cm;
     border: 0.5mm solid grey;
@@ -140,14 +140,14 @@
     position: absolute;
     left: 1.3cm;
     top: 21mm;
-    z-index: 3;
+    z-index: 2;
 }
 
 #train_title{
-	    position: absolute;
+	 position: absolute;
     font-family: Tahoma, Geneva, sans-serif;
     left: 0.35cm;
-    top: 1.25cm;
+    top: 1.6cm;
     font-size: 7pt;
 }
 
@@ -156,32 +156,32 @@
     left: 0.35cm;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
-    top: 1.6cm;
+    top: 1.9cm;
 }
 
 #train_dest{
-	position: absolute;
-    top: 1.6cm;
+	    position: absolute;
+    top: 2.8cm;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
-    left: 2.3cm;
+    left: 0.35cm;
 }
 
 #train_price{
-	position: absolute;
+	    position: absolute;
     left: 0.35cm;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
-    top: 2.1cm;
+    top: 3.2cm;
 }
 
 #train_tickets_num{
-	position: absolute;
+	    position: absolute;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
     left: 2cm;
-    top: 2.1cm;
-	font-weight: bold;
+    top: 3.2cm;
+    font-weight: bold;
 }
 
 #train_ticket_icon{
@@ -194,10 +194,10 @@
 #train_station
 {
 	position: absolute;
-  font-family: Tahoma, Geneva, sans-serif;
-  left: 0.35cm;
-  top: 0.9cm;
-  font-size: 7pt;
+    font-family: Tahoma, Geneva, sans-serif;
+    left: 0.35cm;
+    top: 1.3cm;
+    font-size: 7pt;
 }
 
 #train_buy_ticket
@@ -213,7 +213,7 @@
   height: 0.5cm;
   font-size: 7pt;
   font-weight: bold;
-  top: 2.65cm;
+  top: 3.75cm;
   margin-bottom: 2mm;
 }
 
@@ -339,7 +339,37 @@
     left: 1mm;
 }
 
-
 input.placeholderred::-webkit-input-placeholder {
    color: red;
+}
+
+#path_src_header{
+	position: absolute;
+    font-size: 7pt;
+    font-weight: bold;
+    top: 0.9cm;
+    border-bottom: 0.1mm solid grey;
+    width: 3.8cm;
+    padding-bottom: 0.5mm;
+    left: 0.35cm;
+}
+
+
+#path_dst_header{
+	    position: absolute;
+    font-size: 7pt;
+    font-weight: bold;
+    top: 2.4cm;
+    border-bottom: 0.1mm solid grey;
+    width: 3.8cm;
+    padding-bottom: 0.5mm;
+    left: 0.35cm;
+}
+
+#train_station_dst{
+	    position: absolute;
+    top: 3.1cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 7pt;
+    left: 0.35cm;
 }
