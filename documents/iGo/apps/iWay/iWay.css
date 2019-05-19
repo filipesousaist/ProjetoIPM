@@ -113,7 +113,7 @@
 	width: 4.5cm;
     background-color: white;
     position: absolute;
-    height: 3.9cm;
+    height: 4.7cm;
     left: 0.2cm;
     top: 1.8cm;
     border: 0.5mm solid grey;
@@ -169,19 +169,20 @@
 
 #train_price{
 	    position: absolute;
-    left: 0.35cm;
+    left: 0.85cm;
     font-family: Tahoma, Geneva, sans-serif;
-    font-size: 7pt;
-    top: 3.2cm;
+    font-size: 11pt;
+    top: 3.7cm;
 }
 
 #train_tickets_num{
 	    position: absolute;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
-    left: 2cm;
-    top: 3.2cm;
+    left: 2.5cm;
+    top: 3.65cm;
     font-weight: bold;
+    width: 1.5cm;
 }
 
 #train_ticket_icon{
@@ -213,7 +214,7 @@
   height: 0.5cm;
   font-size: 7pt;
   font-weight: bold;
-  top: 3.75cm;
+  top: 4.55cm;
   margin-bottom: 2mm;
 }
 

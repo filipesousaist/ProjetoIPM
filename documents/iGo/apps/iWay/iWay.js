@@ -359,7 +359,7 @@ function showsteptrain(dst,station,init_time,min){
 
 		trains_tickets[min] =
 		{
-			preco: min*0.15,
+			preco: (min*0.15).toFixed(2),
 			tickets: 0,
 			time: d.getTime(),
 			partida: "",
@@ -371,7 +371,7 @@ function showsteptrain(dst,station,init_time,min){
 		let minutes = d.getMinutes();
 
 
-		document.getElementById("train_price").innerHTML = "Preço: €" + trains_tickets[min]["preco"];
+		document.getElementById("train_price").innerHTML = "€" + trains_tickets[min]["preco"];
 
 
 		hours += Math.floor(init_time / 60);
@@ -428,7 +428,7 @@ function showsteptrain(dst,station,init_time,min){
 
 		document.getElementById("train_source").innerHTML = trains_tickets[min]["partida"];
 		document.getElementById("train_dest").innerHTML = trains_tickets[min]["chegada"];
-		document.getElementById("train_price").innerHTML = "Preço: €" + trains_tickets[min]["preco"];
+		document.getElementById("train_price").innerHTML = "€" + trains_tickets[min]["preco"];
 	}
 
 	document.getElementById("train_title").innerHTML = "Comboio: CP-Regional " + trains_tickets[min]["trainNo"];
