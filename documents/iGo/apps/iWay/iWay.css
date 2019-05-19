@@ -319,17 +319,18 @@
     z-index: 3;
 }
 
-#iway_path_global{
-	    position: absolute;
-    top: 1.25cm;
-    left: -0.15cm;
-    height: 0.7cm;
-    width: 0.9cm;
-    background-color: #52e655;
-    border: 0.3mm solid #49474745;
-    font-weight: bold;
-    border-radius: 1mm;
-    z-index: 3;
+#iway_path_global
+{
+  position: absolute;
+  top: 1.25cm;
+  left: -0.15cm;
+  height: 0.7cm;
+  width: 0.9cm;
+  background-color: #52e65599;
+  border: 0.3mm solid #49474745;
+  font-weight: bold;
+  border-radius: 1mm;
+  z-index: 3;
 }
 
 #iway_path_global_img{
