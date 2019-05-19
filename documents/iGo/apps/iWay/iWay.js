@@ -57,7 +57,7 @@ function searchPath()
 	let isValidStart = MAP_PLACES.hasOwnProperty(start) || start == "LOCAL ATUAL";
 	if(! isValidStart)
 		showInvalidLocation("start");
-	
+
 	let isValidDest = MAP_PLACES.hasOwnProperty(dest);
 	if (! isValidDest)
 		showInvalidLocation("end");
@@ -171,7 +171,7 @@ function drawLine(startX, startY, endX, endY, color)
 
   let context = document.getElementById("map_canvas").getContext("2d");
 	context.strokeStyle = color;
-	context.lineWidth = "0.05mm";
+	context.lineWidth = 3;
 	context.beginPath();
   context.moveTo(Math.round(start_coords.x), Math.round(start_coords.y));
   context.lineTo(Math.round(end_coords.x), Math.round(end_coords.y));
@@ -448,17 +448,17 @@ SCREENS["iWay_path_info_main"].on_exit = function() {
 }
 
 SCREENS["iWay_main"].on_exit = function() {
-	
+
 	let input_s = document.getElementById("iWay_starting_point");
 	let input_d = document.getElementById("iWay_destination");
-	
+
 	input_s.value = "";
 	input_d.value = "";
-	
+
 	input_s.classList.remove("placeholderred");
 	input_d.classList.remove("placeholderred");
-	
+
 	input_s.placeholder = "Local Partida";
 	input_d.placeholder = "Destino";
-	
+
 }
