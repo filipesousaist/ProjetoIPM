@@ -32,6 +32,21 @@ function displayNetwork() {
   displayAllEdges();
 }
 
+
+function showInvalidLocation(where){
+	if(where == "start"){
+		let input = document.getElementById("iWay_starting_point");
+		input.value = "";
+		input.classList.add("placeholderred");
+		input.placeholder = "Local inválido!";
+	} else if(where == "end"){
+		let input = document.getElementById("iWay_destination");
+		input.value = "";
+		input.classList.add("placeholderred");
+		input.placeholder = "Local inválido!";
+	}
+}
+
 function searchPath()
 {
 	let start = parsePlaceName(document.getElementById("iWay_starting_point").value);
@@ -41,19 +56,14 @@ function searchPath()
 
 	let isValidStart = MAP_PLACES.hasOwnProperty(start) || start == "LOCAL ATUAL";
 	if(! isValidStart)
-		starterror.innerHTML = "O local de partida não é valido";
-	else
-		starterror.innerHTML ="";
+		showInvalidLocation("start");
+	
 	let isValidDest = MAP_PLACES.hasOwnProperty(dest);
 	if (! isValidDest)
-		desterror.innerHTML = "O destino não é valido";
-	else
-		desterror.innerHTML = "";
+		showInvalidLocation("end");
 
 	if (isValidStart && isValidDest)
 	{
-		starterror.innerHTML = "";
-		desterror.innerHTML = "";
 		change_screen("location");
 
 		if (start == "LOCAL ATUAL")
@@ -264,8 +274,12 @@ function showSteps(){
 				let destination = MAP_POINTS[steps[i][aux]["dst"]];
 				let min = distance(source["x"],source["y"],destination["x"],destination["y"]);
 
-				if((aux == 0) && source["accessible"])
-					ac_station = steps[i][aux]["src"];
+				if(aux == 0){
+					if(source["accessible"])
+						ac_station = steps[i][aux]["src"];
+					else if(destination["accessible"])
+						ac_station = steps[i][aux]["dst"];
+				}
 
 				minutes += Math.round(min / 23);
 				ac_minutes += Math.round(min / 23);
@@ -431,4 +445,20 @@ SCREENS["iWay_path_info_main"].on_exit = function() {
 	document.getElementById("iWay_path_info_container").style.display = "none";
 
 	document.getElementById("iWay_path_info_train_container_descr").style.display = "none";
+}
+
+SCREENS["iWay_main"].on_exit = function() {
+	
+	let input_s = document.getElementById("iWay_starting_point");
+	let input_d = document.getElementById("iWay_destination");
+	
+	input_s.value = "";
+	input_d.value = "";
+	
+	input_s.classList.remove("placeholderred");
+	input_d.classList.remove("placeholderred");
+	
+	input_s.placeholder = "Local Partida";
+	input_d.placeholder = "Destino";
+	
 }
