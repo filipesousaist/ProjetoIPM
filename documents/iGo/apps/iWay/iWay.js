@@ -293,7 +293,7 @@ function showSteps(){
 				ac_minutes += Math.round(min / 23);
 			}
 		}
-		alert(steps[i].length-1);
+		
 		let init_train_time = ac_minutes - minutes + 20;
 		let item = "<li class='iWay_steps_list_item' ";
 		item+= steps[i][0]["type"] == "walk" ? ">Caminhada<br>" : "onclick ='showsteptrain(" + dst_station + "," + ac_station + "," + init_train_time + "," + minutes + ");'>Viagem de Comboio<br>";
@@ -472,5 +472,29 @@ SCREENS["iWay_main"].on_exit = function() {
 
 	input_s.placeholder = "Local Partida";
 	input_d.placeholder = "Destino";
+	
+	let img = document.getElementById("iway_screen_src");
+	img.src = "apps/iWay/src.png";
 
+}
+
+var actualLoc = 0;
+function actualLocation(){
+	if(actualLoc == 0){
+		let img = document.getElementById("iway_screen_src");
+		img.src = "apps/iWay/src_green.png";
+		
+		let input = document.getElementById("iWay_starting_point");
+		input.value = "Local Atual";
+		
+		actualLoc = 1;
+	} else {
+		let img = document.getElementById("iway_screen_src");
+		img.src = "apps/iWay/src.png";
+		
+		let input = document.getElementById("iWay_starting_point");
+		input.value = "";
+		actualLoc = 0;
+	}
+	
 }

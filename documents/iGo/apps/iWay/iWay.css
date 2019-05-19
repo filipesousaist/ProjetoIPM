@@ -375,3 +375,9 @@ input.placeholderred::-webkit-input-placeholder {
     font-size: 7pt;
     left: 0.35cm;
 }
+
+#iway_screen_src_txt{
+	position: absolute;
+    height: 4mm;
+    left: 3.95cm;
+}
