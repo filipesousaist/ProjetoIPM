@@ -208,14 +208,19 @@ function replace_element(old_id, new_id)
 
 function change_screen(new_screen_id)
 {
+	console.table(screens_stack);
 	if (power && new_screen_id != current_screen.id)
 	{
-		if (screens_stack.includes(new_screen_id)) // O ecrã está na stack, andar para trás até chegar a ele
-			while (current_screen.id != new_screen_id)
-				replace_screen_back();
+		for (let i = 0; i < screens_stack.length; i ++)
+			if (screens_stack[i].id == new_screen_id)
+			{ // O ecrã está na stack, andar para trás até chegar a ele
+				while (current_screen.id != new_screen_id)
+					replace_screen_back();
+				return;
+			}
 
-		else // O ecrã não está na stack
-			replace_screen_front(new_screen_id);
+		// O ecrã não está na stack
+		replace_screen_front(new_screen_id);
 	}
 }
 
