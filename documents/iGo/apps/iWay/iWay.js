@@ -257,6 +257,7 @@ function showSteps(){
 
 		let minutes = 0;
 		let ac_station = 0;
+		let dst_station = 0;
 
 		for( aux = 0; aux < steps[i].length; aux++){
 
@@ -273,22 +274,29 @@ function showSteps(){
 				let source = MAP_POINTS[steps[i][aux]["src"]];
 				let destination = MAP_POINTS[steps[i][aux]["dst"]];
 				let min = distance(source["x"],source["y"],destination["x"],destination["y"]);
-
+				
 				if(aux == 0){
 					if(source["accessible"])
 						ac_station = steps[i][aux]["src"];
 					else if(destination["accessible"])
 						ac_station = steps[i][aux]["dst"];
+				}  
+				
+				if(aux == steps[i].length-1){
+					if(source["accessible"])
+						dst_station = steps[i][aux]["src"];
+					else if(destination["accessible"])
+						dst_station = steps[i][aux]["dst"];
 				}
 
 				minutes += Math.round(min / 23);
 				ac_minutes += Math.round(min / 23);
 			}
 		}
-
+		alert(steps[i].length-1);
 		let init_train_time = ac_minutes - minutes + 20;
 		let item = "<li class='iWay_steps_list_item' ";
-		item+= steps[i][0]["type"] == "walk" ? ">Caminhada<br>" : "onclick ='showsteptrain(" + ac_station + "," + init_train_time + "," + minutes + ");'>Viagem de Comboio<br>";
+		item+= steps[i][0]["type"] == "walk" ? ">Caminhada<br>" : "onclick ='showsteptrain(" + dst_station + "," + ac_station + "," + init_train_time + "," + minutes + ");'>Viagem de Comboio<br>";
 
 		item += "Tempo estimado: " + minutes + "min";
 		item += "<img class='iWay_list_item_img' src='";
@@ -338,7 +346,7 @@ function buyTicket(min){
 }
 
 
-function showsteptrain(station,init_time,min){
+function showsteptrain(dst,station,init_time,min){
 
 	let d = new Date();
 
@@ -374,7 +382,7 @@ function showsteptrain(station,init_time,min){
 			minutes = minutes % 60;
 		}
 
-		trains_tickets[min]["partida"] = "Partida: " + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2);
+		trains_tickets[min]["partida"] = "Hora prevista: " + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2);
 		document.getElementById("train_source").innerHTML = trains_tickets[min]["partida"];
 
 		hours += Math.floor(min / 60);
@@ -385,7 +393,7 @@ function showsteptrain(station,init_time,min){
 			minutes = minutes % 60;
 		}
 
-		trains_tickets[min]["chegada"] = "Chegada: " + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2);
+		trains_tickets[min]["chegada"] = "Hora prevista: " + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2);
 
 		document.getElementById("train_dest").innerHTML = trains_tickets[min]["chegada"];
 
@@ -426,7 +434,9 @@ function showsteptrain(station,init_time,min){
 	document.getElementById("train_title").innerHTML = "Comboio: CP-Regional " + trains_tickets[min]["trainNo"];
 
 	document.getElementById("train_station").innerHTML = "Estação: " + STATIONS[station];
-
+	
+	document.getElementById("train_station_dst").innerHTML = "Estação: " + STATIONS[dst];
+	
 	document.getElementById("train_tickets_num").innerHTML = "Possui " + trains_tickets[min]["tickets"] + " bilhete(s).";
 
 	document.getElementById("iWay_path_info_container").style.display = "block";
