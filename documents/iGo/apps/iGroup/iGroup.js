@@ -233,8 +233,7 @@ function showMemberInfo(memberName){
 	change_screen('iGroup_group_member_info');
 }
 
-function iGroup_see_member_location()
-{
+function iGroup_see_member_location(){
 	let member_name = document.getElementById("iGroup_group_member_name_p").innerHTML;
 	maps["location_map"].location_name = people[member_name].location_name;
 
@@ -245,8 +244,7 @@ function iGroup_see_member_location()
 	center_location_map(member_name, people[member_name].position);
 }
 
-function showGroupScreen(groupName)
-{
+function showGroupScreen(groupName){
 	for (let i = 0; i < iGroup_groups.length; i ++)
 		if (iGroup_groups[i].name == groupName)
 		{
