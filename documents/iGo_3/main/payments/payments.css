@@ -1,0 +1,313 @@
+/****************/
+/****************/
+/*** PAYMENTS ***/
+/****************/
+/****************/
+
+#payment_methods, #add_payment, #payment_complete
+{
+	background-color: 	rgb(199, 194, 194);
+	overflow-y: scroll;
+}
+
+#payment_title
+{
+	position: relative;
+    width: 4.5cm;
+    height: 4.5mm;
+    top: 1mm;
+    left: -2.3mm;
+    padding-top: 0.5mm;
+    padding-left: 0.5cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #181818;
+}
+
+#payment_descr
+{
+	position: relative;
+    top: 2mm;
+    padding-left: 2mm;
+    padding-right: 2mm;
+    color: #4b3d3d;
+    font-size: 7pt;
+    font-family: Tahoma, Geneva, sans-serif;
+    left: 1mm;
+}
+
+#empty_pm
+{
+	position: relative;
+    color: #655e5e;
+    opacity: 0.7;
+    top: 7mm;
+    text-align: center;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 9pt;
+    display: block;
+}
+
+#add_pm
+{
+    position: relative;
+    top: 5mm;
+    left: 40%;
+    transform: translate(-50%, 0);
+    width: 0.5cm;
+    height: 0.5cm;
+    border-radius: 50%;
+	border: 1px solid #585555;
+    background-color: #52e655db;
+}
+
+
+#delete_pm
+{
+	position: relative;
+    top: 5mm;
+    left: 48%;
+    transform: translate(-50%, 0);
+    width: 0.5cm;
+    height: 0.5cm;
+    border-radius: 50%;
+    background-color: #e75a5a;
+   border: 1px solid #585555;
+}
+
+#payment_list, #add_payment_list
+{
+	position: relative;
+	padding-left: 0;
+	top: 2mm;
+	list-style: none;
+}
+
+.payment_box_c, #add_payment_list_card, .payment_box_p, #add_payment_list_paypal
+{
+	position: relative;
+	width: 4.5cm;
+	height: 1cm;
+	border-radius: 2mm;
+	margin-left: 2.5mm;
+	margin-top: 1mm;
+	transition-property: height;
+	transition-duration: 0.5s;
+}
+
+.payment_box_c, #add_payment_list_card
+{
+	    background-color: #f1f1f1;
+    border: 0.3mm solid #3834348c;
+}
+
+.payment_box_p, #add_payment_list_paypal
+{
+	    background-color: #f1f1f1;
+    border: 0.3mm solid #3834348c;
+}
+
+.p_info_img
+{
+	position: absolute;
+    width: 1.5cm;
+    height: 0.7cm;
+    left: 3cm;
+    top: 50%;
+    /* border-radius: 50%; */
+    transform: translate(0, -50%);
+}
+
+.payment_type
+{
+	position: relative;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #434242;
+    font-size: 8pt;
+    top: 2mm;
+    left: 2mm;
+    font-weight: bold;
+}
+
+.hidden_card
+{
+	position: relative;
+    color: #434242;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 6.5pt;
+    top: 2mm;
+    left: 2mm;
+}
+
+#delete_b {
+      position: relative;
+    width: 0.8cm;
+    height: 0.8cm;
+    left: 3.35cm;
+    top: -5.3mm;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+#add_payment_list_title
+{
+	position: relative;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #434242;
+    font-size: 10pt;
+    text-align: center;
+    /* font-weight: bold; */
+    top: 2.6mm;
+}
+
+
+#add_payment_form_card, #add_payment_form_paypal
+{
+	opacity: 0;
+}
+
+#paypal_email_title, #card_number_title
+{
+	position: relative;
+  top: 4mm;
+  left: 2mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
+}
+
+#paypal_email, #card_number
+{
+	position: relative;
+  left: 2mm;
+  top: 4mm;
+  border-radius: 2mm;
+  border: none;
+	width: 4.1cm;
+	border: 1px solid #3834348c;
+
+}
+
+#paypal_pw_title, #card_date_title{
+	position: relative;
+  top: 6mm;
+  left: 2mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
+  
+}
+
+#paypal_pw{
+	position: relative;
+  left: 2mm;
+  top: 6mm;
+  border-radius: 2mm;
+  border: none;
+	width: 4.1cm;
+	border: 1px solid #3834348c;
+}
+
+#card_date{
+	position: relative;
+  left: 2mm;
+  top: 6mm;
+  border-radius: 2mm;
+  border: none;
+	width: 1.5cm;
+	border: 1px solid #3834348c;
+}
+
+#card_cvv_title
+{
+	position: relative;
+  top: -3.6mm;
+  left: 25mm;
+  color: black;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9pt;
+}
+
+#card_cvv{
+	position: relative;
+    left: 25mm;
+    top: -3.4mm;
+    border-radius: 2mm;
+    border: none;
+	width: 1.5cm;
+	border: 1px solid #3834348c;
+}
+
+#add_confirm_paypal
+{
+      position: relative;
+    font-family: Tahoma, Geneva, sans-serif;
+    left: 2mm;
+    color: white;
+    /* padding: 4px 40px; */
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    top: 9mm;
+    width: 4.1cm;
+    z-index: 3;
+    border-radius: 2mm;
+    border: 0.3mm solid #49474745;
+    color: black;
+    background-color: #52e655db;
+    height: 0.5cm;
+}
+
+
+#add_confirm_card{
+      position: relative;
+    font-family: Tahoma, Geneva, sans-serif;
+    left: 2mm;
+    color: white;
+    /* padding: 4px 40px; */
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    top: 0mm;
+    width: 4.1cm;
+    z-index: 3;
+    border-radius: 2mm;
+    border: 0.3mm solid #49474745;
+    color: black;
+    background-color: #52e655db;
+    height: 0.5cm;
+}
+
+#loading
+{
+	position: relative;
+  width: 4cm;
+  height: 0.5cm;
+  top: 1.2cm;
+  left: 10%;
+	opacity: 1;
+}
+
+#payment_after
+{
+	position: relative;
+  top: 3mm;
+  left: 4.5mm;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #434242;
+	opacity: 0;
+}
+
+#payment_card_img{
+	position: absolute;
+    width: 0.9cm;
+    height: 1cm;
+    left: 3.3cm;
+    top: 50%;
+    /* border-radius: 50%; */
+    transform: translate(0, -50%);
+}
+
+input.placeholderred::-webkit-input-placeholder {
+   color: red;
+}
