@@ -198,7 +198,7 @@ const DEFAULT =
 			name: "João Lopes",
 			id: "João_Lopes",
 			location_name: "Lisboa",
-			position: {x: 300, y: 500}
+			position: {x: 300, y: 500},
 			image : "apps/iGroup/img/SWiGo.jpg"
 		},
 
