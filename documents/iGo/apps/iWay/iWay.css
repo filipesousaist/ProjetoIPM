@@ -18,15 +18,31 @@
 
 .iWay_screen input
 {
-	margin-left: 0.5mm;
-  border-radius: 2mm;
-  border: 0.2mm solid grey;
-  width: 3.95cm;
-  margin-left: 5mm;
-  top: 6mm;
-  position: relative;
-	padding-left: 0.5mm;
+	    margin-left: 0.5mm;
+    border: 0.2mm solid grey;
+    width: 3.95cm;
+    margin-left: 5mm;
+    top: 6mm;
+    position: relative;
+    padding-left: 0.5mm;
 }
+
+#iway_screen_src{
+	    position: relative;
+    width: 0.7cm;
+    height: 0.6cm;
+    top: 0.55cm;
+    left: 1mm;
+}
+
+#iway_screen_dst{
+	    position: relative;
+    width: 0.5cm;
+    height: 0.4cm;
+    top: 0.55cm;
+    left: 7.6mm;
+}
+
 
 .iWay_confirm_button
 {
@@ -39,9 +55,10 @@
   background-color: limegreen;
   height: 0.6cm;
   font-size: 8pt;
-  top: 3mm;
+  top: 6mm;
   margin-left: 5mm;
 	position: relative;
+	margin-bottom: 2mm;
 }
 
 #iWay_starting_point_title
@@ -52,9 +69,11 @@
 
 #iWay_starting_point
 {
-  width: 2.2cm;
-  top: 2mm;
-  left: -1.6mm;
+    width: 3cm;
+    top: 4mm;
+    right: 4mm;
+    position: relative;
+    border-top-right-radius: 2mm;
 }
 
 #iWay_destination_title
@@ -78,9 +97,10 @@
 
 #iWay_destination
 {
-  width: 2.2cm;
-  top: 2mm;
-  left: 18.5mm;
+        width: 3cm;
+    top: 5mm;
+    left: 3mm;
+    border-bottom-right-radius: 2mm;
 }
 
 #iWay_path_info_hd{
@@ -93,7 +113,7 @@
 	width: 4.5cm;
     background-color: white;
     position: absolute;
-    height: 2.8cm;
+    height: 4.7cm;
     left: 0.2cm;
     top: 1.8cm;
     border: 0.5mm solid grey;
@@ -120,14 +140,14 @@
     position: absolute;
     left: 1.3cm;
     top: 21mm;
-    z-index: 3;
+    z-index: 2;
 }
 
 #train_title{
-	    position: absolute;
+	 position: absolute;
     font-family: Tahoma, Geneva, sans-serif;
     left: 0.35cm;
-    top: 1.25cm;
+    top: 1.6cm;
     font-size: 7pt;
 }
 
@@ -136,32 +156,33 @@
     left: 0.35cm;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
-    top: 1.6cm;
+    top: 1.9cm;
 }
 
 #train_dest{
-	position: absolute;
-    top: 1.6cm;
+	    position: absolute;
+    top: 2.8cm;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
-    left: 2cm;
+    left: 0.35cm;
 }
 
 #train_price{
-	position: absolute;
-    left: 0.75cm;
+	    position: absolute;
+    left: 0.85cm;
     font-family: Tahoma, Geneva, sans-serif;
-    font-size: 7pt;
-    top: 2.1cm;
+    font-size: 11pt;
+    top: 3.7cm;
 }
 
 #train_tickets_num{
 	    position: absolute;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 7pt;
-    left: 2.9cm;
-    top: 2.1cm;
+    left: 2.5cm;
+    top: 3.65cm;
     font-weight: bold;
+    width: 1.5cm;
 }
 
 #train_ticket_icon{
@@ -171,28 +192,30 @@
     left: 3.1cm;
 }
 
-#train_station{
+#train_station
+{
 	position: absolute;
     font-family: Tahoma, Geneva, sans-serif;
     left: 0.35cm;
-    top: 0.9cm;
+    top: 1.3cm;
     font-size: 7pt;
 }
 
-#train_buy_ticket{
-	    position: absolute;
-    margin-top: -1mm;
-    width: 3.5cm;
-    left: 0.5cm;
-    border-radius: 2mm;
-    border: 0.3mm solid #49474745;
-    color: black;
-    background-color: #52e655;
-    height: 0.5cm;
-    font-size: 7pt;
-    font-weight: bold;
-    top: 2.65cm;
-    margin-bottom: 2mm;
+#train_buy_ticket
+{
+  position: absolute;
+  margin-top: -1mm;
+  width: 3.5cm;
+  left: 0.5cm;
+  border-radius: 2mm;
+  border: 0.3mm solid #49474745;
+  color: black;
+  background-color: #52e655;
+  height: 0.5cm;
+  font-size: 7pt;
+  font-weight: bold;
+  top: 4.55cm;
+  margin-bottom: 2mm;
 }
 
 #map_canvas
@@ -206,7 +229,7 @@
 }
 
 #iWay_path_title{
-	    position: relative;
+	   position: relative;
     width: 4.5cm;
     height: 4.5mm;
     top: 7mm;
@@ -297,13 +320,65 @@
     z-index: 3;
 }
 
-#iway_path_global{
-	  position: absolute;
-    top: 5.5mm;
-    left: 0;
-    width: 0.6cm;
+#iway_path_global
+{
+  position: absolute;
+  top: 1.25cm;
+  left: -0.15cm;
+  height: 0.7cm;
+  width: 0.9cm;
+  background-color: #52e65599;
+  border: 0.3mm solid #49474745;
+  font-weight: bold;
+  border-radius: 1mm;
+  z-index: 3;
+}
+
+#iway_path_global_img{
+	    width: 0.5cm;
     height: 0.5cm;
-    background-color: #52e655db;
-    border: 0.3mm solid #49474745;
+    position: relative;
+    left: 1mm;
+}
+
+input.placeholderred::-webkit-input-placeholder {
+   color: red;
+}
+
+#path_src_header{
+	position: absolute;
+    font-size: 7pt;
     font-weight: bold;
+    top: 0.9cm;
+    border-bottom: 0.1mm solid grey;
+    width: 3.8cm;
+    padding-bottom: 0.5mm;
+    left: 0.35cm;
+}
+
+
+#path_dst_header{
+	    position: absolute;
+    font-size: 7pt;
+    font-weight: bold;
+    top: 2.4cm;
+    border-bottom: 0.1mm solid grey;
+    width: 3.8cm;
+    padding-bottom: 0.5mm;
+    left: 0.35cm;
+}
+
+#train_station_dst{
+	    position: absolute;
+    top: 3.1cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 7pt;
+    left: 0.35cm;
+}
+
+#iway_screen_src_txt{
+	position: relative;
+    height: 4mm;
+    left: 3.95cm;
+    bottom: 1.5mm;
 }

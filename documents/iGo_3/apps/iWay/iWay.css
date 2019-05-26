@@ -1,0 +1,383 @@
+/************/
+/************/
+/*** IWAY ***/
+/************/
+/************/
+
+.iWay_screen h1
+{
+	font-size: 9pt;
+  text-align: center;
+  margin-top: 1mm;
+  margin-bottom: 1mm;
+  top: 5mm;
+  position: relative;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: 100;
+}
+
+.iWay_screen input
+{
+	    margin-left: 0.5mm;
+    border: 0.2mm solid grey;
+    width: 3.95cm;
+    margin-left: 5mm;
+    top: 6mm;
+    position: relative;
+    padding-left: 0.5mm;
+}
+
+#iway_screen_src{
+	    position: relative;
+    width: 0.7cm;
+    height: 0.6cm;
+    top: 0.55cm;
+    left: 6.8mm;
+}
+
+#iway_screen_dst{
+	    position: relative;
+    width: 0.5cm;
+    height: 0.4cm;
+    top: 0.55cm;
+    left: 7.6mm;
+}
+
+
+.iWay_confirm_button
+{
+  margin-top: -1mm;
+  width: 4.03cm;
+  left: 0;
+  border-radius: 2mm;
+  border: 0.3mm solid #49474745;
+  color: whitesmoke;
+  background-color: limegreen;
+  height: 0.6cm;
+  font-size: 8pt;
+  top: 6mm;
+  margin-left: 5mm;
+	position: relative;
+	margin-bottom: 2mm;
+}
+
+#iWay_starting_point_title
+{
+  left: -1cm;
+  top: 2mm;
+}
+
+#iWay_starting_point
+{
+    width: 3cm;
+    top: 4mm;
+    left: 1mm;
+    position: relative;
+    border-top-right-radius: 2mm;
+}
+
+#iWay_destination_title
+{
+  left: 1cm;
+  top: 2mm;
+}
+
+.iWay_error
+{
+  position: relative;
+  left: 3mm;
+  font-size: 8pt;
+  top: 1mm;
+  color: red;
+}
+
+#iWay_destination_error{
+  left: 21mm;
+}
+
+#iWay_destination
+{
+        width: 3cm;
+    top: 5mm;
+    left: 3mm;
+    border-bottom-right-radius: 2mm;
+}
+
+#iWay_path_info_hd{
+	    width: 5cm;
+    position: relative;
+    top: 5.6mm;
+}
+
+#iWay_path_info_train_container_descr{
+	width: 4.5cm;
+    background-color: white;
+    position: absolute;
+    height: 4.7cm;
+    left: 0.2cm;
+    top: 1.8cm;
+    border: 0.5mm solid grey;
+    border-radius: 1mm;
+	margin-bottom: 4mm;
+	z-index:1;
+}
+
+#iWay_path_info_main{
+	overflow:scroll;
+}
+
+#iWay_path_info_container_icon{
+	    position: absolute;
+    width: 0.6cm;
+    left: 0.47cm;
+    top: 20mm;
+    z-index: 2;
+}
+
+#iWay_path_info_container_title{
+	font-family: Tahoma, Geneva, sans-serif;
+    font-size: 9pt;
+    position: absolute;
+    left: 1.3cm;
+    top: 21mm;
+    z-index: 2;
+}
+
+#train_title{
+	 position: absolute;
+    font-family: Tahoma, Geneva, sans-serif;
+    left: 0.35cm;
+    top: 1.6cm;
+    font-size: 7pt;
+}
+
+#train_source{
+	    position: absolute;
+    left: 0.35cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 7pt;
+    top: 1.9cm;
+}
+
+#train_dest{
+	    position: absolute;
+    top: 2.8cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 7pt;
+    left: 0.35cm;
+}
+
+#train_price{
+	    position: absolute;
+    left: 0.85cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 11pt;
+    top: 3.7cm;
+}
+
+#train_tickets_num{
+	    position: absolute;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 7pt;
+    left: 2.5cm;
+    top: 3.65cm;
+    font-weight: bold;
+    width: 1.5cm;
+}
+
+#train_ticket_icon{
+	position: absolute;
+    width: 0.35cm;
+    top: 2.1cm;
+    left: 3.1cm;
+}
+
+#train_station
+{
+	position: absolute;
+    font-family: Tahoma, Geneva, sans-serif;
+    left: 0.35cm;
+    top: 1.3cm;
+    font-size: 7pt;
+}
+
+#train_buy_ticket
+{
+  position: absolute;
+  margin-top: -1mm;
+  width: 3.5cm;
+  left: 0.5cm;
+  border-radius: 2mm;
+  border: 0.3mm solid #49474745;
+  color: black;
+  background-color: #52e655;
+  height: 0.5cm;
+  font-size: 7pt;
+  font-weight: bold;
+  top: 4.55cm;
+  margin-bottom: 2mm;
+}
+
+#map_canvas
+{
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	display: none;
+	pointer-events: none;
+	z-index: 1;
+}
+
+#iWay_path_title{
+	   position: relative;
+    width: 4.5cm;
+    height: 4.5mm;
+    top: 7mm;
+    left: -2.3mm;
+    padding-top: 0.5mm;
+    padding-left: 0.5cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 10pt;
+    color: #181818;
+}
+
+#iWay_steps_list{
+	position: relative;
+    top: 7mm;
+    left: -0.2mm;
+    width: 5cm;
+    margin-top: 1.5mm;
+    padding-left: 0;
+    border-bottom-left-radius: 3mm;
+    border-bottom-right-radius: 3mm;
+}
+
+.iWay_steps_list_item{
+	position: relative;
+    width: 4cm;
+    height: 1cm;
+    left: 0.35cm;
+    margin: 1mm 0 1mm 0;
+    padding-left: 3mm;
+    font-family: Verdana, sans-serif;
+    font-size: 7pt;
+    display: flex;
+	background-color: whitesmoke;
+    border: 0.3mm solid #3834348c;
+    align-items: center;
+    border-radius: 0.2cm;
+}
+
+.iWay_list_item_img{
+	position: absolute;
+    width: 0.45cm;
+    left: 3.7cm;
+}
+
+.iWay_list_item_direction{
+	    position: relative;
+    width: 4cm;
+    height: 0.6cm;
+    left: 0.35cm;
+    padding-left: 3mm;
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+}
+
+.iWay_list_item_direction_arrow{
+	position: absolute;
+    width: 0.6cm;
+    left: 1.9cm;
+}
+
+#iWay_path_info_walk_container_descr{
+	width: 4.5cm;
+    background-color: white;
+    position: absolute;
+    height: 2.8cm;
+    left: 0.2cm;
+    top: 1.8cm;
+    border: 0.5mm solid grey;
+    border-radius: 1mm;
+	margin-bottom: 4mm;
+}
+
+#iWay_path_info_walk_container_icon{
+	    position: absolute;
+    width: 0.6cm;
+    left: 0.3cm;
+    top: 2mm;
+    z-index: 2;
+}
+
+#iWay_path_info_walk_container_title{
+	font-family: Tahoma, Geneva, sans-serif;
+    font-size: 9pt;
+    position: absolute;
+    left: 1.1cm;
+    top: 3mm;
+    z-index: 3;
+}
+
+#iway_path_global
+{
+  position: absolute;
+  top: 1.25cm;
+  left: -0.15cm;
+  height: 0.7cm;
+  width: 0.9cm;
+  background-color: #52e65599;
+  border: 0.3mm solid #49474745;
+  font-weight: bold;
+  border-radius: 1mm;
+  z-index: 3;
+}
+
+#iway_path_global_img{
+	    width: 0.5cm;
+    height: 0.5cm;
+    position: relative;
+    left: 1mm;
+}
+
+input.placeholderred::-webkit-input-placeholder {
+   color: red;
+}
+
+#path_src_header{
+	position: absolute;
+    font-size: 7pt;
+    font-weight: bold;
+    top: 0.9cm;
+    border-bottom: 0.1mm solid grey;
+    width: 3.8cm;
+    padding-bottom: 0.5mm;
+    left: 0.35cm;
+}
+
+
+#path_dst_header{
+	    position: absolute;
+    font-size: 7pt;
+    font-weight: bold;
+    top: 2.4cm;
+    border-bottom: 0.1mm solid grey;
+    width: 3.8cm;
+    padding-bottom: 0.5mm;
+    left: 0.35cm;
+}
+
+#train_station_dst{
+	    position: absolute;
+    top: 3.1cm;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 7pt;
+    left: 0.35cm;
+}
+
+#iway_screen_src_txt{
+	position: absolute;
+    height: 4mm;
+    left: 3.95cm;
+}

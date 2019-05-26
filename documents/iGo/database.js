@@ -198,7 +198,8 @@ const DEFAULT =
 			name: "João Lopes",
 			id: "João_Lopes",
 			location_name: "Lisboa",
-			position: {x: 300, y: 500}
+			position: {x: 300, y: 500},
+			image : "apps/iGroup/img/SWiGo.jpg"
 		},
 
 		"Guilherme Carlota":
@@ -485,70 +486,144 @@ const MAP_PERSON_ICONS =
 
 const MAP_PLACES =
 {
-	"ESTACAO DE ALGES": 20,
+	"DAMAIA": 3,
+	"BURACA": 6,
+	"ALGES": 20,
 	"TORRE DE BELEM": 21,
-	"ESTACAO DE BELEM": 23,
+	"BELEM": 23,
 	"PADRAO DOS DESCOBRIMENTOS": 24,
-	"ESTACAO C": 26,
-	"ESTACAO D": 27,
+	"ALCANTARA MAR": 26,
+	"ALCANTARA TERRA": 27,
 	"SHOPPING AMOREIRAS": 31,
-	"ESTACAO E": 34,
+	"CAMPOLIDE": 34,
 	"PARQUE EDUARDO VII": 38,
-	"INSTITUTO GULBENKIAN": 40
+	"INSTITUTO GULBENKIAN": 40,
+	"SANTOS": 50,
+	"ROSSIO": 56,
+	"SANTA APOLONIA": 58,
+	"SALDANHA": 61,
+	"ENTRECAMPOS": 64,
+	"ROMA AREEIRO": 65,
+	"CHELAS": 69,
+	"SETE RIOS": 71,
+	"BENFICA": 78,
+	"AMADORA": 80,
+	"SANTA CRUZ DAMAIA": 81,
+	"REBOLEIRA": 82
 };
 
 const MAP_POINTS =
 [
-	{x:200, y:25, adj:[0], accessible: true},             // 0
-	{x:175, y:70, adj:[0, 1], accessible: true},          // 1
-	{x:167, y:85, adj:[1, 2], accessible: true},          // 2
-	{x:120, y:125, adj:[3], accessible: true},            // 3
-	{x:192, y:143, adj:[2, 3, 4], accessible: true},      // 4
-	{x:20, y:170, adj:[5], accessible: true},             // 5
-	{x:207, y:170, adj:[4, 6], accessible: true},         // 6
-	{x:55, y:180, adj:[5, 7], accessible: true},          // 7
-	{x:215, y:193, adj:[6, 8, 9], accessible: true},      // 8
-	{x:130, y:200, adj:[7, 8], accessible: true},         // 9
-	{x:215, y:210, adj:[9, 10], accessible: true},        // 10
-	{x:170, y:310, adj:[10, 11, 12], accessible: true},   // 11
-	{x:140, y:360, adj:[11, 13], accessible: true},       // 12
-	{x:180, y:360, adj:[12, 14], accessible: true},       // 13
-	{x:163, y:383, adj:[13, 14, 15], accessible: true},   // 14
-	{x:178, y:413, adj:[15, 16, 39], accessible: true},   // 15
-	{x:178, y:423, adj:[16, 17, 44], accessible: true},   // 16
-	{x:140, y:485, adj:[17, 18], accessible: true},       // 17
-	{x:110, y:592, adj:[18, 19], accessible: true},       // 18
-	{x:33, y:642, adj:[19, 20, 21], accessible: true},    // 19
-	{x:13, y:642, adj:[20, 22], accessible: true},        // 20 Estação de Algés
-	{x:110, y:695, adj:[21, 24], accessible: true},       // 21 Torre de Belém
-	{x:130, y:690, adj:[22, 23], accessible: false},      // 22
-	{x:272, y:666, adj:[23, 25, 26], accessible: true},   // 23 Estação de Belém
-	{x:210, y:675, adj:[24, 25], accessible: true},       // 24 Padrão dos Descobrimentos
-	{x:375, y:645, adj:[26, 27], accessible: false},      // 25
-	{x:466, y:598, adj:[27, 28], accessible: true},       // 26 Estação C
-	{x:474, y:543, adj:[28, 29, 33], accessible: true},   // 27 Estação D
-	{x:490, y:510, adj:[29, 30], accessible: true},       // 28
-	{x:514, y:486, adj:[30, 31], accessible: true},       // 29
-	{x:505, y:415, adj:[31, 32], accessible: true},       // 30
-	{x:550, y:400, adj:[32, 36, 40], accessible: true},   // 31 Shopping Amoreiras
-	{x:454, y:486, adj:[33, 34], accessible: false},      // 32
-	{x:464, y:376, adj:[34, 35], accessible: false},      // 33
-	{x:518, y:280, adj:[35, 43], accessible: true},       // 34 Estação E
-	{x:580, y:361, adj:[36, 37], accessible: true},       // 35
-	{x:490, y:390, adj:[37, 38], accessible: true},       // 36
-	{x:330, y:355, adj:[38, 39], accessible: true},       // 37
-	{x:625, y:350, adj:[40, 41], accessible: true},       // 38 Parque Eduardo VII
-	{x:580, y:323, adj:[41, 42, 43], accessible: true},   // 39
-	{x:632, y:258, adj:[42], accessible: true},           // 40 Instituto Gulbenkian
-	{x:195, y:452, adj:[44, 45], accessible: true},       // 41
-	{x:230, y:487, adj:[45, 46], accessible: true},       // 42
-	{x:246, y:480, adj:[46, 47], accessible: true},       // 43
-	{x:243, y:468, adj:[47], accessible: true},           // 44
-];
+	{x:200, y:30, adj:[0], accessible: true}, // 0
+	{x:175, y:75, adj:[1, 88], accessible: true}, // 1
+	{x:172, y:90, adj:[1, 2], accessible: true}, // 2
+	{x:170, y:132, adj:[3, 90, 91], accessible: true}, // 3 Damaia (estação)
+	{x:197, y:148, adj:[2, 3, 4], accessible: true}, // 4
+	{x:25, y:175, adj:[5], accessible: true}, // 5
+	{x:212, y:175, adj:[4, 6], accessible: true}, // 6 Buraca
+	{x:60, y:185, adj:[5, 7], accessible: true}, // 7
+	{x:220, y:198, adj:[6, 8, 9, 87], accessible: true}, // 8
+	{x:135, y:205, adj:[7, 8], accessible: true}, // 9
+	{x:220, y:215, adj:[9, 10], accessible: true}, // 10
+	{x:175, y:315, adj:[10, 11, 12], accessible: true}, // 11
+	{x:145, y:360, adj:[11, 13], accessible: true}, // 12
+	{x:185, y:365, adj:[12, 14], accessible: true}, // 13
+	{x:168, y:388, adj:[13, 14, 15], accessible: true}, // 14
+	{x:183, y:418, adj:[15, 16, 39], accessible: true}, // 15
+	{x:183, y:428, adj:[16, 17, 44], accessible: true}, // 16
+	{x:145, y:490, adj:[17, 18], accessible: true}, // 17
+	{x:115, y:597, adj:[18, 19], accessible: true}, // 18
+	{x:38, y:647, adj:[19, 20, 21], accessible: true}, // 19
+	{x:18, y:647, adj:[20, 22], accessible: true}, // 20 Algés (estação)
+	{x:115, y:700, adj:[21, 24], accessible: true}, // 21 Torre de Belém
+	{x:135, y:695, adj:[22, 23], accessible: false}, // 22
+	{x:277, y:671, adj:[23, 25, 26], accessible: true}, // 23 Belém (estação)
+	{x:215, y:680, adj:[24, 25], accessible: true}, // 24 Padrão dos Descobrimentos
+	{x:380, y:650, adj:[26, 27], accessible: false}, // 25
+	{x:471, y:603, adj:[27, 28, 52], accessible: true}, // 26 Alcântara Mar (estação)
+	{x:479, y:548, adj:[29, 33, 55], accessible: true}, // 27 Alcântara Terra (estação)
+	{x:495, y:515, adj:[29, 30], accessible: true}, // 28
+	{x:519, y:491, adj:[30, 31], accessible: true}, // 29
+	{x:510, y:420, adj:[31, 32], accessible: true}, // 30
+	{x:555, y:405, adj:[32, 36], accessible: true}, // 31 Shopping Amoreiras
+	{x:459, y:491, adj:[33, 34], accessible: false}, // 32
+	{x:469, y:381, adj:[34, 35], accessible: false}, // 33
+	{x:523, y:285, adj:[35, 43, 80, 81], accessible: true}, // 34 Campolide (estação)
+	{x:585, y:366, adj:[36, 37, 40], accessible: true}, // 35
+	{x:495, y:395, adj:[37, 38], accessible: true}, // 36
+	{x:350, y:355, adj:[38, 51], accessible: true}, // 37
+	{x:630, y:355, adj:[40, 41], accessible: true}, // 38 Parque Eduardo VII
+	{x:585, y:328, adj:[41, 42, 43], accessible: true}, // 39
+	{x:637, y:263, adj:[42], accessible: true}, // 40 Instituto Gulbenkian
+	{x:200, y:457, adj:[44, 45], accessible: true}, // 41
+	{x:235, y:492, adj:[45, 46], accessible: true}, // 42
+	{x:251, y:485, adj:[46, 47], accessible: true}, // 43
+	{x:248, y:473, adj:[47, 48], accessible: true}, // 44
+	{x:287, y:387, adj:[48, 49], accessible: true}, // 45
+	{x:307, y:380, adj:[49, 50], accessible: true}, // 46
+	{x:307, y:365, adj:[39, 51], accessible: true}, // 47
+	{x:495, y:590, adj:[52, 53], accessible: false}, // 48
+	{x:567, y:588, adj:[53, 54], accessible: false}, // 49
+	{x:624, y:560, adj:[54, 56], accessible: true}, // 50 Santos (estação)
+	{x:462, y:592, adj:[28, 55], accessible: true}, // 51
+	{x:714, y:563, adj:[56, 57], accessible: true}, // 52 Cais do Sodré (estação)
+	{x:736, y:553, adj:[57, 58], accessible: true}, // 53
+	{x:793, y:534, adj:[58, 59], accessible: true}, // 54
+	{x:779, y:480, adj:[59, 60], accessible: true}, // 55
+	{x:781, y:465, adj:[60, 61, 63], accessible: true}, // 56 Rossio (estação)
+	{x:830, y:534, adj:[61, 62], accessible: false}, // 57
+	{x:894, y:478, adj:[62], accessible: true}, // 58 Santa Apolónia (estação)
+	{x:765, y:485, adj:[63, 64], accessible: false}, // 59
+	{x:666, y:359, adj:[64, 65], accessible: false}, // 60
+	{x:715, y:270, adj:[65, 66, 68], accessible: true}, // 61 Saldanha (estação)
+	{x:663, y:359, adj:[66, 67], accessible: true}, // 62
+	{x:691, y:167, adj:[68, 69], accessible: false}, // 63
+	{x:680, y:155, adj:[69, 70, 75], accessible: true}, // 64 Entrecampos (estação)
+	{x:785, y:142, adj:[70, 71], accessible: true}, // 65 Roma Areeiro (estação)
+	{x:822, y:132, adj:[71, 72], accessible: true}, // 66
+	{x:824, y:109, adj:[72, 73], accessible: true}, // 67
+	{x:868, y:129, adj:[73, 74], accessible: true}, // 68
+	{x:935, y:108, adj:[74], accessible: true}, // 69 Chelas
+	{x:620, y:193, adj:[75, 76], accessible: false}, // 70
+	{x:530, y:200, adj:[76, 77, 82, 83], accessible: true}, // 71 Sete Rios (estação)
+	{x:518, y:235, adj:[77, 78], accessible: true}, // 72
+	{x:518, y:235, adj:[78, 79], accessible: true}, // 73
+	{x:498, y:238, adj:[79, 80], accessible: true}, // 74
+	{x:505, y:232, adj:[81, 82, 84], accessible: false}, // 75
+	{x:487, y:215, adj:[83, 84, 85], accessible: false}, // 76
+	{x:372, y:155, adj:[85, 86], accessible: false}, // 77
+	{x:256, y:159, adj:[86, 87, 90], accessible: true}, // 78 Benfica (estação)
+	{x:180, y:62, adj:[0, 88, 89], accessible: true}, // 79
+	{x:38, y:13, adj:[89, 94], accessible: true}, // 80 Amadora
+	{x:152, y:135, adj:[91, 92], acessible: true}, // 81 Santa Cruz Damaia (estação)
+	{x:66, y:86, adj:[92, 93], acessible: true}, // 82 Reboleira (estação)
+	{x:40, y:50, adj:[93, 94], acessible: true}, // 83
+]
+
+const STATIONS =
+{
+	3: "Damaia",
+	20: "Algés",
+	23: "Belém",
+	26: "Alcântara Mar",
+	27: "Alcântara Terra",
+	34: "Campolide",
+	50: "Santos",
+	52: "Cais do Sodré",
+	56: "Rossio",
+	58: "Santa Apolónia",
+	61: "Saldanha",
+	64: "Entrecampos",
+	65: "Roma Areeiro",
+	71: "Sete Rios",
+	78: "Benfica",
+	81: "Santa Cruz Damaia",
+	82: "Reboleira"
+}
 
 const MAP_EDGES =
 [
-	{src: 0, dst: 1, type:"walk"},      // 0
+	{src: 0, dst: 79, type:"walk"},     // 0
 	{src: 1, dst: 2, type:"walk"},      // 1
 	{src: 2, dst: 4, type:"walk"},      // 2
 	{src: 3, dst: 4, type:"walk"},      // 3
@@ -576,7 +651,7 @@ const MAP_EDGES =
 	{src: 23, dst: 24, type:"walk"},    // 25
 	{src: 23, dst: 25, type:"train"},   // 26
 	{src: 25, dst: 26, type:"train"},   // 27
-	{src: 26, dst: 27, type:"train"},   // 28
+	{src: 26, dst: 51, type:"walk"},    // 28
 	{src: 27, dst: 28, type:"walk"},    // 29
 	{src: 28, dst: 29, type:"walk"},    // 30
 	{src: 29, dst: 30, type:"walk"},    // 31
@@ -587,13 +662,60 @@ const MAP_EDGES =
 	{src: 31, dst: 35, type:"walk"},    // 36
 	{src: 35, dst: 36, type:"walk"},    // 37
 	{src: 36, dst: 37, type:"walk"},    // 38
-	{src: 15, dst: 37, type:"walk"},    // 39
-	{src: 31, dst: 38, type:"walk"},    // 40
+	{src: 15, dst: 47, type:"walk"},    // 39
+	{src: 35, dst: 38, type:"walk"},    // 40
 	{src: 38, dst: 39, type:"walk"},    // 41
 	{src: 39, dst: 40, type:"walk"},    // 42
 	{src: 34, dst: 39, type:"walk"},    // 43
 	{src: 16, dst: 41, type:"walk"},    // 44
 	{src: 41, dst: 42, type:"walk"},    // 45
 	{src: 42, dst: 43, type:"walk"},    // 46
-	{src: 43, dst: 44, type:"walk"},    // 46
+	{src: 43, dst: 44, type:"walk"},    // 47
+	{src: 44, dst: 45, type:"walk"},    // 48
+	{src: 45, dst: 46, type:"walk"},    // 49
+	{src: 46, dst: 47, type:"walk"},    // 50
+	{src: 37, dst: 47, type:"walk"},    // 51
+	{src: 26, dst: 48, type:"train"},   // 52
+	{src: 48, dst: 49, type:"train"},   // 53
+	{src: 49, dst: 50, type:"train"},   // 54
+	{src: 51, dst: 27, type:"walk"},    // 55
+	{src: 50, dst: 52, type:"train"},   // 56
+	{src: 52, dst: 53, type:"walk"},    // 57
+	{src: 53, dst: 54, type:"walk"},    // 58
+	{src: 54, dst: 55, type:"walk"},    // 59
+	{src: 55, dst: 56, type:"walk"},    // 60
+	{src: 56, dst: 57, type:"train"},   // 61
+	{src: 57, dst: 58, type:"train"},   // 62
+	{src: 56, dst: 59, type:"train"},   // 63
+	{src: 59, dst: 60, type:"train"},   // 64
+	{src: 60, dst: 61, type:"train"},   // 65
+	{src: 61, dst: 62, type:"walk"},    // 66
+	{src: 38, dst: 62, type:"walk"},    // 67
+	{src: 61, dst: 63, type:"train"},   // 68
+	{src: 63, dst: 64, type:"train"},   // 69
+	{src: 64, dst: 65, type:"train"},   // 70
+	{src: 65, dst: 66, type:"walk"},    // 71
+	{src: 66, dst: 67, type:"walk"},    // 72
+	{src: 67, dst: 68, type:"walk"},    // 73
+	{src: 68, dst: 69, type:"walk"},    // 74
+	{src: 64, dst: 70, type:"train"},   // 75
+	{src: 70, dst: 71, type:"train"},   // 76
+	{src: 71, dst: 72, type:"walk"},    // 77
+	{src: 72, dst: 73, type:"walk"},    // 78
+	{src: 73, dst: 74, type:"walk"},    // 79
+	{src: 34, dst: 74, type:"walk"},    // 80
+	{src: 34, dst: 75, type:"train"},   // 81
+	{src: 71, dst: 75, type:"train"},   // 82
+	{src: 71, dst: 76, type:"train"},   // 83
+	{src: 75, dst: 76, type:"train"},   // 84
+	{src: 76, dst: 77, type:"train"},   // 85
+	{src: 77, dst: 78, type:"train"},   // 86
+	{src: 8, dst: 78, type:"walk"},     // 87
+	{src: 1, dst: 79, type:"walk"},     // 88
+	{src: 79, dst: 80, type:"walk"},    // 89
+	{src: 3, dst: 78, type:"train"},    // 90
+	{src: 3, dst: 81, type:"walk"},     // 91
+	{src: 81, dst: 82, type:"train"},   // 92
+	{src: 82, dst: 83, type:"walk"},    // 93
+	{src: 80, dst: 83, type:"walk"},    // 94
 ];

@@ -424,7 +424,6 @@ function loadEventList(place_name){
 	}
 	else{
 		events_element.innerHTML = "";
-		console.log(events.length);
 		for(let i = 0; i < events.length; i ++){
 		let info_img = "<img class='info_icon' src='img/infoicon.png' onclick='changeEvent(\""+ events[i] +"\" , \"" + place_name +"\");'>";
 		events_element.innerHTML += "<li class='iGuide_place_frame'><div class='iGuide_event'>" +
@@ -437,7 +436,6 @@ function loadShopList(place_name){
 	let shops = LOCATIONS[current_location].places[place_name].shops;
 	let shops_element = document.getElementById("iGuide_shops_list");
 	shops_element.innerHTML = "";
-	console.log(shops.length);
 	for(let i = 0; i < shops.length; i ++){
 		let info_img = "<img class='info_icon' src='img/infoicon.png''>";
 		shops_element.innerHTML += "<li class='iGuide_place_frame'><div class='iGuide_event'>" +
@@ -473,7 +471,6 @@ function changeInfoScreen(place_name)
 	let bottom = document.getElementById("iGuide_info_bottom_container");
 	let eventsButton = "<button type='button' class='infobutton'onclick='changeEventsScreen(\""+ place_name +"\");'>Eventos</button>";
 	let emptyButton = "<button type='button' class='infobutton'>------</button>";
-	console.log(place.type);
 	let infoButton = "<button type='button' class='infobutton'>Descrição</button>";
 	let shopButton = "<button class='infobutton' onclick='changeShopScreen(\""+ place_name+"\");' type='button'>Lojas</button>";
 	switch(place.type){
@@ -514,7 +511,6 @@ function changeEventsScreen(place_name){
 function changeEvent(event_name, place_name){
 	let event = EVENTS[event_name];
 	let place = LOCATIONS[current_location].places[place_name];
-	console.log(event);
 	document.getElementById("iGuide_event_title").innerHTML = event.name;
 	document.getElementById("iGuide_event_info_container").innerHTML = event.info + "<button id='payButton' onclick='change_screen(\"payment_methods\");'> Comprar " + event.price + "</button>";
 	let bottom = document.getElementById("iGuide_events_info_bottom_container");
@@ -638,7 +634,7 @@ function payment_form(id)
 		document.getElementById("payment_before").style.opacity = "1";
 		document.getElementById("payment_after").style.opacity = "0";
 	}, 3000);
-	
+
 	change_screen(SCREENS["payment_complete"].parent_screen_id);
 }
 
