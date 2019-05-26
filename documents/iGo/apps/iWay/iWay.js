@@ -38,7 +38,7 @@ function searchPath()
 	let desterror = document.getElementById("iWay_destination_error");
 
 	let isValidStart = MAP_PLACES.hasOwnProperty(start) || start == "LOCAL ATUAL";
-	if(! isValidStart)
+	if (! isValidStart)
 		starterror.innerHTML = "O local de partida não é valido";
 	else
 		starterror.innerHTML ="";
